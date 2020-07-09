@@ -10,10 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_063904) do
+ActiveRecord::Schema.define(version: 2020_07_09_092124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.integer "zip"
+    t.string "sector"
+    t.integer "number_employees"
+    t.string "linkedin_url"
+    t.string "facebook_url"
+    t.string "twitter_url"
+    t.string "instagram_url"
+    t.string "website_url"
+    t.string "job_offer_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "diplomas", force: :cascade do |t|
+    t.string "title"
+    t.date "start_time"
+    t.date "end_time"
+    t.boolean "current"
+    t.bigint "user_id", null: false
+    t.bigint "school_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["school_id"], name: "index_diplomas_on_school_id"
+    t.index ["user_id"], name: "index_diplomas_on_user_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.date "start_time"
+    t.date "end_time"
+    t.string "location"
+    t.boolean "current"
+    t.bigint "user_id", null: false
+    t.bigint "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_jobs_on_company_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.integer "zip"
+    t.string "school_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -39,4 +93,8 @@ ActiveRecord::Schema.define(version: 2020_07_09_063904) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "diplomas", "schools"
+  add_foreign_key "diplomas", "users"
+  add_foreign_key "jobs", "companies"
+  add_foreign_key "jobs", "users"
 end
