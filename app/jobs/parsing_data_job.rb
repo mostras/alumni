@@ -12,40 +12,43 @@ class ParsingDataJob < ApplicationJob
   def json_parsing
     url = 'https://cache1.phantombooster.com/0EDS6xYcCEc/nydE5vIRxEvMrTH8otC9hw/test.json'
     file = open(url).read
-    linkedin_json = JSON.parse(file)
-    companies_creation(linkedin_json)
-    schools_creation(linkedin_json)
+    @linkedin_json = JSON.parse(file)
+    puts @linkedin_json
+    companies_creation(@linkedin_json)
+    schools_creation(@linkedin_json)
   end
 
   def companies_creation(linkedin_json)
     linkedin_json.each do |profil|
+      user = User.find_by(linkedin_url: profil["general"]["profileUrl"])
       profil['jobs'].each do |j|
         company = Company.create!(name: j["companyName"], linkedin_url: j["companyUrl"]) unless Company.where(name: j["companyName"])
-        create_job(j, company)
+        puts company
+        create_job(j, company, linkedin_json, user)
       end
     end
   end
 
   def schools_creation(linkedin_json)
     linkedin_json.each do |profil|
+      user = User.find_by linkedin_url: profil["general"]["profileUrl"]
       profil["schools"] do |s|
         school = School.create!(name: s["schoolName"], school_url: s["schoolUrl"]) unless School.where(name: s["schoolName"])
-        create_diploma(s, school)
+        puts school
+        create_diploma(s, school, linkedin_json, user)
       end
     end
   end
 
-  def create_job(j, company)
-    user = User.find_by linkedin_url: @linkedin_json["general"]["profileUrl"]
+  def create_job(j, company, linkedin_json, user)
     date = j["dateRange"].split(' ')
-    job = Job.create!(title: j["jobTitle"], start_time: `#{date[0]} #{date[1]}`, end_time: `#{date[3]} #{date[4]}`, location: j["location"], user_id: user.id, company_id: company.id)
+    job = Job.create!(title: j["jobTitle"], location: j["location"], user_id: 2, company_id: 1)
     job.update!(current: true) if diploma.end_time == "Ajourd'hui"
   end
 
-  def create_diploma(s, school)
-    user = User.find_by linkedin_url: @linkedin_json["general"]["profileUrl"]
+  def create_diploma(s, school, linkedin_json, user)
     date = s["dateRange"].split(' ')
-    diploma = Diploma.create!(title: s["degree"], start_time: date[0], end_time: date[1], user_id: user.id, school_id: school.id)
+    diploma = Diploma.create!(title: s["degree"], user_id: 2, school_id: 1)
     diploma.update!(current: true) if diploma.end_time == "Ajourd'hui"
   end
 
@@ -96,5 +99,6 @@ class ParsingDataJob < ApplicationJob
 #   job.update!(current: true) if job.end_time == "Ajourd'hui"
 # end
 
-
 end
+
+
