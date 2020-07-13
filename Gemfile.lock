@@ -115,6 +115,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    json (1.8.6)
     jwt (2.2.1)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -208,6 +209,7 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
+    rubysl-open-uri (2.0.0)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -281,11 +283,13 @@ DEPENDENCIES
   factory_bot_rails
   google-api-client (~> 0.11.1)
   jbuilder (~> 2.7)
+  json (~> 1.8, >= 1.8.3)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.1)
   rspec-rails (~> 4.0.0)
+  rubysl-open-uri
   sass-rails (>= 6)
   selenium-webdriver
   spring
