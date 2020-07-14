@@ -1,5 +1,6 @@
 require 'json'
 require 'open-uri'
+require "date"
 require "awesome_print"
 
 class ParsingDataJob < ApplicationJob
@@ -42,6 +43,7 @@ class ParsingDataJob < ApplicationJob
 
   def create_job(j, user, company)
     date = j["dateRange"].split(' ')
+    define_date(date)
 
     ap date
 
@@ -104,6 +106,11 @@ class ParsingDataJob < ApplicationJob
 
 #   job.update!(current: true) if job.end_time == "Ajourd'hui"
 # end
+  private
+
+  def define_date(date)
+
+  end
 
 end
 
