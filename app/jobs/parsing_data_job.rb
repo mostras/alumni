@@ -14,20 +14,17 @@ class ParsingDataJob < ApplicationJob
     file = open(url).read
     @linkedin_json = JSON.parse(file)
     companies_creation(@linkedin_json)
-    schools_creation(@linkedin_json)
+    # schools_creation(@linkedin_json)
   end
 
   def companies_creation(linkedin_json)
     linkedin_json.each do |profil|
       user = User.find_by(linkedin_url: profil["general"]["profileUrl"])
-      puts "_____________This is user_____________"
-      ap user
       profil['jobs'].each do |j|
         if Company.find_by(name: j["companyName"]) == nil
           company = Company.create!(name: j["companyName"], linkedin_url: j["companyUrl"])
         end
-        puts "_____________This is company_____________"
-        ap company
+        create_job(j, user, company)
       end
     end
   end
@@ -35,23 +32,25 @@ class ParsingDataJob < ApplicationJob
   def schools_creation(linkedin_json)
     linkedin_json.each do |profil|
       user = User.find_by(linkedin_url: profil["general"]["profileUrl"])
-      puts "_____________This is user2_____________"
-      ap user
       profil["schools"].each do |s|
         if School.find_by(name: j["companyName"]) == nil
           school = School.create!(name: s["schoolName"], school_url: s["schoolUrl"])
         end
-        puts "_____________This is school_____________"
-        ap school
       end
     end
   end
 
-  # def create_job(j, company, linkedin_json, user)
-  #   date = j["dateRange"].split(' ')
-  #   job = Job.create!(title: j["jobTitle"], location: j["location"], user_id: 2, company_id: 1)
-  #   job.update!(current: true) if diploma.end_time == "Ajourd'hui"
-  # end
+  def create_job(j, user, company)
+    date = j["dateRange"].split(' ')
+
+    ap date
+
+    company = Company.find_by(name: j["companyName"]) if company == nil
+
+    job = Job.create!(title: j["jobTitle"], location: j["location"], user_id: user.id, company_id: company.id)
+
+    # job.update!(current: true) if diploma.end_time == "Ajourd'hui"
+  end
 
   # def create_diploma(s, school, linkedin_json, user)
   #   date = s["dateRange"].split(' ')
