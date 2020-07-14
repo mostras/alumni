@@ -1,6 +1,5 @@
 require 'json'
 require 'open-uri'
-require "date"
 require "awesome_print"
 
 class ParsingDataJob < ApplicationJob
@@ -15,7 +14,7 @@ class ParsingDataJob < ApplicationJob
     file = open(url).read
     @linkedin_json = JSON.parse(file)
     companies_creation(@linkedin_json)
-    # schools_creation(@linkedin_json)
+    schools_creation(@linkedin_json)
   end
 
   def companies_creation(linkedin_json)
@@ -34,84 +33,36 @@ class ParsingDataJob < ApplicationJob
     linkedin_json.each do |profil|
       user = User.find_by(linkedin_url: profil["general"]["profileUrl"])
       profil["schools"].each do |s|
-        if School.find_by(name: j["companyName"]) == nil
+        if School.find_by(name: s["schoolName"]) == nil
           school = School.create!(name: s["schoolName"], school_url: s["schoolUrl"])
         end
+        create_diploma(s, user, profil)
       end
     end
   end
 
   def create_job(j, user, company)
     date = j["dateRange"].split(' ')
-    define_date(date)
-
-    ap date
-
     company = Company.find_by(name: j["companyName"]) if company == nil
-
-    job = Job.create!(title: j["jobTitle"], location: j["location"], user_id: user.id, company_id: company.id)
-
-    # job.update!(current: true) if diploma.end_time == "Ajourd'hui"
+    job = Job.create!(title: j["jobTitle"], start_time: "#{date[0]} #{date[1]}", end_time: "#{date[3]} #{date[4]}", location: j["location"], user_id: user.id, company_id: company.id)
+    ap job.end_time
+    if job.end_time.include? "Ajourd'hui" || "Present"
+      job.update!(current: true)
+    else
+      job.update!(current: false)
+    end
   end
 
-  # def create_diploma(s, school, linkedin_json, user)
-  #   date = s["dateRange"].split(' ')
-  #   diploma = Diploma.create!(title: s["degree"], user_id: 2, school_id: 1)
-  #   diploma.update!(current: true) if diploma.end_time == "Ajourd'hui"
-  # end
-
-#   def create
-#   json = JSON.parse() #en gros ici il faut recuperer le json avec toutes les infos
-#   student = Student.create!(student_params)
-#   create_schools_and_diplomas(json, student)
-#   create_companies_and_jobs(json, student)
-# end
-
-# def create_schools_and_diplomas(json, student)
-#   json[schools].each do |school|
-#     School.create!(name: school_name, linkedin_url: school_url) unless School.where(name: school.schoolName)
-#     create_diploma(school, student)
-#   end
-# end
-
-# def create_companies_and_jobs(json, student)
-#   json[jobs].each do |company|
-#     Company.create!(name: company_name, linkedin_url: company_url) unless Company.where(name: company.companyName)
-#     # il faudra aussi enrrichir la company apres coup
-#     create_job(company, student)
-#   end
-# end
-
-# def create_diploma(school, student)
-#   diploma = Diploma.create!(
-#     diploma_title: school.degree,
-#     start_time: school.dateRange.split(' - ')[0],
-#     end_time: school.dateRange.split(' - ')[1],
-#     student: student,
-#     school: school
-#   )
-
-#   diploma.update!(current: true) if diploma.end_time == "Ajourd'hui"
-# end
-
-# def create_job(company, student)
-#   job = Job.create!(
-#     job_title: company.jobTitle,
-#     start_time: company.dateRange.split(' - ')[0],
-#     end_time: company.dateRange.split(' - ')[1],
-#     location: company.location,
-#     student: student,
-#     company: company
-#   )
-
-#   job.update!(current: true) if job.end_time == "Ajourd'hui"
-# end
-  private
-
-  def define_date(date)
-
+  def create_diploma(s, user, profil)
+    date = s["dateRange"].split(' ')
+    school = School.find_by(name: s["schoolName"]) if school == nil
+    diploma = Diploma.create!(title: s["degree"], start_time: date[0], end_time: date[2], user_id: user.id, school_id: school.id)
+    if diploma.end_time.include? "Ajourd'hui" || "Present"
+      diploma.update!(current: true)
+    else
+      diploma.update!(current: false)
+    end
   end
-
 end
 
 
