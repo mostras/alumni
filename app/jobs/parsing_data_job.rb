@@ -13,7 +13,6 @@ class ParsingDataJob < ApplicationJob
     url = 'https://cache1.phantombooster.com/0EDS6xYcCEc/nydE5vIRxEvMrTH8otC9hw/test.json'
     file = open(url).read
     @linkedin_json = JSON.parse(file)
-    puts @linkedin_json
     companies_creation(@linkedin_json)
     schools_creation(@linkedin_json)
   end
@@ -21,36 +20,44 @@ class ParsingDataJob < ApplicationJob
   def companies_creation(linkedin_json)
     linkedin_json.each do |profil|
       user = User.find_by(linkedin_url: profil["general"]["profileUrl"])
+      puts "_____________This is user_____________"
+      ap user
       profil['jobs'].each do |j|
-        company = Company.create!(name: j["companyName"], linkedin_url: j["companyUrl"]) unless Company.where(name: j["companyName"])
-        puts company
-        create_job(j, company, linkedin_json, user)
+        if Company.find_by(name: j["companyName"]) == nil
+          company = Company.create!(name: j["companyName"], linkedin_url: j["companyUrl"])
+        end
+        puts "_____________This is company_____________"
+        ap company
       end
     end
   end
 
   def schools_creation(linkedin_json)
     linkedin_json.each do |profil|
-      user = User.find_by linkedin_url: profil["general"]["profileUrl"]
-      profil["schools"] do |s|
-        school = School.create!(name: s["schoolName"], school_url: s["schoolUrl"]) unless School.where(name: s["schoolName"])
-        puts school
-        create_diploma(s, school, linkedin_json, user)
+      user = User.find_by(linkedin_url: profil["general"]["profileUrl"])
+      puts "_____________This is user2_____________"
+      ap user
+      profil["schools"].each do |s|
+        if School.find_by(name: j["companyName"]) == nil
+          school = School.create!(name: s["schoolName"], school_url: s["schoolUrl"])
+        end
+        puts "_____________This is school_____________"
+        ap school
       end
     end
   end
 
-  def create_job(j, company, linkedin_json, user)
-    date = j["dateRange"].split(' ')
-    job = Job.create!(title: j["jobTitle"], location: j["location"], user_id: 2, company_id: 1)
-    job.update!(current: true) if diploma.end_time == "Ajourd'hui"
-  end
+  # def create_job(j, company, linkedin_json, user)
+  #   date = j["dateRange"].split(' ')
+  #   job = Job.create!(title: j["jobTitle"], location: j["location"], user_id: 2, company_id: 1)
+  #   job.update!(current: true) if diploma.end_time == "Ajourd'hui"
+  # end
 
-  def create_diploma(s, school, linkedin_json, user)
-    date = s["dateRange"].split(' ')
-    diploma = Diploma.create!(title: s["degree"], user_id: 2, school_id: 1)
-    diploma.update!(current: true) if diploma.end_time == "Ajourd'hui"
-  end
+  # def create_diploma(s, school, linkedin_json, user)
+  #   date = s["dateRange"].split(' ')
+  #   diploma = Diploma.create!(title: s["degree"], user_id: 2, school_id: 1)
+  #   diploma.update!(current: true) if diploma.end_time == "Ajourd'hui"
+  # end
 
 #   def create
 #   json = JSON.parse() #en gros ici il faut recuperer le json avec toutes les infos
