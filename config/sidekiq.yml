@@ -1,6 +1,6 @@
 :concurrency: 3
-:timeout: 5
+:timeout: 20
 :verbose: true
 :queues:
-  - default
+  - parsing_data
   - mailers

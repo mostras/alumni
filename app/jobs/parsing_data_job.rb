@@ -3,7 +3,7 @@ require 'open-uri'
 require "awesome_print"
 
 class ParsingDataJob < ApplicationJob
-  queue_as :default
+  queue_as :parsing_data
 
   def perform(*args)
     json_parsing
