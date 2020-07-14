@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_092124) do
+ActiveRecord::Schema.define(version: 2020_07_14_082210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2020_07_09_092124) do
 
   create_table "diplomas", force: :cascade do |t|
     t.string "title"
-    t.date "start_time"
-    t.date "end_time"
+    t.string "start_time"
+    t.string "end_time"
     t.boolean "current"
     t.bigint "user_id", null: false
     t.bigint "school_id", null: false
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2020_07_09_092124) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
-    t.date "start_time"
-    t.date "end_time"
+    t.string "start_time"
+    t.string "end_time"
     t.string "location"
     t.boolean "current"
     t.bigint "user_id", null: false
