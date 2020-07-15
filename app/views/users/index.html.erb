@@ -1,0 +1,5 @@
+<h1>HERE ARE ALL YOUR USERS</h1>
+
+<% @students.each do |student| %>
+  <%= render partial: "shared/student_card", locals: {student: student}  %>
+<% end %>
