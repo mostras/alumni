@@ -13,6 +13,9 @@ module Alumni
 
     config.active_job.queue_adapter = :sidekiq
 
+    config.i18n.available_locales = [:fr, :en]
+    config.i18n.default_locale = :fr
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
