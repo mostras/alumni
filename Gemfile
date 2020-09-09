@@ -65,3 +65,5 @@ gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'date'
 gem 'whenever', require: false
+
+gem 'font-awesome-sass', '~> 5.13.0'

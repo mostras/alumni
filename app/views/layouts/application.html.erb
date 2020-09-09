@@ -10,13 +10,23 @@
   </head>
 
   <body>
+    <div class="navbar">
+      <div class="session-link">
+        <% if user_signed_in? %>
+          <%= link_to 'se deconnecter', destroy_user_session_path %>
+        <% else %>
+          <%= link_to "S'enregistrer", new_user_registration_path %>
+          <%= link_to "Se connecter", user_session_path %>
+        <% end %>
+      </div>
+    </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= link_to 'se deconnecter', destroy_user_session_path %>
+    <% flash.each do |key, message| %>
+      <div class="alert alert-<%= key %>">
+        <%= message %>
+      </div>
+    <% end %>
 
     <%= yield %>
-
   </body>
 </html>

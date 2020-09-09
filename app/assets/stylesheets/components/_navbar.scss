@@ -1,0 +1,19 @@
+.navbar {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: flex-end;
+  height: 66px;
+  background-color: $light-blue;
+
+    a {
+      text-decoration: none;
+      color: $gray;
+    }
+
+    .session-link {
+      width: 248px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+}
