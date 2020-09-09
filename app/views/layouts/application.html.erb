@@ -13,7 +13,9 @@
     <div class="navbar">
       <div class="session-link">
         <% if user_signed_in? %>
-          <%= link_to 'se deconnecter', destroy_user_session_path %>
+          <%= link_to 'se deconnecter', destroy_user_session_path, method: :delete %>
+          <%= link_to current_user.first_name, user_path(current_user) %>
+
         <% else %>
           <%= link_to "S'enregistrer", new_user_registration_path %>
           <%= link_to "Se connecter", user_session_path %>
