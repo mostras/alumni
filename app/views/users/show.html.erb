@@ -1,1 +1,32 @@
-Profil de: <%= @student.full_name %> (<%= @student.email %>)
+<div class="user-show-wrapper">
+  <div class="user-description">
+    <div class="left">
+      <%= image_tag "blank-avatar.png" %>
+      <div class="link">
+        <a href="<%= @student.linkedin_url %>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:<%= @student.email %>"><i class="far fa-envelope"></i></a>
+        <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
+        <a href=""><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="right">
+      <div class="name-and-tags">
+        <h1><%= @student.full_name %></h1>
+      </div>
+      <div class="sector">
+        <h4>SECTEURS</h4>
+      </div>
+      <% if @student.looking_for_job? %>
+        <div class="notification">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>JE RECHERCHE UN EMPLOI / STAGE</p>
+        </div>
+      <% elsif @student.company_hire? %>
+        <div class="notification" id="green">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>MON ENTREPRISE RECRUTE</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

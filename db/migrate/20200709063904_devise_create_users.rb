@@ -17,15 +17,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :first_name
       t.string :last_name
       t.string :phone_number
-      t.string :city
-      t.string :promo
-      t.string :title
-      t.string :description
-      t.boolean :looking_for_job
-      t.boolean :entrepreneur
       t.string :linkedin_url
       t.string :messenger_url
+      t.string :instagram_url
       t.string :whatsapp_url
+      t.boolean :looking_for_job
+      t.boolean :company_hire
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
