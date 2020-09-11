@@ -67,3 +67,4 @@ gem 'date'
 gem 'whenever', require: false
 
 gem 'font-awesome-sass', '~> 5.13.0'
+gem 'pry-rails', '~> 0.3.4'
