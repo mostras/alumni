@@ -1,0 +1,53 @@
+.user-show-wrapper {
+  margin: 2rem 4rem 2rem 4rem;
+
+  .user-description {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: start;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+  }
+
+  img {
+    width: 200px;
+    border-radius: 50%;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 136px;
+
+    a {
+      text-decoration: none;
+      color: $bold-blue;
+      font-size: 20px;
+    }
+  }
+
+  .right {
+
+    h1 {
+      line-height: 0;
+    }
+  }
+
+  .notification {
+    display: flex;
+    align-items: center;
+    color: red;
+  }
+
+  #green {
+    color: green;
+  }
+}
