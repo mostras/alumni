@@ -1,5 +1,14 @@
 .user-show-wrapper {
   margin: 2rem 4rem 2rem 4rem;
+  position: relative;
+
+  .edit-link {
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    top: 10px;
+    left: 10px;
+  }
 
   .user-description {
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);

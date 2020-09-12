@@ -1,12 +1,23 @@
 <div class="user-show-wrapper">
   <div class="user-description">
+    <%= link_to edit_user_path(@student), class: 'edit-link' do %>
+      <i class="far fa-edit"></i>
+    <% end %>
     <div class="left">
       <%= image_tag "blank-avatar.png" %>
       <div class="link">
-        <a href="<%= @student.linkedin_url %>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="mailto:<%= @student.email %>"><i class="far fa-envelope"></i></a>
-        <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
-        <a href=""><i class="fab fa-whatsapp"></i></a>
+        <% unless @student.linkedin_url.nil? %>
+          <a href="<%= @student.linkedin_url%>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <% end %>
+        <% unless @student.email.nil? %>
+          <a href="mailto:<%= @student.email%>"><i class="far fa-envelope"></i></a>
+        <% end %>
+        <% unless @student.phone_number.nil? %>
+          <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
+        <% end %>
+        <% unless @student.whatsapp_url.nil? %>
+          <a href="https://wa.me/+33<%= @student.whatsapp_url%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <% end %>
       </div>
     </div>
     <div class="right">
@@ -21,7 +32,8 @@
           <i class="fas fa-exclamation-circle"></i>
           <p>JE RECHERCHE UN EMPLOI / STAGE</p>
         </div>
-      <% elsif @student.company_hire? %>
+      <% end %>
+      <% if @student.company_hire? %>
         <div class="notification" id="green">
           <i class="fas fa-exclamation-circle"></i>
           <p>MON ENTREPRISE RECRUTE</p>
