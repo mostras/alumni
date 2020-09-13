@@ -32,10 +32,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .button-valid {
+      margin: 2rem 0 1rem 0;
+    }
+  }
+
+  .photo-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .notif {
-    margin-top: 1rem;
     border: 2px solid red;
     padding: 0 0.5rem;
     border-radius: 8px;
@@ -50,21 +59,23 @@
     .edit-field-wrapper {
       display: flex;
       align-items: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
       color: $gray;
 
       i {
         color: $gray;
+        font-size: 22px;
+        width: 26px;
       }
     }
 
     .edit-input-field {
       width: -webkit-fill-available;
-      padding-left: 1rem;
+      padding-left: 0.5rem;
       border: 1px solid $gray;
       border-radius: 5px;
-      height: 22px;
-      font-size: 12px;
+      height: 26px;
+      font-size: 14px;
       margin-left: 0.5rem;
       color: $gray;
     }

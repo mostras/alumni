@@ -8,10 +8,11 @@
     a {
       text-decoration: none;
       color: $gray;
+      margin: 0 0.5rem;
     }
 
     .session-link {
-      width: 248px;
+      width: fit-content;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -19,6 +20,7 @@
       img {
         width: 35px;
         border-radius: 50%;
+        margin-left: 1rem;
       }
     }
 }

@@ -15,8 +15,10 @@
       <div class="contact-details-wrapper">
         <%= form_for @student do |f| %>
           <div class="button-notif">
-            <%= f.label :photo %>
-            <%= f.file_field :photo %>
+            <div class="photo-input">
+              <%= f.label :photo %>
+              <%= f.file_field :photo %>
+            </div>
             <%= f.submit "Valider les modifications", class: 'button-valid' %>
             <div class="notif">
               <p>Les informations présentent sur votre CV proviennent de votre profil LinkedIn. Mettez à jour votre profil sur linkedin.com pour les modifier ici.</p>

@@ -29,18 +29,20 @@
         <h1><%= @student.full_name %></h1>
       </div>
       <div class="sector">
-        <h4>SECTEURS</h4>
+        <h3>SECTEURS</h3>
       </div>
       <% if @student.looking_for_job? %>
         <div class="notification">
           <i class="fas fa-exclamation-circle"></i>
-          <p>JE RECHERCHE UN EMPLOI / STAGE</p>
+          <h4>JE RECHERCHE UN EMPLOI / STAGE</h4>
+
         </div>
       <% end %>
       <% if @student.company_hire? %>
         <div class="notification" id="green">
           <i class="fas fa-exclamation-circle"></i>
-          <p>MON ENTREPRISE RECRUTE</p>
+          <h4>MON ENTREPRISE RECRUTE</h4>
+
         </div>
       <% end %>
     </div>
