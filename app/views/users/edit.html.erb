@@ -1,45 +1,69 @@
 <div class="user-edit-wrapper">
   <div class="top">
+    <div class="profil-picture">
+      <%= image_tag "blank-avatar.png" %>
+    </div>
     <div class="name-tags">
       <h1><%= @student.full_name %></h1>
     </div>
   </div>
   <div class="bottom">
-    <div class="contact_details-sectors">
-
-
       <div class="contact-details-wrapper">
         <%= form_for @student do |f| %>
           <div class="button-notif">
-            <%= f.submit "Valider" %>
+            <%= f.submit "Valider les modifications", class: 'button-valid' %>
+            <div class="notif">
+              <p>Les informations présentent sur votre CV proviennent de votre profil LinkedIn. Mettez à jour votre profil sur linkedin.com pour les modifier ici.</p>
+              <p>Le transfère des informations peut prendre un peu de temps...</p>
+            </div>
           </div>
           <div class="contact-details">
 
-            <%= f.text_field :linkedin_url, placeholder: 'URL Linkedin' %>
-
-            <%= f.text_field :email, placeholder: 'Email'%>
-
-            <%= f.text_field :phone_number, placeholder: 'Numéro de téléphone' %>
-
-            <%= f.text_field :whatsapp_url, placeholder: 'Numéro whatsApp' %>
-
-            <%= f.text_field :messenger_url, placeholder: 'URL Messenger'%>
-
-            <%= f.text_field :instagram_url, placeholder: 'URL Instagram'%>
-
-            <%= f.label "Je recherche un emploi / stage" %> <br />
-            <%= f.check_box :looking_for_job %> <br />
+            <div class="edit-field-wrapper">
+              <i class="fab fa-linkedin-in"></i>
+              <%= f.text_field :linkedin_url, placeholder: 'URL Linkedin', class: 'edit-input-field' %>
+            </div>
 
 
-            <%= f.label "Mon entreprise recrute" %> <br />
-            <%= f.check_box :company_hire %> <br />
+
+            <div class="edit-field-wrapper">
+              <i class="far fa-envelope"></i>
+              <%= f.text_field :email, placeholder: 'Email', class: 'edit-input-field'%>
+            </div>
+
+
+
+            <div class="edit-field-wrapper">
+              <i class="fas fa-phone"></i>
+              <%= f.text_field :phone_number, placeholder: 'Numéro de téléphone', class: 'edit-input-field' %>
+            </div>
+
+
+
+            <div class="edit-field-wrapper">
+              <i class="fab fa-whatsapp"></i>
+              <%= f.text_field :whatsapp_url, placeholder: 'Numéro whatsApp', class: 'edit-input-field' %>
+            </div>
+
+
+
+            <div class="edit-field-wrapper">
+
+              <%= f.check_box :looking_for_job %> <br />
+              <%= f.label "Je recherche un emploi / stage" %> <br />
+            </div>
+
+
+            <div class="edit-field-wrapper">
+              <%= f.check_box :company_hire %> <br />
+              <%= f.label "Mon entreprise recrute" %> <br />
+            </div>
           </div>
         <% end %>
       </div>
 
 
 
-    </div>
   </div>
 
 </div>
