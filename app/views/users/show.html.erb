@@ -4,7 +4,11 @@
       <i class="far fa-edit"></i>
     <% end %>
     <div class="left">
-      <%= image_tag "blank-avatar.png" %>
+      <% if @student.photo.attached? %>
+        <%= cl_image_tag @student.photo.key %>
+      <% else %>
+        <%= image_tag "blank-avatar.png" %>
+      <% end %>
       <div class="link">
         <% unless @student.linkedin_url.nil? %>
           <a href="<%= @student.linkedin_url%>" target="_blank"><i class="fab fa-linkedin-in"></i></a>

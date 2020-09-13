@@ -15,7 +15,11 @@
         <% if user_signed_in? %>
           <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %>
           <%= link_to user_path(current_user) do %>
-            <%= image_tag "blank-avatar.png" %>
+            <% if @student.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key %>
+            <% else %>
+              <%= image_tag "blank-avatar.png" %>
+            <% end %>
           <% end %>
 
         <% else %>

@@ -1,7 +1,11 @@
 <div class="user-edit-wrapper">
   <div class="top">
     <div class="profil-picture">
-      <%= image_tag "blank-avatar.png" %>
+      <% if @student.photo.attached? %>
+        <%= cl_image_tag @student.photo.key %>
+      <% else %>
+        <%= image_tag "blank-avatar.png" %>
+      <% end %>
     </div>
     <div class="name-tags">
       <h1><%= @student.full_name %></h1>
@@ -11,6 +15,8 @@
       <div class="contact-details-wrapper">
         <%= form_for @student do |f| %>
           <div class="button-notif">
+            <%= f.label :photo %>
+            <%= f.file_field :photo %>
             <%= f.submit "Valider les modifications", class: 'button-valid' %>
             <div class="notif">
               <p>Les informations présentent sur votre CV proviennent de votre profil LinkedIn. Mettez à jour votre profil sur linkedin.com pour les modifier ici.</p>
