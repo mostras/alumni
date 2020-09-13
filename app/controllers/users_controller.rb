@@ -15,10 +15,10 @@ class UsersController < ApplicationController
 
   def update
     if @student.update(student_params)
-      flash[:notice] = "Modifié"
+      flash[:notice] = "Vos modifications ont été enregistrées."
       redirect_to user_path(@student)
     else
-      flash[:alert] = "Non modifié"
+      flash[:alert] = "Vos modifications n'ont pas pu être enregistrées."
       render :edit
     end
   end
