@@ -53,8 +53,6 @@ group :test do
   gem 'webdrivers'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', '~> 4.2'
 
@@ -68,3 +66,5 @@ gem 'whenever', require: false
 
 gem 'font-awesome-sass', '~> 5.13.0'
 gem 'pry-rails', '~> 0.3.4'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'

@@ -14,7 +14,13 @@
       <div class="session-link">
         <% if user_signed_in? %>
           <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %>
-          <%= link_to current_user.first_name, user_path(current_user) %>
+          <%= link_to user_path(current_user) do %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key %>
+            <% else %>
+              <%= image_tag "blank-avatar.png" %>
+            <% end %>
+          <% end %>
 
         <% else %>
           <%= link_to "S'enregistrer", new_user_registration_path %>
