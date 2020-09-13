@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @diplomas = Diploma.all
+    @tag = @student.tags.build
   end
 
   def update
