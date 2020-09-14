@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   def edit
     @diplomas = Diploma.all
     @tag = @student.tags.build
+    @sectors = Sector.all
+    @user_sector = @student.user_sectors.build
   end
 
   def update

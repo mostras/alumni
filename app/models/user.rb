@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :tags
+  has_many :user_sectors
 
   after_create :add_mail_to_google_sheet
 
