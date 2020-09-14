@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :diploma do
-    name { "MyString" }
+    name { "BAC" }
   end
 end
