@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
 
-  before_action :set_student, only: [:create]
+  before_action :set_student, only: [:create, :remove_tags]
+  before_action :set_tag, only: [:edit, :destroy]
 
   def create
     @tag = @student.tags.build(tags_params)
@@ -13,7 +14,16 @@ class TagsController < ApplicationController
     end
   end
 
+  def destroy
+    @tag.destroy
+  end
+
+
   private
+
+  def set_tag
+    @tag = Tag.find(params[:id])
+  end
 
   def set_student
     @student = User.find(params[:user_id])

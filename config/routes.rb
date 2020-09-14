@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
     resources :user_sectors, only: [:edit, :create]
   end
+
+
+
 end

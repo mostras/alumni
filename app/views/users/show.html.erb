@@ -37,6 +37,15 @@
       </div>
       <div class="sector">
         <h3>SECTEURS</h3>
+        <% if @student.user_sectors.any? %>
+          <ul>
+            <% @student.user_sectors.each do |user_sector| %>
+              <li>
+                <%= user_sector.sector.try(:name) %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
       <% if @student.looking_for_job? %>
         <div class="notification">
