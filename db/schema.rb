@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_085019) do
+ActiveRecord::Schema.define(version: 2020_09_14_070014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 2020_09_13_085019) do
     t.string "color"
   end
 
+  create_table "sectors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tags", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "diploma_id", null: false
@@ -51,6 +57,15 @@ ActiveRecord::Schema.define(version: 2020_09_13_085019) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["diploma_id"], name: "index_tags_on_diploma_id"
     t.index ["user_id"], name: "index_tags_on_user_id"
+  end
+
+  create_table "user_sectors", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sector_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sector_id"], name: "index_user_sectors_on_sector_id"
+    t.index ["user_id"], name: "index_user_sectors_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,4 +92,6 @@ ActiveRecord::Schema.define(version: 2020_09_13_085019) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "tags", "diplomas"
   add_foreign_key "tags", "users"
+  add_foreign_key "user_sectors", "sectors"
+  add_foreign_key "user_sectors", "users"
 end

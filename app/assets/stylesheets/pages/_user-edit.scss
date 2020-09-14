@@ -20,7 +20,7 @@
   }
 
   .profil-picture {
-    width: 25%;
+    width: 400px;
     text-align: center;
 
     img {
@@ -34,12 +34,16 @@
     margin-bottom: 1rem;
   }
 
+  .contact-details-wrapper {
+    margin-right: 6rem;
+  }
+
   .contact-details-wrapper form {
     display: flex;
   }
 
   .button-notif {
-    width: 25%;
+    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,5 +96,16 @@
       margin-left: 0.5rem;
       color: $gray;
     }
+  }
+
+  select {
+    height: 30px;
+    border: 1px solid $gray;
+    color: $gray;
+    border-radius: 5px;
+  }
+
+  .bottom {
+    display: flex;
   }
 }
