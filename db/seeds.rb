@@ -8,8 +8,47 @@
 
 Diploma.destroy_all
 
-diplomas = ['BAC', 'BTS', 'PREPA']
+diplomas = ["BAC",
+            "PREPA ATS",
+            "PREPA IEP/DROIT",
+            "PREPA BL",
+            "PREPA ECE",
+            "PREPA ECS",
+            "PREPA CPE/PC",
+            "PREPA CPE/PSI",
+            "BACHELOR ICS-CPE",
+            "BTS SIO",
+            "MASTER ICS-CPE",
+            "DSCG",
+            "BTS CG",
+            "DSCG FSE",
+            "DCG",
+            "BTS IG",
+            "BTS I",
+            "DPECF",
+            "DECF"
+          ]
 
 diplomas.each do |diploma|
   Diploma.create(name: diploma)
 end
+
+["BAC",
+"PREPA ATS",
+"PREPA IEP/DROIT",
+"PREPA BL",
+"PREPA ECE",
+"PREPA ECS",
+"PREPA CPE/PC",
+"PREPA CPE/PSI",
+"BACHELOR ICS-CPE",
+"BTS SIO",
+"MASTER ICS-CPE",
+"DSCG",
+"BTS CG",
+"DSCG FSE",
+"DCG",
+"BTS IG",
+"BTS I",
+"DPECF",
+"DECF"]
