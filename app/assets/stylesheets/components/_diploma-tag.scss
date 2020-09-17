@@ -1,0 +1,41 @@
+.diploma-tag {
+  padding: 0.2rem 0.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+
+  h5 {
+    margin: 0;
+    line-height: 0;
+    margin-right: 0.5rem;
+  }
+
+  p {
+
+    margin: 0;
+  }
+
+}
+
+#diploma-red {
+  background-color: #B11C1C;
+}
+
+#diploma-yellow {
+  background-color: #EAB720;
+}
+
+#diploma-blue {
+  background-color: #3D468F;
+}
+
+#diploma-green {
+  background-color: #41916E;
+}
+
+#diploma-grey {
+  background-color: #9A9A9A;
+}
