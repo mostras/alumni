@@ -23,7 +23,7 @@
         <div class="form-tags">
           <%= f.select :diploma_id, @diplomas.map { |d| [d.name, d.id] }, :prompt => "Sélectionner un diplôme..." %>
           <%= f.select :year, (Time.zone.now.year - 100)..(Time.zone.now.year + 1), :prompt => "Année d’obtention" %>
-          <%= f.submit "Ajouter", class: 'button-valid'%>
+          <%= f.submit "Ajouter", class: 'empty-button'%>
         </div>
       <% end %>
     </div>
@@ -39,7 +39,7 @@
               <%= f.label :photo %>
               <%= f.file_field :photo %>
             </div>
-            <%= f.submit "Valider les modifications", class: 'button-valid' %>
+            <%= f.submit "Valider les modifications", class: 'full-button' %>
             <div class="notif">
               <p>Les informations présentent sur votre CV proviennent de votre profil LinkedIn. Mettez à jour votre profil sur linkedin.com pour les modifier ici.</p>
               <p>Le transfère des informations peut prendre un peu de temps...</p>
@@ -85,7 +85,7 @@
         <%= form_for [@student, @user_sector] do |f| %>
           <div class="form-tags">
             <%= f.select :sector_id, @sectors.map { |s| [s.name, s.id] }, :prompt => "Sélectionner un secteur..." %>
-            <%= f.submit "Ajouter", class: 'button-valid'%>
+            <%= f.submit "Ajouter", class: 'empty-button'%>
           </div>
         <% end %>
       </div>
