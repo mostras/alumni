@@ -1,0 +1,37 @@
+
+<div class="new-user-sector-wrapper">
+    <%= image_tag('logo-chartreux.png') %>
+
+    <div class="sector-wrapper">
+      <h1>Mes secteurs d’activité</h1>
+      <p>Ajoutez jusqu’à 5 secteurs d’activité pour que les employeurs puissent vous retrouver facilement.</p>
+      <p>Vous pourez les modifier à tout moment dans votre profil.</p>
+
+      <div class="sector">
+        <div class="sectors-index">
+          <% if @student.user_sectors.any? %>
+            <% @student.user_sectors.each do |user_sector| %>
+              <%= render 'shared/user-sector-card', sector: user_sector.sector %>
+            <% end %>
+          <% end %>
+          <%= form_for [@student, @user_sector] do |f| %>
+            <div class="form-sectors">
+              <%= f.select :sector_id, @sectors.map { |s| [s.name, s.id] }, :prompt => "Sélectionner un secteur..." %>
+              <%= f.submit "Ajouter", class: 'empty-button'%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <%= link_to 'Suivant', user_path(current_user), class: 'empty-button'  %>
+
+      <%= link_to :back, class: 'back-button' do %>
+        <i class="fas fa-arrow-left"></i>
+        <p>Précédent</p>
+      <% end %>
+
+
+    </div>
+
+
+</div>

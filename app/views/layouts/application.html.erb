@@ -11,7 +11,7 @@
 
   <body>
 
-    <% unless current_page?(root_path) || current_page?(new_user_registration_path) || current_page?(linkedin_path) || current_page?(new_user_tag_path)%>
+    <% unless current_page?(root_path) || current_page?(new_user_registration_path) || current_page?(linkedin_path) || current_page?(new_user_tag_path(current_user)) || current_page?(new_user_user_sector_path(current_user)) %>
 
       <div class="navbar">
         <div class="session-link">

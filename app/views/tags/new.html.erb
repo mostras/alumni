@@ -6,11 +6,11 @@
     <p>Ajoutez les formations que vous avez effecutées aux Chartreux afin d’apparaitre dans les critères de recherches.</p>
     <p>Vous pourez les modifier à tout moment dans votre profil.</p>
 
-
+    <div class="tags">
       <div class="tags-index">
         <% if @student.tags.any? %>
           <% @student.tags.each do |tag| %>
-            <%= render 'shared/diploma-tag', tag: tag %>
+            <%= render 'shared/diploma-tag', tag: tag, student: @student %>
           <% end %>
         <% end %>
       </div>
@@ -21,5 +21,13 @@
           <%= f.submit "Ajouter", class: 'empty-button'%>
         </div>
       <% end %>
+    </div>
+
+    <%= link_to 'Suivant', new_user_user_sector_path(@student), class: 'empty-button'  %>
+
+    <%= link_to :back, class: 'back-button' do %>
+      <i class="fas fa-arrow-left"></i>
+      <p>Précédent</p>
+    <% end %>
   </div>
 </div>

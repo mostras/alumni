@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "submit_url_linkedin", to: "users#submit_url_linkedin"
 
   resources :users, only: [:index, :show, :edit, :update] do
-    resources :tags, only: [:new, :create, :edit]
+    resources :tags, only: [:new, :create, :edit, :destroy]
 
     resources :user_sectors, only: [:new, :create, :edit]
   end

@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
 
-  before_action :set_student, only: [:new, :create, :remove_tags]
+  before_action :set_student, only: [:new, :create, :destroy]
   before_action :set_tag, only: [:edit, :destroy]
 
   def new

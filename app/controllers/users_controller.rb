@@ -11,9 +11,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
-    @sectors = Sector.all
-    @user_sector = @student.user_sectors.build
   end
 
   def update
