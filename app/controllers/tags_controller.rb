@@ -1,7 +1,13 @@
 class TagsController < ApplicationController
 
-  before_action :set_student, only: [:new, :create, :edit]
+  before_action :set_student, only: [:index, :new, :create, :edit]
   before_action :set_tag, only: [:edit, :destroy]
+
+  def index
+    @tags = Tag.where(user: current_user)
+    @tag = @student.tags.build
+    @diplomas = Diploma.all
+  end
 
   def new
     @diplomas = Diploma.all
@@ -12,7 +18,7 @@ class TagsController < ApplicationController
     @tag = @student.tags.build(tags_params)
     if @tag.save
       flash[:notice] = "Le tag a bien été ajouté."
-      redirect_to new_tag_path
+      redirect_to request.referrer
     else
       flash[:alert] = "Le tag n'a pas pu être ajouté."
       render :new

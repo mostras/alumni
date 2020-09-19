@@ -12,7 +12,7 @@ class UserSectorsController < ApplicationController
     @user_sector = @student.user_sectors.build(user_sector_params)
     if @user_sector.save
       flash[:notice] = "Le secteur a bien été ajouté."
-      redirect_to new_user_sector_path
+      redirect_to request.referrer
     else
       flash[:alert] = "Le secteur n'a pas pu être ajouté."
       render :new

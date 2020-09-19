@@ -37,7 +37,9 @@
               <p>Ajouter des tags</p>
             <% end %>
           </div>
-          <%= render 'shared/edit-icon' %>
+          <%= link_to tags_path do %>
+            <%= render 'shared/edit-icon' %>
+          <% end %>
         </div>
       </div>
       <div class="sector">

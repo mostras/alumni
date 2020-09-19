@@ -1,0 +1,10 @@
+<div class="tag-form">
+  <%= form_for @tag do |f| %>
+      <div class="form">
+        <%= f.select :diploma_id, @diplomas.map { |d| [d.name, d.id] }, :prompt => "Sélectionner un diplôme..." %>
+        <%= f.select :year, (Time.zone.now.year - 100)..(Time.zone.now.year + 1), :prompt => "Année d’obtention" %>
+        <%= f.submit "Ajouter", class: 'full-button'%>
+      </div>
+  <% end %>
+</div>
+
