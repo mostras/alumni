@@ -1,1 +1,14 @@
-home
+<div class="home-page-wrapper">
+
+  <%= image_tag('logo-chartreux.png') %>
+
+  <div class="home-page">
+    <h1>Bienvenue sur le réseau </br> Chartreux Alumni.</h1>
+    <p>Prenez contacte rapidement et simplement grâce à un annuaire d’alumni mis à jour automatiquement grâce à LinkedIn</p>
+
+    <div class="session-button">
+      <%= link_to "Je créer mon compte", new_user_registration_path, class: 'empty-button' %>
+      <%= link_to "Je me connecte", user_session_path, class: 'empty-button' %>
+    </div>
+  </div>
+</div>

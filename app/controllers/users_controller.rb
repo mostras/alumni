@@ -27,6 +27,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def linkedin
+  end
+
   private
 
   def set_user

@@ -1,0 +1,30 @@
+.home-page-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: $dark-blue;
+  position: absolute;
+  color: white;
+
+  img {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 160px;
+  }
+
+  .home-page {
+    max-width: 650px;
+    margin: 14rem auto;
+  }
+
+  .session-button {
+    margin-top: 2rem;
+    display: flex;
+  }
+
+  .empty-button {
+    color: white;
+    border-color: white;
+    margin-right: 1rem;
+  }
+}

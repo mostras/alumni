@@ -10,24 +10,31 @@
   </head>
 
   <body>
-    <div class="navbar">
-      <div class="session-link">
-        <% if user_signed_in? %>
-          <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %>
-          <%= link_to user_path(current_user) do %>
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key %>
-            <% else %>
-              <%= image_tag "blank-avatar.png" %>
-            <% end %>
-          <% end %>
 
-        <% else %>
-          <%= link_to "S'enregistrer", new_user_registration_path %>
-          <%= link_to "Se connecter", user_session_path %>
-        <% end %>
+    <% unless current_page?(root_path) || current_page?(new_user_registration_path)%>
+
+      <div class="navbar">
+        <div class="session-link">
+          <% if user_signed_in? %>
+            <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %>
+            <%= link_to user_path(current_user) do %>
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key %>
+              <% else %>
+                <%= image_tag "blank-avatar.png" %>
+              <% end %>
+            <% end %>
+
+          <% else %>
+            <%= link_to "S'enregistrer", new_user_registration_path %>
+            <%= link_to "Se connecter", user_session_path %>
+          <% end %>
+        </div>
       </div>
-    </div>
+
+    <% end %>
+
+
 
     <% flash.each do |key, message| %>
       <div class="alert alert-<%= key %>">
