@@ -12,7 +12,7 @@ class TagsController < ApplicationController
     @tag = @student.tags.build(tags_params)
     if @tag.save
       flash[:notice] = "Le tag a bien été ajouté."
-      redirect_to new_user_tag_path(@student)
+      redirect_to new_tag_path
     else
       flash[:alert] = "Le tag n'a pas pu être ajouté."
       render :new

@@ -4,6 +4,11 @@
   justify-content: flex-end;
   height: 66px;
   background-color: $dark-blue;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  box-sizing: border-box;
 
     a {
       text-decoration: none;

@@ -1,5 +1,5 @@
 <div class="new-tag-wrapper">
-  <%= image_tag('logo-chartreux.png') %>
+
 
   <div class="tag-wrapper">
     <h1>Mes formations aux Chartreux</h1>
@@ -14,7 +14,7 @@
           <% end %>
         <% end %>
       </div>
-      <%= form_for [@student, @tag] do |f| %>
+      <%= form_for @tag do |f| %>
         <div class="form-tags">
           <%= f.select :diploma_id, @diplomas.map { |d| [d.name, d.id] }, :prompt => "Sélectionner un diplôme..." %>
           <%= f.select :year, (Time.zone.now.year - 100)..(Time.zone.now.year + 1), :prompt => "Année d’obtention" %>
@@ -23,7 +23,7 @@
       <% end %>
     </div>
 
-    <%= link_to 'Suivant', new_user_user_sector_path(@student), class: 'empty-button'  %>
+    <%= link_to 'Suivant', new_user_sector_path, class: 'empty-button'  %>
 
     <%= link_to :back, class: 'back-button' do %>
       <i class="fas fa-arrow-left"></i>
