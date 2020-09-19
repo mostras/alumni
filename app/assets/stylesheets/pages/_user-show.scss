@@ -3,7 +3,7 @@
   position: relative;
 
   h3 {
-    margin-bottom: 0;
+    margin: 0;
   }
 
   .edit-link {
@@ -20,6 +20,7 @@
     padding: 1rem;
     display: flex;
     align-items: start;
+    height: 256px;
   }
 
   .left {
@@ -27,6 +28,8 @@
     flex-direction: column;
     align-items: center;
     width: 30%;
+    height: 100%;
+    justify-content: space-between;
   }
 
   img {
@@ -50,10 +53,18 @@
   }
 
   .right {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     h1 {
       line-height: 0;
     }
+  }
+
+  .tags-index-wrapper {
+    display: flex;
   }
 
   .tags-index {
@@ -61,6 +72,12 @@
   }
 
   .sector {
+
+    margin-top: 1rem;
+
+    h3 {
+      margin-right: 0.5rem;
+    }
 
     ul {
     padding: 0;
@@ -84,12 +101,18 @@
       position: absolute;
       top: 9px;
       left: -11px;
-
     }
 
     ul >li:first-child:before {
       content: none;
     }
+
+    .title {
+      display: flex;
+      align-items: center;
+
+    }
+
   }
 
   .notification {

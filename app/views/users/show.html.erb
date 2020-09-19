@@ -27,28 +27,33 @@
     <div class="right">
       <div class="name-and-tags">
         <h1><%= @student.full_name %></h1>
-        <div class="tags-index">
-          <% if @student.tags.any? %>
-            <% @student.tags.each do |tag| %>
-              <%= render 'shared/diploma-tag', tag: tag %>
-              <%= render 'shared/edit-icon' %>
+        <div class="tags-index-wrapper">
+          <div class="tags-index">
+            <% if @student.tags.any? %>
+              <% @student.tags.each do |tag| %>
+                <%= render 'shared/diploma-tag', tag: tag %>
+              <% end %>
+            <% else %>
+              <p>Ajouter des tags</p>
             <% end %>
-          <% else %>
-            <p>Ajouter des tags</p>
-          <% end %>
+          </div>
+          <%= render 'shared/edit-icon' %>
         </div>
       </div>
       <div class="sector">
-        <h3>SECTEURS</h3>
+        <div class="title">
+          <h3>SECTEURS</h3>
+          <%= render 'shared/edit-icon' %>
+        </div>
         <% if @student.user_sectors.any? %>
           <ul>
             <% @student.user_sectors.each do |user_sector| %>
               <li>
-                <%= render 'shared/user-sector-card', sector: user_sector.sector %>
+                <%= user_sector.sector.try(:name) %>
               </li>
-              <%= render 'shared/edit-icon' %>
             <% end %>
           </ul>
+
         <% else %>
           <p>Ajouter des tags</p>
         <% end %>
