@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "linkedin", to: "users#linkedin"
+  get "submit_url_linkedin", to: "users#submit_url_linkedin"
 
   resources :users, only: [:index, :show, :edit, :update] do
-    resources :tags, only: [:edit, :create]
+    resources :tags, only: [:new, :create, :edit]
 
-    resources :user_sectors, only: [:edit, :create]
+    resources :user_sectors, only: [:new, :create, :edit]
   end
 
 

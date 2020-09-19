@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @diplomas = Diploma.all
-    @tag = @student.tags.build
+
     @sectors = Sector.all
     @user_sector = @student.user_sectors.build
   end
@@ -28,6 +27,13 @@ class UsersController < ApplicationController
   end
 
   def linkedin
+  end
+
+  def submit_url_linkedin
+    id = current_user.id
+    linkedin_url = params[:url]
+    AddUrl.new(id, linkedin_url).google_sheet
+    redirect_to new_user_tag_path(current_user)
   end
 
   private

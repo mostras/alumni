@@ -1,1 +1,20 @@
-coucou
+<div class="linkedin-wrapper">
+
+  <%= image_tag('logo-chartreux.png') %>
+
+  <div class="linkedin">
+    <h1>LinkedIn</h1>
+    <p>Nous utilisons LinkedIn pour récupérer vos expériences professionnelles et vos formations.</p>
+    <p>Vous autorisez de ce fait le réseau Chartreux Alumni à lire les données publiques de votre profil.</p>
+
+    <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
+      <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
+      <button class="empty-button">Suivant</button>
+    <% end %>
+
+    <%= link_to :back, class: 'back-button' do %>
+      <i class="fas fa-arrow-left"></i>
+      <p>Précédent</p>
+    <% end %>
+  </div>
+</div>

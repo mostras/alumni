@@ -1,4 +1,4 @@
-.sign-up-wrapper {
+.linkedin-wrapper {
   width: 100%;
   height: 100vh;
   background-color: $dark-blue;
@@ -12,24 +12,10 @@
     width: 160px;
   }
 
-  .sign-up-form-wrapper {
+  .linkedin {
     max-width: 660px;
     margin: 12rem auto;
     position: relative;
-  }
-
-  .online-fields {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
-    .form-field {
-      width: -webkit-fill-available;
-    }
-
-    .form-field:last-child {
-      margin-left: 1rem;
-    }
   }
 
   .form-field {
@@ -45,7 +31,6 @@
   .empty-button {
     color: white;
     border-color: white;
-    margin-right: 1rem;
   }
 
   .back-button {

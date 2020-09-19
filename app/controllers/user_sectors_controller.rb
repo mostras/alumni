@@ -2,6 +2,9 @@ class UserSectorsController < ApplicationController
 
   before_action :set_student, only: [:create]
 
+  def new
+  end
+
   def create
     @user_sector = @student.user_sectors.build(user_sector_params)
     if @user_sector.save
