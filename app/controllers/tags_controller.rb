@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
 
-  before_action :set_student, only: [:new, :create, :destroy]
+  before_action :set_student, only: [:new, :create, :edit]
   before_action :set_tag, only: [:edit, :destroy]
 
   def new
@@ -17,6 +17,9 @@ class TagsController < ApplicationController
       flash[:alert] = "Le tag n'a pas pu être ajouté."
       render :new
     end
+  end
+
+  def edit
   end
 
   def destroy

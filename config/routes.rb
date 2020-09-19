@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update] do
     resources :tags, only: [:new, :create, :edit, :destroy]
 
-    resources :user_sectors, only: [:new, :create, :edit]
+    resources :user_sectors, only: [:new, :create, :edit, :destroy]
   end
 
 

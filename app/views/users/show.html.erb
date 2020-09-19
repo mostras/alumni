@@ -1,7 +1,7 @@
 <div class="user-show-wrapper">
   <div class="user-description">
     <%= link_to edit_user_path(@student), class: 'edit-link' do %>
-      <i class="far fa-edit"></i>
+      <%= render 'shared/edit-icon' %>
     <% end %>
     <div class="left">
       <% if @student.photo.attached? %>
@@ -31,7 +31,10 @@
           <% if @student.tags.any? %>
             <% @student.tags.each do |tag| %>
               <%= render 'shared/diploma-tag', tag: tag %>
+              <%= render 'shared/edit-icon' %>
             <% end %>
+          <% else %>
+            <p>Ajouter des tags</p>
           <% end %>
         </div>
       </div>
@@ -41,10 +44,13 @@
           <ul>
             <% @student.user_sectors.each do |user_sector| %>
               <li>
-                <%= user_sector.sector.try(:name) %>
+                <%= render 'shared/user-sector-card', sector: user_sector.sector %>
               </li>
+              <%= render 'shared/edit-icon' %>
             <% end %>
           </ul>
+        <% else %>
+          <p>Ajouter des tags</p>
         <% end %>
       </div>
       <% if @student.looking_for_job? %>

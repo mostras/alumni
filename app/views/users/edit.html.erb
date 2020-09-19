@@ -10,23 +10,6 @@
       <% end %>
     </div>
 
-    <div class="name-tags">
-      <h1><%= @student.full_name %></h1>
-      <div class="tags-index">
-        <% if @student.tags.any? %>
-          <% @student.tags.each do |tag| %>
-            <%= render 'shared/diploma-tag', tag: tag %>
-          <% end %>
-        <% end %>
-      </div>
-      <%= form_for [@student, @tag] do |f| %>
-        <div class="form-tags">
-          <%= f.select :diploma_id, @diplomas.map { |d| [d.name, d.id] }, :prompt => "Sélectionner un diplôme..." %>
-          <%= f.select :year, (Time.zone.now.year - 100)..(Time.zone.now.year + 1), :prompt => "Année d’obtention" %>
-          <%= f.submit "Ajouter", class: 'empty-button'%>
-        </div>
-      <% end %>
-    </div>
 
   </div>
 

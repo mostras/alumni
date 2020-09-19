@@ -1,6 +1,7 @@
 class UserSectorsController < ApplicationController
 
-  before_action :set_student, only: [:new, :create]
+  before_action :set_student, only: [:new, :create, :edit]
+  before_action :set_user_sector, only: [:edit]
 
   def new
     @sectors = Sector.all
@@ -18,10 +19,17 @@ class UserSectorsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   private
 
   def set_student
     @student = current_user
+  end
+
+  def set_user_sector
+    @user_sector = UserSector.find(params[:id])
   end
 
   def user_sector_params

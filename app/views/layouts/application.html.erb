@@ -11,12 +11,15 @@
 
   <body>
 
-    <% unless current_page?(root_path) || current_page?(new_user_registration_path) || current_page?(linkedin_path) || current_page?(new_user_tag_path(current_user)) || current_page?(new_user_user_sector_path(current_user)) %>
+    <% unless current_page?(root_path) || current_page?(new_user_registration_path) %>
 
       <div class="navbar">
+
         <div class="session-link">
           <% if user_signed_in? %>
-            <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-out-alt"></i>
+            <% end %>
             <%= link_to user_path(current_user) do %>
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key %>
@@ -24,10 +27,6 @@
                 <%= image_tag "blank-avatar.png" %>
               <% end %>
             <% end %>
-
-          <% else %>
-            <%= link_to "S'enregistrer", new_user_registration_path %>
-            <%= link_to "Se connecter", user_session_path %>
           <% end %>
         </div>
       </div>
