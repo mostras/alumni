@@ -1,10 +1,13 @@
 <div class="user-sector-card">
 
-  <%= link_to user_sector_path(user_sector), method: :delete, data: { confirm: "Etes vous sûr?" }, class: 'remove' do %>
-    <i class="fas fa-times"></i>
+  <% if !current_page?(new_user_sector_path) %>
+    <%= link_to user_sector_path(user_sector), method: :delete, data: { confirm: "Etes vous sûr?" }, class: 'remove' do %>
+      <i class="fas fa-times"></i>
+    <% end %>
+    <span class="line"></span>
   <% end %>
 
-  <span class="line"></span>
+
 
 
   <%= user_sector.sector.try(:name) %>

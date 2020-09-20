@@ -1,67 +1,64 @@
+<%= form_for @student do |f| %>
 <div class="user-edit-wrapper">
 
-  <div class="top">
 
-    <div class="profil-picture">
+  <div class="photo">
       <% if @student.photo.attached? %>
         <%= cl_image_tag @student.photo.key %>
       <% else %>
         <%= image_tag "blank-avatar.png" %>
       <% end %>
+        <%= f.label :photo %>
+        <%= f.file_field :photo %>
+
+  </div>
+  <div class="input">
+
+    <div class="contact-details">
+      <h3>Coordonnées</h3>
+      <div class="edit-field-wrapper">
+        <i class="fab fa-linkedin-in"></i>
+        <%= f.text_field :linkedin_url, placeholder: 'URL Linkedin', class: 'edit-input-field' %>
+      </div>
+      <div class="edit-field-wrapper">
+        <i class="far fa-envelope"></i>
+        <%= f.text_field :email, placeholder: 'Email', class: 'edit-input-field'%>
+      </div>
+      <div class="edit-field-wrapper">
+        <i class="fas fa-phone"></i>
+        <%= f.text_field :phone_number, placeholder: 'Numéro de téléphone', class: 'edit-input-field' %>
+      </div>
+      <div class="edit-field-wrapper">
+        <i class="fab fa-whatsapp"></i>
+        <%= f.text_field :whatsapp_url, placeholder: 'Numéro whatsApp', class: 'edit-input-field' %>
+      </div>
     </div>
 
-
-  </div>
-
-  <div class="bottom">
-
-      <div class="contact-details-wrapper">
-        <%= form_for @student do |f| %>
-          <div class="button-notif">
-            <div class="photo-input">
-              <%= f.label :photo %>
-              <%= f.file_field :photo %>
-            </div>
-            <%= f.submit "Valider les modifications", class: 'full-button' %>
-            <div class="notif">
-              <p>Les informations présentent sur votre CV proviennent de votre profil LinkedIn. Mettez à jour votre profil sur linkedin.com pour les modifier ici.</p>
-              <p>Le transfère des informations peut prendre un peu de temps...</p>
-            </div>
-          </div>
-          <div class="contact-details">
-            <h3>Coordonnées</h3>
-            <div class="edit-field-wrapper">
-              <i class="fab fa-linkedin-in"></i>
-              <%= f.text_field :linkedin_url, placeholder: 'URL Linkedin', class: 'edit-input-field' %>
-            </div>
-            <div class="edit-field-wrapper">
-              <i class="far fa-envelope"></i>
-              <%= f.text_field :email, placeholder: 'Email', class: 'edit-input-field'%>
-            </div>
-            <div class="edit-field-wrapper">
-              <i class="fas fa-phone"></i>
-              <%= f.text_field :phone_number, placeholder: 'Numéro de téléphone', class: 'edit-input-field' %>
-            </div>
-            <div class="edit-field-wrapper">
-              <i class="fab fa-whatsapp"></i>
-              <%= f.text_field :whatsapp_url, placeholder: 'Numéro whatsApp', class: 'edit-input-field' %>
-            </div>
-            <div class="edit-field-wrapper">
-              <%= f.check_box :looking_for_job %> <br />
-              <%= f.label "Je recherche un emploi / stage" %> <br />
-            </div>
-            <div class="edit-field-wrapper">
-              <%= f.check_box :company_hire %> <br />
-              <%= f.label "Mon entreprise recrute" %> <br />
-            </div>
-          </div>
-        <% end %>
+    <div class="situation">
+      <h3>Situation</h3>
+      <div class="edit-field-wrapper">
+        <%= f.check_box :looking_for_job %> <br />
+        <%= f.label "Je recherche un emploi / stage" %> <br />
       </div>
-
-
-
+      <div class="edit-field-wrapper">
+        <%= f.check_box :company_hire %> <br />
+        <%= f.label "Mon entreprise recrute" %> <br />
+      </div>
+    </div>
   </div>
+    <%= f.submit "Valider les modifications", class: 'full-button' %>
+
+
+  <div class="notif">
+    <p>Les informations présentent sur votre CV proviennent de votre profil LinkedIn. Mettez à jour votre profil sur linkedin.com pour les modifier ici.</p>
+    <p>Le transfère des informations peut prendre un peu de temps...</p>
+  </div>
+
+
+
+
 </div>
+<% end %>
 
 
 

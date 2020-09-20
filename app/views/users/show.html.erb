@@ -10,16 +10,16 @@
         <%= image_tag "blank-avatar.png" %>
       <% end %>
       <div class="link">
-        <% unless @student.linkedin_url.nil? %>
+        <% unless @student.linkedin_url.nil? || @student.linkedin_url === '' %>
           <a href="<%= @student.linkedin_url%>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         <% end %>
-        <% unless @student.email.nil? %>
+        <% unless @student.email.nil?  || @student.email === '' %>
           <a href="mailto:<%= @student.email%>"><i class="far fa-envelope"></i></a>
         <% end %>
-        <% unless @student.phone_number.nil? %>
+        <% unless @student.phone_number.nil? || @student.phone_number === '' %>
           <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
         <% end %>
-        <% unless @student.whatsapp_url.nil? %>
+        <% unless @student.whatsapp_url.nil? || @student.whatsapp_url === '' %>
           <a href="https://wa.me/+33<%= @student.whatsapp_url%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <% end %>
       </div>
@@ -59,7 +59,7 @@
           </ul>
 
         <% else %>
-          <p>Ajouter des tags</p>
+          <p>Ajouter des secteurs</p>
         <% end %>
       </div>
       <% if @student.looking_for_job? %>

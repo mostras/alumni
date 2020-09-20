@@ -1,7 +1,7 @@
 
 <div class="diploma-tag" id="diploma-<%= tag.diploma.try(:color) %>">
 
-  <% if !current_page?(new_tag_path) || !current_page?(edit_tag_path(tag)) %>
+  <% if !current_page?(new_tag_path) %>
     <%= link_to tag_path(tag), method: :delete, data: { confirm: "Etes vous sûr?" }, class: 'remove' do %>
       <i class="fas fa-times"></i>
     <% end %>
