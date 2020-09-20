@@ -1,4 +1,4 @@
-class AddMail
+class AddUrl
 
   def initialize(id, linkedin_url)
     @id = id

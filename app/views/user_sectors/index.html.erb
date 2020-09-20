@@ -1,0 +1,19 @@
+<div class="user-sectors-index-wrap">
+
+    <%= link_to user_path(current_user), class: 'back-button' do %>
+      <i class="fas fa-arrow-left"></i>
+      <p>Précédent</p>
+    <% end %>
+
+  <h3>Modifiez vos secteurs</h3>
+  <div class="user_sectors-index">
+    <% if @user_sectors.any? %>
+      <% @user_sectors.each do |user_sector| %>
+        <%= render 'shared/user-sector-card', user_sector: user_sector %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
+
+</div>

@@ -1,0 +1,46 @@
+.new-tag-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: $dark-blue;
+  position: absolute;
+  color: white;
+
+  img {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 160px;
+  }
+
+  .tag-wrapper {
+    max-width: 660px;
+    margin: 12rem auto;
+    position: relative;
+  }
+
+  .tags {
+    margin: 2rem 0;
+  }
+
+  .tags-index {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+  .empty-button {
+    color: white;
+    border-color: white;
+  }
+
+  .full-button {
+    color: white;
+    border-color: white;
+  }
+
+  .back-button {
+    position: absolute;
+    bottom: -15px;
+    left: -120px;
+  }
+
+}

@@ -1,0 +1,53 @@
+.new-user-sector-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: $dark-blue;
+  position: absolute;
+  color: white;
+
+  img {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 160px;
+  }
+
+  .sector-wrapper {
+    max-width: 660px;
+    margin: 12rem auto;
+    position: relative;
+  }
+
+  .sector {
+    margin: 2rem 0;
+  }
+
+  select {
+    height: 30px;
+    border: 1px solid $gray;
+    color: $gray;
+    border-radius: 5px;
+  }
+
+  .empty-button {
+    color: white;
+    border-color: white;
+  }
+
+    .full-button {
+    color: white;
+    border-color: white;
+  }
+
+  .back-button {
+    position: absolute;
+    bottom: -15px;
+    left: -120px;
+  }
+
+  .user-sector-card {
+    margin-bottom: 0.5rem;
+    border-color: white;
+    color: white;
+  }
+}

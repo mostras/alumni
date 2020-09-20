@@ -1,0 +1,19 @@
+<div class="tags-index-wrap">
+
+    <%= link_to user_path(current_user), class: 'back-button' do %>
+      <i class="fas fa-arrow-left"></i>
+      <p>Précédent</p>
+    <% end %>
+
+  <h3>Modifiez vos diplômes</h3>
+  <div class="tags-index">
+    <% if @tags.any? %>
+      <% @tags.each do |tag| %>
+        <%= render 'shared/diploma-tag', tag: tag %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= render 'shared/tag-form', tag: @tag, diplomas: @diplomas %>
+
+</div>

@@ -1,0 +1,8 @@
+<div class="user_sector-form">
+  <%= form_for @user_sector do |f| %>
+    <div class="form">
+      <%= f.select :sector_id, @sectors.map { |s| [s.name, s.id] }, :prompt => "Sélectionner un secteur..." %>
+      <%= f.submit "Ajouter", class: 'full-button'%>
+    </div>
+  <% end %>
+</div>

@@ -11,10 +11,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @diplomas = Diploma.all
-    @tag = @student.tags.build
-    @sectors = Sector.all
-    @user_sector = @student.user_sectors.build
   end
 
   def update
@@ -25,6 +21,20 @@ class UsersController < ApplicationController
       flash[:alert] = "Vos modifications n'ont pas pu être enregistrées."
       render :edit
     end
+  end
+
+  def linkedin
+  end
+
+  def submit_url_linkedin
+    id = current_user.id
+    linkedin_url = params[:url]
+    current_user.update(linkedin_url: linkedin_url)
+    AddUrl.new(id, linkedin_url).google_sheet
+    redirect_to new_tag_path
+  end
+
+  def welcome
   end
 
   private

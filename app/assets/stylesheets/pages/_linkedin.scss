@@ -1,0 +1,41 @@
+.linkedin-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: $dark-blue;
+  position: absolute;
+  color: white;
+
+  img {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 160px;
+  }
+
+  .linkedin {
+    max-width: 660px;
+    margin: 12rem auto;
+    position: relative;
+  }
+
+  .form-field {
+    width: -webkit-fill-available;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .empty-button {
+    color: white;
+    border-color: white;
+  }
+
+  .back-button {
+    position: absolute;
+    bottom: -11px;
+    left: -120px;
+  }
+}

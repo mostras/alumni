@@ -15,3 +15,18 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+console.log('coucou')
+
+let links = document.querySelectorAll('.remove');
+
+console.log(links)
+
+links.forEach((link) => {
+  console.log(link)
+  link.addEventListener('click', () => {
+    console.log('je suis dans ')
+    let div = link.parentNode
+    div.remove()
+  });
+});

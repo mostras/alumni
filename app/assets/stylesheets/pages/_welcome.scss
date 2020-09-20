@@ -1,0 +1,25 @@
+.welcome-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: $dark-blue;
+  position: absolute;
+  color: white;
+
+
+  .welcome {
+    max-width: 660px;
+    margin: 12rem auto;
+    position: relative;
+  }
+
+  .empty-button {
+    color: white;
+    border-color: white;
+  }
+
+  .back-button {
+    position: absolute;
+    bottom: -11px;
+    left: -120px;
+  }
+}

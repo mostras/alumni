@@ -1,0 +1,31 @@
+
+<div class="new-user-sector-wrapper">
+
+    <div class="sector-wrapper">
+      <h1>Mes secteurs d’activité</h1>
+      <p>Ajoutez jusqu’à 5 secteurs d’activité pour que les employeurs puissent vous retrouver facilement.</p>
+      <p>Vous pourez les modifier à tout moment dans votre profil.</p>
+
+      <div class="sector">
+        <div class="sectors-index">
+          <% if @student.user_sectors.any? %>
+            <% @student.user_sectors.each do |user_sector| %>
+              <%= render 'shared/user-sector-card', user_sector: user_sector %>
+            <% end %>
+          <% end %>
+         <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
+        </div>
+      </div>
+
+      <%= link_to 'Suivant', welcome_path, class: 'empty-button'  %>
+
+      <%= link_to :back, class: 'back-button' do %>
+        <i class="fas fa-arrow-left"></i>
+        <p>Précédent</p>
+      <% end %>
+
+
+    </div>
+
+
+</div>

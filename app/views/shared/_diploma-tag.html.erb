@@ -1,6 +1,15 @@
 
-
 <div class="diploma-tag" id="diploma-<%= tag.diploma.try(:color) %>">
+
+  <% if !current_page?(new_tag_path) %>
+    <%= link_to tag_path(tag), method: :delete, data: { confirm: "Etes vous sûr?" }, class: 'remove' do %>
+      <i class="fas fa-times"></i>
+    <% end %>
+
+    <span class="line"></span>
+  <% end %>
+
+
   <h5><%=tag.diploma.try(:name) %></h5>
   <p><%= tag.year %></p>
 </div>

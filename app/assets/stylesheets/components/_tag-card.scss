@@ -1,0 +1,33 @@
+.tag-card {
+  padding: 0.2rem 0.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+
+  h5 {
+    margin: 0;
+    line-height: 0;
+    margin-right: 0.5rem;
+  }
+
+  p {
+
+    margin: 0;
+  }
+
+}
+
+#diploma-red {
+  background-color: #CB676F;
+}
+
+#diploma-blue {
+  background-color: #C0D6DF;
+}
+
+#diploma-green {
+  background-color: #9CA88A;
+}

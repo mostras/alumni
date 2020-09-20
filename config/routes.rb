@@ -11,11 +11,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "pages#home"
 
-  resources :users, only: [:index, :show, :edit, :update] do
-    resources :tags, only: [:edit, :create]
+  get "linkedin", to: "users#linkedin"
+  get "submit_url_linkedin", to: "users#submit_url_linkedin"
+  get "welcome", to: "users#welcome"
 
-    resources :user_sectors, only: [:edit, :create]
-  end
+  resources :users, only: [:index, :show, :edit, :update]
+
+  resources :tags, only: [:index, :new, :create, :edit, :destroy]
+
+  resources :user_sectors, only: [:index, :new, :create, :edit, :destroy]
 
 
 
