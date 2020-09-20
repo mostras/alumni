@@ -18,11 +18,13 @@ require("channels")
 
 console.log('coucou')
 
-let links = document.querySelectorAll('.remove');
+let links = document.querySelectorAll('.remove-card');
 
 console.log(links)
 
-links.forEach((link) => {
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  links.forEach((link) => {
   console.log(link)
   link.addEventListener('click', () => {
     console.log('je suis dans ')
@@ -30,3 +32,6 @@ links.forEach((link) => {
     div.remove()
   });
 });
+})
+
+

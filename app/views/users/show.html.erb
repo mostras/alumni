@@ -19,8 +19,8 @@
         <% unless @student.phone_number.nil? || @student.phone_number === '' %>
           <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
         <% end %>
-        <% unless @student.whatsapp_url.nil? || @student.whatsapp_url === '' %>
-          <a href="https://wa.me/+33<%= @student.whatsapp_url%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <% unless @student.whatsapp_number.nil? || @student.whatsapp_number === '' %>
+          <a href="https://wa.me/+33<%= @student.whatsapp_number%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <% end %>
       </div>
     </div>
@@ -34,19 +34,25 @@
                 <%= render 'shared/diploma-tag', tag: tag %>
               <% end %>
             <% else %>
-              <p>Ajouter des tags</p>
+              <%= link_to tags_path do %>
+                Ajouter vos diplômes
+              <% end %>
             <% end %>
           </div>
-          <%= link_to tags_path do %>
-            <%= render 'shared/edit-icon' %>
+          <% if @student.tags.any? %>
+            <%= link_to tags_path do %>
+              <%= render 'shared/edit-icon' %>
+            <% end %>
           <% end %>
         </div>
       </div>
       <div class="sector">
         <div class="title">
           <h3>SECTEURS</h3>
-          <%= link_to user_sectors_path do %>
-            <%= render 'shared/edit-icon' %>
+          <% if @student.user_sectors.any? %>
+            <%= link_to user_sectors_path do %>
+              <%= render 'shared/edit-icon' %>
+            <% end %>
           <% end %>
         </div>
         <% if @student.user_sectors.any? %>
@@ -59,23 +65,53 @@
           </ul>
 
         <% else %>
-          <p>Ajouter des secteurs</p>
+          <%= link_to user_sectors_path do %>
+            Ajouter vos secteurs d'activités
+          <% end %>
         <% end %>
       </div>
       <% if @student.looking_for_job? %>
         <div class="notification">
           <i class="fas fa-exclamation-circle"></i>
-          <h4>JE RECHERCHE UN EMPLOI / STAGE</h4>
-
+          <h4>JE RECHERCHE UN EMPLOI</h4>
+        </div>
+      <% end %>
+      <% if @student.looking_for_internship? %>
+        <div class="notification" id="orange">
+          <i class="fas fa-exclamation-circle"></i>
+          <h4>JE RECHERCHE UN STAGE</h4>
         </div>
       <% end %>
       <% if @student.company_hire? %>
         <div class="notification" id="green">
           <i class="fas fa-exclamation-circle"></i>
           <h4>MON ENTREPRISE RECRUTE</h4>
-
         </div>
       <% end %>
     </div>
   </div>
+
+  <div class="user-experiences-educations-wrap">
+
+    <div class="user-experiences">
+      <h2>EXPERIENCES</h2>
+      <% if @student.work_experiences.any? %>
+        <% @student.work_experiences.each do |work_experience| %>
+          <%= render 'shared/work_experience-card', work_experience: work_experience %>
+        <% end %>
+      <% end %>
+
+    </div>
+
+    <div class="user-educations">
+      <h2>EDUCATIONS</h2>
+
+    </div>
+
+
+  </div>
+
+
+
+
 </div>

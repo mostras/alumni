@@ -15,7 +15,7 @@ RSpec.feature "Users can edit their info" do
     fill_in 'user_linkedin_url', with: "www.adrien.com"
     fill_in "user_email", with: "adrien@gmail.com"
     fill_in "user_phone_number", with: "0679093717"
-    fill_in "user_whatsapp_url", with: "0679093717"
+    fill_in "user_whatsapp_number", with: "0679093717"
 
     click_button "Valider les modifications"
 

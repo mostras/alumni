@@ -30,7 +30,7 @@
       </div>
       <div class="edit-field-wrapper">
         <i class="fab fa-whatsapp"></i>
-        <%= f.text_field :whatsapp_url, placeholder: 'Numéro whatsApp', class: 'edit-input-field' %>
+        <%= f.text_field :whatsapp_number, placeholder: 'Numéro whatsApp', class: 'edit-input-field' %>
       </div>
     </div>
 
@@ -38,7 +38,11 @@
       <h3>Situation</h3>
       <div class="edit-field-wrapper">
         <%= f.check_box :looking_for_job %> <br />
-        <%= f.label "Je recherche un emploi / stage" %> <br />
+        <%= f.label "Je recherche un emploi" %> <br />
+      </div>
+       <div class="edit-field-wrapper">
+        <%= f.check_box :looking_for_internship %> <br />
+        <%= f.label "Je recherche un stage" %> <br />
       </div>
       <div class="edit-field-wrapper">
         <%= f.check_box :company_hire %> <br />
