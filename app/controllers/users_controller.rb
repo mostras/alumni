@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def student_params
-    params.require(:user).permit(:linkedin_url, :email, :phone_number, :whatsapp_url, :looking_for_job, :company_hire, :photo)
+    params.require(:user).permit(:linkedin_url, :email, :phone_number, :whatsapp_number, :looking_for_job, :looking_for_internship, :company_hire, :photo)
   end
 
 

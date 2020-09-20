@@ -19,8 +19,8 @@
         <% unless @student.phone_number.nil? || @student.phone_number === '' %>
           <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
         <% end %>
-        <% unless @student.whatsapp_url.nil? || @student.whatsapp_url === '' %>
-          <a href="https://wa.me/+33<%= @student.whatsapp_url%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <% unless @student.whatsapp_number.nil? || @student.whatsapp_number === '' %>
+          <a href="https://wa.me/+33<%= @student.whatsapp_number%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <% end %>
       </div>
     </div>
@@ -73,15 +73,19 @@
       <% if @student.looking_for_job? %>
         <div class="notification">
           <i class="fas fa-exclamation-circle"></i>
-          <h4>JE RECHERCHE UN EMPLOI / STAGE</h4>
-
+          <h4>JE RECHERCHE UN EMPLOI</h4>
+        </div>
+      <% end %>
+      <% if @student.looking_for_internship? %>
+        <div class="notification" id="orange">
+          <i class="fas fa-exclamation-circle"></i>
+          <h4>JE RECHERCHE UN STAGE</h4>
         </div>
       <% end %>
       <% if @student.company_hire? %>
         <div class="notification" id="green">
           <i class="fas fa-exclamation-circle"></i>
           <h4>MON ENTREPRISE RECRUTE</h4>
-
         </div>
       <% end %>
     </div>

@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2020_09_14_070014) do
 
   create_table "diplomas", force: :cascade do |t|
     t.string "name"
+    t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "color"
   end
 
   create_table "sectors", force: :cascade do |t|
@@ -78,10 +78,9 @@ ActiveRecord::Schema.define(version: 2020_09_14_070014) do
     t.string "last_name"
     t.string "phone_number"
     t.string "linkedin_url"
-    t.string "messenger_url"
-    t.string "instagram_url"
-    t.string "whatsapp_url"
+    t.string "whatsapp_number"
     t.boolean "looking_for_job"
+    t.boolean "looking_for_internship"
     t.boolean "company_hire"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
