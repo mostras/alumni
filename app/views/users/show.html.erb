@@ -90,4 +90,28 @@
       <% end %>
     </div>
   </div>
+
+  <div class="user-experiences-educations-wrap">
+
+    <div class="user-experiences">
+      <h2>EXPERIENCES</h2>
+      <% if @student.work_experiences.any? %>
+        <% @student.work_experiences.each do |work_experience| %>
+          <%= render 'shared/work_experience-card', work_experience: work_experience %>
+        <% end %>
+      <% end %>
+
+    </div>
+
+    <div class="user-educations">
+      <h2>EDUCATIONS</h2>
+
+    </div>
+
+
+  </div>
+
+
+
+
 </div>

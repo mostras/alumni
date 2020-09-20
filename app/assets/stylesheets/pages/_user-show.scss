@@ -142,4 +142,29 @@
   #orange {
     color: orange;
   }
+
+  .user-experiences-educations-wrap {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .user-experiences {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .user-educations {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    width: 100%;
+  }
+
+
 }
