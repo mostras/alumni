@@ -2,6 +2,11 @@
   margin: 6rem 4rem 2rem 4rem;
   position: relative;
 
+  a {
+    color: $gray;
+    font-style: italic;
+  }
+
   h3 {
     margin: 0;
   }

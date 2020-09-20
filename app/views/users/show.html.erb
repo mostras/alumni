@@ -34,19 +34,25 @@
                 <%= render 'shared/diploma-tag', tag: tag %>
               <% end %>
             <% else %>
-              <p>Ajouter des tags</p>
+              <%= link_to tags_path do %>
+                Ajouter vos diplômes
+              <% end %>
             <% end %>
           </div>
-          <%= link_to tags_path do %>
-            <%= render 'shared/edit-icon' %>
+          <% if @student.tags.any? %>
+            <%= link_to tags_path do %>
+              <%= render 'shared/edit-icon' %>
+            <% end %>
           <% end %>
         </div>
       </div>
       <div class="sector">
         <div class="title">
           <h3>SECTEURS</h3>
-          <%= link_to user_sectors_path do %>
-            <%= render 'shared/edit-icon' %>
+          <% if @student.user_sectors.any? %>
+            <%= link_to user_sectors_path do %>
+              <%= render 'shared/edit-icon' %>
+            <% end %>
           <% end %>
         </div>
         <% if @student.user_sectors.any? %>
@@ -59,7 +65,9 @@
           </ul>
 
         <% else %>
-          <p>Ajouter des secteurs</p>
+          <%= link_to user_sectors_path do %>
+            Ajouter vos secteurs d'activités
+          <% end %>
         <% end %>
       </div>
       <% if @student.looking_for_job? %>
