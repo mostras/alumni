@@ -45,7 +45,9 @@
       <div class="sector">
         <div class="title">
           <h3>SECTEURS</h3>
-          <%= render 'shared/edit-icon' %>
+          <%= link_to user_sectors_path do %>
+            <%= render 'shared/edit-icon' %>
+          <% end %>
         </div>
         <% if @student.user_sectors.any? %>
           <ul>

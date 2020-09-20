@@ -1,7 +1,13 @@
 class UserSectorsController < ApplicationController
 
-  before_action :set_student, only: [:new, :create, :edit]
-  before_action :set_user_sector, only: [:edit]
+  before_action :set_student, only: [:index, :new, :create, :edit]
+  before_action :set_user_sector, only: [:edit, :destroy]
+
+  def index
+    @user_sectors = UserSector.where(user: @student)
+    @sectors = Sector.all
+    @user_sector = @student.user_sectors.build
+  end
 
   def new
     @sectors = Sector.all
@@ -20,6 +26,10 @@ class UserSectorsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @user_sector.destroy
   end
 
   private

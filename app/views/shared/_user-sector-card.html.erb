@@ -1,3 +1,11 @@
 <div class="user-sector-card">
-  <%= sector.try(:name) %>
+
+  <%= link_to user_sector_path(user_sector), method: :delete, data: { confirm: "Etes vous sûr?" }, class: 'remove' do %>
+    <i class="fas fa-times"></i>
+  <% end %>
+
+  <span class="line"></span>
+
+
+  <%= user_sector.sector.try(:name) %>
 </div>
