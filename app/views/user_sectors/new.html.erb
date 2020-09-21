@@ -13,7 +13,12 @@
               <%= render 'shared/user-sector-card', user_sector: user_sector %>
             <% end %>
           <% end %>
-         <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
+          <% if @student.user_sectors.count >= 5 %>
+            <p>Vous avez atteint le nombre maximum de secteurs.</p>
+          <% else %>
+            <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
+          <% end %>
+          <%= @student.user_sectors.count %> /5
         </div>
       </div>
 
