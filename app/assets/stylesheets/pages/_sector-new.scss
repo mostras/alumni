@@ -29,20 +29,31 @@
     border-radius: 5px;
   }
 
-  .empty-button {
+
+  .full-button {
     color: white;
     border-color: white;
   }
 
-    .full-button {
+  .empty-button {
     color: white;
     border-color: white;
+    margin-right: 1rem;
+    height: 36px;
   }
 
   .back-button {
     position: absolute;
-    bottom: -15px;
-    left: -120px;
+    bottom: -6px;
+    left: -112px;
+
+    p {
+      font-size: 14px;
+    }
+
+    i {
+      font-size: 12px;
+    }
   }
 
   .user-sector-card {

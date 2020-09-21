@@ -44,7 +44,18 @@ body {
     font-size: 22px;
   }
 
+  #error_explanation {
+    margin-bottom: 2rem;
 
+    h2 {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    ul {
+      font-size: 14px;
+    }
+  }
 
 
 }
