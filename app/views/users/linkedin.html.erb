@@ -3,12 +3,17 @@
 
   <div class="linkedin">
     <h1>LinkedIn</h1>
-    <p>Nous utilisons LinkedIn pour récupérer vos expériences professionnelles et vos formations.</p>
-    <p>Vous autorisez de ce fait le réseau Chartreux Alumni à lire les données publiques de votre profil.</p>
+    <p>Nous utilisons LinkedIn pour récupérer vos expériences professionnelles et vos formations et les ajouter à votre profil.</p>
+    <p>Vous autorisez le réseau Chartreux Alumni à lire les données publiques de votre profil.</p>
 
     <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
       <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
-      <button class="empty-button">Suivant</button>
+      <% if params.blank? %>
+        <button class="empty-button">Suivant</button>
+      <% else %>
+        <button class="empty-button">Suivant</button>
+        <% flash[:alert] = "Attention, sans URL LinkedIn votre profil ne pourra pas être complété et ne sera pas automatiquement mis à jour. Souhaitez-vous quand même continuer ?" %>
+      <% end %>
     <% end %>
 
     <%= link_to :back, class: 'back-button' do %>
