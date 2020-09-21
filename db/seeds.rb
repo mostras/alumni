@@ -15,6 +15,9 @@ User.destroy_all
 puts 'Users destruction OK'
 Company.destroy_all
 puts 'Company destruction OK'
+School.destroy_all
+puts 'School destruction OK'
+
 
 bac = ['BAC']
 bac.each do |diploma|
@@ -109,9 +112,35 @@ work_experience6.save!
 puts 'Work experience creation OK'
 
 
+school1 = School.new(name: 'HEC', city: 'Lyon')
+school1.save!
+school2 = School.new(name: 'Polytechnique', city: 'Paris')
+school2.save!
+school3 = School.new(name: 'ENSMM', city: 'Paris')
+school3.save!
+school4 = School.new(name: 'GEM', city: 'Paris')
+school4.save!
+school5 = School.new(name: 'Chartreux', city: 'Paris')
+school5.save!
+school6 = School.new(name: 'Ecole des mines', city: 'Paris')
+school6.save!
 
+puts 'School creation OK'
 
+school_experience1 = SchoolExperience.new(title: 'Master in management', start_time: '2019', end_time: '2020', location: 'Lyon', current: true, user: user1, school: school1)
+school_experience1.save!
+school_experience2 = SchoolExperience.new(title: 'DUT Marketing', start_time: '2016', end_time: '2019', location: 'Lyon', current: false, user: user1, school: school2)
+school_experience2.save!
+school_experience3 = SchoolExperience.new(title: "Diplôme d'ingénieur", start_time: '2014', end_time: '2016', location: 'Lyon', current: true, user: user1, school: school3)
+school_experience3.save!
+school_experience4 = SchoolExperience.new(title: 'BTS Marketing', start_time: '2019', end_time: '2020', location: 'Lyon', current: true, user: user2, school: school4)
+school_experience4.save!
+school_experience5 = SchoolExperience.new(title: 'BAC STI', start_time: '2014', end_time: '2019', location: 'Lyon', current: true, user: user2, school: school5)
+school_experience5.save!
+school_experience6 = SchoolExperience.new(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user2, school: school6)
+school_experience6.save!
 
+puts 'SchoolExperiences creation OK'
 
 
 
