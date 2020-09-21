@@ -31,11 +31,21 @@
   .empty-button {
     color: white;
     border-color: white;
+    margin-right: 1rem;
+    height: 36px;
   }
 
   .back-button {
     position: absolute;
-    bottom: -11px;
-    left: -120px;
+    bottom: -6px;
+    left: -112px;
+
+    p {
+      font-size: 14px;
+    }
+
+    i {
+      font-size: 12px;
+    }
   }
 }
