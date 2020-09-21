@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :tags
   has_many :user_sectors
   has_many :work_experiences, dependent: :destroy
+  has_many :school_experiences, dependent: :destroy
 
 
 

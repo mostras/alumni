@@ -100,11 +100,15 @@
           <%= render 'shared/work_experience-card', work_experience: work_experience %>
         <% end %>
       <% end %>
-
     </div>
 
     <div class="user-educations">
       <h2>EDUCATIONS</h2>
+      <% if @student.school_experiences.any? %>
+        <% @student.school_experiences.each do |school_experience| %>
+          <%= render 'shared/school_experience-card', school_experience: school_experience %>
+        <% end %>
+      <% end %>
 
     </div>
 

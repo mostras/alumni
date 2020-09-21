@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_101722) do
+ActiveRecord::Schema.define(version: 2020_09_21_063744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,27 @@ ActiveRecord::Schema.define(version: 2020_09_20_101722) do
   create_table "diplomas", force: :cascade do |t|
     t.string "name"
     t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "school_experiences", force: :cascade do |t|
+    t.string "title"
+    t.string "start_time"
+    t.string "end_time"
+    t.string "location"
+    t.boolean "current"
+    t.bigint "user_id", null: false
+    t.bigint "school_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["school_id"], name: "index_school_experiences_on_school_id"
+    t.index ["user_id"], name: "index_school_experiences_on_user_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -110,6 +131,8 @@ ActiveRecord::Schema.define(version: 2020_09_20_101722) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "school_experiences", "schools"
+  add_foreign_key "school_experiences", "users"
   add_foreign_key "tags", "diplomas"
   add_foreign_key "tags", "users"
   add_foreign_key "user_sectors", "sectors"
