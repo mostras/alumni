@@ -1,9 +1,9 @@
 <div class="user-sectors-index-wrap">
 
-    <%= link_to user_path(current_user), class: 'back-button' do %>
-      <i class="fas fa-arrow-left"></i>
-      <p>Valider</p>
-    <% end %>
+  <%= link_to user_path(current_user), class: 'back-button' do %>
+    <i class="fas fa-arrow-left"></i>
+    <p>Valider</p>
+  <% end %>
 
   <h3>Modifiez vos secteurs</h3>
   <div class="user_sectors-index">
@@ -13,7 +13,13 @@
       <% end %>
     <% end %>
   </div>
+   <% if @student.user_sectors.count >= 5 %>
+      <p>Vous avez atteint le nombre maximum de secteurs.</p>
+    <% else %>
+      <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
+    <% end %>
+    <%= @student.user_sectors.count %> /5
 
-  <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
+
 
 </div>

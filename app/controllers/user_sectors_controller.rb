@@ -15,18 +15,12 @@ class UserSectorsController < ApplicationController
   end
 
   def create
-    unless @student.user_sectors.size >= 5
-      @user_sector = @student.user_sectors.build(user_sector_params)
-      if @user_sector.save
-        flash[:notice] = "Le secteur a bien été ajouté."
-        redirect_to request.referrer
-      else
-        flash[:alert] = "Le secteur n'a pas pu être ajouté."
-        render :new
-      end
+    binding.pry
+    @user_sector = @student.user_sectors.build(user_sector_params)
+    if @user_sector.save
+      flash[:notice] = "Le secteur a bien été ajouté."
+      redirect_to request.referrer
     else
-      @user_sector = @student.user_sectors.build
-      @sectors = Sector.all
       flash[:alert] = "Le secteur n'a pas pu être ajouté."
       render :new
     end
