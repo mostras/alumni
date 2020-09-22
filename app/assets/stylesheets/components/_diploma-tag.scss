@@ -1,4 +1,4 @@
-.diploma-tag {
+.diploma-tag-big {
   padding: 0.2rem 0.5rem;
   color: white;
   display: flex;
@@ -13,7 +13,7 @@
 
   .line {
     width: 1px;
-    height: 12px;
+    height: 16px;
     background-color: white;
     margin: 0 0.5rem;
   }
@@ -22,12 +22,20 @@
     margin: 0;
     line-height: 0;
     margin-right: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
   }
 
   p {
-
+    line-height: 0;
+    font-weight: 400;
     margin: 0;
+    font-size: 0.9rem;
   }
+
+}
+
+.diploma-tag-small {
 
 }
 

@@ -31,7 +31,7 @@
           <div class="tags-index">
             <% if @student.tags.any? %>
               <% @student.tags.each do |tag| %>
-                <%= render 'shared/diploma-tag', tag: tag %>
+                <%= render 'shared/diploma-tag-big', tag: tag %>
               <% end %>
             <% else %>
               <%= link_to tags_path do %>
