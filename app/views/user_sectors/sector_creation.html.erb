@@ -2,17 +2,21 @@
 <div class="new-user-sector-wrapper">
 
     <div class="sector-wrapper">
-      <h1>Mes secteurs d’activité</h1>
-      <p>Ajoutez jusqu’à 5 secteurs d’activité pour que les employeurs puissent vous trouver facilement.</p>
-      <p>Vous pourrez les modifier à tout moment dans votre profil.</p>
+      <div class="description">
+        <h1>Mes secteurs d’activité</h1>
+        <p>Ajoutez jusqu’à 5 secteurs d’activité pour que les employeurs puissent vous trouver facilement.</p>
+        <p>Vous pourrez les modifier à tout moment dans votre profil.</p>
+      </div>
 
       <div class="sector">
         <div class="sectors-index">
-          <% if @student.user_sectors.any? %>
-            <% @student.user_sectors.each do |user_sector| %>
-              <%= render 'shared/user-sector-card', user_sector: user_sector %>
+
+          <% if @user_sectors.any? %>
+            <% @user_sectors.each do |sector| %>
+              <%= render 'shared/user-sector-card', user_sector: sector %>
             <% end %>
           <% end %>
+
           <% if @student.user_sectors.count >= 5 %>
             <p>Vous avez atteint le nombre maximum de secteurs.</p>
           <% else %>

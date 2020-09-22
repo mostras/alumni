@@ -1,6 +1,6 @@
 class UserSectorsController < ApplicationController
 
-  before_action :set_student, only: [:index, :new, :create, :edit]
+  before_action :set_student, only: [:index, :sector_creation, :create, :edit]
   before_action :set_user_sector, only: [:edit, :destroy]
 
   def index
@@ -9,24 +9,18 @@ class UserSectorsController < ApplicationController
     @user_sector = @student.user_sectors.build
   end
 
-  def new
+  def sector_creation
+    @user_sectors = UserSector.where(user: @student)
     @sectors = Sector.all
     @user_sector = @student.user_sectors.build
   end
 
   def create
-    unless @student.user_sectors.size >= 5
-      @user_sector = @student.user_sectors.build(user_sector_params)
-      if @user_sector.save
-        flash[:notice] = "Le secteur a bien été ajouté."
-        redirect_to request.referrer
-      else
-        flash[:alert] = "Le secteur n'a pas pu être ajouté."
-        render :new
-      end
+    @user_sector = @student.user_sectors.build(user_sector_params)
+    if @user_sector.save
+      flash[:notice] = "Le secteur a bien été ajouté."
+      redirect_to request.referrer
     else
-      @user_sector = @student.user_sectors.build
-      @sectors = Sector.all
       flash[:alert] = "Le secteur n'a pas pu être ajouté."
       render :new
     end

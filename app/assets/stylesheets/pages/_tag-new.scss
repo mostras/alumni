@@ -5,6 +5,7 @@
   position: absolute;
   color: white;
 
+
   img {
     position: absolute;
     top: 2rem;
@@ -16,10 +17,13 @@
     max-width: 660px;
     margin: 12rem auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
   }
 
   .tags {
-    margin: 2rem 0;
+    margin: 2rem 0 3rem 0;
   }
 
   .tags-index {
@@ -27,10 +31,6 @@
     margin-bottom: 1rem;
   }
 
-  .full-button {
-    color: white;
-    border-color: white;
-  }
 
   .empty-button {
     color: white;

@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     linkedin_url = params[:url]
     current_user.update(linkedin_url: linkedin_url)
     AddUrl.new(id, linkedin_url).google_sheet
-    redirect_to new_tag_path
+    redirect_to tag_creation_tags_path
   end
 
   def welcome

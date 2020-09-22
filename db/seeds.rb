@@ -19,6 +19,7 @@ School.destroy_all
 puts 'School destruction OK'
 
 
+
 bac = ['BAC']
 bac.each do |diploma|
   Diploma.create(name: diploma, color: 'red')
