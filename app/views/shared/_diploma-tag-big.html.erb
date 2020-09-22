@@ -1,6 +1,5 @@
 
 <div class="diploma-tag-big" id="diploma-<%= tag.diploma.try(:color) %>">
-
   <% unless current_page?(controller: 'users', action: 'show', id: current_user) %>
     <%= link_to tag_path(tag), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer cette formation ?" }, class: 'remove-card' do %>
       <i class="fas fa-times"></i>
