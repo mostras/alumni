@@ -12,7 +12,7 @@
       <div class="tags-index">
         <% if @tags.any? %>
           <% @tags.each do |tag| %>
-            <%= render 'shared/diploma-tag', tag: tag, student: @student %>
+            <%= render 'shared/diploma-tag-big', tag: tag, student: @student %>
           <% end %>
         <% end %>
       </div>
