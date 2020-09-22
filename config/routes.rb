@@ -17,10 +17,17 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update]
 
-  resources :tags, only: [:index, :new, :create, :edit, :destroy]
+  resources :tags, only: [:index, :new, :create, :edit, :destroy] do
+    collection do
+      get :tag_creation
+    end
+  end
 
-  resources :user_sectors, only: [:index, :new, :create, :edit, :destroy]
-
+  resources :user_sectors, only: [:index, :new, :create, :edit, :destroy] do
+    collection do
+      get :sector_creation
+    end
+  end
 
 
 end

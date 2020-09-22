@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
 
-  before_action :set_student, only: [:index, :new, :create, :edit]
+  before_action :set_student, only: [:index, :tag_creation, :create, :edit]
   before_action :set_tag, only: [:edit, :destroy]
 
   def index
@@ -9,9 +9,10 @@ class TagsController < ApplicationController
     @diplomas = Diploma.all
   end
 
-  def new
-    @diplomas = Diploma.all
+  def tag_creation
+    @tags = Tag.where(user: current_user)
     @tag = @student.tags.build
+    @diplomas = Diploma.all
   end
 
   def create
