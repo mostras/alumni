@@ -10,6 +10,13 @@
     max-width: 660px;
     margin: 12rem auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .description {
+    margin-bottom: 2rem;
   }
 
   .empty-button {
@@ -19,7 +26,15 @@
 
   .back-button {
     position: absolute;
-    bottom: -11px;
-    left: -120px;
+    bottom: -6px;
+    left: -112px;
+
+    p {
+      font-size: 14px;
+    }
+
+    i {
+      font-size: 12px;
+    }
   }
 }

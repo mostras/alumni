@@ -16,6 +16,9 @@
     max-width: 660px;
     margin: 12rem auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
   }
 
   .form-field {

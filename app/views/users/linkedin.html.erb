@@ -2,9 +2,11 @@
 
 
   <div class="linkedin">
-    <h1>LinkedIn</h1>
-    <p>Nous utilisons LinkedIn pour récupérer vos expériences professionnelles et vos formations et les ajouter à votre profil.</p>
-    <p>Vous autorisez le réseau Chartreux Alumni à lire les données publiques de votre profil.</p>
+    <div class="description">
+      <h1>LinkedIn</h1>
+      <p>Nous utilisons LinkedIn pour récupérer vos expériences professionnelles et vos formations et les ajouter à votre profil.</p>
+      <p>Vous autorisez le réseau Chartreux Alumni à lire les données publiques de votre profil.</p>
+    </div>
 
     <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
       <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
