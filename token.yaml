@@ -1,6 +1,4 @@
----
-<<<<<<< HEAD
+
 default: '{"client_id":"215516478037-6qo9mha7l5pm29kpb2qhbehsgmis5n7a.apps.googleusercontent.com","access_token":"ya29.a0AfH6SMD1jQU-oilIXjUPiIUAvYDFusKGv6ShJlXQEakS65pCMeFpLWvVJjlO27oZICdb1IVruHbBOhVkCS_hu3CGaqkOWCH1-qABGyxVdfGciQJ5FwoHUt3RXKI6LUrRtLn_mX5dIFU_oT8k1t8v3N5OUXMHa88Z-GVzzQ","refresh_token":"1//03lcMf6pCQWuXCgYIARAAGAMSNwF-L9IrVtIjFkQ8pVVtRE1aFyHriwiTcOBAwHbVKyapkwJfV_7HhmMg9IBhuh7kCB2M76QynBQ","scope":["https://www.googleapis.com/auth/drive"],"expiration_time_millis":1600765738000}'
-=======
-default: '{"client_id":"215516478037-6qo9mha7l5pm29kpb2qhbehsgmis5n7a.apps.googleusercontent.com","access_token":"ya29.a0AfH6SMBiUoK0j_hqDPUFOD9DTqLZdHic7MlB0JzoKvnhW1KW39leUFNWk4D7yEoc7fmh3UH3VMElowSwM6Zjz5nAdlGoZfKBHGN1sS2__chEsfrGcenjtwaspQI7RCRMvLR1iCDiZbfkvOzJaMj2xc58-AdCvLkRp9CLyQ","refresh_token":"1//03lcMf6pCQWuXCgYIARAAGAMSNwF-L9IrVtIjFkQ8pVVtRE1aFyHriwiTcOBAwHbVKyapkwJfV_7HhmMg9IBhuh7kCB2M76QynBQ","scope":["https://www.googleapis.com/auth/drive"],"expiration_time_millis":1600783571000}'
->>>>>>> 9cc7b93a98ed2fb6cd99d2f9f8ba2957ec50e0b8
+
+
