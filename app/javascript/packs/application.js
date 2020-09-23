@@ -20,18 +20,27 @@ console.log('coucou')
 
 let links = document.querySelectorAll('.remove-card');
 
-console.log(links)
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
   links.forEach((link) => {
-  console.log(link)
   link.addEventListener('click', () => {
-    console.log('je suis dans ')
     let div = link.parentNode
     div.remove()
   });
 });
 })
+
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//   var input = document.getElementById("url")
+//   if (input) {
+//     console.log(input)
+//     alert("My input has a value!");
+//   }
+// })
+
+
+
 
 
