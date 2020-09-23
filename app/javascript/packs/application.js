@@ -18,15 +18,21 @@ require("channels")
 
 
 //DELETE TAG-CARD AND SECTOR-CARD WHEN USER CLICK ON CROSS
-let links = document.querySelectorAll('.remove-card');
 document.addEventListener('DOMContentLoaded', (event) => {
+  let links = document.querySelectorAll('.remove-card');
   links.forEach((link) => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (event) => {
       let div = link.parentNode
       div.remove()
     });
   });
 });
+
+//HIDE FORM WHEN SECTOR > 5
+document.addEventListener('DOMContentLoaded', (event) => {
+  var userSectorCards = document.querySelectorAll('.user-sector-card')
+  console.log(userSectorCards.length)
+})
 
 //ADD A CONFIRMATION MESSAGE WHEN LINKEDIN USER VALUE IS NULL
 document.addEventListener('DOMContentLoaded', (event) => {

@@ -31,6 +31,7 @@ class TagsController < ApplicationController
 
   def destroy
     @tag.destroy
+    redirect_to request.referrer
   end
 
 

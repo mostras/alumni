@@ -31,6 +31,7 @@ class UserSectorsController < ApplicationController
 
   def destroy
     @user_sector.destroy
+    redirect_to request.referrer
   end
 
   private
