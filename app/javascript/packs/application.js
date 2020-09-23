@@ -32,13 +32,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
 })
 
 
-// document.addEventListener('DOMContentLoaded', (event) => {
-//   var input = document.getElementById("url")
-//   if (input) {
-//     console.log(input)
-//     alert("My input has a value!");
-//   }
-// })
+document.addEventListener('DOMContentLoaded', (event) => {
+  var input = document.getElementById("url")
+  var btnLinkedin = document.getElementById("linkedin-button")
+  console.log(btnLinkedin)
+
+  btnLinkedin.addEventListener('click', (event) => {
+
+      if (input && !input.value) {
+      console.log(input)
+
+      if (confirm("Attention, sans URL LinkedIn votre profil ne pourra pas être complété et ne sera pas automatiquement mis à jour. Souhaitez-vous quand même continuer ?")) {
+        // Save it!
+        console.log('Thing was saved to the database.');
+      } else {
+        event.preventDefault()
+        console.log('Thing was not saved to the database.');
+      }
+    }
+  })
+})
 
 
 
