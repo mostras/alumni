@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 
   .photo {
     display: flex;
@@ -37,16 +38,10 @@
     width: 80%;
   }
 
-  .full-button {
-    margin: 2rem auto;
-  }
-
   .contact-details {
     display: flex;
     flex-direction: column;
   }
-
-
 
   .edit-field-wrapper {
     display: flex;
@@ -70,5 +65,29 @@
     font-size: 14px;
     margin-left: 0.5rem;
     color: $gray;
+  }
+
+  .valid-button {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: fit-content;
+    color: $dark-blue;
+    position: absolute;
+    top: -20px;
+    left: 0;
+
+    input {
+      border: none;
+      background: none;
+      color: $dark-blue;
+      font-size: 14px;
+      padding: 0;
+    }
+
+    i {
+      margin-right: 0.5rem;
+    }
   }
 }

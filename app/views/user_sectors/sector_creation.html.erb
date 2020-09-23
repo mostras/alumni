@@ -12,9 +12,13 @@
         <div class="sectors-index">
 
           <% if @user_sectors.any? %>
-            <% @user_sectors.each do |sector| %>
-              <%= render 'shared/user-sector-card', user_sector: sector %>
-            <% end %>
+            <ul>
+              <% @user_sectors.each do |sector| %>
+                <li>
+                  <%= render 'shared/user-sector-card', user_sector: sector %>
+                </li>
+              <% end %>
+            </ul>
           <% end %>
 
           <% if @student.user_sectors.count >= 5 %>
