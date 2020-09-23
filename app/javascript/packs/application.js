@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 })
 
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  var input = document.getElementById("url")
-  if (input) {
-    console.log(input)
-    alert("My input has a value!");
-  }
-})
+// document.addEventListener('DOMContentLoaded', (event) => {
+//   var input = document.getElementById("url")
+//   if (input) {
+//     console.log(input)
+//     alert("My input has a value!");
+//   }
+// })
 
 
 
