@@ -16,44 +16,55 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-console.log('coucou')
 
+//DELETE TAG-CARD AND SECTOR-CARD WHEN USER CLICK ON CROSS
 let links = document.querySelectorAll('.remove-card');
-
-
-
 document.addEventListener('DOMContentLoaded', (event) => {
   links.forEach((link) => {
-  link.addEventListener('click', () => {
-    let div = link.parentNode
-    div.remove()
+    link.addEventListener('click', () => {
+      let div = link.parentNode
+      div.remove()
+    });
   });
 });
-})
 
-
+//ADD A CONFIRMATION MESSAGE WHEN LINKEDIN USER VALUE IS NULL
 document.addEventListener('DOMContentLoaded', (event) => {
   var input = document.getElementById("url")
   var btnLinkedin = document.getElementById("linkedin-button")
-  console.log(btnLinkedin)
 
-  btnLinkedin.addEventListener('click', (event) => {
-
-      if (input && !input.value) {
-      console.log(input)
-
-      if (confirm("Attention, sans URL LinkedIn votre profil ne pourra pas être complété et ne sera pas automatiquement mis à jour. Souhaitez-vous quand même continuer ?")) {
-        // Save it!
-        console.log('Thing was saved to the database.');
-      } else {
-        event.preventDefault()
-        console.log('Thing was not saved to the database.');
+  if (btnLinkedin) {
+    btnLinkedin.addEventListener('click', (event) => {
+        if (input && !input.value) {
+          if (confirm("Attention, sans URL LinkedIn votre profil ne pourra pas être complété et ne sera pas automatiquement mis à jour. Souhaitez-vous quand même continuer ?")) {
+            // Save it
+          } else {
+            event.preventDefault()
+          }
       }
-    }
-  })
+    });
+  };
+});
+
+//DISABLE BUTTON WHEN THE TAG-DIPLOMA CREATION IS NOT DONE CORRECTLY
+document.addEventListener('DOMContentLoaded', (event) => {
+  var addTagButton = document.getElementById("add_tag_button")
+  var selectDiploma = document.getElementById("tag_diploma_id")
+  var selectYear = document.getElementById("tag_year")
+
+  if (addTagButton && selectDiploma && selectYear) {
+    addTagButton.disabled = true
+
+    selectDiploma.addEventListener('change', (event) => {
+      if (selectDiploma.value && selectYear.value) {
+        addTagButton.disabled = false
+      };
+    });
+
+    selectYear.addEventListener('change', (event) => {
+      if (selectYear.value && selectDiploma.value) {
+        addTagButton.disabled = false
+      };
+    });
+  }
 })
-
-
-
-
-

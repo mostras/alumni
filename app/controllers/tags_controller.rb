@@ -22,7 +22,7 @@ class TagsController < ApplicationController
       redirect_to request.referrer
     else
       flash[:alert] = "Le tag n'a pas pu être ajouté."
-      render :new
+      redirect_to request.referrer
     end
   end
 
