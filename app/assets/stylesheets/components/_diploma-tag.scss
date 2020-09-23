@@ -1,20 +1,15 @@
-.diploma-tag {
+.diploma-tag-big {
   padding: 0.2rem 0.5rem;
-  color: white;
   display: flex;
   align-items: center;
   width: fit-content;
   border-radius: 5px;
   margin-right: 0.5rem;
-
-  a {
-    color: white;
-  }
+  height: 20px;
 
   .line {
     width: 1px;
-    height: 12px;
-    background-color: white;
+    height: 16px;
     margin: 0 0.5rem;
   }
 
@@ -22,31 +17,67 @@
     margin: 0;
     line-height: 0;
     margin-right: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
   }
 
   p {
-
+    line-height: 0;
+    font-weight: 400;
     margin: 0;
+    font-size: 0.9rem;
   }
+
+}
+
+.diploma-tag-small {
 
 }
 
 #diploma-red {
-  background-color: #B11C1C;
+  background-color: #E8BBBB;
+  color: #B11C1C;
+
+  a { color: #B11C1C; }
+  .line { background-color: #B11C1C; }
 }
 
 #diploma-yellow {
-  background-color: #EAB720;
+  background-color: #F5D98A;
+  color: #C39409;
+
+  a { color: #C39409; }
+  .line { background-color: #C39409; }
 }
 
+// #diploma-yellow { (old yellow, lighter)
+//   background-color: #F7E2A6;
+//   color: #E9B61B;
+
+//   a { color: #E9B61B; }
+//   .line { background-color: #E9B61B; }
+// }
+
 #diploma-blue {
-  background-color: #3D468F;
+  background-color: #C5C8DE;
+  color: #3D468F;
+
+  a { color: #3D468F; }
+  .line { background-color: #3D468F; }
 }
 
 #diploma-green {
-  background-color: #41916E;
+  background-color: #C6DED4;
+  color: #41916E;
+
+  a { color: #41916E; }
+  .line { background-color: #41916E; }
 }
 
 #diploma-grey {
-  background-color: #9A9A9A;
+  background-color: #E1E1E1;
+  color: #9A9A9A;
+
+  a { color: #9A9A9A; }
+  .line { background-color: #9A9A9A; }
 }
