@@ -33,6 +33,11 @@
               <% @student.tags.each do |tag| %>
                 <%= render 'shared/diploma-tag-big', tag: tag %>
               <% end %>
+
+              <% @student.tags.each do |tag| %>
+                <%= render 'shared/diploma-tag-small', tag: tag %>
+              <% end %>
+
             <% else %>
               <%= link_to tags_path do %>
                 Ajouter vos diplômes
