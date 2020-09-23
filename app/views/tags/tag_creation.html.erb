@@ -11,9 +11,13 @@
     <div class="tags">
       <div class="tags-index">
         <% if @tags.any? %>
-          <% @tags.each do |tag| %>
-            <%= render 'shared/diploma-tag-big', tag: tag, student: @student %>
-          <% end %>
+          <ul>
+            <% @tags.each do |tag| %>
+              <li>
+                <%= render 'shared/diploma-tag-big', tag: tag, student: @student %>
+              </li>
+            <% end %>
+          </ul>
         <% end %>
       </div>
     <%= render 'shared/tag-form', tag: @tag, diplomas: @diplomas %>

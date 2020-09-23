@@ -30,9 +30,13 @@
         <div class="tags-index-wrapper">
           <div class="tags-index">
             <% if @student.tags.any? %>
-              <% @student.tags.each do |tag| %>
-                <%= render 'shared/diploma-tag-big', tag: tag %>
-              <% end %>
+              <ul>
+                <% @student.tags.each do |tag| %>
+                  <li>
+                    <%= render 'shared/diploma-tag-big', tag: tag %>
+                  </li>
+                <% end %>
+              </ul>
             <% else %>
               <%= link_to tags_path do %>
                 Ajouter vos diplômes

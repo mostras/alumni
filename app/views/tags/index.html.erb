@@ -8,9 +8,13 @@
   <h3>Modifiez vos diplômes</h3>
   <div class="tags-index">
     <% if @tags.any? %>
+    <ul>
       <% @tags.each do |tag| %>
-        <%= render 'shared/diploma-tag-big', tag: tag %>
+        <li>
+          <%= render 'shared/diploma-tag-big', tag: tag %>
+        </li>
       <% end %>
+    </ul>
     <% end %>
   </div>
 
