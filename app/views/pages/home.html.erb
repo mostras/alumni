@@ -10,8 +10,8 @@
     <p>Des nouvelles fonctionnalités et un design épuré pour vous permettre de mieux recruter, trouver un stage ou un emploi, ou simplement gardez contact avec votre promo</p>
     <% unless user_signed_in? %>
       <div class="session-button">
-        <%= link_to "Je créer mon compte", new_user_registration_path, class: 'empty-button' %>
-        <%= link_to "Je me connecte", user_session_path, class: 'empty-button' %>
+        <%= link_to "Je créer mon compte", new_user_registration_path, class: 'full-button' %>
+        <%= link_to "Je me connecte", user_session_path, class: 'full-button' %>
       </div>
     <% end %>
   </div>

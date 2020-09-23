@@ -16,7 +16,7 @@
         <%= f.email_field :email, autocomplete: "email", placeholder: 'Email', class: 'form-field' %>
         <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Mot de passe', class: 'form-field' %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirmation du mot de passe', class: 'form-field' %>
-        <%= f.submit "Suivant", class: 'empty-button' %>
+        <%= f.submit "Suivant", class: 'full-button' %>
     <% end %>
 
       <%= link_to root_path, class: 'back-button' do %>

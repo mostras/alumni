@@ -12,9 +12,9 @@
       <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
 
       <% if params[:url].blank? %>
-        <%= button_tag "Suivant", id: 'linkedin-button', class: 'empty-button'%>
+        <%= button_tag "Suivant", id: 'linkedin-button', class: 'full-button'%>
       <% else %>
-        <%= button_tag "Suivant", class: 'empty-button' %>
+        <%= button_tag "Suivant", class: 'full-button' %>
       <% end %>
     <% end %>
 
