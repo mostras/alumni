@@ -29,5 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :companies, only: [:index]
+
 
 end
