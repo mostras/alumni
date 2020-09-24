@@ -4,13 +4,13 @@ class TagsController < ApplicationController
   before_action :set_tag, only: [:edit, :destroy]
 
   def index
-    @tags = Tag.where(user: current_user)
+    @tags = Tag.where(user: current_user).order(year: :asc)
     @tag = @student.tags.build
     @diplomas = Diploma.all
   end
 
   def tag_creation
-    @tags = Tag.where(user: current_user)
+    @tags = Tag.where(user: current_user).order(year: :asc)
     @tag = @student.tags.build
     @diplomas = Diploma.all
   end
