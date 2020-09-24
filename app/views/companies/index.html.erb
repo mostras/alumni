@@ -1,0 +1,9 @@
+<br>
+<br>
+<h1>Les entreprises</h1>
+
+<div class="company-card-wrapper main-wrapper">
+  <% @companies.each do |company| %>
+  <%= render 'shared/company-card', company: company%>
+  <% end %>
+</div>
