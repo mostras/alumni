@@ -1,5 +1,9 @@
-<h1>HERE ARE ALL YOUR USERS</h1>
+<div class="index-users-page-wrapper">
 
-<% @students.each do |student| %>
-  <%= render partial: "shared/student_card", locals: {student: student}  %>
-<% end %>
+  <div class="index-users-wrapper">
+    <% @students.each do |student| %>
+      <%= render partial: "shared/student_card", locals: {student: student}  %>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,9 @@
+.index-users-page-wrapper {
+  margin: 8rem 8rem 2rem 8rem;
+
+  .index-users-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+  }
+}
