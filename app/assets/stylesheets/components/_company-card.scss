@@ -1,0 +1,32 @@
+.company-card {
+  width: 355px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+  display: flex;
+  padding: 16px 0px 0px 16px;
+
+
+  .company-card-logo {
+    border-radius: 8px;
+    max-width: 90px;
+    height: 90px;
+  }
+
+  .company-card-info {
+    margin-left: 1rem;
+
+    h2 {
+      margin: 0px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    h3 {
+      margin: 0px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+
+}
