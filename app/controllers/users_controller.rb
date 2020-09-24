@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @students = User.search(params)
+    @diplomas = Diploma.all
   end
 
   def show
