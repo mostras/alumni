@@ -68,3 +68,4 @@ gem 'font-awesome-sass', '~> 5.13.0'
 gem 'pry-rails', '~> 0.3.4'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
