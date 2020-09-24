@@ -1,7 +1,6 @@
 .navbar {
   padding: 0 2rem;
   display: flex;
-  justify-content: flex-end;
   height: 66px;
   background-color: $dark-blue;
   position: fixed;
@@ -9,12 +8,9 @@
   z-index: 100;
   width: 100%;
   box-sizing: border-box;
+  justify-content: space-between;
 
-    a {
-      text-decoration: none;
-      color: white;
-      margin: 0 0.5rem;
-    }
+
 
 
     .session-link {
@@ -23,6 +19,11 @@
       align-items: center;
       justify-content: space-around;
 
+      a {
+        text-decoration: none;
+        color: white;
+        margin: 0 0.5rem;
+      }
 
 
       img {
@@ -31,4 +32,28 @@
         margin-left: 1rem;
       }
     }
+
+  .navigation-link {
+    display: flex;
+    align-items: center;
+
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+    }
+
+    i {
+      margin-right: 0.5rem;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+  }
+
 }

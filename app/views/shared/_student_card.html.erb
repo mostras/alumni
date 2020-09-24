@@ -1,8 +1,20 @@
-<div>
-  <div>
-    <%= student.first_name %> <%= student.last_name %>
-  </div>
-  <%= link_to user_path(student) do %>
-    <i class="fab fa-linkedin"></i>
+<div class="student-card">
+  <% if student.photo.attached? %>
+    <%= cl_image_tag student.photo.key %>
+  <% else %>
+    <%= image_tag "blank-avatar.png" %>
   <% end %>
+  <div class="student-info">
+      <%= link_to user_path(student) do %>
+        <h3><%= student.full_name %></h3>
+      <% end %>
+    <div class="tags">
+      <% if student.tags.any? %>
+        <% student.tags.each do |tag| %>
+          <%= render 'shared/diploma-tag-small', tag: tag %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+

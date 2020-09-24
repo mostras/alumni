@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 
   def index
-    @students = User.all
+    @students = User.search(params)
   end
 
   def show

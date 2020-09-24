@@ -1,5 +1,40 @@
-<h1>HERE ARE ALL YOUR USERS</h1>
+<div class="index-users-page-wrapper">
 
-<% @students.each do |student| %>
-  <%= render partial: "shared/student_card", locals: {student: student}  %>
-<% end %>
+  <div class="index-users-form-wrapper">
+    <div class="index-users-info">
+      <h2><%= @students.try(:count) %> alumni</h2>
+      <div class="students-count">
+        <i class="fas fa-exclamation-circle"></i>
+        <p><%= @students.where(company_hire: true).count %> recrutent</p>
+      </div>
+      <div class="students-count">
+        <i class="fas fa-exclamation-circle"></i>
+        <p><%= @students.where(looking_for_internship: true).count %> recherche un stage</p>
+      </div>
+      <div class="students-count">
+        <i class="fas fa-exclamation-circle"></i>
+        <p><%= @students.where(looking_for_job: true).count %> recherche un emploi</p>
+      </div>
+
+
+    </div>
+    <div class="index-users-form">
+
+      <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :name, params[:name] %>
+
+        <%= select_tag(:look_for, options_for_select([['Recrute', 1], ['Recherche un stage', 2], ['Recherche un emploie', 3]], 2)) %>
+
+        <%= submit_tag 'Search' %>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="index-users-wrapper">
+    <% @students.each do |student| %>
+      <%= render partial: "shared/student_card", locals: {student: student}  %>
+    <% end %>
+  </div>
+</div>
+
