@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :companies, only: [:index]
+  resources :schools, only: [:index]
 
 
 end
