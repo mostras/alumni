@@ -1,22 +1,43 @@
 <%= render 'shared/navbar' %>
 
-<div class="company-wrapper">
-  <div class="company-photo">
-    <img src="" alt="">
+<div class="main-wrapper companies-show-page">
+  <div class="company-wrapper">
+    <div class="company-flex">
+      <div class="company-photo">
+        <% if @company.photo.attached? %>
+          <%= cl_image_tag company.photo.key %>
+        <% else %>
+          <%= image_tag "company.png", alt: "company-image" %>
+        <% end %>
+      </div>
+      <div class="company-info">
+        <h1><%= @company.name %></h1>
+        <p><%= @company.city %></p>
+      </div>
+    </div>
+    <% if @hiring.any? %>
+      <div class="exclamation-point">
+        <i class="fas fa-exclamation-circle"></i>
+        <h3>ILS/ELLES SIGNALENT DES RECRUTEMENTS, CONTACTEZ LES !</h3>
+      </div>
+    <% end %>
   </div>
-  <div class="company-info">
-    <h1><%= @company.name %></h1>
-    <p><%= @company.city %></p>
-  </div>
-    <h3>ILS/ELLES SIGNALENT DES RECRUTEMENTS, CONTACTEZ LES !</h3>
+
+  <% if @current_jobs.any? %>
+    <h2>Actuellement à <%= @company.name %></h2>
+    <div class="current-job-wrapper">
+      <% @current_jobs.each do |job|%>
+        <%= render 'shared/student_card', student: job.user %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @former_jobs.any? %>
+    <h2>Anciennement à <%= @company.name %></h2>
+    <div class="former-job-wrapper">
+      <% @former_jobs.each do |job|%>
+          <%= render 'shared/student_card', student: job.user %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
-
-<h2>Actuellement à <%= @company.name %></h2>
-<% @current_jobs.each do |job|%>
-  <%= render 'shared/student_card', student: job.user %>
-<% end %>
-
-<h2>Anciennement à <%= @company.name %></h2>
-<% @current_jobs.each do |job|%>
-  <%= render 'shared/student_card', student: job.user %>
-<% end %>
