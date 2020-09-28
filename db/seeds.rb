@@ -141,86 +141,50 @@ company16.save!
 puts 'Company creation OK'
 
 
-work_experience1 = WorkExperience.new(title: Faker::Job.title, start_time: '2019', end_time: '2020', location: 'Lyon', user: user1, company: company1)
-work_experience1.save!
-work_experience2 = WorkExperience.new(title: Faker::Job.title, start_time: '2016', end_time: '2019', location: 'Lyon', user: user1, company: company2)
-work_experience2.save!
-work_experience3 = WorkExperience.new(title: Faker::Job.title, start_time: '2014', end_time: '2016', location: 'Lyon', user: user1, company: company3)
-work_experience3.save!
-work_experience4 = WorkExperience.new(title: Faker::Job.title, start_time: '2019', end_time: '2020', location: 'Lyon', user: user2, company: company4)
-work_experience4.save!
-work_experience5 = WorkExperience.new(title: Faker::Job.title, start_time: '2014', end_time: '2019', location: 'Lyon', user: user2, company: company5)
-work_experience5.save!
-work_experience6 = WorkExperience.new(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user2, company: company6)
-work_experience6.save!
-work_experience7 = WorkExperience.new(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user3, company: company7)
-work_experience7.save!
-work_experience8 = WorkExperience.new(title: Faker::Job.title, start_time: '2006', end_time: '2014', location: 'Lyon', user: user4, company: company8)
-work_experience8.save!
-work_experience9 = WorkExperience.new(title: Faker::Job.title, start_time: '2000', end_time: '2004', location: 'Lyon', user: user4, company: company9)
-work_experience9.save!
-work_experience10 = WorkExperience.new(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Paris', user: user5, company: company4)
-work_experience10.save!
-work_experience11 = WorkExperience.new(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Paris', user: user5, company: company10)
-work_experience11.save!
-work_experience12 = WorkExperience.new(title: Faker::Job.title, start_time: '2012', end_time: '2020', location: 'Lyon', user: user6, company: company11)
-work_experience12.save!
-work_experience13 = WorkExperience.new(title: Faker::Job.title, start_time: '2011', end_time: '2013', location: 'Lyon', user: user6, company: company13)
-work_experience13.save!
-work_experience14 = WorkExperience.new(title: Faker::Job.title, start_time: '1999', end_time: '2003', location: 'Paris', user: user7, company: company7)
-work_experience14.save!
-work_experience15 = WorkExperience.new(title: Faker::Job.title, start_time: '2003', end_time: '2014', location: 'Paris', user: user7, company: company12)
-work_experience15.save!
-work_experience16 = WorkExperience.new(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user8, company: company9)
-work_experience16.save!
-work_experience17 = WorkExperience.new(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user8, company: company14)
-work_experience17.save!
-work_experience18 = WorkExperience.new(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user9, company: company13)
-work_experience18.save!
+WorkExperience.create!(title: Faker::Job.title, start_time: '2019', end_time: "aujourd'hui", location: 'Lyon', user: user1, company: company1, current: true)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2016', end_time: '2019', location: 'Lyon', user: user1, company: company2, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2014', end_time: '2016', location: 'Lyon', user: user1, company: company3, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2019', end_time: "aujourd'hui", location: 'Lyon', user: user2, company: company4, current: true)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2014', end_time: '2019', location: 'Lyon', user: user2, company: company5, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user2, company: company6, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user3, company: company7, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2006', end_time: '2014', location: 'Lyon', user: user4, company: company8, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2000', end_time: '2004', location: 'Lyon', user: user4, company: company9, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Paris', user: user5, company: company4, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Paris', user: user5, company: company10, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2012', end_time: "aujourd'hui", location: 'Lyon', user: user6, company: company11, current: true)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2011', end_time: '2013', location: 'Lyon', user: user6, company: company13, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '1999', end_time: '2003', location: 'Paris', user: user7, company: company7, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2003', end_time: '2014', location: 'Paris', user: user7, company: company12, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user8, company: company9, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user8, company: company14, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2012', end_time: '2014', location: 'Lyon', user: user9, company: company13, current: false)
 
 
 puts 'Work experience creation OK'
 
 
-school1 = School.new(name: 'HEC', city: 'Lyon')
-school1.save!
-school2 = School.new(name: 'Polytechnique', city: 'Paris')
-school2.save!
-school3 = School.new(name: 'ENSMM', city: 'Paris')
-school3.save!
-school4 = School.new(name: 'GEM', city: 'Paris')
-school4.save!
-school5 = School.new(name: 'Chartreux', city: 'Paris')
-school5.save!
-school6 = School.new(name: 'Ecole des mines', city: 'Paris')
-school6.save!
+school1 = School.create!(name: 'HEC', city: 'Lyon')
+school2 = School.create!(name: 'Polytechnique', city: 'Paris')
+school3 = School.create!(name: 'ENSMM', city: 'Paris')
+school4 = School.create!(name: 'GEM', city: 'Paris')
+school5 = School.create!(name: 'Chartreux', city: 'Paris')
+school6 = School.create!(name: 'Ecole des mines', city: 'Paris')
 
 puts 'School creation OK'
 
-school_experience1 = SchoolExperience.new(title: 'Master in management', start_time: '2019', end_time: '2020', location: 'Lyon', current: true, user: user1, school: school1)
-school_experience1.save!
-school_experience2 = SchoolExperience.new(title: 'DUT Marketing', start_time: '2016', end_time: '2019', location: 'Lyon', current: false, user: user1, school: school2)
-school_experience2.save!
-school_experience3 = SchoolExperience.new(title: "Diplôme d'ingénieur", start_time: '2014', end_time: '2016', location: 'Lyon', current: true, user: user1, school: school3)
-school_experience3.save!
-school_experience4 = SchoolExperience.new(title: 'BTS Marketing', start_time: '2019', end_time: '2020', location: 'Lyon', current: true, user: user2, school: school4)
-school_experience4.save!
-school_experience5 = SchoolExperience.new(title: 'BAC STI', start_time: '2014', end_time: '2019', location: 'Lyon', current: true, user: user2, school: school5)
-school_experience5.save!
-school_experience6 = SchoolExperience.new(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user3, school: school5)
-school_experience6.save!
-school_experience7 = SchoolExperience.new(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user4, school: school2)
-school_experience7.save!
-school_experience8 = SchoolExperience.new(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user5, school: school1)
-school_experience8.save!
-school_experience9 = SchoolExperience.new(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user6, school: school4)
-school_experience9.save!
-school_experience10 = SchoolExperience.new(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user7, school: school2)
-school_experience10.save!
-school_experience11 = SchoolExperience.new(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user8, school: school5)
-school_experience11.save!
-school_experience12 = SchoolExperience.new(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user9, school: school6)
-school_experience12.save!
+SchoolExperience.create!(title: 'Master in management', start_time: '2019', end_time: '2020', location: 'Lyon', current: true, user: user1, school: school1)
+SchoolExperience.create!(title: 'DUT Marketing', start_time: '2016', end_time: '2019', location: 'Lyon', current: false, user: user1, school: school2)
+SchoolExperience.create!(title: "Diplôme d'ingénieur", start_time: '2014', end_time: '2016', location: 'Lyon', current: true, user: user1, school: school3)
+SchoolExperience.create!(title: 'BTS Marketing', start_time: '2019', end_time: '2020', location: 'Lyon', current: true, user: user2, school: school4)
+SchoolExperience.create!(title: 'BAC STI', start_time: '2014', end_time: '2019', location: 'Lyon', current: true, user: user2, school: school5)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user3, school: school5)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user4, school: school2)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user5, school: school1)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user6, school: school4)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user7, school: school2)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user8, school: school5)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user9, school: school6)
 
 
 puts 'SchoolExperiences creation OK'
