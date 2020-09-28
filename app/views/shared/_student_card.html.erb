@@ -16,7 +16,21 @@
       <% end %>
     </div>
 
-    <%= last_activity(student) %>
+    <% if last_activity(student) %>
+      <% if student.work_experiences.any? %>
+        <div class="current_experience">
+          <i class="fas fa-briefcase"></i>
+          <p><%= student.work_experiences.order(:end_time).last.company.name %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <% if student.school_experiences.any? %>
+        <div class="current_experience">
+          <i class="fas fa-graduation-cap"></i>
+          <p><%= student.school_experiences.order(:end_time).last.school.name %></p>
+        </div>
+      <% end %>
+    <% end %>
 
   </div>
 
