@@ -30,26 +30,24 @@ class User < ApplicationRecord
         students = User.where(looking_for_job: true) if params[:look_for] == '3'
       end
 
+      if params[:diploma].present?
+        diploma_id = params[:diploma].to_i
+        diploma = Diploma.find(diploma_id)
+        students = diploma.users
+      end
+
+      if params[:year].present?
+        diploma_year = params[:year].to_i
+        students = User.includes(:tags).where(tags: { year: diploma_year })
+      end
+
+      if params[:sector].present?
+        sector_id = params[:sector].to_i
+        sector = Sector.find(sector_id)
+        students = sector.users
+      end
+
       students = User.search_by_name(params[:name]) if params[:name].present?
-
-
-
-      # diploma_id = params[:diploma].to_i
-      # tags = Tag.where(diploma: diploma_id)
-
-      # list_user = []
-
-
-      # tags.each do |tag|
-      #   list_user << tag.user
-      # end
-
-
-
-      # students = list_user
-
-
-
 
       return students
 
