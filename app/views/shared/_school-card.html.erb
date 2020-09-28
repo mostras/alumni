@@ -1,6 +1,10 @@
 <div class="school-card">
   <div class="school-card-logo">
-    <img src="https://picsum.photos/90/90" alt="">
+    <% if school.photo.attached? %>
+      <%= cl_image_tag school.photo.key %>
+    <% else %>
+      <%= image_tag "school.png", alt: "school-image" %>
+    <% end %>
   </div>
   <div class="school-card-info">
     <h2><%= school.name %></h2>
