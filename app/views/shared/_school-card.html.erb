@@ -1,0 +1,10 @@
+<div class="school-card">
+  <div class="school-card-logo">
+    <img src="https://picsum.photos/90/90" alt="">
+  </div>
+  <div class="school-card-info">
+    <h2><%= school.name %></h2>
+    <h3><%= school.city %></h3>
+    <p><%= pluralize school.users.count, 'alumni étudie ici', 'alumni étudient ici' %></p>
+  </div>
+</div>

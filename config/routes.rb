@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :companies, only: [:index]
-  resources :schools, only: [:index]
+  resources :companies, only: [:index, :show]
+  resources :schools, only: [:index, :show]
 
 
 end

@@ -5,6 +5,6 @@
   <div class="company-card-info">
     <h2><%= company.name %></h2>
     <h3><%= company.city %></h3>
-    <p><%= company.users.count %> étudiants qui travaillent ici</p>
+    <p><%= pluralize company.users.count, 'alumni travaille ici', 'alumni travaillent ici' %></p>
   </div>
 </div>
