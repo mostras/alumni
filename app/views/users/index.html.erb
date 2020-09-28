@@ -25,13 +25,17 @@
     <div class="index-users-form">
 
       <%= form_tag users_path, method: :get do %>
-        <%= text_field_tag :name, params[:name] %>
+        <%= text_field_tag :name, params[:name], placeholder: 'chercher par prénom, nom..' %>
 
-        <%= select_tag(:look_for, options_for_select([['Recrute', 1], ['Recherche un stage', 2], ['Recherche un emploie', 3]], params[:look_for]), {:prompt => 'Select Person'}) %>
+        <%= select_tag(:look_for, options_for_select([['Recrute', 1], ['Recherche un stage', 2], ['Recherche un emploie', 3]], params[:look_for]), {:prompt => 'Chercher par situation'}) %>
 
-        <%= select_tag(:diploma, options_from_collection_for_select(@diplomas, :id, :name))%>
+        <%= select_tag(:diploma, options_from_collection_for_select(@diplomas, :id, :name), {:prompt => 'Chercher par diplôme'})%>
 
-        <%= submit_tag 'Search' %>
+        <%= select_tag(:year, options_for_select(((Time.zone.now.year - 70)..(Time.zone.now.year + 5)).to_a.reverse), {:prompt => "Année d’obtention"}) %>
+
+        <%= select_tag(:sector, options_from_collection_for_select(@sectors, :id, :name), {:prompt => "Chercher par secteur d'activité"})%>
+
+        <%= submit_tag 'Valider' %>
       <% end %>
 
     </div>

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def index
     @students = User.search(params)
     @diplomas = Diploma.all
+    @sectors = Sector.all
   end
 
   def show
