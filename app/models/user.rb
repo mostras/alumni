@@ -11,17 +11,16 @@ class User < ApplicationRecord
   has_many :work_experiences, dependent: :destroy
   has_many :school_experiences, dependent: :destroy
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
   include PgSearch
   pg_search_scope :search_by_name, against: [:first_name, :last_name],
   using: {
     tsearch: { prefix: true }
   }
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-
   def self.search(params)
-
       students = User.all
 
       if params[:look_for].present?
@@ -50,7 +49,6 @@ class User < ApplicationRecord
       students = User.search_by_name(params[:name]) if params[:name].present?
 
       return students
-
   end
 
   def full_name

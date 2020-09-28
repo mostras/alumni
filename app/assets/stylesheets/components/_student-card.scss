@@ -5,10 +5,7 @@
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
-
-  a {
-    color: $gray;
-  }
+  position: relative;
 
 
   h3 {
@@ -28,5 +25,13 @@
 
   .tags {
     display: flex;
+  }
+
+  .link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }

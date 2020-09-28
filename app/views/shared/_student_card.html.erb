@@ -1,20 +1,26 @@
 <div class="student-card">
+
   <% if student.photo.attached? %>
     <%= cl_image_tag student.photo.key %>
   <% else %>
     <%= image_tag "blank-avatar.png" %>
   <% end %>
+
   <div class="student-info">
-      <%= link_to user_path(student) do %>
-        <h3><%= student.full_name %></h3>
-      <% end %>
+    <h3><%= student.full_name %></h3>
     <div class="tags">
       <% if student.tags.any? %>
-        <% student.tags.each do |tag| %>
+        <% student.tags.order(:year).each do |tag| %>
           <%= render 'shared/diploma-tag-small', tag: tag %>
         <% end %>
       <% end %>
     </div>
+
+    <%= last_activity(student) %>
+
   </div>
+
+  <%= link_to '', user_path(student), class: 'link' %>
 </div>
+
 
