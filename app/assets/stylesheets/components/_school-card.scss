@@ -1,12 +1,11 @@
-.company-card {
+.school-card {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
   display: flex;
   padding: 0.5rem 1rem;
 
-
-  .company-card-logo {
+  .school-card-logo {
     border-radius: 8px;
     max-width: 90px;
     height: 90px;
@@ -17,7 +16,7 @@
     height: 90px;
   }
 
-  .company-card-info {
+  .school-card-info {
     margin-left: 1rem;
 
     h2 {
@@ -35,6 +34,10 @@
     p {
       font-weight: 500;
       font-size: 14px;
+    }
+
+    a {
+      text-decoration: none;
     }
   }
 
