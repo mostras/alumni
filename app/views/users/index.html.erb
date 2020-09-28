@@ -2,6 +2,8 @@
 
 <div class="index-users-page-wrapper main-wrapper">
 
+  <h1>Les alumnis</h1>
+
   <div class="index-users-form-wrapper">
     <div class="index-users-info">
       <h2><%= @students.try(:count) %> alumni</h2>
@@ -18,26 +20,26 @@
           <i class="fas fa-exclamation-circle"></i>
           <p><%= @students.where(looking_for_job: true).count %> recherche un emploi</p>
         </div>
-
-
-
     </div>
     <div class="index-users-form">
-
       <%= form_tag users_path, method: :get do %>
-        <%= text_field_tag :name, params[:name], placeholder: 'chercher par prénom, nom..' %>
+        <div class="form-inline">
+          <%= text_field_tag :name, params[:name], placeholder: 'Chercher par prénom, nom..', class: 'input' %>
 
-        <%= select_tag(:look_for, options_for_select([['Recrute', 1], ['Recherche un stage', 2], ['Recherche un emploie', 3]], params[:look_for]), {:prompt => 'Chercher par situation'}) %>
+          <%= select_tag(:look_for, options_for_select([['Recrute', 1], ['Recherche un stage', 2], ['Recherche un emploie', 3]], params[:look_for]), {:prompt => 'Chercher par situation', :class => 'input'}) %>
+        </div>
 
-        <%= select_tag(:diploma, options_from_collection_for_select(@diplomas, :id, :name), {:prompt => 'Chercher par diplôme'})%>
+        <div class="form-inline">
+          <%= select_tag(:diploma, options_from_collection_for_select(@diplomas, :id, :name, selected = params[:diploma]), {:prompt => 'Chercher par diplôme', :class => 'input'})%>
 
-        <%= select_tag(:year, options_for_select(((Time.zone.now.year - 70)..(Time.zone.now.year + 5)).to_a.reverse), {:prompt => "Année d’obtention"}) %>
+          <%= select_tag(:year, options_for_select(((Time.zone.now.year - 70)..(Time.zone.now.year + 5)).to_a.reverse, params[:year]), {:prompt => "Année d’obtention", :class => 'input'}) %>
+        </div>
+        <div class="form-inline">
+          <%= select_tag(:sector, options_from_collection_for_select(@sectors, :id, :name, selected = params[:sector]), {:prompt => "Chercher par secteur d'activité", :class => 'input'})%>
 
-        <%= select_tag(:sector, options_from_collection_for_select(@sectors, :id, :name), {:prompt => "Chercher par secteur d'activité"})%>
-
-        <%= submit_tag 'Valider' %>
+          <%= submit_tag 'Valider mes filtres', class: 'full-button' %>
+        </div>
       <% end %>
-
     </div>
   </div>
 
