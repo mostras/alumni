@@ -56,7 +56,7 @@ end
 
 gem 'devise', '~> 4.2'
 
-gem 'google-api-client', '~> 0.11.1'
+gem 'google-api-client', '~> 0.34'
 gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'rubysl-open-uri'
 gem 'sidekiq'
