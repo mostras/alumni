@@ -2,8 +2,10 @@
 
 <div class="user-show-wrapper">
   <div class="user-description">
-    <%= link_to edit_user_path(@student), class: 'edit-link' do %>
-      <%= render 'shared/edit-icon' %>
+    <% if @student == current_user %>
+      <%= link_to edit_user_path(@student), class: 'edit-link' do %>
+        <%= render 'shared/edit-icon' %>
+      <% end %>
     <% end %>
     <div class="left">
       <% if @student.photo.attached? %>
@@ -40,8 +42,10 @@
                 <% end %>
               </ul>
             <% else %>
-              <%= link_to tags_path do %>
-                Ajouter vos diplômes
+              <% if @student == current_user %>
+                <%= link_to tags_path do %>
+                  Ajouter vos diplômes
+                <% end %>
               <% end %>
             <% end %>
           </div>
@@ -69,10 +73,11 @@
               </li>
             <% end %>
           </ul>
-
         <% else %>
-          <%= link_to user_sectors_path do %>
-            Ajouter vos secteurs d'activités
+          <% if @student == current_user %>
+            <%= link_to user_sectors_path do %>
+              Ajouter vos secteurs d'activités
+            <% end %>
           <% end %>
         <% end %>
       </div>
