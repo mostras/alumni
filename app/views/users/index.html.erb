@@ -8,15 +8,15 @@
     <div class="index-users-info">
       <h2><%= @students.try(:count) %> alumni</h2>
 
-        <div class="students-count">
+        <div class="students-count" id="situation-green">
           <i class="fas fa-exclamation-circle"></i>
           <p><%= @students.where(company_hire: true).count %> recrutent</p>
         </div>
-        <div class="students-count">
+        <div class="students-count" id="situation-orange">
           <i class="fas fa-exclamation-circle"></i>
           <p><%= @students.where(looking_for_internship: true).count %> recherche un stage</p>
         </div>
-        <div class="students-count">
+        <div class="students-count" id="situation-red">
           <i class="fas fa-exclamation-circle"></i>
           <p><%= @students.where(looking_for_job: true).count %> recherche un emploi</p>
         </div>

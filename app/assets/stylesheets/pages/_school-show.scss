@@ -1,10 +1,10 @@
-.company-wrapper {
+.school-wrapper {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
   padding: 1rem 2rem 1rem 2rem;
 
-  .company-flex {
+  .school-flex {
     display: flex;
     margin-bottom: 1rem;
   }
@@ -14,7 +14,7 @@
     widows: 120px;
   }
 
-  .company-info {
+  .school-info {
     margin-left: 1.5rem;
   }
 
@@ -44,7 +44,7 @@
   }
 }
 
-.current-job-wrapper, .former-job-wrapper {
+.current-school-wrapper, .former-school-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem;

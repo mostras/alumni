@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 
-<div class="main-wrapper companies-show-page">
+<div class="main-wrapper">
   <div class="company-wrapper">
     <div class="company-flex">
       <div class="company-photo">
@@ -16,7 +16,7 @@
       </div>
     </div>
     <% if @hiring.any? %>
-      <div class="exclamation-point">
+      <div class="exclamation-point" id="situation-green">
         <i class="fas fa-exclamation-circle"></i>
         <h3>ILS/ELLES SIGNALENT DES RECRUTEMENTS, CONTACTEZ LES !</h3>
       </div>
@@ -24,7 +24,7 @@
   </div>
 
   <% if @current_jobs.any? %>
-    <h2>Actuellement à <%= @company.name %></h2>
+    <h2>Actuellement ici</h2>
     <div class="current-job-wrapper">
       <% @current_jobs.each do |job|%>
         <%= render 'shared/student_card', student: job.user %>
@@ -33,7 +33,7 @@
   <% end %>
 
   <% if @former_jobs.any? %>
-    <h2>Anciennement à <%= @company.name %></h2>
+    <h2>Anciennement ici</h2>
     <div class="former-job-wrapper">
       <% @former_jobs.each do |job|%>
           <%= render 'shared/student_card', student: job.user %>
