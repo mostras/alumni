@@ -1,5 +1,5 @@
 .user-edit-wrapper {
-  margin: 6rem auto 2rem auto;
+  margin: 4rem auto 2rem auto;
   max-width: 400px;
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
   padding: 1rem 3rem;
@@ -70,7 +70,10 @@
     font-size: 14px;
     margin-left: 0.5rem;
     color: $gray;
+  }
 
+  .full-button {
+    margin: 1rem 0;
   }
 
 }

@@ -1,10 +1,5 @@
 <div class="tags-index-wrap">
 
-    <%= link_to user_path(current_user), class: 'back-button' do %>
-      <i class="fas fa-arrow-left"></i>
-      <p>Valider</p>
-    <% end %>
-
   <h3>Modifiez vos diplômes</h3>
   <div class="tags-index">
     <% if @tags.any? %>
@@ -19,5 +14,7 @@
   </div>
 
   <%= render 'shared/tag-form', tag: @tag, diplomas: @diplomas %>
+
+  <%= link_to 'Valider les modifications', user_path(current_user), class: 'full-button'  %>
 
 </div>
