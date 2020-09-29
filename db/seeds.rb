@@ -131,27 +131,27 @@ WorkExperience.create!(title: Faker::Job.title, start_time: '2012', end_time: '2
 puts 'Work experience creation OK'
 
 
-school1 = School.create!(name: 'HEC', city: 'Lyon')
+school1 = School.create!(name: 'HEC', city: 'Paris')
 school2 = School.create!(name: 'Polytechnique', city: 'Paris')
 school3 = School.create!(name: 'ENSMM', city: 'Paris')
-school4 = School.create!(name: 'GEM', city: 'Paris')
-school5 = School.create!(name: 'Chartreux', city: 'Paris')
+school4 = School.create!(name: 'GEM', city: 'Grenoble')
+school5 = School.create!(name: 'Chartreux', city: 'Lyon')
 school6 = School.create!(name: 'Ecole des mines', city: 'Paris')
 
 puts 'School creation OK'
 
-SchoolExperience.create!(title: 'Master in management', start_time: '2019', end_time: '2020', location: 'Lyon', current: true, user: user1, school: school1)
-SchoolExperience.create!(title: 'DUT Marketing', start_time: '2016', end_time: '2019', location: 'Lyon', current: false, user: user1, school: school2)
-SchoolExperience.create!(title: "Diplôme d'ingénieur", start_time: '2014', end_time: '2016', location: 'Lyon', current: true, user: user1, school: school3)
-SchoolExperience.create!(title: 'BTS Marketing', start_time: '2019', end_time: '2020', location: 'Lyon', current: true, user: user2, school: school4)
-SchoolExperience.create!(title: 'BAC STI', start_time: '2014', end_time: '2019', location: 'Lyon', current: true, user: user2, school: school5)
-SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user3, school: school5)
-SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user4, school: school2)
-SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user5, school: school1)
-SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user6, school: school4)
-SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user7, school: school2)
-SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user8, school: school5)
-SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', current: true, user: user9, school: school6)
+SchoolExperience.create!(title: 'Master in management', start_time: '2019', end_time: "Anjourd'hui", location: 'Lyon', user: user1, school: school1, current: true)
+SchoolExperience.create!(title: 'DUT Marketing', start_time: '2016', end_time: '2019', location: 'Lyon', user: user1, school: school2, current: false)
+SchoolExperience.create!(title: "Diplôme d'ingénieur", start_time: '2014', end_time: '2016', location: 'Lyon', user: user1, school: school3, current: false)
+SchoolExperience.create!(title: 'BTS Marketing', start_time: '2019', end_time: "Anjourd'hui", location: 'Lyon', user: user2, school: school4, current: true)
+SchoolExperience.create!(title: 'BAC STI', start_time: '2014', end_time: '2019', location: 'Lyon', user: user2, school: school5, current: false)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', user: user3, school: school5, current: false)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', user: user4, school: school5, current: false)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', user: user5, school: school5, current: false)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: "Anjourd'hui", location: 'Lyon', user: user6, school: school5, current: true)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', user: user7, school: school5, current: false)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', user: user8, school: school5, current: false)
+SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', location: 'Lyon', user: user9, school: school5, current: false)
 
 
 puts 'SchoolExperiences creation OK'
