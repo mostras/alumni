@@ -14,6 +14,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  before_create :capitalize_names
+
   include PgSearch
   pg_search_scope :search_by_name, against: [:first_name, :last_name],
   using: {
@@ -49,6 +51,12 @@ class User < ApplicationRecord
       students = User.search_by_name(params[:name]) if params[:name].present?
 
       return students
+  end
+
+  def capitalize_names
+    self.first_name = first_name.titleize
+    self.last_name = last_name.titleize
+
   end
 
   def full_name

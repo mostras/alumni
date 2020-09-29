@@ -1,7 +1,7 @@
 .student-card {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
@@ -14,6 +14,7 @@
   h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    white-space: nowrap;
   }
 
   img {
@@ -23,7 +24,8 @@
   }
 
   .student-info {
-    width: fit-content;
+    max-width: 256px;
+    overflow: hidden;
   }
 
   .tags {
@@ -34,6 +36,7 @@
   .current_experience {
     display: flex;
     align-items: center;
+    white-space: nowrap;
 
      i {
       margin-right: 0.5rem;

@@ -1,10 +1,11 @@
 .edit-situation-wrapper {
-    margin: 6rem auto 2rem auto;
+  margin: 6rem auto 2rem auto;
   max-width: 400px;
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
   padding: 1rem 3rem;
   border-radius: 8px;
   text-align: center;
+  position: relative;
 
   h3 {
     margin-top: 0;
@@ -17,6 +18,31 @@
 
   .situation {
     margin-bottom: 1rem;
+  }
+
+  .valid-button {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: fit-content;
+    color: $dark-blue;
+    position: absolute;
+    top: -20px;
+    left: 0;
+
+    input {
+      border: none;
+      background: none;
+      color: $dark-blue;
+      font-size: 14px;
+      padding: 0;
+
+    }
+
+    i {
+      margin-right: 0.5rem;
+    }
   }
 
 }

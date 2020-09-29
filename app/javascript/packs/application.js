@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       if (confirm("Etes vous sûr de vouloir supprimer cet élément de votre profil ?")) {
         div.remove()
       } else {
+        e.preventDefault()
         e.stopPropagation()
       }
 
