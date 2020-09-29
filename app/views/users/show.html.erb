@@ -11,28 +11,28 @@
         <% end %>
       <% end %>
 
-      <% if @student.photo.attached? %>
-        <%= cl_image_tag @student.photo.key %>
-      <% else %>
-        <%= image_tag "blank-avatar.png" %>
-      <% end %>
       <div class="user-description">
-        <h1><%= @student.full_name %></h1>
+        <% if @student.photo.attached? %>
+          <%= cl_image_tag @student.photo.key %>
+        <% else %>
+          <%= image_tag "blank-avatar.png" %>
+        <% end %>
+          <h1><span><%= @student.first_name %></span><br><%= @student.last_name %></h1>
+      </div>
 
-        <div class="link">
-          <% unless @student.linkedin_url.nil? || @student.linkedin_url === '' %>
-            <a href="<%= @student.linkedin_url%>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <% end %>
-          <% unless @student.email.nil?  || @student.email === '' %>
-            <a href="mailto:<%= @student.email%>"><i class="far fa-envelope"></i></a>
-          <% end %>
-          <% unless @student.phone_number.nil? || @student.phone_number === '' %>
-            <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
-          <% end %>
-          <% unless @student.whatsapp_number.nil? || @student.whatsapp_number === '' %>
-            <a href="https://wa.me/+33<%= @student.whatsapp_number%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <% end %>
-        </div>
+      <div class="link">
+        <% unless @student.linkedin_url.nil? || @student.linkedin_url === '' %>
+          <a href="<%= @student.linkedin_url%>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <% end %>
+        <% unless @student.email.nil?  || @student.email === '' %>
+          <a href="mailto:<%= @student.email%>"><i class="far fa-envelope"></i></a>
+        <% end %>
+        <% unless @student.phone_number.nil? || @student.phone_number === '' %>
+          <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
+        <% end %>
+        <% unless @student.whatsapp_number.nil? || @student.whatsapp_number === '' %>
+          <a href="https://wa.me/+33<%= @student.whatsapp_number%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <% end %>
       </div>
     </div>
 
