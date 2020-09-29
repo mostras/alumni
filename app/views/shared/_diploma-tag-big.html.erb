@@ -1,7 +1,7 @@
 
 <div class="diploma-tag-big" id="diploma-<%= tag.diploma.try(:color) %>">
   <% if current_page?(tags_path) || current_page?(tag_creation_tags_path)%>
-    <%= link_to tag_path(tag), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer cette formation ?" }, class: 'remove-card' do %>
+    <%= link_to tag_path(tag), method: :delete, class: 'remove-card' do %>
       <i class="fas fa-trash"></i>
     <% end %>
 

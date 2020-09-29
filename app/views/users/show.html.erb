@@ -69,7 +69,7 @@
         <% end %>
       <% end %>
 
-      <h3>Diplômes</h3>
+      <h3>DIPLÔMES</h3>
 
       <% if @student.tags.any? %>
         <ul>
@@ -89,7 +89,7 @@
     </div>
 
     <div class="sectors">
-      <h3>Secteurs</h3>
+      <h3>SECTEURS</h3>
       <% if @student.user_sectors.any? %>
         <%= link_to user_sectors_path, class: 'edit-link' do %>
           <%= render 'shared/edit-icon' %>
