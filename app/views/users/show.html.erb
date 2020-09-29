@@ -82,19 +82,19 @@
         <% end %>
       </div>
       <% if @student.looking_for_job? %>
-        <div class="notification">
+        <div class="notification" id="situation-red">
           <i class="fas fa-exclamation-circle"></i>
           <h4>JE RECHERCHE UN EMPLOI</h4>
         </div>
       <% end %>
       <% if @student.looking_for_internship? %>
-        <div class="notification" id="orange">
+        <div class="notification" id="situation-orange">
           <i class="fas fa-exclamation-circle"></i>
           <h4>JE RECHERCHE UN STAGE</h4>
         </div>
       <% end %>
       <% if @student.company_hire? %>
-        <div class="notification" id="green">
+        <div class="notification" id="situation-green">
           <i class="fas fa-exclamation-circle"></i>
           <h4>MON ENTREPRISE RECRUTE</h4>
         </div>

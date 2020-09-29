@@ -7,6 +7,9 @@
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
   position: relative;
 
+  p {
+    margin: 0;
+  }
 
   h3 {
     margin-top: 0;
@@ -20,11 +23,28 @@
   }
 
   .student-info {
-    width: 60%;
+    width: fit-content;
   }
 
   .tags {
     display: flex;
+    margin-bottom: 0.5rem;
+  }
+
+  .current_experience {
+    display: flex;
+    align-items: center;
+
+     i {
+      margin-right: 0.5rem;
+     }
+  }
+
+  .situation {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: 18px;
   }
 
   .link {

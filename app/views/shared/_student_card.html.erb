@@ -10,29 +10,33 @@
     <h3><%= student.full_name %></h3>
     <div class="tags">
       <% if student.tags.any? %>
-        <% student.tags.order(:year).each do |tag| %>
+        <% student.tags.order(:year).last(2).each do |tag| %>
           <%= render 'shared/diploma-tag-small', tag: tag %>
         <% end %>
       <% end %>
     </div>
 
-    <% if last_activity(student) %>
-      <% if student.work_experiences.any? %>
+    <% if last_activity(student) == true %>
         <div class="current_experience">
           <i class="fas fa-briefcase"></i>
           <p><%= student.work_experiences.order(:end_time).last.company.name %></p>
         </div>
-      <% end %>
-    <% else %>
-      <% if student.school_experiences.any? %>
+    <% elsif last_activity(student) == false %>
         <div class="current_experience">
           <i class="fas fa-graduation-cap"></i>
           <p><%= student.school_experiences.order(:end_time).last.school.name %></p>
         </div>
-      <% end %>
     <% end %>
 
   </div>
+
+  <% if is_looking_for?(student) == 'hire' %>
+    <i class="fas fa-exclamation-circle situation" id="situation-green"></i>
+  <% elsif is_looking_for?(student) == 'job' %>
+    <i class="fas fa-exclamation-circle situation" id="situation-red"></i>
+  <% elsif is_looking_for?(student) == 'internship' %>
+    <i class="fas fa-exclamation-circle situation" id="situation-orange"></i>
+  <% end %>
 
   <%= link_to '', user_path(student), class: 'link' %>
 </div>
