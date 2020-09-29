@@ -37,6 +37,11 @@
     </div>
 
     <div class="situation">
+      <% if @student == current_user %>
+        <%= link_to edit_situation_user_path(@student), class: 'edit-link' do %>
+          <%= render 'shared/edit-icon' %>
+        <% end %>
+      <% end %>
       <% if @student.looking_for_job? %>
         <div class="notification" id="situation-red">
           <i class="fas fa-exclamation-circle"></i>

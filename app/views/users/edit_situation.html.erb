@@ -1,0 +1,22 @@
+<div class="edit-situation-wrapper">
+  <%= form_for @student do |f| %>
+    <div class="situation">
+      <h3>Situation</h3>
+      <div class="edit-field-wrapper">
+        <%= f.check_box :looking_for_job %> <br />
+        <%= f.label "Je recherche un emploi" %> <br />
+      </div>
+       <div class="edit-field-wrapper">
+        <%= f.check_box :looking_for_internship %> <br />
+        <%= f.label "Je recherche un stage" %> <br />
+      </div>
+      <div class="edit-field-wrapper">
+        <%= f.check_box :company_hire %> <br />
+        <%= f.label "Mon entreprise recrute" %> <br />
+      </div>
+    </div>
+
+    <%= f.submit "Valider les modifications", class: 'full-button' %>
+  <% end %>
+</div>
+

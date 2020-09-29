@@ -1,0 +1,22 @@
+.edit-situation-wrapper {
+    margin: 6rem auto 2rem auto;
+  max-width: 400px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+  padding: 1rem 3rem;
+  border-radius: 8px;
+  text-align: center;
+
+  h3 {
+    margin-top: 0;
+    color: $dark-blue;
+  }
+
+  .edit-field-wrapper {
+    display: flex;
+  }
+
+  .situation {
+    margin-bottom: 1rem;
+  }
+
+}
