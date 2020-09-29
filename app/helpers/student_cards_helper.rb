@@ -37,17 +37,10 @@ module StudentCardsHelper
   end
 
   def is_looking_for?(student)
-
-    if student.company_hire? && student.looking_for_job?
-      return 'job'
-    elsif student.company_hire? && student.looking_for_internship?
-      return 'internship'
-    elsif student.looking_for_job? && student.looking_for_internship?
-      return 'job'
-    elsif student.looking_for_job?
+    if student.looking_for_job?
       return 'job'
     elsif student.looking_for_internship?
-      return 'intership'
+      return 'internship'
     elsif student.company_hire?
       return 'hire'
     end
