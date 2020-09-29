@@ -8,7 +8,11 @@
     <h1>Bienvenue sur le réseau </br> Chartreux Alumni.</h1>
     <p>La plateforme fait peau neuve !</p>
     <p>Des nouvelles fonctionnalités et un design épuré pour vous permettre de mieux recruter, trouver un stage ou un emploi, ou simplement gardez contact avec votre promo</p>
-    <% unless user_signed_in? %>
+    <% if user_signed_in? %>
+      <div class="session-button">
+        <%= link_to "Accéder à mon profil", user_path(current_user), class: 'full-button' %>
+      </div>
+    <% else %>
       <div class="session-button">
         <%= link_to "Je créer mon compte", new_user_registration_path, class: 'full-button' %>
         <%= link_to "Je me connecte", user_session_path, class: 'full-button' %>
