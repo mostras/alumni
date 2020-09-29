@@ -1,20 +1,44 @@
 <div class="student-card">
+
   <% if student.photo.attached? %>
     <%= cl_image_tag student.photo.key %>
   <% else %>
     <%= image_tag "blank-avatar.png" %>
   <% end %>
+
   <div class="student-info">
-      <%= link_to user_path(student) do %>
-        <h3><%= student.full_name %></h3>
-      <% end %>
+    <h3><%= student.full_name %></h3>
     <div class="tags">
       <% if student.tags.any? %>
-        <% student.tags.each do |tag| %>
+        <% student.tags.order(:year).last(2).each do |tag| %>
           <%= render 'shared/diploma-tag-small', tag: tag %>
         <% end %>
       <% end %>
     </div>
+
+    <% if last_activity(student) == true %>
+        <div class="current_experience">
+          <i class="fas fa-briefcase"></i>
+          <p><%= student.work_experiences.order(:end_time).last.company.name %></p>
+        </div>
+    <% elsif last_activity(student) == false %>
+        <div class="current_experience">
+          <i class="fas fa-graduation-cap"></i>
+          <p><%= student.school_experiences.order(:end_time).last.school.name %></p>
+        </div>
+    <% end %>
+
   </div>
+
+  <% if is_looking_for?(student) == 'hire' %>
+    <i class="fas fa-exclamation-circle situation" id="situation-green"></i>
+  <% elsif is_looking_for?(student) == 'job' %>
+    <i class="fas fa-exclamation-circle situation" id="situation-red"></i>
+  <% elsif is_looking_for?(student) == 'internship' %>
+    <i class="fas fa-exclamation-circle situation" id="situation-orange"></i>
+  <% end %>
+
+  <%= link_to '', user_path(student), class: 'link' %>
 </div>
+
 
