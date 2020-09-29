@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   get "submit_url_linkedin", to: "users#submit_url_linkedin"
   get "welcome", to: "users#welcome"
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    member do
+      get :edit_situation
+    end
+  end
 
   resources :tags, only: [:index, :new, :create, :edit, :destroy] do
     collection do

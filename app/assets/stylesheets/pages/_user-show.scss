@@ -1,175 +1,138 @@
 .user-show-wrapper {
-  margin: 8rem 8rem 2rem 8rem;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
 
-  a {
-    color: $gray;
-    font-style: italic;
-  }
 
-  h3 {
-    margin: 0;
-  }
-
-  .edit-link {
-    position: absolute;
-    text-decoration: none;
-    color: black;
-    top: 10px;
-    left: 10px;
-  }
-
-  .user-description {
-    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    padding: 1rem;
-    display: flex;
-    align-items: start;
-    height: fit-content;
-  }
-
-  .left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30%;
-    height: 100%;
-    justify-content: space-between;
-  }
-
-  img {
-    width: 200px;
-    border-radius: 50%;
-    margin-bottom: 1.5rem;
-  }
-
-  .link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: fit-content;
-
-    a {
-      text-decoration: none;
+    h2, h3 {
+      margin-top: 0;
       color: $dark-blue;
-      font-size: 24px;
-      margin: 0 0.5rem;
+
     }
+
+  .left-side {
+    width: 48%;
   }
 
-  .right {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    h1 {
-      line-height: 0;
-    }
-  }
-
-  .tags-index-wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .tags-index {
-    ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    ul > li {
-      display: inline-block;
-      margin-right: 0.5rem;
-      position: relative;
-    }
-  }
-
-  .sector {
-
-    margin-top: 1rem;
-
-    h3 {
-      margin-right: 0.5rem;
-    }
-
-    ul {
-    padding: 0;
-    margin: 0;
-    }
-
-    ul > li {
-      list-style: none;
-      display: inline;
-      margin-right: 0.8rem;
-      position: relative;
-    }
-
-    ul > li:before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background-color: $gray;
-      display: inline-block;
-      position: absolute;
-      top: 9px;
-      left: -11px;
-    }
-
-    ul >li:first-child:before {
-      content: none;
-    }
-
-    .title {
-      display: flex;
-      align-items: center;
-
-    }
-
-  }
-
-  .notification {
-    display: flex;
-    align-items: center;
-    color: red;
-
-    h4 {
-      margin: 0;
-    }
-
-
-    i {
-      margin-right: 0.5rem;
-    }
-  }
-
-
-
-  .user-experiences-educations-wrap {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+  .right-side {
+    width: 48%;
 
     h2 {
       text-align: center;
     }
+
   }
 
-  .user-experiences {
+    .edit-link {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+    }
+
+
+  .user-description-wrap {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 2rem 3rem;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+
+    .user-description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img {
+      width: 180px;
+      border-radius: 50%;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: fit-content;
+
+      a {
+        text-decoration: none;
+        color: $dark-blue;
+        font-size: 24px;
+        margin: 0 1rem;
+      }
+    }
+  }
+
+  .situation {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 1rem 3rem;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 2rem;
+
+    .notification {
+      display: flex;
+      align-items: center;
+
+      i {
+        margin-right: 0.5rem;
+      }
+
+      h4 {
+        margin: 0;
+      }
+    }
+  }
+
+  .diplomas {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 1rem 3rem;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 2rem;
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
+
+  .sectors {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 1rem 3rem;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 2rem;
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+  }
+
+  .work-experiences {
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+
   }
 
-  .user-educations {
+  .school-experiences {
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     width: 100%;
-  }
+    padding: 2rem;
+    box-sizing: border-box;
 
+  }
 
 }

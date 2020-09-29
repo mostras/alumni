@@ -1,86 +1,47 @@
 <%= render 'shared/navbar' %>
 
-<div class="user-show-wrapper">
-  <div class="user-description">
-    <% if @student == current_user %>
-      <%= link_to edit_user_path(@student), class: 'edit-link' do %>
-        <%= render 'shared/edit-icon' %>
+
+<div class="user-show-wrapper main-wrapper">
+  <div class="left-side">
+
+    <div class="user-description-wrap">
+      <% if @student == current_user %>
+        <%= link_to edit_user_path(@student), class: 'edit-link' do %>
+          <%= render 'shared/edit-icon' %>
+        <% end %>
       <% end %>
-    <% end %>
-    <div class="left">
+
       <% if @student.photo.attached? %>
         <%= cl_image_tag @student.photo.key %>
       <% else %>
         <%= image_tag "blank-avatar.png" %>
       <% end %>
-      <div class="link">
-        <% unless @student.linkedin_url.nil? || @student.linkedin_url === '' %>
-          <a href="<%= @student.linkedin_url%>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <% end %>
-        <% unless @student.email.nil?  || @student.email === '' %>
-          <a href="mailto:<%= @student.email%>"><i class="far fa-envelope"></i></a>
-        <% end %>
-        <% unless @student.phone_number.nil? || @student.phone_number === '' %>
-          <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
-        <% end %>
-        <% unless @student.whatsapp_number.nil? || @student.whatsapp_number === '' %>
-          <a href="https://wa.me/+33<%= @student.whatsapp_number%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <% end %>
+      <div class="user-description">
+        <h1><%= @student.full_name %></h1>
+
+        <div class="link">
+          <% unless @student.linkedin_url.nil? || @student.linkedin_url === '' %>
+            <a href="<%= @student.linkedin_url%>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <% end %>
+          <% unless @student.email.nil?  || @student.email === '' %>
+            <a href="mailto:<%= @student.email%>"><i class="far fa-envelope"></i></a>
+          <% end %>
+          <% unless @student.phone_number.nil? || @student.phone_number === '' %>
+            <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
+          <% end %>
+          <% unless @student.whatsapp_number.nil? || @student.whatsapp_number === '' %>
+            <a href="https://wa.me/+33<%= @student.whatsapp_number%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="right">
-      <div class="name-and-tags">
-        <h1><%= @student.full_name %></h1>
-        <div class="tags-index-wrapper">
-          <div class="tags-index">
-            <% if @student.tags.any? %>
-              <ul>
-                <% @student.tags.each do |tag| %>
-                  <li>
-                    <%= render 'shared/diploma-tag-big', tag: tag %>
-                  </li>
-                <% end %>
-              </ul>
-            <% else %>
-              <% if @student == current_user %>
-                <%= link_to tags_path do %>
-                  Ajouter vos diplômes
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-          <% if @student == current_user && @student.tags.any? %>
-            <%= link_to tags_path do %>
-              <%= render 'shared/edit-icon' %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <div class="sector">
-        <div class="title">
-          <h3>SECTEURS</h3>
-          <% if @student.user_sectors.any? %>
-            <%= link_to user_sectors_path do %>
-              <%= render 'shared/edit-icon' %>
-            <% end %>
-          <% end %>
-        </div>
-        <% if @student.user_sectors.any? %>
-          <ul>
-            <% @student.user_sectors.each do |user_sector| %>
-              <li>
-                <%= user_sector.sector.try(:name) %>
-              </li>
-            <% end %>
-          </ul>
-        <% else %>
-          <% if @student == current_user %>
-            <%= link_to user_sectors_path do %>
-              Ajouter vos secteurs d'activités
-            <% end %>
-          <% end %>
+
+    <div class="situation">
+      <% if @student == current_user %>
+        <%= link_to edit_situation_user_path(@student), class: 'edit-link' do %>
+          <%= render 'shared/edit-icon' %>
         <% end %>
-      </div>
+      <% end %>
       <% if @student.looking_for_job? %>
         <div class="notification" id="situation-red">
           <i class="fas fa-exclamation-circle"></i>
@@ -100,11 +61,61 @@
         </div>
       <% end %>
     </div>
+
+    <div class="diplomas">
+      <% if @student == current_user && @student.tags.any? %>
+        <%= link_to tags_path, class: 'edit-link' do %>
+          <%= render 'shared/edit-icon' %>
+        <% end %>
+      <% end %>
+
+      <h3>DIPLÔMES</h3>
+
+      <% if @student.tags.any? %>
+        <ul>
+          <% @student.tags.each do |tag| %>
+            <li>
+              <%= render 'shared/diploma-tag-big', tag: tag %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <% if @student == current_user %>
+          <%= link_to tags_path do %>
+            Ajouter vos diplômes
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="sectors">
+      <h3>SECTEURS</h3>
+      <% if @student.user_sectors.any? %>
+        <%= link_to user_sectors_path, class: 'edit-link' do %>
+          <%= render 'shared/edit-icon' %>
+        <% end %>
+      <% end %>
+       <% if @student.user_sectors.any? %>
+          <ul>
+            <% @student.user_sectors.each do |user_sector| %>
+              <li>
+                <%= render 'shared/user-sector-card', user_sector: user_sector %>
+
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <% if @student == current_user %>
+            <%= link_to user_sectors_path do %>
+              Ajouter vos secteurs d'activités
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
   </div>
 
-  <div class="user-experiences-educations-wrap">
-
-    <div class="user-experiences">
+  <div class="right-side">
+    <div class="work-experiences">
       <h2>EXPERIENCES</h2>
       <% if @student.work_experiences.any? %>
         <% @student.work_experiences.each do |work_experience| %>
@@ -113,15 +124,15 @@
       <% end %>
     </div>
 
-    <div class="user-educations">
+    <div class="school-experiences">
       <h2>EDUCATIONS</h2>
       <% if @student.school_experiences.any? %>
         <% @student.school_experiences.each do |school_experience| %>
           <%= render 'shared/school_experience-card', school_experience: school_experience %>
         <% end %>
       <% end %>
-
     </div>
+  </div>
 
 
   </div>
@@ -129,4 +140,10 @@
 
 
 
-</div>
+
+
+
+
+
+
+

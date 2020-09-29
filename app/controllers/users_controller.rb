@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :edit_situation]
 
 
   def index
@@ -23,6 +23,9 @@ class UsersController < ApplicationController
       flash[:alert] = "Vos modifications n'ont pas pu être enregistrées."
       render :edit
     end
+  end
+
+  def edit_situation
   end
 
   def linkedin

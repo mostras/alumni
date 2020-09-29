@@ -21,9 +21,14 @@ require("channels")
 document.addEventListener('DOMContentLoaded', (event) => {
   let links = document.querySelectorAll('.remove-card');
   links.forEach((link) => {
-    link.addEventListener('click', (event) => {
+    link.addEventListener('click', (e) => {
       let div = link.parentNode
-      div.remove()
+      if (confirm("Etes vous sûr de vouloir supprimer cet élément de votre profil ?")) {
+        div.remove()
+      } else {
+        e.stopPropagation()
+      }
+
     });
   });
 });
