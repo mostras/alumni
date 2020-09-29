@@ -2,6 +2,21 @@
 <div class="main-wrapper">
   <h1>Les entreprises</h1>
 
+  <div class="index-companies-form-wrapper">
+    <div class="index-companies-info">
+      <h2><%= @companies.try(:count) %> résultats</h2>
+      <div class="companies-count" id="situation-green">
+        <i class="fas fa-exclamation-circle"></i>
+        <p>2 recrutent</p>
+      </div>
+    </div>
+
+
+    <div class="index-companies-form">
+
+    </div>
+  </div>
+
   <div class="company-card-wrapper">
     <% @companies.each do |company| %>
       <%= link_to company_path(company) do %>
