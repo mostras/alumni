@@ -24,7 +24,7 @@
   </div>
 
   <% if @current_jobs.any? %>
-    <h2>Actuellement à <%= @company.name %></h2>
+    <h2>Actuellement ici</h2>
     <div class="current-job-wrapper">
       <% @current_jobs.each do |job|%>
         <%= render 'shared/student_card', student: job.user %>
@@ -33,7 +33,7 @@
   <% end %>
 
   <% if @former_jobs.any? %>
-    <h2>Anciennement à <%= @company.name %></h2>
+    <h2>Anciennement ici</h2>
     <div class="former-job-wrapper">
       <% @former_jobs.each do |job|%>
           <%= render 'shared/student_card', student: job.user %>
