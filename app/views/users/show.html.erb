@@ -37,28 +37,37 @@
     </div>
 
     <div class="situation">
-      <% if @student == current_user %>
-        <%= link_to edit_situation_user_path(@student), class: 'edit-link' do %>
-          <%= render 'shared/edit-icon' %>
+      <h3>SITUATION</h3>
+      <% if @student.looking_for_job? || @student.looking_for_internship? || @student.company_hire? %>
+        <% if @student == current_user %>
+          <%= link_to edit_situation_user_path(@student), class: 'edit-link' do %>
+            <%= render 'shared/edit-icon' %>
+          <% end %>
         <% end %>
-      <% end %>
-      <% if @student.looking_for_job? %>
-        <div class="notification" id="situation-red">
-          <i class="fas fa-exclamation-circle"></i>
-          <h4>JE RECHERCHE UN EMPLOI</h4>
-        </div>
-      <% end %>
-      <% if @student.looking_for_internship? %>
-        <div class="notification" id="situation-orange">
-          <i class="fas fa-exclamation-circle"></i>
-          <h4>JE RECHERCHE UN STAGE</h4>
-        </div>
-      <% end %>
-      <% if @student.company_hire? %>
-        <div class="notification" id="situation-green">
-          <i class="fas fa-exclamation-circle"></i>
-          <h4>MON ENTREPRISE RECRUTE</h4>
-        </div>
+
+
+        <% if @student.looking_for_job? %>
+          <div class="notification" id="situation-red">
+            <i class="fas fa-exclamation-circle"></i>
+            <h4>JE RECHERCHE UN EMPLOI</h4>
+          </div>
+        <% end %>
+        <% if @student.looking_for_internship? %>
+          <div class="notification" id="situation-orange">
+            <i class="fas fa-exclamation-circle"></i>
+            <h4>JE RECHERCHE UN STAGE</h4>
+          </div>
+        <% end %>
+        <% if @student.company_hire? %>
+          <div class="notification" id="situation-green">
+            <i class="fas fa-exclamation-circle"></i>
+            <h4>MON ENTREPRISE RECRUTE</h4>
+          </div>
+        <% end %>
+      <% else %>
+          <%= link_to edit_situation_user_path do %>
+            Changez votre situation
+          <% end %>
       <% end %>
     </div>
 
