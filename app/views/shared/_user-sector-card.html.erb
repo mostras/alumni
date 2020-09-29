@@ -1,7 +1,10 @@
 <div class="user-sector-card">
-  <%= link_to user_sector_path(user_sector), method: :delete, data: { confirm: "Etes vous sûr de vouloir supprimer ce secteur de votre profil ?" }, class: 'remove-card' do %>
-    <i class="fas fa-trash"></i>
+
+  <% if current_page?(user_sectors_path) || current_page?(sector_creation_user_sectors_path) %>
+    <%= link_to user_sector_path(user_sector), method: :delete, data: { confirm: "Etes vous sûr de vouloir supprimer ce secteur de votre profil ?" }, class: 'remove-card' do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+    <span class="line"></span>
   <% end %>
-  <span class="line"></span>
   <%= user_sector.sector.name %>
 </div>
