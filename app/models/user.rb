@@ -54,9 +54,9 @@ class User < ApplicationRecord
   end
 
   def capitalize_names
-    self.first_name = first_name.camelcase
-    self.last_name = last_name.camelcase
-    binding.pry
+    self.first_name = first_name.titleize
+    self.last_name = last_name.titleize
+
   end
 
   def full_name
