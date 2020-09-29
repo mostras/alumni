@@ -37,6 +37,8 @@ module StudentCardsHelper
   end
 
   def is_looking_for?(student)
+    return 'hire' if params[:controller] == 'companies' && params[:action] == 'show' && student.company_hire?
+
     if student.looking_for_job?
       return 'job'
     elsif student.looking_for_internship?
