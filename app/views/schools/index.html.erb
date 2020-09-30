@@ -1,6 +1,28 @@
 <%= render 'shared/navbar' %>
-<div class="main-wrapper">
+<div class="index-schools-page-wrapper main-wrapper">
   <h1>Les écoles</h1>
+
+  <div class="search-form-wrapper">
+
+    <div class="search-info">
+      <h2><%= @schools.try(:count) %> résultats</h2>
+    </div>
+
+
+    <div class="search-form">
+
+      <%= form_tag schools_path, method: :get do %>
+          <%= text_field_tag :name, params[:name], placeholder: "Chercher par nom d'écoles", class: 'input large' %>
+
+        <div class="form-inline">
+          <%= select_tag(:city, options_for_select(school_list, params[:city]), {:prompt => 'Chercher par ville', :class => 'input'}) %>
+
+          <%= submit_tag 'Valider mes filtres', class: 'full-button' %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
 
   <div class="company-card-wrapper">
     <% @schools.each do |school| %>

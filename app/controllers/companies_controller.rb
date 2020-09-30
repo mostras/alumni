@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def index
-    @companies = Company.all
+    @companies = Company.search(params)
   end
 
   def show
