@@ -2,7 +2,12 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :set_visit, only: [:create]
 
+
+  def set_visit
+    Visit.create(user: current_user)
+  end
 
   # GET /resource/sign_in
   # def new

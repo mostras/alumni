@@ -25,6 +25,18 @@
         </div>
       <% end %>
     </div>
+
+    <% admins_only do %>
+      <div class="navigation-item">
+        <%= link_to admin_statistics_path, class: active_class_for('statistics') do %>
+          <div>
+            <i class="fas fa-chart-line"></i>
+            Les statistiques
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
     <div class="navigation-item">
       <%= link_to 'https://www.leschartreux.com', target: :_blank do %>
         <div>
@@ -33,7 +45,11 @@
         </div>
       <% end %>
     </div>
+
   </div>
+
+
+
 
 
   <div class="session-link">
