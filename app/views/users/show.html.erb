@@ -37,7 +37,7 @@
     </div>
 
     <div class="situation">
-      <h3>SITUATION</h3>
+      <h2>SITUATION</h2>
       <% if @student.looking_for_job? || @student.looking_for_internship? || @student.company_hire? %>
         <% if @student == current_user %>
           <%= link_to edit_situation_user_path(@student), class: 'edit-link' do %>
@@ -78,7 +78,7 @@
         <% end %>
       <% end %>
 
-      <h3>DIPLÔMES</h3>
+      <h2>DIPLÔMES</h2>
 
       <% if @student.tags.any? %>
         <ul>
@@ -91,14 +91,14 @@
       <% else %>
         <% if @student == current_user %>
           <%= link_to tags_path do %>
-            Ajouter vos diplômes
+            Cliquez pour ajouter vos diplômes
           <% end %>
         <% end %>
       <% end %>
     </div>
 
     <div class="sectors">
-      <h3>SECTEURS</h3>
+      <h2>SECTEURS</h2>
       <% if @student.user_sectors.any? %>
         <%= link_to user_sectors_path, class: 'edit-link' do %>
           <%= render 'shared/edit-icon' %>
@@ -116,7 +116,7 @@
         <% else %>
           <% if @student == current_user %>
             <%= link_to user_sectors_path do %>
-              Ajouter vos secteurs d'activités
+              Cliquez pour ajouter vos secteurs d'activités
             <% end %>
           <% end %>
         <% end %>
@@ -134,7 +134,7 @@
     </div>
 
     <div class="school-experiences">
-      <h2>EDUCATIONS</h2>
+      <h2>FORMATIONS</h2>
       <% if @student.school_experiences.any? %>
         <% @student.school_experiences.each do |school_experience| %>
           <%= render 'shared/school_experience-card', school_experience: school_experience %>
