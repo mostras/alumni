@@ -57,11 +57,28 @@ body {
     }
   }
 
+  #situation-green { color: $flash-green; }
+  #situation-orange { color: $flash-orange; }
+  #situation-red { color: $flash-red; }
+
   .main-wrapper {
     margin: 8rem 5rem 2rem 5rem;
   }
 
-  #situation-green { color: $flash-green; }
-  #situation-orange { color: $flash-orange; }
-  #situation-red { color: $flash-red; }
+  @media(max-width: 992px) {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 2rem;
+    }
+  }
+
+  @media(max-width: 768px) {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+    }
+  }
+
 }
