@@ -2,7 +2,7 @@ class SchoolsController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def index
-    @schools = School.all
+    @schools = School.search(params)
   end
 
   def show
