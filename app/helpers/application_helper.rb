@@ -9,6 +9,11 @@ module ApplicationHelper
     when "companies-show-company" then 'active'
     when "schools-index-school" then 'active'
     when "schools-show-school" then 'active'
+    when "admin/pages-statistics-statistics" then 'active'
     end
+  end
+
+  def admins_only(&block)
+    block.call if current_user.try(:admin?)
   end
 end

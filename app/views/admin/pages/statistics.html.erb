@@ -1,0 +1,15 @@
+<%= render 'shared/navbar' %>
+
+<div class="main-wrapper">
+<h1>statistiques</h1>
+
+<h2>Nombre d’élèves inscrit sur la plateforme: <%= registered_user %></h2>
+<h2>Nombre d’élèves inscrit ces dernières 24h: <%= last_day_registered_user %></h2>
+<h2>Nombre de connexions ces dernières 24h: <%= visit_last_day %>  </h2>
+
+<h2>Nombre d’élèves en recherche de stage/d’emploi: <%= users_looking_for_job %></h2>
+<h2>Nombre d’entreprise qui recrute: <%= hiring_companies_sum %></h2>
+
+
+</div>
+

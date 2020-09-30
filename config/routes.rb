@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  devise_for :users, :controllers => { registrations: 'users/registrations', sessions: "users/sessions" }
+
+  namespace :admin do
+    root "application#index"
+    get "statistics", to: 'pages#statistics'
+  end
 
 
   require "sidekiq/web"
