@@ -23,6 +23,28 @@ module Admin::StatisticsHelper
   def hiring_companies_sum
     Company.includes(:users).where(users: {company_hire: true}).count
   end
+
+  def top_sector
+    sectors = []
+    UserSector.all.each do |user_sector|
+      sectors << user_sector.sector.name
+    end
+
+    sector_hash= Hash.new(0)
+    sectors.each do |sector|
+      sector_hash[sector] += 1
+    end
+
+    new_hash = sector_hash.sort_by{|k, v| v}.reverse
+
+    top3 = []
+
+    new_hash[0..2].each do |h|
+      top3 << h[0]
+    end
+
+    top3
+  end
 end
 
 
