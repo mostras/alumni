@@ -4,27 +4,29 @@
 
   <h1>Les alumnis</h1>
 
-  <div class="index-users-form-wrapper">
-    <div class="index-users-info">
+  <div class="search-form-wrapper">
+
+    <div class="search-info">
       <h2><%= @students.try(:count) %> alumni</h2>
 
-        <div class="students-count" id="situation-green">
+        <div class="search-count" id="situation-green">
           <i class="fas fa-exclamation-circle"></i>
           <p><%= @students.where(company_hire: true).count %> recrutent</p>
         </div>
-        <div class="students-count" id="situation-orange">
+        <div class="search-count" id="situation-orange">
           <i class="fas fa-exclamation-circle"></i>
           <p><%= @students.where(looking_for_internship: true).count %> recherche un stage</p>
         </div>
-        <div class="students-count" id="situation-red">
+        <div class="search-count" id="situation-red">
           <i class="fas fa-exclamation-circle"></i>
           <p><%= @students.where(looking_for_job: true).count %> recherche un emploi</p>
         </div>
     </div>
-    <div class="index-users-form">
+
+    <div class="search-form">
       <%= form_tag users_path, method: :get do %>
         <div class="form-inline">
-          <%= text_field_tag :name, params[:name], placeholder: 'Chercher par prénom, nom..', class: 'input' %>
+          <%= text_field_tag :name, params[:name], placeholder: 'Chercher par prénom, nom..', class: 'input large' %>
 
           <%= select_tag(:look_for, options_for_select([['Recrute', 1], ['Recherche un stage', 2], ['Recherche un emploie', 3]], params[:look_for]), {:prompt => 'Chercher par situation', :class => 'input'}) %>
         </div>

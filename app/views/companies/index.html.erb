@@ -2,21 +2,21 @@
 <div class="index-companies-page-wrapper main-wrapper">
   <h1>Les entreprises</h1>
 
-  <div class="index-companies-form-wrapper">
+  <div class="search-form-wrapper">
 
-    <div class="index-companies-info">
+    <div class="search-info">
       <h2><%= @companies.try(:count) %> résultats</h2>
-      <div class="companies-count" id="situation-green">
+      <div class="search-count" id="situation-green">
         <i class="fas fa-exclamation-circle"></i>
         <p><%= hiring_companies(@companies) %> recrutent</p>
       </div>
     </div>
 
 
-    <div class="index-companies-form">
+    <div class="search-form">
 
       <%= form_tag companies_path, method: :get do %>
-          <%= text_field_tag :name, params[:name], placeholder: "Chercher par nom d'entreprise", class: 'input large-input' %>
+          <%= text_field_tag :name, params[:name], placeholder: "Chercher par nom d'entreprise", class: 'input large' %>
 
         <div class="form-inline">
           <%= select_tag(:city, options_for_select(city_list, params[:city]), {:prompt => 'Chercher par ville', :class => 'input'}) %>

@@ -1,0 +1,51 @@
+.search-form-wrapper {
+  margin-bottom: 3.5rem;
+  display: flex;
+  align-items: baseline;
+
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: $light-gray;
+  }
+
+  .search-info {
+    margin-right: 2rem;
+  }
+
+  .search-count {
+    display: flex;
+    align-items: center;
+    p { margin: 0; }
+    i { margin-right: 0.5rem; }
+  }
+
+  .search-form {
+
+  }
+
+  .form-inline {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+  }
+
+  .form-inline > :first-child {
+    margin-right: 1rem;
+  }
+
+  .input {
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 0 0.2rem;
+    color: rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+  }
+
+  .large {
+    width: 300px;
+  }
+
+}
