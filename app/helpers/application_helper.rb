@@ -10,10 +10,15 @@ module ApplicationHelper
     when "schools-index-school" then 'active'
     when "schools-show-school" then 'active'
     when "admin/pages-statistics-statistics" then 'active'
+    when "admin/pages-emails-emails" then 'active'
     end
   end
 
   def admins_only(&block)
     block.call if current_user.try(:admin?)
+  end
+
+  def non_admins_only(&block)
+    block.call unless current_user.try(:admin?)
   end
 end
