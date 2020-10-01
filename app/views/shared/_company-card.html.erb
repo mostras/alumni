@@ -9,6 +9,11 @@
   <div class="company-card-info">
     <h2><%= company.name %></h2>
     <h3><%= company.city %></h3>
-    <p><%= pluralize company.users.count, 'alumni travaille ici', 'alumni travaillent ici' %></p>
+    <div>
+      <p><%= pluralize company.users.count, 'alumni travaille ici', 'alumni travaillent ici' %></p>
+      <% if hiring?(company) %>
+        <i class="fas fa-exclamation-circle situation" id="situation-green"></i>
+      <% end %>
+    </div>
   </div>
 </div>
