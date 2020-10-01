@@ -25,28 +25,49 @@ module Admin::StatisticsHelper
   end
 
   def top_sector
-    sectors = []
-
+    hash_sectors = Hash.new(0)
     UserSector.all.each do |user_sector|
-      sectors << user_sector.sector.name
+      hash_sectors[user_sector.sector.name] += 1.fdiv(UserSector.all.count)
     end
 
-    sector_hash= Hash.new(0)
-    sectors.each do |sector|
-      sector_hash[sector] += 1
+    hash_sectors.sort_by{|k, v| v}.reverse!
+
+    answer = ""
+    hash_sectors.each do |k, v|
+      answer << "#{k}(#{v.round(2)*100}%), "
     end
-
-    sort_sector = sector_hash.sort_by{|k, v| v}.reverse
-
-    best_sector = []
-
-    sort_sector[0..2].each do |h|
-      best_sector << h[0]
-    end
-
-    "#{best_sector[0]}, #{best_sector[1]} et #{best_sector[2]}"
+    answer
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
