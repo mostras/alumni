@@ -26,6 +26,7 @@ module Admin::StatisticsHelper
 
   def top_sector
     sectors = []
+
     UserSector.all.each do |user_sector|
       sectors << user_sector.sector.name
     end
@@ -35,15 +36,15 @@ module Admin::StatisticsHelper
       sector_hash[sector] += 1
     end
 
-    new_hash = sector_hash.sort_by{|k, v| v}.reverse
+    sort_sector = sector_hash.sort_by{|k, v| v}.reverse
 
-    top3 = []
+    best_sector = []
 
-    new_hash[0..2].each do |h|
-      top3 << h[0]
+    sort_sector[0..2].each do |h|
+      best_sector << h[0]
     end
 
-    top3
+    "#{best_sector[0]}, #{best_sector[1]} et #{best_sector[2]}"
   end
 end
 
