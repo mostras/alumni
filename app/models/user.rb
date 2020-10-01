@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates_length_of :user_sectors, maximum: 5
   has_many :work_experiences, dependent: :destroy
   has_many :school_experiences, dependent: :destroy
+  has_many :visit, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
