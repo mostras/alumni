@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <div class="index-users-wrapper">
+  <div class="grid">
     <% @students.each do |student| %>
       <%= render partial: "shared/student_card", locals: {student: student}  %>
 
