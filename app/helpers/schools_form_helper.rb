@@ -4,7 +4,7 @@ module SchoolsFormHelper
     list = []
     schools = School.all
     schools.each do |school|
-      list << [school.city.capitalize, school.city.downcase]
+      list << [school.city.try(:capitalize), school.city.try(:downcase)]
     end
 
     city_list = list.uniq

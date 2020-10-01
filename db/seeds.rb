@@ -85,6 +85,9 @@ user14 = User.create(email: 'patrice@gmail.com', password: 'password', first_nam
 user15 = User.create(email: 'stephane@gmail.com', password: 'password', first_name: 'Stephane', last_name: 'Ricou', phone_number: '0634523911', linkedin_url: 'https://www.linkedin.com/in/romain-mostras/', whatsapp_number: '0634523911', looking_for_job: false, company_hire: true, looking_for_internship: true)
 user16 = User.create(email: 'pierrick@gmail.com', password: 'password', first_name: 'Pierrick', last_name: 'Chalu', phone_number: '0634523911', linkedin_url: 'https://www.linkedin.com/in/romain-mostras/', whatsapp_number: '0634523911', looking_for_job: true, company_hire: false, looking_for_internship: false)
 
+user17 = User.create!(email: 'aurore@hotmail.fr', password: 'password', first_name: 'Aurore', last_name: 'Barbier', phone_number: '0679093818', linkedin_url: 'https://www.linkedin.com/in/aurore-demierre-531621a7/?locale=de_DE', whatsapp_number: '0679093818', looking_for_job: true, company_hire: true, looking_for_internship: false, admin: true)
+user18 = User.create!(email: 'paul-berger@hotmail.fr', password: 'password', first_name: 'Paul', last_name: 'Barbier', phone_number: '0679093818', linkedin_url: 'https://www.linkedin.com/in/paul-berger-a96076140/', whatsapp_number: '0679093818', looking_for_job: true, company_hire: true, looking_for_internship: false, admin: true)
+
 puts 'User creation OK'
 
 company1 = Company.create!(name: Faker::Company.name, city: 'Lyon')
@@ -108,9 +111,9 @@ company16 = Company.create!(name: Faker::Company.name, city: 'Paris')
 puts 'Company creation OK'
 
 
-WorkExperience.create!(title: Faker::Job.title, start_time: '2019', end_time: "Aujourd'hui", location: 'Lyon', user: user1, company: company1, current: true)
-WorkExperience.create!(title: Faker::Job.title, start_time: '2016', end_time: '2019', location: 'Lyon', user: user1, company: company2, current: false)
-WorkExperience.create!(title: Faker::Job.title, start_time: '2014', end_time: '2016', location: 'Lyon', user: user1, company: company4, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2019', end_time: "Aujourd'hui", location: 'Lyon', user: user10, company: company1, current: true)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2016', end_time: '2019', location: 'Lyon', user: user13, company: company2, current: false)
+WorkExperience.create!(title: Faker::Job.title, start_time: '2014', end_time: '2016', location: 'Lyon', user: user14, company: company4, current: false)
 
 WorkExperience.create!(title: Faker::Job.title, start_time: '2019', end_time: "Aujourd'hui", location: 'Lyon', user: user2, company: company4, current: true)
 WorkExperience.create!(title: Faker::Job.title, start_time: '2014', end_time: '2019', location: 'Lyon', user: user2, company: company5, current: false)

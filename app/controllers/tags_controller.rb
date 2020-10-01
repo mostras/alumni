@@ -7,6 +7,8 @@ class TagsController < ApplicationController
     @tags = Tag.where(user: current_user).order(year: :asc)
     @tag = @student.tags.build
     @diplomas = Diploma.all
+
+    ParsingDataJob.perform_later
   end
 
   def tag_creation

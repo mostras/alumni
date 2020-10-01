@@ -4,7 +4,7 @@ module CompaniesFormHelper
     list = []
     companies = Company.all
     companies.each do |company|
-      list << [company.city.capitalize, company.city.downcase]
+      list << [company.city.try(:capitalize), company.city.try(:downcase)]
     end
 
     city_list = list.uniq
