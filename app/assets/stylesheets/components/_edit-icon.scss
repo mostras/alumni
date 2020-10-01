@@ -7,6 +7,11 @@
   align-items: center;
   justify-content: center;
 
+  &:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+
 
   i {
     font-size: 10px;

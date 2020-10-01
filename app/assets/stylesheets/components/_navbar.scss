@@ -16,6 +16,7 @@
 
     .active {
       opacity: 1;
+      transition: opacity 0.3s;
       font-weight: 500;
     }
   }
@@ -38,6 +39,7 @@
 
     a:hover {
       opacity: 1;
+      transition: opacity 0.3s;
     }
 
     i {
