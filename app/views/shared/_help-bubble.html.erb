@@ -1,5 +1,13 @@
-<%= link_to "mailto:m.reinert@leschartreux.net, romainmostras@icloud.com" do  %>
-  <div class="help-bubble">
-    <%= image_tag "help.png" %>
+<div class="help-wrap">
+
+  <div id="help-message">
+    <p>Besoin d'aide ? </br> Contactez-nous !</p>
   </div>
-<% end %>
+
+  <%= link_to "mailto:m.reinert@leschartreux.net", id: 'help-bubble' do  %>
+    <div class="help-bubble">
+      <%= image_tag "help.png" %>
+    </div>
+  <% end %>
+
+</div>
