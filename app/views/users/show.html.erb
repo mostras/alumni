@@ -64,10 +64,10 @@
             <h4>MON ENTREPRISE RECRUTE</h4>
           </div>
         <% end %>
+      <% elsif @student == current_user %>
+          <%= link_to "Cliquez pour changez votre situation", edit_situation_user_path %>
       <% else %>
-          <%= link_to edit_situation_user_path do %>
-            Changez votre situation
-          <% end %>
+        <p><%= @student.first_name %> n'a pas précisé de recherche</p>
       <% end %>
     </div>
 
@@ -88,12 +88,10 @@
             </li>
           <% end %>
         </ul>
+      <% elsif @student == current_user %>
+        <%= link_to "Cliquez pour ajouter vos diplômes", tags_path %>
       <% else %>
-        <% if @student == current_user %>
-          <%= link_to tags_path do %>
-            Cliquez pour ajouter vos diplômes
-          <% end %>
-        <% end %>
+        <p><%= @student.first_name %> n'a pas renseigné de formations aux Chartreux</p>
       <% end %>
     </div>
 
@@ -113,12 +111,10 @@
               </li>
             <% end %>
           </ul>
+        <% elsif @student == current_user %>
+          <%= link_to "Cliquez pour ajouter vos secteurs d'activités", user_sectors_path %>
         <% else %>
-          <% if @student == current_user %>
-            <%= link_to user_sectors_path do %>
-              Cliquez pour ajouter vos secteurs d'activités
-            <% end %>
-          <% end %>
+          <p><%= @student.first_name %> n'a pas renseigné de secteurs d'activité</p>
         <% end %>
     </div>
   </div>
@@ -130,6 +126,14 @@
         <% @student.work_experiences.each do |work_experience| %>
           <%= render 'shared/work_experience-card', work_experience: work_experience %>
         <% end %>
+      <% elsif @student == current_user && @student.linkedin_url.present? %>
+        <p>Nous récupérons vos expériences profressionnelles sur votre profil LinkedIn, revenez ultérieurement...</p>
+      <% elsif @student == current_user %>
+        <%= link_to edit_user_path(@student) do  %>
+          <p>Renseignez l'URL de votre profil LinkedIn pour ajouter automatiquement vos expériences professionnelles.</p>
+        <% end %>
+      <% else %>
+        <p><%= @student.first_name %> n'a pas d'expériences professionnelles.</p>
       <% end %>
     </div>
 
@@ -139,6 +143,14 @@
         <% @student.school_experiences.each do |school_experience| %>
           <%= render 'shared/school_experience-card', school_experience: school_experience %>
         <% end %>
+      <% elsif @student == current_user && @student.linkedin_url.present? %>
+        <p>Nous récupérons vos formations sur votre profil LinkedIn, revenez ultérieurement...</p>
+      <% elsif @student == current_user %>
+        <%= link_to edit_user_path(@student) do  %>
+          <p>Renseignez l'URL de votre profil LinkedIn pour ajouter automatiquement vos formations.</p>
+        <% end %>
+      <% else %>
+        <p><%= @student.first_name %> n'a pas de formations.</p>
       <% end %>
     </div>
   </div>
