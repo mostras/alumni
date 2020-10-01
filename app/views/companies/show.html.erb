@@ -17,7 +17,7 @@
     </div>
   </div>
 
-    <% if @hiring.any? %>
+    <% if hiring?(@company) %>
       <div id="situation-green">
         <h3><%= pluralize @hiring.count, 'alumni signale un recrutement, prennez contact !', 'alumni signalent un recrutement, contactez-les !' %></h3>
       </div>

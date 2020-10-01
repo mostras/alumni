@@ -11,8 +11,18 @@ module CompaniesFormHelper
     return city_list
   end
 
+  def hiring?(company)
+    jobs = WorkExperience.where(company: company)
+    current_jobs = jobs.where(current: true)
+    hirings = current_jobs.select { |job| job.user.company_hire == true }
+    hirings.any?
+  end
+
   def hiring_companies(companies)
-    hiring_companies_list = companies.includes(:users).where(users: {company_hire: true})
-    return hiring_companies_list.count
+    number = []
+    companies.each do |company|
+      number << hiring?(company)
+    end
+    number.count(true)
   end
 end
