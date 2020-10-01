@@ -4,6 +4,12 @@ class Company < ApplicationRecord
 
   has_one_attached :photo
 
+  include PgSearch
+  pg_search_scope :search_by_name, against: :name,
+  using: {
+    tsearch: { prefix: true }
+  }
+
   def self.search(params)
     companies = Company.all
 
@@ -12,10 +18,9 @@ class Company < ApplicationRecord
       companies = Company.where('city LIKE ?', "%#{company_city}%")
     end
 
-    if params[:name].present?
-      company_name = params[:name].titleize
-      companies = Company.where('name LIKE ?', "%#{company_name}%")
-    end
+
+    companies = Company.search_by_name(params[:name]) if params[:name].present?
+
 
     return companies
   end

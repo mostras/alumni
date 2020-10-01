@@ -4,6 +4,12 @@ class School < ApplicationRecord
 
   has_one_attached :photo
 
+  include PgSearch
+  pg_search_scope :search_by_name, against: :name,
+  using: {
+    tsearch: { prefix: true }
+  }
+
   def self.search(params)
     schools = School.all
 
@@ -12,10 +18,8 @@ class School < ApplicationRecord
       schools = School.where('city LIKE ?', "%#{school_city}%")
     end
 
-    if params[:name].present?
-      school_name = params[:name].titleize
-      schools = School.where('name LIKE ?', "%#{school_name}%")
-    end
+    schools = School.search_by_name(params[:name]) if params[:name].present?
+
 
     return schools
   end

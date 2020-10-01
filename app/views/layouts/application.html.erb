@@ -16,6 +16,7 @@
     <% flash.each do |key, message| %>
       <div class="alert alert-<%= key %>">
         <%= message %>
+        <button class='close-alert'><i class="fas fa-times"></i></button>
       </div>
     <% end %>
 

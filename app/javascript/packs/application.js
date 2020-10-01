@@ -80,3 +80,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   }
 })
+
+//Close the flash alert
+document.addEventListener('DOMContentLoaded', (event) => {
+  const button = document.querySelector('.close-alert')
+
+  if (button) {
+    button.addEventListener('click', (event) => {
+      button.parentNode.remove()
+    })
+  }
+})
+
+
+
+
