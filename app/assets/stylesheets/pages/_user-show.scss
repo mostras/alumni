@@ -46,6 +46,11 @@
     .user-description {
       display: flex;
       align-items: center;
+
+      .user-name-and-links {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     span {
@@ -63,21 +68,6 @@
       object-fit: cover;
       border-radius: 50%;
       margin-right: 1rem;
-    }
-
-    .link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: fit-content;
-      margin-top: 0.5rem;
-
-      a {
-        text-decoration: none;
-        color: $dark-blue;
-        font-size: 20px;
-        margin: 0.5rem;
-      }
     }
   }
 

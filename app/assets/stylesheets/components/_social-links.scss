@@ -1,0 +1,21 @@
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  margin-left: 1rem;
+  border-top: solid $light-gray 1px;
+
+  a {
+    text-decoration: none;
+    color: $dark-blue;
+    font-size: 20px;
+    margin: 0.7rem 1rem 0 0.5rem;
+
+    &:hover {
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+  }
+
+}
