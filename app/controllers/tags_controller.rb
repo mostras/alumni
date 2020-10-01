@@ -18,10 +18,10 @@ class TagsController < ApplicationController
   def create
     @tag = @student.tags.build(tags_params)
     if @tag.save
-      flash[:notice] = "Le tag a bien été ajouté."
+      flash[:notice] = "Le tag \"#{@tag.diploma.name}\" a bien été ajouté à votre profil."
       redirect_to request.referrer
     else
-      flash[:alert] = "Le tag n'a pas pu être ajouté."
+      flash[:alert] = "Le tag n'a pas pu être ajouté à votre profil, veuillez réessayer."
       redirect_to request.referrer
     end
   end
