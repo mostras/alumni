@@ -5,4 +5,19 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2rem;
   }
+
+}
+
+
+@media(max-width: 500px) {
+  .index-users-page-wrapper {
+
+    .index-users-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+    }
+
+  }
+
 }
