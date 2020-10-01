@@ -1,21 +1,31 @@
 .alert {
-  width: fit-content;
   margin: 1rem auto;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 3rem;
   text-align: center;
   font-weight: bold;
-  border-radius: 5px;
   color: white;
   position: absolute;
   z-index: 1000;
-  right: 10px;
-  top: 60px;
+  box-sizing: border-box;
+  top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+    button {
+    border: none;
+    background: no-repeat;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    }
 }
 
 
 .alert-notice {
-  background-color: rgba(147, 192, 164, 0.6)
+  background-color: #44AF69;
 }
 .alert-alert {
-  background-color: rgba(209, 96, 61, 0.6)
+  background-color: #D1495B;
 }
