@@ -14,7 +14,7 @@
   <body>
 
     <% flash.each do |key, message| %>
-      <div class="alert alert-<%= key %>">
+      <div class="alert alert-<%= key %>" id="<%= put_alert_on_top %>">
         <%= message %>
         <button class='close-alert'><i class="fas fa-times"></i></button>
       </div>

@@ -92,6 +92,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 })
 
+//Show help-message when hover link
+
+
+  const helpBubble = document.getElementById('help-bubble')
+  helpBubble.addEventListener("mouseover", (event) => {
+    document.getElementById('help-message').style.display = 'block';
+  })
+
+  helpBubble.addEventListener("mouseout", (event) => {
+    document.getElementById('help-message').style.display = 'none';
+  })
+
+
+
+
+
 
 
 
