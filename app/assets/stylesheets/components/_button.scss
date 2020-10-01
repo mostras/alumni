@@ -9,6 +9,11 @@
   text-align: center;
   width: fit-content;
   box-sizing: border-box;
+
+  &:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
 }
 
 .empty-button {
@@ -22,6 +27,11 @@
   text-align: center;
   width: fit-content;
   box-sizing: border-box;
+
+  &:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
 }
 
 .back-button {
