@@ -21,18 +21,19 @@
   }
 
   .right-side {
+    position: relative;
     width: 48%;
     h2 {
       text-align: center;
-      margin-bottom: 2rem;
+      margin: 2rem 0 2rem 0;
     }
   }
 
-    .edit-link {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-    }
+  .edit-link {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
 
 
   .user-description-wrap {
@@ -122,20 +123,12 @@
 
   }
 
-  .work-experiences {
+  .experiences {
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     width: 100%;
     padding: 1.5rem;
     box-sizing: border-box;
     margin-bottom: 2rem;
-  }
-
-  .school-experiences {
-    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    width: 100%;
-    padding: 1.5rem;
-    box-sizing: border-box;
   }
 }
