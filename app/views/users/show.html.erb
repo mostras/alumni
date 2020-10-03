@@ -2,6 +2,7 @@
 
 
 <div class="user-show-wrapper main-wrapper">
+
   <div class="left-side">
 
     <div class="user-description-wrap">
@@ -109,45 +110,48 @@
   </div>
 
   <div class="right-side">
-    <div class="work-experiences">
-      <h2>EXPERIENCES</h2>
-      <% if @student.work_experiences.any? %>
-        <% @student.work_experiences.each do |work_experience| %>
-          <%= render 'shared/work_experience-card', work_experience: work_experience %>
-        <% end %>
-      <% elsif @student == current_user && @student.linkedin_url.present? %>
-        <p>Nous récupérons vos expériences profressionnelles sur votre profil LinkedIn, revenez ultérieurement...</p>
-      <% elsif @student == current_user %>
-        <%= link_to edit_user_path(@student) do  %>
-          <p>Renseignez l'URL de votre profil LinkedIn pour ajouter automatiquement vos expériences professionnelles.</p>
-        <% end %>
-      <% else %>
-        <p><%= @student.first_name %> n'a pas d'expériences professionnelles.</p>
-      <% end %>
-    </div>
 
-    <div class="school-experiences">
-      <h2>FORMATIONS</h2>
-      <% if @student.school_experiences.any? %>
-        <% @student.school_experiences.each do |school_experience| %>
-          <%= render 'shared/school_experience-card', school_experience: school_experience %>
-        <% end %>
-      <% elsif @student == current_user && @student.linkedin_url.present? %>
-        <p>Nous récupérons vos formations sur votre profil LinkedIn, revenez ultérieurement...</p>
-      <% elsif @student == current_user %>
-        <%= link_to edit_user_path(@student) do  %>
-          <p>Renseignez l'URL de votre profil LinkedIn pour ajouter automatiquement vos formations.</p>
-        <% end %>
-      <% else %>
-        <p><%= @student.first_name %> n'a pas de formations.</p>
+    <% if @student == current_user %>
+      <%= link_to '#', class: 'edit-link' do %>
+        <%= render 'shared/edit-icon' %>
       <% end %>
+    <% end %>
+
+      <div class="experiences">
+        <h2>EXPERIENCES</h2>
+        <% if @student.work_experiences.any? %>
+          <% @student.work_experiences.each do |work_experience| %>
+            <%= render 'shared/work_experience-card', work_experience: work_experience %>
+          <% end %>
+        <% elsif @student == current_user && @student.linkedin_url.present? %>
+          <p>Nous récupérons vos expériences profressionnelles sur votre profil LinkedIn, revenez ultérieurement...</p>
+        <% elsif @student == current_user %>
+          <%= link_to edit_user_path(@student) do  %>
+            <p>Renseignez l'URL de votre profil LinkedIn pour ajouter automatiquement vos expériences professionnelles.</p>
+          <% end %>
+        <% else %>
+          <p><%= @student.first_name %> n'a pas ajouté d'expériences professionnelles.</p>
+        <% end %>
+
+        <h2>FORMATIONS</h2>
+        <% if @student.school_experiences.any? %>
+          <% @student.school_experiences.each do |school_experience| %>
+            <%= render 'shared/school_experience-card', school_experience: school_experience %>
+          <% end %>
+        <% elsif @student == current_user && @student.linkedin_url.present? %>
+          <p>Nous récupérons vos formations sur votre profil LinkedIn, revenez ultérieurement...</p>
+        <% elsif @student == current_user %>
+          <%= link_to edit_user_path(@student) do  %>
+            <p>Renseignez l'URL de votre profil LinkedIn pour ajouter automatiquement vos formations.</p>
+          <% end %>
+        <% else %>
+          <p><%= @student.first_name %> n'a pas ajouté de formations.</p>
+        <% end %>
     </div>
   </div>
 
-<%= render 'shared/help-bubble' %>
+  <%= render 'shared/help-bubble' %>
 </div>
-
-
 
 
 
