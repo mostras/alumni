@@ -1,14 +1,27 @@
 <div class="link">
-  <% unless @student.linkedin_url.nil? || @student.linkedin_url === '' %>
-    <a href="<%= @student.linkedin_url%>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+
+  <% if student.linkedin_url.present? %>
+    <%= link_to student.linkedin_url, target: :_blank, data: { confirm: "Si vous contactez #{@student.first_name} sur LinkedIn, n'oubliez pas de mentionner que vous avez trouvé son profil sur Chartreux Alumni !"} do %>
+      <i class="fab fa-linkedin-in"></i>
+    <% end %>
   <% end %>
-  <% unless @student.email.nil?  || @student.email === '' %>
-    <a href="mailto:<%= @student.email%>"><i class="far fa-envelope"></i></a>
+
+  <% if student.email.present? %>
+    <%= link_to "mailto:#{student.email}", data: { confirm: "Si vous contactez #{@student.first_name} par email, n'oubliez pas de mentionner que vous avez trouvé son profil sur Chartreux Alumni !"} do %>
+      <i class="far fa-envelope"></i>
+    <% end %>
   <% end %>
-  <% unless @student.phone_number.nil? || @student.phone_number === '' %>
-    <a href="tel:<%= @student.phone_number%>"><i class="fas fa-phone"></i></a>
+
+  <% if student.phone_number.present? %>
+    <%= link_to "tel:#{student.phone_number}", data: { confirm: "Si vous appelez #{@student.first_name}, n'oubliez pas de mentionner que vous avez trouvé son profil sur Chartreux Alumni !"} do %>
+      <i class="fas fa-phone"></i>
+    <% end %>
   <% end %>
-  <% unless @student.whatsapp_number.nil? || @student.whatsapp_number === '' %>
-    <a href="https://wa.me/+33<%= @student.whatsapp_number%>" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <% if student.whatsapp_number.present? %>
+    <%= link_to "https://wa.me/+33#{student.whatsapp_number}", target: :_blank, data: { confirm: "Si vous contactez #{@student.first_name} par WhatsApp, n'oubliez pas de mentionner que vous avez trouvé son profil sur Chartreux Alumni !"} do %>
+      <i class="fab fa-whatsapp"></i>
+    <% end %>
   <% end %>
+
 </div>
