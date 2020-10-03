@@ -19,7 +19,7 @@
         <% end %>
         <div class="user-name-and-links">
           <h1><span><%= @student.first_name %></span><br><%= @student.last_name %></h1>
-          <%= render 'shared/social-links' %>
+          <%= render 'shared/social-links', student: @student  %>
         </div>
       </div>
 
