@@ -8,7 +8,6 @@ class TagsController < ApplicationController
     @tag = @student.tags.build
     @diplomas = Diploma.all
 
-    ParsingDataJob.perform_later
   end
 
   def tag_creation
