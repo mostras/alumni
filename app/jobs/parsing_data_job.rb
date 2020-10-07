@@ -20,10 +20,8 @@ class ParsingDataJob < ApplicationJob
   def dispatch_action(json)
     json.each do |profil_json|
       student = User.find_by(linkedin_url: profil_json['general']['profileUrl'])
-      binding.pry
 
       unless student.parsing
-        binding.pry
         student.school_experiences.destroy_all
         student.work_experiences.destroy_all
         create_schools(profil_json, student)
