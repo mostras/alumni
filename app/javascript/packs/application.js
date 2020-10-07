@@ -18,7 +18,7 @@ require("channels")
 
 
 //DELETE TAG-CARD AND SECTOR-CARD WHEN USER CLICK ON CROSS
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener("turbolinks:load",function(){
   let links = document.querySelectorAll('.remove-card');
   links.forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -35,13 +35,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 //HIDE FORM WHEN SECTOR > 5
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener("turbolinks:load",function(){
   var userSectorCards = document.querySelectorAll('.user-sector-card')
   console.log(userSectorCards.length)
 })
 
 //ADD A CONFIRMATION MESSAGE WHEN LINKEDIN USER VALUE IS NULL
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener("turbolinks:load",function(){
   var input = document.getElementById("url")
   var btnLinkedin = document.getElementById("linkedin-button")
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 //DISABLE BUTTON WHEN THE TAG-DIPLOMA CREATION IS NOT DONE CORRECTLY
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener("turbolinks:load",function(){
   var addTagButton = document.getElementById("add_tag_button")
   var selectDiploma = document.getElementById("tag_diploma_id")
   var selectYear = document.getElementById("tag_year")
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 })
 
 //Close the flash alert
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener("turbolinks:load",function(){
   const button = document.querySelector('.close-alert')
 
   if (button) {
@@ -95,12 +95,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 //Show help-message when hover link
 
-
+document.addEventListener("turbolinks:load",function(){
   const helpBubble = document.getElementById('help-bubble')
   helpBubble.addEventListener("mouseover", (event) => {
     document.getElementById('help-message').style.display = 'block';
   })
 
+  console.log('je suis la')
+
   helpBubble.addEventListener("mouseout", (event) => {
     document.getElementById('help-message').style.display = 'none';
   })
+})
+

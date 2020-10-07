@@ -9,17 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
   </head>
 
   <body>
 
-    <% flash.each do |key, message| %>
-      <div class="alert alert-<%= key %>" id="<%= put_alert_on_top %>">
-        <%= message %>
-        <button class='close-alert'><i class="fas fa-times"></i></button>
-      </div>
-    <% end %>
+
 
     <%= yield %>
+
+
   </body>
 </html>

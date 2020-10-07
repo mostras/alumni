@@ -22,9 +22,4 @@ module ApplicationHelper
     block.call unless current_user.try(:admin?)
   end
 
-  def put_alert_on_top
-    if current_page?(root_path) || current_page?(new_user_registration_path) || current_page?(linkedin_path) || current_page?(tag_creation_tags_path) || current_page?(sector_creation_user_sectors_path) || current_page?(welcome_path) || current_page?(new_user_session_path)
-      return 'alert-on-top'
-    end
-  end
 end

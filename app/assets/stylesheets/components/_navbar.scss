@@ -1,13 +1,17 @@
-.navbar {
-  padding: 0 2rem;
-  display: flex;
-  height: 66px;
-  background-color: $dark-blue;
+.navbar-wrapper {
   position: fixed;
   top: 0;
   z-index: 100;
   width: 100%;
   box-sizing: border-box;
+}
+
+
+.navbar {
+  padding: 0 2rem;
+  display: flex;
+  height: 66px;
+  background-color: $dark-blue;
   justify-content: space-between;
 
   .navigation-links {

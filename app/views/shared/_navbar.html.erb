@@ -1,81 +1,81 @@
 <div class="navbar">
 
-  <div class="navigation-links">
-    <div class="navigation-item">
-      <%= link_to users_path, class: active_class_for('alumni') do %>
-
-          <i class="fas fa-users"></i>
-          <p>Les alumni</p>
-
-
-      <% end %>
-    </div>
-
-    <div class="navigation-item">
-      <%= link_to companies_path, class: active_class_for('company') do %>
-
-          <i class="fas fa-briefcase"></i>
-          <p>Les entreprises</p>
-
-      <% end %>
-    </div>
-
-    <div class="navigation-item">
-      <%= link_to schools_path, class: active_class_for('school') do %>
-
-          <i class="fas fa-graduation-cap"></i>
-          <p>Les écoles</p>
-
-      <% end %>
-    </div>
-
-    <% admins_only do %>
+    <div class="navigation-links">
       <div class="navigation-item">
-        <%= link_to admin_statistics_path, class: active_class_for('statistics') do %>
+        <%= link_to users_path, class: active_class_for('alumni') do %>
 
-            <i class="fas fa-chart-line"></i>
-            <p>Les statistiques</p>
-
-        <% end %>
-      </div>
-      <div class="navigation-item">
-        <%= link_to admin_emails_path, class: active_class_for('emails') do %>
-
-            <i class="fas fa-comments"></i>
-            <p>Emails groupés</p>
+            <i class="fas fa-users"></i>
+            <p>Les alumni</p>
 
 
         <% end %>
       </div>
-    <% end %>
 
-    <% non_admins_only do %>
       <div class="navigation-item">
-        <%= link_to 'https://www.leschartreux.com', target: :_blank do %>
-            <i class="fas fa-external-link-alt"></i>
-            <p>L'Institution des Chartreux</p>
+        <%= link_to companies_path, class: active_class_for('company') do %>
+
+            <i class="fas fa-briefcase"></i>
+            <p>Les entreprises</p>
+
         <% end %>
       </div>
-    <% end %>
 
-  </div>
+      <div class="navigation-item">
+        <%= link_to schools_path, class: active_class_for('school') do %>
+
+            <i class="fas fa-graduation-cap"></i>
+            <p>Les écoles</p>
+
+        <% end %>
+      </div>
+
+      <% admins_only do %>
+        <div class="navigation-item">
+          <%= link_to admin_statistics_path, class: active_class_for('statistics') do %>
+
+              <i class="fas fa-chart-line"></i>
+              <p>Les statistiques</p>
+
+          <% end %>
+        </div>
+        <div class="navigation-item">
+          <%= link_to admin_emails_path, class: active_class_for('emails') do %>
+
+              <i class="fas fa-comments"></i>
+              <p>Emails groupés</p>
 
 
-
-
-
-  <div class="session-link">
-    <% if user_signed_in? %>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="fas fa-sign-out-alt"></i>
+          <% end %>
+        </div>
       <% end %>
-      <%= link_to user_path(current_user) do %>
-        <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key %>
-        <% else %>
-          <%= image_tag "blank-avatar.png" %>
+
+      <% non_admins_only do %>
+        <div class="navigation-item">
+          <%= link_to 'https://www.leschartreux.com', target: :_blank do %>
+              <i class="fas fa-external-link-alt"></i>
+              <p>L'Institution des Chartreux</p>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+
+
+    <div class="session-link">
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt"></i>
+        <% end %>
+        <%= link_to user_path(current_user) do %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key %>
+          <% else %>
+            <%= image_tag "blank-avatar.png" %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 </div>
+
+
+
