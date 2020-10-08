@@ -49,6 +49,9 @@
         <%= f.label "Cochez cette case pour selectionner la mise à jour manuel." %> <br />
       <% end %>
     </div>
+
+    <%= render 'shared/experiences', user: current_user %>
+
   </div>
 
   <%= link_to 'Valider les modifications', user_path(current_user), class: 'full-button'  %>
