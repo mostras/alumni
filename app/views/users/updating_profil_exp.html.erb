@@ -22,6 +22,21 @@
       </div>
     <% end %>
 
+    <% if current_user.parsing && current_user.automatic_updating %>
+
+      <button>Mettre à jour les informations de mon profil</button>
+
+    <% elsif !current_user.parsing && current_user.automatic_updating %>
+
+      <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
+        <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
+        <%= button_tag "Charger l'URL", class: 'full-button'%>
+      <% end %>
+
+    <% end %>
+
+
+
   </div>
 
   <div class="manual-wrapper">

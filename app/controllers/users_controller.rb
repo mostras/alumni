@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       current_user.update(linkedin_url: linkedin_url, automatic_updating: true, manual_updating: false)
       AddUrl.new(id, linkedin_url).google_sheet
     end
-    redirect_to tag_creation_tags_path
+    redirect_to request.referrer
   end
 
   def welcome
