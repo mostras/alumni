@@ -15,25 +15,24 @@
       <p>Grâce à votre profil LinkedIn nous pouvons récupérer vos expériences professinnelles et vos formations. Votree profil Chartreux Alumni se remplira automatiquement en fonction de ce que vous avez renseigné sur LinkedIn. Si vous aviez choisi la mise à jour manuelle auparavant et que vous choisissez la mise à jour automatique, les données que vous aviez saisies seront remplacées par celles de LinkedIn. </br> Si vous avez mis à jour votre profil LinkedIn et que vous souhaitez importer les modifications ici, cliquez sur le bouton ‘Mettre à jour mon profil’.</p>
     </div>
 
-    <%= form_for current_user, :url => { :action => "set_automatic_updating" } do |f| %>
-      <div class="validation">
-        <%= f.check_box :automatic_updating, class: 'set-automatic-updating' %> <br />
-        <%= f.label "Cochez cette case pour selectionner la mise à jour automatique." %> <br />
-      </div>
-    <% end %>
-
-    <% if current_user.parsing && current_user.automatic_updating %>
-
-      <button>Mettre à jour les informations de mon profil</button>
-
-    <% elsif !current_user.parsing && current_user.automatic_updating %>
-
-      <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
-        <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
-        <%= button_tag "Charger l'URL", class: 'full-button'%>
+    <div class="validation">
+      <%= form_for current_user, :url => { :action => "set_automatic_updating" } do |f| %>
+          <%= f.check_box :automatic_updating, class: 'set-automatic-updating' %> <br />
+          <%= f.label "Cochez cette case pour selectionner la mise à jour automatique." %> <br />
       <% end %>
+    </div>
 
-    <% end %>
+    <div class="linkedin_url">
+      <% if current_user.on_google_sheet && current_user.automatic_updating %>
+        <button class="empty-button">Mettre à jour les informations de mon profil</button>
+      <% elsif !current_user.on_google_sheet && current_user.automatic_updating %>
+        <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
+          <%= label_tag 'name' %>
+          <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
+          <%= button_tag "Charger l'URL", class: 'full-button'%>
+        <% end %>
+      <% end %>
+    </div>
 
 
 
@@ -44,13 +43,14 @@
       <p>Si vous ne souhaitez pas renseigner votre profil LinkedIn, vous pouvez ajouter vos formations et expériences professionnelles manuellement. Si vous aviez choisi l’option de mise à jour automatique auparavant, vous concerverez les données importées.</p>
     </div>
 
-
-    <%= form_for current_user, :url => { :action => "set_manual_updating" } do |f| %>
-      <div class="validation">
+    <div class="validation">
+      <%= form_for current_user, :url => { :action => "set_manual_updating" } do |f| %>
         <%= f.check_box :manual_updating, class: 'set-manual-updating' %> <br />
         <%= f.label "Cochez cette case pour selectionner la mise à jour manuel." %> <br />
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+
+  <%= link_to 'Valider les modifications', user_path(current_user), class: 'full-button'  %>
 
 </div>

@@ -13,12 +13,16 @@
       <p>En renseignant votre URL LinkedIn, vous autorisez le réseau Chartreux Alumni à lire les données publiques de votre profil et, une fois renseigné, vous ne pourrez plus modifier l'URL.</p>
     </div>
 
-    <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
-      <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
-      <%= button_tag "Charger l'URL", class: 'full-button' %>
+    <% if current_user.on_google_sheet %>
+      <p>Vous avez déjà rentré votre URL.</p>
+    <% else %>
+      <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
+        <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
+        <%= button_tag "Charger l'URL", class: 'full-button' %>
+      <% end %>
     <% end %>
 
-    <%= link_to 'Valider les modifications', tag_creation_tags_path, class: 'full-button', id: 'linkedin-button'  %>
+    <%= link_to 'Suivant', tag_creation_tags_path, class: 'full-button', id: 'linkedin-button'  %>
 
   </div>
 </div>

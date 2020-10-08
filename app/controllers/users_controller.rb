@@ -37,10 +37,12 @@ class UsersController < ApplicationController
       current_user.update(manual_updating: true, automatic_updating: false)
     else
       linkedin_url = params[:url]
-      current_user.update(linkedin_url: linkedin_url, automatic_updating: true, manual_updating: false)
       AddUrl.new(id, linkedin_url).google_sheet
+      current_user.update(linkedin_url: linkedin_url, automatic_updating: true, manual_updating: false, on_google_sheet: true)
     end
+    flash[:notice] = "Votre URL à bien été chargée."
     redirect_to request.referrer
+
   end
 
   def welcome
