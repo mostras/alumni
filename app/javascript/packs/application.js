@@ -171,7 +171,7 @@ document.addEventListener("turbolinks:load",function(){
   const form = document.querySelector('.edit_user')
 
   checkBox.addEventListener('click', (event) => {
-    checkBox.parentNode.parentNode.submit()
+    checkBox.parentNode.submit()
   })
 })
 
@@ -180,7 +180,7 @@ document.addEventListener("turbolinks:load",function(){
   const form = document.querySelector('.edit_user')
 
   checkBox.addEventListener('click', (event) => {
-    checkBox.parentNode.parentNode.submit()
+    checkBox.parentNode.submit()
   })
 })
 

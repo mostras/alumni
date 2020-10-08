@@ -44,6 +44,7 @@
     font-size: 12px;
     text-align: initial;
     padding: 1rem;
+    margin-bottom: 1rem;
 
     p {
       margin: 0;
@@ -51,6 +52,14 @@
   }
 
   .validation {
-    display: flex;
+    margin-bottom : 2rem;
+
+    form {
+      display: flex;
+    }
+  }
+
+  .linkedin_url {
+    margin-bottom: 2rem;
   }
 }

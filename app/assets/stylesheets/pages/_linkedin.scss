@@ -5,6 +5,12 @@
   position: absolute;
   color: white;
 
+  form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
   img {
     position: absolute;
     top: 2rem;
@@ -24,11 +30,11 @@
   .form-field {
     width: -webkit-fill-available;
     padding-left: 1rem;
-    margin-bottom: 1rem;
     border: 1px solid black;
     border-radius: 5px;
     height: 28px;
     font-size: 12px;
+    margin-right: 2rem;
   }
 
   .empty-button {
