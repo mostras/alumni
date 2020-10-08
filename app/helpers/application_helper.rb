@@ -22,4 +22,12 @@ module ApplicationHelper
     block.call unless current_user.try(:admin?)
   end
 
+  def is_parsing?
+    if current_user.automatic_updating && !current_user.manual_updating
+      true
+    elsif !current_user.automatic_updating && current_user.manual_updating
+      false
+    end
+  end
+
 end

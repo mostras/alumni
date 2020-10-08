@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :edit_situation
+      get :updating_profil_exp
+      patch :set_automatic_updating
+      patch :set_manual_updating
     end
   end
 
