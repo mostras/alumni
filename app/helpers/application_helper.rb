@@ -23,10 +23,10 @@ module ApplicationHelper
   end
 
   def is_parsing?
-    if current_user.parsing
-      false
-    else
+    if current_user.automatic_updating && !current_user.manual_updating
       true
+    elsif !current_user.automatic_updating && current_user.manual_updating
+      false
     end
   end
 

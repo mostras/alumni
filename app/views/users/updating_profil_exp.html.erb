@@ -14,12 +14,28 @@
     <div class="notification">
       <p>Grâce à votre profil LinkedIn nous pouvons récupérer vos expériences professinnelles et vos formations. Votree profil Chartreux Alumni se remplira automatiquement en fonction de ce que vous avez renseigné sur LinkedIn. Si vous aviez choisi la mise à jour manuelle auparavant et que vous choisissez la mise à jour automatique, les données que vous aviez saisies seront remplacées par celles de LinkedIn. </br> Si vous avez mis à jour votre profil LinkedIn et que vous souhaitez importer les modifications ici, cliquez sur le bouton ‘Mettre à jour mon profil’.</p>
     </div>
+
+    <%= form_for current_user, :url => { :action => "set_automatic_updating" } do |f| %>
+      <div class="validation">
+        <%= f.check_box :automatic_updating, class: 'set-automatic-updating' %> <br />
+        <%= f.label "Cochez cette case pour selectionner la mise à jour automatique." %> <br />
+      </div>
+    <% end %>
+
   </div>
 
   <div class="manual-wrapper">
-        <div class="notification">
+    <div class="notification">
       <p>Si vous ne souhaitez pas renseigner votre profil LinkedIn, vous pouvez ajouter vos formations et expériences professionnelles manuellement. Si vous aviez choisi l’option de mise à jour automatique auparavant, vous concerverez les données importées.</p>
     </div>
+
+
+    <%= form_for current_user, :url => { :action => "set_manual_updating" } do |f| %>
+      <div class="validation">
+        <%= f.check_box :manual_updating, class: 'set-manual-updating' %> <br />
+        <%= f.label "Cochez cette case pour selectionner la mise à jour manuel." %> <br />
+      </div>
+    <% end %>
   </div>
 
 </div>

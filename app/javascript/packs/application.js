@@ -161,12 +161,27 @@ document.addEventListener("turbolinks:load",function(){
       toggleButton(wrapper)
     })
   })
+})
 
 
+//send form
 
+document.addEventListener("turbolinks:load",function(){
+  const checkBox = document.querySelector('.set-automatic-updating')
+  const form = document.querySelector('.edit_user')
 
+  checkBox.addEventListener('click', (event) => {
+    checkBox.parentNode.parentNode.submit()
+  })
+})
 
+document.addEventListener("turbolinks:load",function(){
+  const checkBox = document.querySelector('.set-manual-updating')
+  const form = document.querySelector('.edit_user')
 
+  checkBox.addEventListener('click', (event) => {
+    checkBox.parentNode.parentNode.submit()
+  })
 })
 
 

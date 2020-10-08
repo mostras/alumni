@@ -33,9 +33,13 @@ class UsersController < ApplicationController
 
   def submit_url_linkedin
     id = current_user.id
-    linkedin_url = params[:url]
-    current_user.update(linkedin_url: linkedin_url)
-    AddUrl.new(id, linkedin_url).google_sheet
+    if params[:url].blank?
+      current_user.update(manual_updating: true, automatic_updating: false)
+    else
+      linkedin_url = params[:url]
+      current_user.update(linkedin_url: linkedin_url, automatic_updating: true, manual_updating: false)
+      AddUrl.new(id, linkedin_url).google_sheet
+    end
     redirect_to tag_creation_tags_path
   end
 
@@ -43,6 +47,20 @@ class UsersController < ApplicationController
   end
 
   def updating_profil_exp
+  end
+
+  def set_automatic_updating
+    auto = current_user.automatic_updating
+    manu = current_user.manual_updating
+    current_user.update(automatic_updating: !auto, manual_updating: !manu)
+    redirect_to request.referrer
+  end
+
+  def set_manual_updating
+    auto = current_user.automatic_updating
+    manu = current_user.manual_updating
+    current_user.update(automatic_updating: !auto, manual_updating: !manu)
+    redirect_to request.referrer
   end
 
   private
