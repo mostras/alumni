@@ -16,7 +16,7 @@ module StudentCardsHelper
 
       if last_work_experience.try(:end_time) === "Aujourd'hui" && last_school_experience.try(:end_time) === "Aujourd'hui"
         #If the work and school experiences are actual
-        return false
+        return true
       elsif last_work_experience.try(:end_time) === "Aujourd'hui" && !last_school_experience.try(:end_time) === "Aujourd'hui"
         #If the job work experiences is actual
         return true

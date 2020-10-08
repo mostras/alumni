@@ -22,7 +22,6 @@ class UserSectorsController < ApplicationController
       redirect_to request.referrer
     else
       flash[:alert] = "Le secteur n'a pas pu être ajouté."
-      render :new
     end
   end
 

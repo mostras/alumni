@@ -81,6 +81,23 @@ document.addEventListener("turbolinks:load",function(){
   }
 })
 
+
+//DISABLE BUTTON WHEN THE USER_SECTOR CREATION IS NOT DONE CORRECTLY
+document.addEventListener("turbolinks:load",function(){
+  var addSectorButton = document.getElementById("add_sector_button")
+  var selectSector = document.getElementById("user_sector_sector_id")
+
+  if (addSectorButton && selectSector) {
+    addSectorButton.disabled = true
+
+    selectSector.addEventListener('change', (event) => {
+      if (selectSector.value) {
+        addSectorButton.disabled = false
+      };
+    });
+  }
+})
+
 //Close the flash alert
 document.addEventListener("turbolinks:load",function(){
   const button = document.querySelector('.close-alert')

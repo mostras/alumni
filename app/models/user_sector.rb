@@ -5,6 +5,4 @@ class UserSector < ApplicationRecord
   validates_associated :user
 
 
-
-
 end
