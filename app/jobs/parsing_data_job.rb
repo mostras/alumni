@@ -50,7 +50,7 @@ class ParsingDataJob < ApplicationJob
       user: student, # a creer dans le model pour ne pas avoir a util user
       school: school
     )
-    school_experience.update!(current: true) if school_experience.end_time.include?("Ajourd'hui" || 'Present')
+    # school_experience.update!(current: true) if school_experience.end_time.include?("Ajourd'hui" || 'Present')
   end
 
   def create_companies(profil_json, student)
@@ -69,7 +69,7 @@ class ParsingDataJob < ApplicationJob
       user: student, # a creer dans le model pour ne pas avoir a util user
       company: company
     )
-    work_experience.update!(current: true) if work_experience.end_time.include?("Ajourd'hui" || 'Present')
+    # work_experience.update!(current: true) if work_experience.end_time.include?("Ajourd'hui" || 'Present')
   end
 
 
