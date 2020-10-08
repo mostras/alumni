@@ -1,7 +1,7 @@
-    <div class="navbar-wrapper">
-      <%= render 'shared/alert' %>
-      <%= render 'shared/navbar' %>
-    </div>
+<div class="navbar-wrapper">
+  <%= render 'shared/alert' %>
+  <%= render 'shared/navbar' %>
+</div>
 
 
 
@@ -117,7 +117,7 @@
   <div class="right-side">
 
     <% if @student == current_user %>
-      <%= link_to '#', class: 'edit-link' do %>
+      <%= link_to updating_profil_exp_user_path, class: 'edit-link' do %>
         <%= render 'shared/edit-icon' %>
       <% end %>
     <% end %>

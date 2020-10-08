@@ -22,4 +22,12 @@ module ApplicationHelper
     block.call unless current_user.try(:admin?)
   end
 
+  def is_parsing?
+    if current_user.parsing
+      false
+    else
+      true
+    end
+  end
+
 end

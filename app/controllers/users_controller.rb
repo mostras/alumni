@@ -42,6 +42,9 @@ class UsersController < ApplicationController
   def welcome
   end
 
+  def updating_profil_exp
+  end
+
   private
 
   def set_user
