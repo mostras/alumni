@@ -1,0 +1,43 @@
+.experiences-wrapper {
+
+  h2 {
+    margin: 0;
+    color: $dark-blue;
+    font-size: 20px;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .experience {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-right: 1rem;
+    }
+
+  }
+
+  .info {
+    text-align: initial;
+    margin-left: 2rem;
+
+    h3 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+

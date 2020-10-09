@@ -1,0 +1,25 @@
+<div class="navbar-wrapper">
+  <%= render 'shared/alert' %>
+</div>
+<div class="new-school-experience">
+
+  <h2>Ajouter une formation</h2>
+
+  <%= form_for @school_experience do |f| %>
+
+    <%= f.text_field :title, placeholder: 'Titre', class: 'form-field' %>
+    <%= f.text_field :start_time, placeholder: 'Date de début', class: 'form-field' %>
+    <div class="online-fields">
+    <%= f.text_field :end_time, placeholder: 'Date de fin', class: 'form-field' %>
+    <div class="checkbox-online">
+      <%= f.check_box :current %>
+      <%= f.label :current, 'Ceci est ma formation actuelle' %>
+    </div>
+    </div>
+    <%= f.text_field :school, placeholder: 'Entreprise', class: 'form-field' %>
+
+    <%= f.submit "Ajouter", class: 'full-button' %>
+
+  <% end %>
+
+</div>

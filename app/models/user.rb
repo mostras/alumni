@@ -8,8 +8,11 @@ class User < ApplicationRecord
   has_many :tags
   has_many :user_sectors
   validates_length_of :user_sectors, maximum: 5
+
   has_many :work_experiences, dependent: :destroy
+  has_many :companies, through: :work_experiences
   has_many :school_experiences, dependent: :destroy
+  has_many :schools, through: :school_experiences
   has_many :visit, dependent: :destroy
 
   validates :first_name, presence: true
@@ -17,7 +20,7 @@ class User < ApplicationRecord
 
   before_create :capitalize_names
 
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search_by_name, against: [:first_name, :last_name],
   using: {
     tsearch: { prefix: true }
