@@ -42,11 +42,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :companies, only: [:index, :show]
-  resources :schools, only: [:index, :show]
+  resources :companies, only: [:index, :show, :new, :create, :edit, :update]
 
   resources :work_experiences, only: [:new, :create, :edit, :update]
+
+  resources :schools, only: [:index, :show, :new, :create, :edit, :update]
+
   resources :school_experiences, only: [:new, :create, :edit, :update]
+
+
+
 
 
 end
