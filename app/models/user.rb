@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :work_experiences, dependent: :destroy
   has_many :companies, through: :work_experiences
   has_many :school_experiences, dependent: :destroy
+  has_many :schools, through: :school_experiences
   has_many :visit, dependent: :destroy
 
   validates :first_name, presence: true

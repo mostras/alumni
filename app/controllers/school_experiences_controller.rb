@@ -4,12 +4,12 @@ class SchoolExperiencesController < ApplicationController
   before_action :set_school_experience, only: [:edit, :update, :destroy]
 
   def new
-    @school_experience = @user.school.build
+    @school_experience = @user.school_experiences.build
   end
 
   def create
     @school = School.find_or_create_by(name: params[:school_experience][:school])
-    @school_experience = @user.school.build(school_params)
+    @school_experience = @user.school_experiences.build(school_params)
     @school_experience.school = @school
 
     if @school_experience.save
