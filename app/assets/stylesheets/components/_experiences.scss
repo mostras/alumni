@@ -1,7 +1,7 @@
 .experiences-wrapper {
 
   h2 {
-    margin-top: 0;
+    margin: 0;
     color: $dark-blue;
     font-size: 20px;
   }
@@ -14,12 +14,18 @@
 
   .experience {
     margin: 1rem 0;
+    display: flex;
+    align-items: center;
 
+    a {
+      margin-right: 1rem;
+    }
 
   }
 
   .info {
     text-align: initial;
+    margin-left: 2rem;
 
     h3 {
       font-size: 18px;
@@ -31,10 +37,6 @@
       margin-bottom: 0.5rem;
     }
   }
-
-
-
-
 }
 
 

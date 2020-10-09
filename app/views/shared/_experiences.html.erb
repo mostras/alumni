@@ -7,6 +7,14 @@
     <% user.work_experiences.each do |work_experience| %>
       <div class="experience">
 
+        <%= link_to edit_work_experience_path(work_experience) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+
+        <%= link_to work_experience_path(work_experience), method: :delete  do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+
         <div class="info">
           <h3><%= work_experience.title %></h3>
           <p><%= work_experience.company.name %></p>
