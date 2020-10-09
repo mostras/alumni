@@ -1,0 +1,25 @@
+<div class="navbar-wrapper">
+  <%= render 'shared/alert' %>
+</div>
+<div class="edit-school-experience">
+
+  <h2>Modifier une expériences</h2>
+
+  <%= form_for @school_experience do |f| %>
+
+    <%= f.text_field :title, placeholder: 'Titre', class: 'form-field' %>
+    <%= f.text_field :start_time, placeholder: 'Date de début', class: 'form-field' %>
+    <div class="online-fields">
+    <%= f.text_field :end_time, placeholder: 'Date de fin', class: 'form-field' %>
+    <div class="checkbox-online">
+      <%= f.check_box :current %>
+      <%= f.label :current, 'Ceci est mon poste actuelle' %>
+    </div>
+    </div>
+    <%= f.text_field :school, placeholder: 'Entreprise', value: @school_experience.school.name, class: 'form-field' %>
+
+    <%= f.submit 'Valider les modifications', class: 'full-button' %>
+
+  <% end %>
+
+</div>
