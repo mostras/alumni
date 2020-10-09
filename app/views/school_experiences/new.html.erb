@@ -3,7 +3,7 @@
 </div>
 <div class="new-school-experience">
 
-  <h2>Ajouter une expériences</h2>
+  <h2>Ajouter une formation</h2>
 
   <%= form_for @school_experience do |f| %>
 
@@ -13,12 +13,12 @@
     <%= f.text_field :end_time, placeholder: 'Date de fin', class: 'form-field' %>
     <div class="checkbox-online">
       <%= f.check_box :current %>
-      <%= f.label :current, 'Ceci est mon poste actuelle' %>
+      <%= f.label :current, 'Ceci est ma formation actuelle' %>
     </div>
     </div>
     <%= f.text_field :school, placeholder: 'Entreprise', class: 'form-field' %>
 
-    <%= f.submit 'Valider les modifications', class: 'full-button' %>
+    <%= f.submit "Ajouter", class: 'full-button' %>
 
   <% end %>
 

@@ -5,9 +5,16 @@
   padding: 1rem 2rem;
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
   position: relative;
+  text-align: center;
 
 
   .form-field {
-    width: 200px;
+    width: 220px;
+  }
+
+  .online-fields {
+    .form-field {
+      width: 220px;
+    }
   }
 }
