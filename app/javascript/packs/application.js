@@ -165,7 +165,6 @@ document.addEventListener("turbolinks:load",function(){
 
 
 //send form
-
 document.addEventListener("turbolinks:load",function(){
   const checkBox = document.querySelector('.set-automatic-updating')
   const form = document.querySelector('.edit_user')
@@ -183,5 +182,28 @@ document.addEventListener("turbolinks:load",function(){
     checkBox.parentNode.submit()
   })
 })
+
+//disabled current if end_time (experience)
+document.addEventListener("turbolinks:load",function(){
+  const endTimeField = document.querySelector('#end_date_exp')
+  const currentCheckBox = document.querySelector('#current_exp')
+  console.log(endTimeField)
+  console.log(currentCheckBox)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

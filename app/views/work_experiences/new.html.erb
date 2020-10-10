@@ -14,9 +14,9 @@
     <%= f.text_field :title, placeholder: 'Poste occupé', class: 'form-field' %>
     <%= f.text_field :start_time, placeholder: 'Date de début', class: 'form-field' %>
     <div class="online-fields">
-    <%= f.text_field :end_time, placeholder: 'Date de fin', class: 'form-field' %>
+    <%= f.text_field :end_time, placeholder: 'Date de fin', id: 'end_date_exp', class: 'form-field' %>
     <div class="checkbox-online">
-      <%= f.check_box :current %>
+      <%= f.check_box :current, id: 'current_exp' %>
       <%= f.label :current, 'Ceci est mon poste actuelle' %>
     </div>
     </div>
