@@ -9,7 +9,10 @@ class SchoolExperiencesController < ApplicationController
   end
 
   def create
-    @school = School.find_or_create_by(name: params[:school_experience][:school_attributes][:name])
+    school_name = params[:school_experience][:school_attributes][:name]
+    titleize_school_name = school_name.downcase.titleize
+
+    @school = School.find_or_create_by(name: titleize_school_name)
     @school_experience = @user.school_experiences.build(school_params)
     @school_experience.school = @school
 
@@ -26,9 +29,11 @@ class SchoolExperiencesController < ApplicationController
   end
 
   def update
+    school_name = params[:school_experience][:school_attributes][:name]
+    titleize_school_name = school_name.downcase.titleize
 
-    if @school_experience.school.name != params[:school_experience][:school_attributes][:name]
-      school = School.find_or_create_by(name: params[:school_experience][:school_attributes][:name])
+    if @school_experience.school.name != titleize_school_name
+      school = School.find_or_create_by(name: titleize_school_name)
       @school_experience.school = school
     end
 
