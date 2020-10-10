@@ -60,7 +60,10 @@
   font-size: 12px;
   display: block;
   box-sizing: border-box;
+}
 
+.disabled {
+  border-color: $light-gray;
 }
 
 

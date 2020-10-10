@@ -189,6 +189,18 @@ document.addEventListener("turbolinks:load",function(){
   const currentCheckBox = document.querySelector('#current_exp')
   console.log(endTimeField)
   console.log(currentCheckBox)
+
+  currentCheckBox.addEventListener('change', (event) => {
+    console.log(currentCheckBox.checked)
+    if (currentCheckBox.checked) {
+      endTimeField.value = null
+      endTimeField.classList.add('disabled')
+      endTimeField.disabled = true
+    } else {
+      endTimeField.classList.remove('disabled')
+      endTimeField.disabled = false
+    }
+  });
 })
 
 
