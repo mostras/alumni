@@ -3,20 +3,27 @@
 </div>
 <div class="new-work-experience">
 
+
   <h2>Ajouter une expériences</h2>
 
   <%= form_for @work_experience do |f| %>
+    <% @work_experience.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+   <% end %>
 
-    <%= f.text_field :title, placeholder: 'Titre', class: 'form-field' %>
+    <%= f.text_field :title, placeholder: 'Poste occupé', class: 'form-field' %>
     <%= f.text_field :start_time, placeholder: 'Date de début', class: 'form-field' %>
     <div class="online-fields">
-    <%= f.text_field :end_time, placeholder: 'Date de fin', class: 'form-field' %>
+    <%= f.text_field :end_time, placeholder: 'Date de fin', id: 'end_date_exp', class: 'form-field' %>
     <div class="checkbox-online">
-      <%= f.check_box :current %>
+      <%= f.check_box :current, id: 'current_exp' %>
       <%= f.label :current, 'Ceci est mon poste actuelle' %>
     </div>
     </div>
-    <%= f.text_field :company, placeholder: 'Entreprise', class: 'form-field' %>
+
+    <%= f.fields_for :company, Company.new do |company_attributes|%>
+        <%= company_attributes.text_field :name, placeholder: "Nom de l'entreprise", class: 'form-field' %>
+    <% end %>
 
     <%= f.submit 'Ajouter', class: 'full-button' %>
 

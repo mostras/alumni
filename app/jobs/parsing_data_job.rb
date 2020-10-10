@@ -36,7 +36,8 @@ class ParsingDataJob < ApplicationJob
 
   def create_schools(profil_json, student)
     profil_json['schools'].each do |school_json|
-      school = School.find_or_create_by(name: school_json['schoolName']) { |s| s.linkedin_url = school_json['schoolUrl'] }
+      school_name = school_json['schoolName'].downcase.titleize
+      school = School.find_or_create_by(name: school_name) { |s| s.linkedin_url = school_json['schoolUrl'] }
       create_school_experiences(school_json, student, school)
     end
   end
@@ -55,7 +56,8 @@ class ParsingDataJob < ApplicationJob
 
   def create_companies(profil_json, student)
     profil_json['jobs'].each do |company_json|
-      company = Company.find_or_create_by(name: company_json['companyName']) { |c| c.linkedin_url = company_json['companyUrl'] }
+      company_name = company_json['companyName'].downcase.titleize
+      company = Company.find_or_create_by(name: company_name) { |c| c.linkedin_url = company_json['companyUrl'] }
       create_work_experience(company_json, student, company)
     end
   end

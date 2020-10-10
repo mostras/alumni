@@ -4,10 +4,14 @@ class WorkExperiencesController < ApplicationController
 
   def new
     @work_experience = @user.work_experiences.build
+    @work_experience.build_company
   end
 
   def create
-    @company = Company.find_or_create_by(name: params[:work_experience][:company])
+    company_name = params[:work_experience][:company_attributes][:name]
+    titleize_company_name = company_name.downcase.titleize
+
+    @company = Company.find_or_create_by(name: titleize_company_name)
     @work_experience = @user.work_experiences.build(work_experiences_params)
     @work_experience.company = @company
 
@@ -24,9 +28,11 @@ class WorkExperiencesController < ApplicationController
   end
 
   def update
+    company_name = params[:work_experience][:company_attributes][:name]
+    titleize_company_name = company_name.downcase.titleize
 
-    if @work_experience.company.name != params[:work_experience][:company]
-      company = Company.find_or_create_by(name: params[:work_experience][:company])
+    if @work_experience.company.name != titleize_company_name
+      company = Company.find_or_create_by(name: titleize_company_name)
       @work_experience.company = company
     end
 
@@ -55,6 +61,6 @@ class WorkExperiencesController < ApplicationController
   end
 
   def work_experiences_params
-    params.require(:work_experience).permit(:title, :start_time, :end_time, :location, :current, companies_attributes: [:company])
+    params.require(:work_experience).permit(:title, :start_time, :end_time, :location, :current, companies_attributes: [:name])
   end
 end
