@@ -4,14 +4,15 @@ class WorkExperiencesController < ApplicationController
 
   def new
     @work_experience = @user.work_experiences.build
+    @work_experience.build_company
   end
 
   def create
-    @company = Company.find_or_create_by(name: params[:work_experience][:company])
+    @company = Company.find_or_create_by(name: params[:work_experience][:company_attributes][:name])
     @work_experience = @user.work_experiences.build(work_experiences_params)
     @work_experience.company = @company
 
-    if @work_experience.save
+    if @work_experience.save!
       flash[:notice] = 'Votre expérience a bien été ajoutée.'
       redirect_to updating_profil_exp_user_path(current_user)
     else
@@ -25,8 +26,8 @@ class WorkExperiencesController < ApplicationController
 
   def update
 
-    if @work_experience.company.name != params[:work_experience][:company]
-      company = Company.find_or_create_by(name: params[:work_experience][:company])
+    if @work_experience.company.name != params[:work_experience][:company_attributes][:name]
+      company = Company.find_or_create_by(name: params[:work_experience][:company_attributes][:name])
       @work_experience.company = company
     end
 
@@ -55,6 +56,6 @@ class WorkExperiencesController < ApplicationController
   end
 
   def work_experiences_params
-    params.require(:work_experience).permit(:title, :start_time, :end_time, :location, :current, companies_attributes: [:company])
+    params.require(:work_experience).permit(:title, :start_time, :end_time, :location, :current, companies_attributes: [:name])
   end
 end

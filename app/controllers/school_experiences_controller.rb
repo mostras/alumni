@@ -5,10 +5,11 @@ class SchoolExperiencesController < ApplicationController
 
   def new
     @school_experience = @user.school_experiences.build
+    @school_experience.build_school
   end
 
   def create
-    @school = School.find_or_create_by(name: params[:school_experience][:school])
+    @school = School.find_or_create_by(name: params[:school_experience][:school_attributes][:name])
     @school_experience = @user.school_experiences.build(school_params)
     @school_experience.school = @school
 
@@ -26,8 +27,8 @@ class SchoolExperiencesController < ApplicationController
 
   def update
 
-    if @school_experience.school.name != params[:school_experience][:school]
-      school = School.find_or_create_by(name: params[:school_experience][:school])
+    if @school_experience.school.name != params[:school_experience][:school_attributes][:name]
+      school = School.find_or_create_by(name: params[:school_experience][:school_attributes][:name])
       @school_experience.school = school
     end
 
@@ -56,6 +57,6 @@ class SchoolExperiencesController < ApplicationController
   end
 
   def school_params
-    params.require(:school_experience).permit(:title, :start_time, :end_time, :location, :current, schools_attributes: [:school])
+    params.require(:school_experience).permit(:title, :start_time, :end_time, :location, :current, schools_attributes: [:name])
   end
 end

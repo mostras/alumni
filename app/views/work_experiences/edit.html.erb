@@ -16,7 +16,9 @@
       <%= f.label :current, 'Ceci est mon poste actuelle' %>
     </div>
     </div>
-    <%= f.text_field :company, placeholder: 'Entreprise', value: @work_experience.company.name, class: 'form-field' %>
+    <%= f.fields_for :company, Company.new do |company_attributes|%>
+        <%= company_attributes.text_field :name, value: @work_experience.company.name,  placeholder: "Nom de l'entreprise", class: 'form-field' %>
+    <% end %>
 
     <%= f.submit 'Valider les modifications', class: 'full-button' %>
 

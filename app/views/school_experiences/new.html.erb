@@ -16,7 +16,9 @@
       <%= f.label :current, 'Ceci est ma formation actuelle' %>
     </div>
     </div>
-    <%= f.text_field :school, placeholder: 'Entreprise', class: 'form-field' %>
+    <%= f.fields_for :school, School.new do |school_attributes|%>
+      <%= school_attributes.text_field :name, placeholder: "Nom de l'école", class: 'form-field' %>
+    <% end %>
 
     <%= f.submit "Ajouter", class: 'full-button' %>
 
