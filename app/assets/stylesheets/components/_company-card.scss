@@ -18,9 +18,19 @@
 
   .company-card-info {
     margin-left: 1rem;
+    width: 100%;
     color: $gray;
     white-space: nowrap;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .recruiting {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
 
     h2 {

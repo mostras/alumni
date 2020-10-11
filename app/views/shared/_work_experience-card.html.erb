@@ -4,7 +4,7 @@
   </div>
   <div class="description">
     <h3><%= work_experience.title %></h3>
-    <h4><%= work_experience.company.name %></h4>
-    <p><%= work_experience.location if work_experience.location.present? %> | <%= work_experience.start_time %> - <%= work_experience.end_time %></p>
+    <h4><%= work_experience.company.name %> | <%= work_experience.location if work_experience.location.present? %></h4>
+    <p><%= work_experience.start_time %> - <%= work_experience.end_time %></p>
   </div>
 </div>

@@ -7,13 +7,14 @@
 
   <%= form_for @work_experience do |f| %>
 
-    <%= f.text_field :title, placeholder: 'Titre', class: 'form-field' %>
+    <%= f.text_field :title, placeholder: 'Titre du poste', class: 'form-field' %>
+    <%= f.text_field :location, placeholder: 'Ville', class: 'form-field' %>
     <%= f.text_field :start_time, placeholder: 'Date de début', class: 'form-field' %>
     <div class="online-fields">
     <%= f.text_field :end_time, placeholder: 'Date de fin', id: 'end_date_exp', class: 'form-field' %>
     <div class="checkbox-online">
       <%= f.check_box :current, id: 'current_exp' %>
-      <%= f.label :current, 'Ceci est mon poste actuelle' %>
+      <%= f.label :current, 'Ceci est mon poste actuel' %>
     </div>
     </div>
     <%= f.fields_for :company, Company.new do |company_attributes|%>
