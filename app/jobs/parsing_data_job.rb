@@ -39,18 +39,20 @@ class ParsingDataJob < ApplicationJob
 
   def create_schools(profil_json, student)
     profil_json['schools'].each do |school_json|
-      school_name = school_json['schoolName'].downcase.titleize
+      school_name = school_json['schoolName'].nil? ? '' : school_json['schoolName'].downcase.titleize
       school = School.find_or_create_by(name: school_name) { |s| s.linkedin_url = school_json['schoolUrl'] }
       create_school_experiences(school_json, student, school)
     end
   end
 
   def create_school_experiences(school_json, student, school)
+    start_date = school_json['dateRange'].nil? ? '' : school_json['dateRange'].split(' – ').first
+    end_date = school_json['dateRange'].nil? ? '' : school_json['dateRange'].split(' – ').last
 
     school_experience = SchoolExperience.create!(
-      title: school_json['degree'],
-      start_time: only_year(school_json['dateRange'].split(' – ')[0]),
-      end_time: only_year(school_json['dateRange'].split(' – ')[1]),
+      title: school_json['degree'].nil? ? '' : school_json['degree'],
+      start_time: only_year(start_date),
+      end_time: only_year(end_date),
       user: student, # a creer dans le model pour ne pas avoir a util user
       school: school
     )
@@ -59,7 +61,7 @@ class ParsingDataJob < ApplicationJob
 
   def create_companies(profil_json, student)
     profil_json['jobs'].each do |company_json|
-      company_name = company_json['companyName'].downcase.titleize
+      company_name = company_json['companyName'].nil? ? '' : company_json['companyName'].downcase.titleize
       company = Company.find_or_create_by(name: company_name) { |c| c.linkedin_url = company_json['companyUrl'] }
       create_work_experience(company_json, student, company)
     end
@@ -68,9 +70,9 @@ class ParsingDataJob < ApplicationJob
   def create_work_experience(company_json, student, company)
     work_experience = WorkExperience.create!(
       title: company_json['jobTitle'],
-      start_time: only_year(company_json['dateRange'].split(' – ')[0]),
-      end_time: only_year(company_json['dateRange'].split(' – ')[1]),
-      location: company_json['location'],
+      start_time: only_year(company_json['dateRange'].split(' – ').first),
+      end_time: only_year(company_json['dateRange'].split(' – ').last),
+      location: company_json['location'].nil? ? '' : company_json['location'],
       user: student, # a creer dans le model pour ne pas avoir a util user
       company: company
     )
@@ -78,10 +80,13 @@ class ParsingDataJob < ApplicationJob
   end
 
   def only_year(date)
-    binding.pry
-    array = date.split(' ')
-    integerDate = array.last
-    return integerDate
+    if date == ''
+      return ''
+    else
+      array = date.split(' ')
+      integerDate = array.last
+      return integerDate
+    end
   end
 
   def delete_url(student)
