@@ -17,14 +17,17 @@ class WorkExperience < ApplicationRecord
   end
 
   def is_current
-    if self.end_time == "Aujourd'hui" || self.end_time == "Present" || self.current == true
+    binding.pry
+    if self.end_time == "Aujourd’hui" || self.end_time == "Present" || self.current == true
       self.end_time = "Aujourd'hui"
       self.current = true
     end
   end
 
   def custom
-    unless current
+    binding.pry
+    unless self.current
+      binding.pry
       if end_time.present? && end_time !~ /(19|20)\d{2}/i
         errors.add(:end_time, "doit être un nombre à 4 chiffres")
       end

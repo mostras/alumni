@@ -71,4 +71,5 @@ gem 'cloudinary', '~> 1.16.0'
 gem "pg_search"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'google_drive'
+gem 'whenever', require: false
 

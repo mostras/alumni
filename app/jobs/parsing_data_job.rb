@@ -11,7 +11,7 @@ class ParsingDataJob < ApplicationJob
   end
 
   def parsing_json
-    url = 'https://cache1.phantombooster.com/0EDS6xYcCEc/nydE5vIRxEvMrTH8otC9hw/test.json'
+    url = 'https://cache1.phantombooster.com/0EDS6xYcCEc/81HwWcUcWT5WaSs6jd0Gxg/result.json'
     file = open(url).read
     linkedin_json = JSON.parse(file)
     linkedin_json.reverse! # so we can start by the new ones at the end
@@ -19,14 +19,17 @@ class ParsingDataJob < ApplicationJob
 
   def dispatch_action(json)
     json.each do |profil_json|
-      student = User.find_by(linkedin_url: profil_json['general']['profileUrl'])
+      unless profil_json['error'] == 'Empty line'
+        student = User.find_by(linkedin_url: profil_json['general']['profileUrl'])
 
-      unless student.parsing
-        student.school_experiences.destroy_all
-        student.work_experiences.destroy_all
-        create_schools(profil_json, student)
-        create_companies(profil_json, student)
-        student.parsing = true
+        unless student.parsing
+          student.school_experiences.destroy_all
+          student.work_experiences.destroy_all
+          create_schools(profil_json, student)
+          create_companies(profil_json, student)
+          student.parsing = true
+          delete_url(student)
+        end
       end
 
     end
@@ -74,11 +77,21 @@ class ParsingDataJob < ApplicationJob
     # work_experience.update!(current: true) if work_experience.end_time.include?("Ajourd'hui" || 'Present')
   end
 
-
   def only_year(date)
+    binding.pry
     array = date.split(' ')
     integerDate = array.last
     return integerDate
+  end
+
+  def delete_url(student)
+    cell = student.id
+    session = GoogleDrive::Session.from_service_account_key("client-secret.json")
+    spreadsheet = session.spreadsheet_by_title("url_linkedin_app_alumni")
+    worksheet = spreadsheet.worksheets.first
+    worksheet.delete_rows(cell, 1)
+
+    worksheet.save
   end
 end
 

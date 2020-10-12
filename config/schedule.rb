@@ -19,6 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 12.hours do
-   runner "ParsingDataJob.perform_later"
+
+set :job_template, nil
+
+every 1.minute do
+  runner "ParsingDataJob.perform_later", :environment => 'development'
 end
