@@ -98,7 +98,7 @@ class ParsingDataJob < ApplicationJob
     session = GoogleDrive::Session.from_service_account_key("client-secret.json")
     spreadsheet = session.spreadsheet_by_title("url_linkedin_app_alumni")
     worksheet = spreadsheet.worksheets.first
-    worksheet.delete_rows(cell, 1)
+    worksheet["A#{cell}"] = ''
 
     worksheet.save
   end
