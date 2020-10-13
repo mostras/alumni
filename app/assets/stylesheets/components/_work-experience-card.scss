@@ -46,5 +46,26 @@
       margin: 0;
       color: $medium-gray;
     }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+       li {
+        display: inline-block;
+       }
+
+      .line {
+        width: 1px;
+        height: 12px;
+        background-color: $gray;
+        display: block;
+      }
+    }
+
+
   }
+
+
 }
