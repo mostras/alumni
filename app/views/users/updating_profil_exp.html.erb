@@ -24,7 +24,7 @@
 
     <div class="linkedin_url">
       <% if current_user.on_google_sheet && current_user.automatic_updating %>
-        <button class="empty-button">Mettre à jour les informations de mon profil</button>
+        <%= button_to "Mettre à jour les informations de mon profil", submit_url_for_update_user_path, class: 'empty-button' %>
       <% elsif !current_user.on_google_sheet && current_user.automatic_updating %>
         <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
           <%= label_tag 'Votre URL LinkedIn' %>

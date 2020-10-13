@@ -65,6 +65,14 @@ class UsersController < ApplicationController
     redirect_to request.referrer
   end
 
+  def submit_url_for_update
+    url_linkedin = current_user.linkedin_url
+    id = current_user.id
+    SendUrlForUpdate.new(url_linkedin, id).send_to_google_sheet
+    flash[:notice] = "Votre URL a bien été chargée."
+    redirect_to request.referrer
+  end
+
   private
 
   def set_user
