@@ -1,17 +1,17 @@
-# require "rails_helper"
+require "rails_helper"
 
-# RSpec.feature "Signed-in users can sign out" do
-#   let!(:user) { FactoryBot.create(:user) }
+RSpec.feature "Signed-in users can sign out" do
+  let!(:user) { FactoryBot.create(:user) }
 
-#   before do
-#     login_as(user)
-#   end
+  before do
+    login_as(user)
+  end
 
-#   scenario "Successfully"do
-#     visit "/"
+  scenario "Successfully"do
+    visit user_path(user)
 
-#     click_link "Se déconnecter"
+    find(:xpath, "//a[@href='/users/sign_out']").click
 
-#     expect(page).to have_content "Déconnecté."
-#   end
-# end
+    expect(page).to have_content "Déconnecté."
+  end
+end
