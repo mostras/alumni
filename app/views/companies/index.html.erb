@@ -33,9 +33,7 @@
 
   <div class="grid">
     <% @companies.each do |company| %>
-      <%= link_to company_path(company) do %>
-        <%= render 'shared/company-card', company: company %>
-      <% end %>
+      <%= render 'shared/company-card', company: company %>
     <% end %>
   </div>
 

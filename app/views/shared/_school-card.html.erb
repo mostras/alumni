@@ -11,4 +11,5 @@
     <h3><%= school.city %></h3>
     <p><%= pluralize school.users.count, 'alumni étudie ici', 'alumni étudient ici' %></p>
   </div>
+  <%= link_to '', school_path(school), class: 'card-link'  %>
 </div>

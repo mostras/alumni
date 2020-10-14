@@ -4,6 +4,9 @@
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
   display: flex;
   padding: 0.5rem 1rem;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
 
   .company-card-logo {
     border-radius: 8px;
@@ -20,8 +23,6 @@
     margin-left: 1rem;
     width: 100%;
     color: $gray;
-    white-space: nowrap;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -50,6 +51,14 @@
       font-weight: 500;
       font-size: 14px;
     }
+  }
+
+  .card-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
 }

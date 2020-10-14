@@ -4,6 +4,9 @@
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
   display: flex;
   padding: 0.5rem 1rem;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
 
   .school-card-logo {
     border-radius: 8px;
@@ -18,10 +21,10 @@
 
   .school-card-info {
     margin-left: 1rem;
+    width: 100%;
     color: $gray;
-    white-space: nowrap;
-    overflow: hidden;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     justify-content: space-between;
 
@@ -30,6 +33,7 @@
       font-size: 18px;
       font-weight: 600;
       text-align: left;
+      text-align: initial;
     }
 
     h3 {
@@ -44,6 +48,14 @@
       font-size: 14px;
       text-align: left;
     }
+  }
+
+  .card-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
 }
