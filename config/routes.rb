@@ -49,4 +49,6 @@ Rails.application.routes.draw do
   resources :schools, only: [:index, :show, :new, :create, :edit, :update]
 
   resources :school_experiences, only: [:new, :create, :edit, :update, :destroy]
+
+  resources :ghosts, only: [:index, :new, :create, :edit, :update]
 end

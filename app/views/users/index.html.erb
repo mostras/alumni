@@ -48,12 +48,21 @@
     </div>
   </div>
 
-  <div class="grid">
-    <% @students.each do |student| %>
-      <%= render partial: "shared/student_card", locals: {student: student}  %>
 
-    <% end %>
-  </div>
+
+  <% if @students.any? %>
+    <div class="grid">
+      <% @students.each do |student| %>
+        <%= render partial: "shared/student_card", locals: {student: student}  %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="nobody-found">
+      <p>Aucun alumni ne correspond à votre recherche.</br>Vous pouvez essayer de rechercher dans les profils alumni non-inscrit à la plateforme.</p>
+      <%= link_to 'Accèder aux profils non-inscrits', ghosts_path, class: 'empty-button'  %>
+    </div>
+  <% end %>
+
 
   <%= render 'shared/help-bubble' %>
 </div>

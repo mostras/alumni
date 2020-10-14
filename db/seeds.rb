@@ -11,6 +11,8 @@ Company.destroy_all
 puts 'Company destruction OK'
 School.destroy_all
 puts 'School destruction OK'
+Ghost.destroy_all
+puts 'Ghost destruction OK'
 
 
 
@@ -161,6 +163,12 @@ SchoolExperience.create!(title: 'BAC S', start_time: '2012', end_time: '2014', l
 
 
 puts 'SchoolExperiences creation OK'
+
+Ghost.create(first_name: 'Kevin', last_name: 'Chabot', email: 'chab@gmail.com')
+Ghost.create(first_name: 'Vincent', last_name: 'Chabot', email: 'vin@gmail.com')
+Ghost.create(first_name: 'Juliette', last_name: 'Chabot', email: 'ju@gmail.com')
+
+puts 'Ghost creation OK'
 
 
 

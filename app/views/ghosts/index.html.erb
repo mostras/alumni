@@ -1,0 +1,15 @@
+<div class="navbar-wrapper">
+  <%= render 'shared/alert' %>
+  <%= render 'shared/navbar' %>
+</div>
+
+<div class="ghost-page-wrapper main-wrapper">
+
+  <div class="ghost-index">
+    <% if @ghosts.any? %>
+      <% @ghosts.each_with_index do |ghost, index| %>
+        <%= render 'shared/ghost-card', ghost: ghost, index: index %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
