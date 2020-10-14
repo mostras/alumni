@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :company do
-    name { "MyString" }
-    city { "MyString" }
+    name { "Apple" }
+    city { "Paris" }
   end
 end

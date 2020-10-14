@@ -8,9 +8,9 @@ RSpec.feature "Signed-in users can sign out" do
   end
 
   scenario "Successfully"do
-    visit "/"
+    visit user_path(user)
 
-    click_link "Se déconnecter"
+    find(:xpath, "//a[@href='/users/sign_out']").click
 
     expect(page).to have_content "Déconnecté."
   end

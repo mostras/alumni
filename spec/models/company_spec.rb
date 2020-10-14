@@ -1,5 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Company, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Company, :type => :model do
+
+  context "callbacks" do
+    subject { Company.create name: 'le garage peugeot' }
+
+    it "it should titleize the name" do
+      expect(subject.name).to eq('Le Garage Peugeot')
+    end
+  end
 end

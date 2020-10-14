@@ -1,16 +1,14 @@
 require "rails_helper"
 
 RSpec.feature "Users can edit their info" do
-  let!(:user) { FactoryBot.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   before do
     login_as user
   end
 
   scenario "When providing valid details" do
-    visit user_path(user)
-
-    first(:css, ".edit-link").click
+    visit edit_user_path(user)
 
     fill_in 'user_linkedin_url', with: "www.adrien.com"
     fill_in "user_email", with: "adrien@gmail.com"
