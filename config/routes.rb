@@ -16,15 +16,14 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "pages#home"
-
-  get "linkedin", to: "users#linkedin"
-  get "submit_url_linkedin", to: "users#submit_url_linkedin"
-  get "welcome", to: "users#welcome"
+  get "linkedin", to: "pages#linkedin"
+  get "welcome", to: "pages#welcome"
 
   resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :edit_situation
       get :updating_profil_exp
+      post :submit_url_linkedin
       post :submit_url_for_update
       patch :set_automatic_updating
       patch :set_manual_updating

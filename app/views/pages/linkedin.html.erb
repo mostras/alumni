@@ -16,7 +16,7 @@
     <% if current_user.on_google_sheet %>
       <p>Vous avez déjà rentré votre URL.</p>
     <% else %>
-      <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
+      <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>
         <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
         <%= button_tag "Charger l'URL", class: 'full-button' %>
       <% end %>

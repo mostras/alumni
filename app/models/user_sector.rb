@@ -3,6 +3,4 @@ class UserSector < ApplicationRecord
   belongs_to :sector
 
   validates_associated :user
-
-
 end

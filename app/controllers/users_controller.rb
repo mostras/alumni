@@ -28,24 +28,18 @@ class UsersController < ApplicationController
   def edit_situation
   end
 
-  def linkedin
-  end
-
   def submit_url_linkedin
-    id = current_user.id
     if params[:url].blank?
       current_user.update(manual_updating: true, automatic_updating: false)
     else
-      linkedin_url = params[:url]
-      AddUrl.new(id, linkedin_url).google_sheet
-      current_user.update(linkedin_url: linkedin_url, automatic_updating: true, manual_updating: false, on_google_sheet: true)
+      url_linkedin = params[:url]
+      id = current_user.id
+      SendUrlOnSheet.new(url_linkedin, 0, id).send_to_google_sheet
+      current_user.update(linkedin_url: url_linkedin, automatic_updating: true, manual_updating: false, on_google_sheet: true)
     end
     flash[:notice] = "Votre URL a bien été chargée."
     redirect_to request.referrer
 
-  end
-
-  def welcome
   end
 
   def updating_profil_exp
@@ -68,7 +62,7 @@ class UsersController < ApplicationController
   def submit_url_for_update
     url_linkedin = current_user.linkedin_url
     id = current_user.id
-    SendUrlForUpdate.new(url_linkedin, id).send_to_google_sheet
+    SendUrlOnSheet.new(url_linkedin, 1, id).send_to_google_sheet
     flash[:notice] = "Votre URL a bien été chargée."
     redirect_to request.referrer
   end

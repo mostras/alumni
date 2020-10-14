@@ -19,9 +19,7 @@ class Company < ApplicationRecord
       companies = Company.where('city LIKE ?', "%#{company_city}%")
     end
 
-
     companies = Company.search_by_name(params[:name]) if params[:name].present?
-
 
     return companies
   end

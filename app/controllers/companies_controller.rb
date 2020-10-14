@@ -11,9 +11,7 @@ class CompaniesController < ApplicationController
     jobs = WorkExperience.where(company: @company.id)
     @current_jobs = jobs.where(current: true).select(:user_id).distinct
     @former_jobs = jobs.where(current: false).select(:user_id).distinct
-
     @hiring = @current_jobs.select { |job| job.user.company_hire == true }
-    # @only_current_jobs = current_jobs - @hiring
   end
 
   def new
@@ -32,8 +30,6 @@ class CompaniesController < ApplicationController
       flash[:alert] = "Votre expérience n'a pas pu être ajoutée"
       render :new
     end
-
-
   end
 
   private
@@ -45,6 +41,4 @@ class CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:name, work_experiences_attributes: [:id, :user_id, :title, :start_time, :end_time, :location, :current])
   end
-
-
 end

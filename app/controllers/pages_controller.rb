@@ -3,4 +3,10 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def linkedin
+  end
+
+  def welcome
+  end
 end

@@ -21,7 +21,6 @@ class School < ApplicationRecord
 
     schools = School.search_by_name(params[:name]) if params[:name].present?
 
-
     return schools
   end
 

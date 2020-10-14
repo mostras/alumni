@@ -1,5 +1,6 @@
 class WorkExperience < ApplicationRecord
-
+  include SetCurrentExp
+  include CustomValidations
 
   belongs_to :user
   belongs_to :company
@@ -16,16 +17,9 @@ class WorkExperience < ApplicationRecord
     self.title = title.titleize
   end
 
-  def is_current
-    if self.end_time == "Aujourd’hui" || self.end_time == "Present" || self.current == true
-      self.end_time = "Aujourd'hui"
-      self.current = true
-    end
-  end
-
   def custom
     unless self.current
-      if end_time.present? && end_time !~ /(19|20)\d{2}/i
+      if  self.end_time.blank? || (self.end_time.present? && end_time !~ /(19|20)\d{2}/i)
         errors.add(:end_time, "doit être un nombre à 4 chiffres")
       end
     end
