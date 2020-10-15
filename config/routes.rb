@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "application#index"
     get "statistics", to: 'pages#statistics'
-    get "emails", to: 'pages#emails'
+    resources :lists, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
 
 
