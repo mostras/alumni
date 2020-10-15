@@ -1,0 +1,22 @@
+<div class="navbar-wrapper">
+  <%= render 'shared/alert' %>
+  <%= render 'shared/navbar' %>
+</div>
+
+<div class="show-list-page-wrapper">
+
+  <%= render 'shared/sidebar-list', lists: @lists %>
+
+  <h1><%= @list.name %></h1>
+  <p><%= @list.users.count %> alumnis</p>
+
+  <% if @list.users.any? %>
+    <ul>
+      <% @list.users.each do |user| %>
+        <li>
+          <%= render 'shared/user-card-list', user: user %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

@@ -1,0 +1,31 @@
+.sidebar-list {
+  background-color: $light-blue;
+  border-radius: 0 8px 8px 0;
+  position: fixed;
+  left: 0;
+  padding: 1rem;
+  width: 220px;
+
+  h2 {
+    font-size: 20px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $gray;
+    margin-bottom: 0.5rem;
+    position: relative;
+
+    p {
+      margin: 0;
+    }
+  }
+}

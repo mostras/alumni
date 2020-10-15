@@ -1,0 +1,16 @@
+  <div class="sidebar-list">
+    <h2>Mes groupes</h2>
+    <% if lists.any? %>
+      <ul>
+        <% lists.each do |list| %>
+          <li>
+            <div class="list">
+              <p><%= list.name %></p>
+              <p><%= list.users.count %></p>
+              <%= link_to '', admin_list_path(list), class: 'card-link'  %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
