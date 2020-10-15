@@ -26,7 +26,7 @@
       <% if current_user.on_google_sheet && current_user.automatic_updating %>
         <%= button_to "Mettre à jour les informations de mon profil", submit_url_for_update_user_path, class: 'empty-button' %>
       <% elsif !current_user.on_google_sheet && current_user.automatic_updating %>
-        <%= form_tag submit_url_linkedin_path, role: 'url_linkedin', method: :get do |f| %>
+        <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>
           <%= label_tag 'Votre URL LinkedIn' %>
           <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profil LinkedIn...', class: "form-field" %>
           <%= button_tag "Charger l'URL", class: 'full-button'%>

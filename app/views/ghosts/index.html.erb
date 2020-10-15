@@ -1,0 +1,33 @@
+<div class="navbar-wrapper">
+  <%= render 'shared/alert' %>
+  <%= render 'shared/navbar' %>
+</div>
+
+<div class="ghost-page-wrapper main-wrapper">
+
+  <h1>Non inscrits</h1>
+
+  <div class="search-form-wrapper">
+    <div class="search-info">
+      <h2><%= @ghosts.try(:count) %> alumni</h2>
+    </div>
+
+    <div class="search-form">
+      <%= form_tag ghosts_path, method: :get do %>
+        <div class="form-inline">
+          <%= text_field_tag :name, params[:name], placeholder: 'Chercher par prénom, nom..', class: 'input large' %>
+
+          <%= submit_tag 'Valider mes filtres', class: 'full-button' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="ghost-index">
+    <% if @ghosts.any? %>
+      <% @ghosts.each_with_index do |ghost, index| %>
+        <%= render 'shared/ghost-card', ghost: ghost, index: index %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

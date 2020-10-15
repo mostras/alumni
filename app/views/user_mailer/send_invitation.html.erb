@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css" media="screen">
+      h1 {
+        color: #6A6A6A;
+        margin-top: 0;
+        font-size: 18px;
+      }
+
+      p {
+        color: #6A6A6A;
+        font-size: 16px;
+      }
+
+      a {
+        color: #6A6A6A;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bonjour <%= @ghost.first_name %>,</h1>
+    <p><%= @user.full_name %> vous invite à rejoindre le plateforme des anciens élèves des Chartreux.</p>
+    <p>Pour vous connecter, il suffit de cliquer sur ce lien: <%= link_to 'Plateforme des Alumnis', @url  %>.</p>
+    <p>Bonne journée à vous.</p>
+    <p>Cordialement,</p>
+    <p>L'équipe des Chartreux !</p>
+  </body>
+</html>
