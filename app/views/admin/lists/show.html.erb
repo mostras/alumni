@@ -12,9 +12,9 @@
 
   <% if @list.users.any? %>
     <ul>
-      <% @list.users.each do |user| %>
+      <% @list.users.each_with_index do |user, index| %>
         <li>
-          <%= render 'shared/user-card-list', user: user %>
+          <%= render 'shared/user-card-list', user: user, index: index %>
         </li>
       <% end %>
     </ul>
