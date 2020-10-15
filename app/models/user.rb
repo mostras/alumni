@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   before_create :capitalize_names
+  before_create :delete_ghost
 
   include PgSearch::Model
   pg_search_scope :search_by_name, against: [:first_name, :last_name],
@@ -66,4 +67,22 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def delete_ghost
+    user = Ghost.find_by(email: email)
+    unless user.nil?
+      user.destroy
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 class GhostsController < ApplicationController
 
   def index
-    @ghosts = Ghost.search(params)
+    @ghosts = Ghost.search(params).order(last_name: :asc)
   end
 
   def send_invite
