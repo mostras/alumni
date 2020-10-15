@@ -1,6 +1,6 @@
 class GhostsController < ApplicationController
 
   def index
-    @ghosts = Ghost.all
+    @ghosts = Ghost.search(params)
   end
 end
