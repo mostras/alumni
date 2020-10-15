@@ -50,5 +50,9 @@ Rails.application.routes.draw do
 
   resources :school_experiences, only: [:new, :create, :edit, :update, :destroy]
 
-  resources :ghosts, only: [:index, :new, :create, :edit, :update]
+  resources :ghosts, only: [:index, :new, :create, :edit, :update] do
+    member do
+      patch :send_invite
+    end
+  end
 end

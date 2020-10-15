@@ -1,7 +1,11 @@
 <div class="ghost-card">
   <h4><%= index + 1 %></h4>
   <h3><%= ghost.full_name %></h3>
-  <% if !ghost.email.blank? && !ghost.notification_send %>
-    <%= button_to "Envoyer une invitation", users_path, class: 'full-button' %>
+  <% if ghost.email.blank? %>
+    <p>Cette utilisateur n'a pas renseigné d'adresse email. 😞</p>
+  <% elsif ghost.notification_send %>
+    <p>Une notification a  déjà été envoyé à cette utilisateur. 🚀</p>
+  <% else %>
+    <%= button_to "Envoyer une invitation", send_invite_ghost_path(ghost), method: :patch, class: 'full-button' %>
   <% end %>
 </div>
