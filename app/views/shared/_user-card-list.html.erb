@@ -1,6 +1,13 @@
 <div class="user-card-list">
   <div class="info">
-    <p><%= index + 1 %></p>
+
+    <% if index %>
+      <p><%= index + 1 %></p>
+    <% end %>
+
+    <% if checkbox %>
+      <%= checkbox %>
+    <% end %>
 
     <% if user.photo.attached? %>
       <%= cl_image_tag user.photo.key %>

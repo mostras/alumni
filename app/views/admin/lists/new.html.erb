@@ -38,10 +38,8 @@
         <%= f.submit 'Valider les modifications', class: 'full-button' %>
       </div>
       <%= f.collection_check_boxes(:user_ids, @students, :id, :full_name) do |b| %>
-
-        <div><%= b.check_box(checked: true) %> <%= b.object.full_name %></div>
+        <%= render 'shared/user-card-list', user: b.object, index: nil, checkbox: b.check_box(checked: true)  %>
       <% end %>
-
     <% end %>
   </div>
 
