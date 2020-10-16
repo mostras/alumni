@@ -14,13 +14,12 @@
           <%= text_field_tag :name, params[:name], placeholder: 'Chercher par prénom, nom..', class: 'input large' %>
 
           <%= select_tag(:look_for, options_for_select([['Recrute', 1], ['Recherche un stage', 2], ['Recherche un emploie', 3]], params[:look_for]), {:prompt => 'Chercher par situation', :class => 'input'}) %>
-        </div>
 
-        <div class="form-inline">
           <%= select_tag(:diploma, options_from_collection_for_select(@diplomas, :id, :name, selected = params[:diploma]), {:prompt => 'Chercher par diplôme', :class => 'input'})%>
 
           <%= select_tag(:year, options_for_select(((Time.zone.now.year - 70)..(Time.zone.now.year + 5)).to_a.reverse, params[:year]), {:prompt => "Année d’obtention", :class => 'input'}) %>
         </div>
+
         <div class="form-inline">
           <%= select_tag(:sector, options_from_collection_for_select(@sectors, :id, :name, selected = params[:sector]), {:prompt => "Chercher par secteur d'activité", :class => 'input'})%>
 

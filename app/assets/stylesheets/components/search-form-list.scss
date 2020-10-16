@@ -10,10 +10,10 @@
   .form-inline {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
-  .form-inline > :first-child {
+  .form-inline > .input {
     margin-right: 1rem;
   }
 
@@ -27,6 +27,8 @@
 
   .full-button {
     height: 30px;
+    padding: 0.2rem 1rem;
+    border-color: $dark-blue;
   }
 
   .large {

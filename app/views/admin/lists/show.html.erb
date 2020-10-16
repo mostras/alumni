@@ -7,13 +7,18 @@
 
   <%= render 'shared/sidebar-list', lists: @lists %>
 
-  <h1><%= @list.name %></h1>
-  <p><%= @list.users.count %> alumnis</p>
+  <div class="top-show">
+    <div class="infos">
+      <h1><%= @list.name %></h1>
+      <p><%= @list.users.count %> alumnis</p>
+    </div>
 
-  <%= link_to 'Envoyer un mail', email_list(@list), class: 'full-button' %>
-  <%= link_to 'Modifier', edit_admin_list_path(@list), class: 'empty-button' %>
-  <%= link_to 'Supprimer', admin_list_path(@list), method: :delete, class: 'empty-button'  %>
-
+    <div class="links">
+      <%= link_to 'Modifier', edit_admin_list_path(@list), class: 'empty-button' %>
+      <%= link_to 'Supprimer', admin_list_path(@list), method: :delete, data: { confirm: "Etes vous sûr de vouloir supprimer cette liste ?"}, class: 'empty-button'  %>
+      <%= link_to 'Envoyer un mail', email_list(@list), class: 'full-button' %>
+    </div>
+  </div>
 
   <% if @list.users.any? %>
     <ul>

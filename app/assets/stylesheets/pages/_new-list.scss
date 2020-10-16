@@ -9,6 +9,10 @@
       align-items: center;
     }
 
+    .top > :first-child {
+      padding: 0;
+    }
+
   }
 
   .form-field {
