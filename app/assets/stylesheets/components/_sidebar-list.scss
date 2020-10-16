@@ -1,10 +1,12 @@
 .sidebar-list {
-  background-color: $light-blue;
+  background-color: #B6DEE7;
   border-radius: 0 8px 8px 0;
-  position: absolute;
+  position: fixed;
   left: 0;
   padding: 1rem;
   width: 220px;
+  top: 6rem;
+  z-index: 1000;
 
   h2 {
     font-size: 20px;

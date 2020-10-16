@@ -1,0 +1,35 @@
+.search-form-list {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: gray;
+  left: 0;
+  padding: 6rem 2rem 0rem 18rem;
+  background-color: $light-gray;
+
+  .form-inline {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-inline > :first-child {
+    margin-right: 1rem;
+  }
+
+  .input {
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 0 0.2rem;
+    box-sizing: border-box;
+  }
+
+  .full-button {
+    height: 30px;
+  }
+
+  .large {
+    width: 300px;
+  }
+}

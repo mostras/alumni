@@ -21,9 +21,11 @@ class Admin::ListsController < ApplicationController
     @list = List.new(list_params)
 
     if @list.save
-      redirect_to admin_lists_path
+      redirect_to admin_list_path(@list)
+      flash[:notice] = "La liste #{@list.name} a bien été créée."
     else
       render :new
+      flash[:alert] = "La liste n'a pas pu être créée"
     end
   end
 
