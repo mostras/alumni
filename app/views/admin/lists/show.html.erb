@@ -10,6 +10,10 @@
   <h1><%= @list.name %></h1>
   <p><%= @list.users.count %> alumnis</p>
 
+  <%= link_to 'Envoyer un mail', email_list(@list) %>
+
+
+
   <% if @list.users.any? %>
     <ul>
       <% @list.users.each_with_index do |user, index| %>
