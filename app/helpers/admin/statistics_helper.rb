@@ -32,9 +32,9 @@ module Admin::StatisticsHelper
 
     hash_sectors.sort_by{|k, v| v}.reverse!
 
-    answer = ""
-    hash_sectors.each do |k, v|
-      answer << "#{k}(#{v.round(2)*100}%), "
+    answer = []
+    hash_sectors.first(3).each do |k, v|
+      answer << [k, v.round(2)*100 ]
     end
     answer
   end
