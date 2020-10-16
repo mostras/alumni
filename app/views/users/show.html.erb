@@ -92,7 +92,7 @@
 
     <div class="sectors">
       <h2>SECTEURS</h2>
-      <% if @student.user_sectors.any? %>
+      <% if @student == current_user && @student.user_sectors.any? %>
         <%= link_to user_sectors_path, class: 'edit-link' do %>
           <%= render 'shared/edit-icon' %>
         <% end %>
