@@ -1,5 +1,9 @@
   <div class="sidebar-list">
     <h2>Mes groupes</h2>
+    <%= link_to new_admin_list_path do  %>
+      <i class="fas fa-plus"></i>
+      Créer un groupe
+    <% end %>
     <% if lists.any? %>
       <ul>
         <% lists.each do |list| %>

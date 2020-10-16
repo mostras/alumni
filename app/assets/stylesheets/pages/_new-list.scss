@@ -1,0 +1,25 @@
+.new-list-page-wrapper {
+  margin: 8rem 2rem 2rem 18rem;
+
+  .list-form {
+
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .form-field {
+    width: 600px;
+    border: none;
+    font-size: 30px;
+    height: auto;
+    outline: none;
+  }
+
+  .full-button {
+    height: 40px;
+  }
+}
