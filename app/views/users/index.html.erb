@@ -52,7 +52,7 @@
 
   <% if @students.any? %>
     <div class="grid">
-      <% @students.each do |student| %>
+      <% @students.order(:last_name).each do |student| %>
         <%= render partial: "shared/student_card", locals: {student: student}  %>
       <% end %>
     </div>

@@ -28,7 +28,7 @@
   </div>
 
   <div class="grid">
-    <% @schools.each do |school| %>
+    <% @schools.order(:name).each do |school| %>
       <%= render 'shared/school-card', school: school %>
     <% end %>
   </div>

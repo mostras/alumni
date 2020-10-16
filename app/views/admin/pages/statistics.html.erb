@@ -3,16 +3,92 @@
   <%= render 'shared/navbar' %>
 </div>
 <div class="main-wrapper">
-<h1>statistiques</h1>
 
-<h2>Nombre d’élèves inscrit sur la plateforme: <%= registered_user %></h2>
-<h2>Nombre d’élèves inscrit ces dernières 24h: <%= last_day_registered_user %></h2>
-<h2>Nombre de connexions ces dernières 24h: <%= visit_last_day %>  </h2>
 
-<h2>Nombre d’élèves en recherche de stage/d’emploi: <%= users_looking_for_job %></h2>
-<h2>Nombre d’entreprise qui recrute: <%= hiring_companies_sum %></h2>
-<h2>Dans quels secteur travaillent vos alumnis: <%= top_sector %></h2>
+  <div class="platform-stat-wrapper">
+    <h2>Plateforme</h2>
 
+    <div class="platform-stat">
+      <div class="stat">
+        <h3>Nombre d’élèves inscrit sur la plateforme:</h3>
+        <h1><%= registered_user %></h1>
+      </div>
+
+      <span class="line"></span>
+
+      <div class="stat">
+        <h3>Nombre d’élèves inscrit ces dernières 24h:</h3>
+        <h1><%= last_day_registered_user %></h1>
+      </div>
+
+      <span class="line"></span>
+
+      <div class="stat">
+        <h3>Nombre de connexions ces dernières 24h:</h3>
+        <h1><%= visit_last_day %></h1>
+      </div>
+
+      <span class="line"></span>
+
+      <div class="stat">
+        <h3>Temps moyen que les utilisateurs passent sur la plateforme:</h3>
+        <h1>16 minutes</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-stat-wrapper">
+    <h2>Alumnis</h2>
+
+    <div class="platform-stat">
+      <div class="stat">
+        <h3>Nombre d’élèves en recherche de stage/d’emploi:</h3>
+        <h1><%= users_looking_for_job %></h1>
+      </div>
+
+      <span class="line"></span>
+
+      <div class="stat">
+        <h3>Nombre d’entreprise qui recrute:</h3>
+        <h1><%= hiring_companies_sum %></h1>
+      </div>
+
+      <span class="line"></span>
+
+      <div class="stat">
+        <h3>Dans quels secteur travaillent vos alumnis:</h3>
+        <ul>
+          <% top_sector.each do |value| %>
+            <li>
+              <div class="stat-card">
+                <p><%= value[1] %>%</p>
+                <span class="line"></span>
+                <p><%= value[0] %></p>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <span class="line"></span>
+
+      <div class="stat">
+        <h3>Dans quelles ville travaillent vos alumnis:</h3>
+        <ul>
+          <% top_city.reverse.each do |value| %>
+            <li>
+              <div class="stat-card">
+                <p><%= value[1] %>%</p>
+                <span class="line"></span>
+                <p><%= value[0] %></p>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 
 </div>
 

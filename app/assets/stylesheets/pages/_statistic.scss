@@ -1,0 +1,75 @@
+.platform-stat-wrapper {
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  padding: 1rem 1rem 1rem 3rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    text-align: inherit;
+  }
+
+  h3 {
+    font-size: 18px;
+    height: 72px;
+  }
+
+  h1 {
+    font-size: 24px;
+    color: $dark-blue;
+  }
+
+  .platform-stat {
+    display: flex;
+    align-items: end;
+
+  }
+
+
+  .stat {
+    text-align: center;
+    max-width: 266px;
+  }
+
+  .line {
+    width: 1px;
+    height: 160px;
+    background-color: $gray;
+    margin: 0 1rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .stat-card {
+    display: flex;
+    align-items: center;
+    background-color: $dark-blue;
+    padding: 0.2rem 0.5rem;
+    width: fit-content;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+
+    p {
+      margin: 0;
+      color: white;
+    }
+
+    .line {
+      width: 1px;
+      background-color: white;
+      height: 16px;
+      margin: 0 0.5rem;
+    }
+
+  }
+}
+
+
+
+
+
+
