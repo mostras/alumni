@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :school_experiences, dependent: :destroy
   has_many :schools, through: :school_experiences
   has_many :visit, dependent: :destroy
+  has_many :assignements, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true

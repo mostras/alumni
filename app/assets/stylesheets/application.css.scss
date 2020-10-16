@@ -59,6 +59,14 @@ body {
     }
   }
 
+  .card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
   #situation-green { color: $flash-green; }
   #situation-orange { color: $flash-orange; }
   #situation-red { color: $flash-red; }
@@ -72,6 +80,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 2rem;
   }
+
 
   @media(max-width: 1700px) {
 

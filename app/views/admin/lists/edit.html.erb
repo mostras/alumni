@@ -1,0 +1,46 @@
+<div class="navbar-wrapper">
+  <%= render 'shared/alert' %>
+  <%= render 'shared/navbar' %>
+</div>
+
+<div class="new-list-page-wrapper">
+
+  <%= render 'shared/sidebar-list', lists: @lists %>
+
+  <div class="search-form-list">
+    <div class="search-form">
+      <%= form_tag edit_admin_list_path, method: :get do %>
+        <div class="form-inline">
+          <%= text_field_tag :name, params[:name], placeholder: 'Chercher par prénom, nom..', class: 'input large' %>
+
+          <%= select_tag(:look_for, options_for_select([['Recrute', 1], ['Recherche un stage', 2], ['Recherche un emploie', 3]], params[:look_for]), {:prompt => 'Chercher par situation', :class => 'input'}) %>
+
+          <%= select_tag(:diploma, options_from_collection_for_select(@diplomas, :id, :name, selected = params[:diploma]), {:prompt => 'Chercher par diplôme', :class => 'input'})%>
+
+          <%= select_tag(:year, options_for_select(((Time.zone.now.year - 70)..(Time.zone.now.year + 5)).to_a.reverse, params[:year]), {:prompt => "Année d’obtention", :class => 'input'}) %>
+        </div>
+
+        <div class="form-inline">
+          <%= select_tag(:sector, options_from_collection_for_select(@sectors, :id, :name, selected = params[:sector]), {:prompt => "Chercher par secteur d'activité", :class => 'input'})%>
+
+          <%= submit_tag 'Valider mes filtres', class: 'full-button' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+   <div class="list-form">
+    <%= form_for [:admin, @list] do |f| %>
+      <div class="top">
+        <%= f.text_field :name, placeholder: 'Nom du groupe', class: 'form-field' %>
+        <%= f.submit 'Valider les modifications', class: 'full-button' %>
+      </div>
+      <%= f.collection_check_boxes(:user_ids, @students, :id, :full_name) do |b| %>
+        <%= render 'shared/user-card-list', user: b.object, index: nil, checkbox: b.check_box  %>
+      <% end %>
+    <% end %>
+  </div>
+
+
+</div>

@@ -1,0 +1,27 @@
+<div class="user-card-list">
+  <div class="info">
+
+    <% if index %>
+      <p><%= index + 1 %></p>
+    <% end %>
+
+    <% if checkbox %>
+      <%= checkbox %>
+    <% end %>
+
+    <% if user.photo.attached? %>
+      <%= cl_image_tag user.photo.key %>
+    <% else %>
+      <%= image_tag "blank-avatar.png" %>
+    <% end %>
+
+    <p><%= user.full_name %></p>
+  </div>
+  <div class="tags">
+    <% if user.tags.any? %>
+      <% user.tags.order(:year).last(2).each do |tag| %>
+        <%= render 'shared/diploma-tag-big', tag: tag %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

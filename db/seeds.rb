@@ -13,6 +13,10 @@ School.destroy_all
 puts 'School destruction OK'
 Ghost.destroy_all
 puts 'Ghost destruction OK'
+List.destroy_all
+puts 'Lists destruction OK'
+Assignement.destroy_all
+puts 'Assignement destruction OK'
 
 
 
@@ -175,6 +179,40 @@ Ghost.create(first_name: 'Joe', last_name: 'Chiko', email: 'joe@gmail.com', noti
 puts 'Ghost creation OK'
 
 
+list1 = List.create(name: 'BAC')
+list2 = List.create(name: 'PREPA')
+list3 = List.create(name: 'BREVET')
+list4 = List.create(name: 'BTS')
+list5 = List.create(name: 'PREPA 2')
+list6 = List.create(name: 'BAC S')
+
+puts 'List creation OK'
+
+Assignement.create(user: user1, list: list1)
+Assignement.create(user: user3, list: list1)
+Assignement.create(user: user4, list: list1)
+
+Assignement.create(user: user6, list: list2)
+Assignement.create(user: user8, list: list2)
+Assignement.create(user: user1, list: list2)
+
+Assignement.create(user: user10, list: list3)
+Assignement.create(user: user12, list: list3)
+Assignement.create(user: user11, list: list3)
+
+Assignement.create(user: user4, list: list4)
+Assignement.create(user: user5, list: list4)
+Assignement.create(user: user6, list: list4)
+
+Assignement.create(user: user2, list: list5)
+Assignement.create(user: user1, list: list5)
+Assignement.create(user: user5, list: list5)
+
+Assignement.create(user: user7, list: list6)
+Assignement.create(user: user4, list: list6)
+Assignement.create(user: user8, list: list6)
+
+puts 'Assigments creation OK'
 
 
 
