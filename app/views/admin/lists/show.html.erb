@@ -10,8 +10,9 @@
   <h1><%= @list.name %></h1>
   <p><%= @list.users.count %> alumnis</p>
 
-  <%= link_to 'Envoyer un mail', email_list(@list) %>
-
+  <%= link_to 'Envoyer un mail', email_list(@list), class: 'full-button' %>
+  <%= link_to 'Modifier', edit_admin_list_path(@list), class: 'empty-button' %>
+  <%= link_to 'Supprimer', admin_list_path(@list), method: :delete, class: 'empty-button'  %>
 
 
   <% if @list.users.any? %>

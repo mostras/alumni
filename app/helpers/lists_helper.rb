@@ -1,7 +1,6 @@
 module ListsHelper
 
   def email_list(list)
-
     email_string = ""
     users = list.users
 
@@ -9,8 +8,8 @@ module ListsHelper
       email_string << "#{user.email},"
     end
 
-    email_string_without_last = email_string.chop
+    email_string_without_last_c = email_string.chop
 
-    return "mailto:" + email_string_without_last
+    return "mailto:" + email_string_without_last_c
   end
 end
