@@ -32,7 +32,7 @@
   </div>
 
   <div class="grid">
-    <% @companies.each do |company| %>
+    <% @companies.order(:name).each do |company| %>
       <%= render 'shared/company-card', company: company %>
     <% end %>
   </div>

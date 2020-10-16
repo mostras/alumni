@@ -22,7 +22,7 @@
 
   <% if @list.users.any? %>
     <ul>
-      <% @list.users.each_with_index do |user, index| %>
+      <% @list.users.order(:last_name).each_with_index do |user, index| %>
         <li>
           <%= render 'shared/user-card-list', user: user, index: index, checkbox: nil %>
         </li>

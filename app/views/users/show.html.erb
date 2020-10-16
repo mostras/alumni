@@ -77,7 +77,7 @@
 
       <% if @student.tags.any? %>
         <ul>
-          <% @student.tags.each do |tag| %>
+          <% @student.tags.order(:year).reverse.each do |tag| %>
             <li>
               <%= render 'shared/diploma-tag-big', tag: tag %>
             </li>

@@ -20,7 +20,7 @@
   </div>
 
   <% if @current_schools.any? %>
-    <h2>Actuellement ici</h2>
+    <h3>Actuellement ici</h3>
     <div class="current-school-wrapper">
       <% @current_schools.each do |school|%>
         <%= render 'shared/student_card', student: school.user %>
@@ -29,7 +29,7 @@
   <% end %>
 
   <% if @former_schools.any? %>
-    <h2>Anciennement ici</h2>
+    <h3>Anciennement ici</h3>
     <div class="former-school-wrapper">
       <% @former_schools.each do |school|%>
           <%= render 'shared/student_card', student: school.user %>
