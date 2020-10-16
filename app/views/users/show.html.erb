@@ -125,7 +125,7 @@
       <div class="experiences">
         <h2>EXPERIENCES</h2>
         <% if @student.work_experiences.any? %>
-          <% @student.work_experiences.each do |work_experience| %>
+          <% @student.work_experiences.order(:start_time).reverse.each do |work_experience| %>
             <%= render 'shared/work_experience-card', work_experience: work_experience %>
           <% end %>
         <% elsif @student == current_user && @student.linkedin_url.present? %>
@@ -140,7 +140,7 @@
 
         <h2>FORMATIONS</h2>
         <% if @student.school_experiences.any? %>
-          <% @student.school_experiences.each do |school_experience| %>
+          <% @student.school_experiences.order(:start_time).reverse.each do |school_experience| %>
             <%= render 'shared/school_experience-card', school_experience: school_experience %>
           <% end %>
         <% elsif @student == current_user && @student.linkedin_url.present? %>
