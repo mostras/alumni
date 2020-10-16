@@ -60,9 +60,26 @@
         <ul>
           <% top_sector.each do |value| %>
             <li>
-              <div class="sector-stat-card">
+              <div class="stat-card">
                 <p><%= value[1] %>%</p>
-                <span class="sector-line"></span>
+                <span class="line"></span>
+                <p><%= value[0] %></p>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <span class="line"></span>
+
+      <div class="stat">
+        <h3>Dans quelles ville travaillent vos alumnis:</h3>
+        <ul>
+          <% top_city.reverse.each do |value| %>
+            <li>
+              <div class="stat-card">
+                <p><%= value[1] %>%</p>
+                <span class="line"></span>
                 <p><%= value[0] %></p>
               </div>
             </li>

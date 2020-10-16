@@ -43,7 +43,7 @@
     padding: 0;
   }
 
-  .sector-stat-card {
+  .stat-card {
     display: flex;
     align-items: center;
     background-color: $dark-blue;
@@ -58,7 +58,7 @@
       color: white;
     }
 
-    .sector-line {
+    .line {
       width: 1px;
       background-color: white;
       height: 16px;

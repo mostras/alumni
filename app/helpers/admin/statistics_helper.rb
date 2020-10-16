@@ -38,6 +38,25 @@ module Admin::StatisticsHelper
     end
     answer
   end
+
+  def top_city
+    current_work_experiences = WorkExperience.where(current: true)
+
+    hash_cities = Hash.new(0)
+    current_work_experiences.each do |work_experience|
+      hash_cities[work_experience.location] += 1.fdiv(current_work_experiences.size)
+    end
+
+    hash_cities.sort_by{|k, v| v}.reverse!
+
+    answer = []
+
+    hash_cities.first(3).each do |k, v|
+      answer << [k, v.round(2)*100]
+    end
+
+    answer
+  end
 end
 
 
