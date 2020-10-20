@@ -32,29 +32,41 @@ class User < ApplicationRecord
       students = User.all
 
       if params[:look_for].present?
-        students = User.where(company_hire: true) if params[:look_for] == '1'
-        students = User.where(looking_for_internship: true) if params[:look_for] == '2'
-        students = User.where(looking_for_job: true) if params[:look_for] == '3'
+        students = students.where(company_hire: true) if params[:look_for] == '1'
+        students = students.where(looking_for_internship: true) if params[:look_for] == '2'
+        students = students.where(looking_for_job: true) if params[:look_for] == '3'
       end
 
       if params[:diploma].present?
         diploma_id = params[:diploma].to_i
-        diploma = Diploma.find(diploma_id)
-        students = diploma.users
+        students = students.includes(:tags).where(tags: { diploma_id: diploma_id })
       end
 
       if params[:year].present?
         diploma_year = params[:year].to_i
-        students = User.includes(:tags).where(tags: { year: diploma_year })
+        students = students.includes(:tags).where(tags: { year: diploma_year })
       end
 
       if params[:sector].present?
         sector_id = params[:sector].to_i
-        sector = Sector.find(sector_id)
-        students = sector.users
+        students = students.includes(:user_sectors).where(user_sectors: { sector_id: sector_id })
       end
 
-      students = User.search_by_name(params[:name]) if params[:name].present?
+      # if params[:diploma].present? && params[:year].present?
+      #   diploma_id = params[:diploma].to_i
+      #   diploma_year = params[:year].to_i
+      #   students = students.includes(:tags).where(tags: { year: diploma_year, diploma_id: diploma_id})
+      # end
+
+      # if params[:sector].present? && params[:look_for].present?
+      #   sector_id = params[:sector].to_i
+      #   sector_students = students.includes(:user_sectors).where(user_sectors: { sector_id: sector_id })
+      #   students = sector_students.where(company_hire: true) if params[:look_for] == '1'
+      #   students = sector_students.where(looking_for_internship: true) if params[:look_for] == '2'
+      #   students = sector_students.where(looking_for_job: true) if params[:look_for] == '3'
+      # end
+
+      students = students.search_by_name(params[:name]) if params[:name].present?
 
       return students
   end

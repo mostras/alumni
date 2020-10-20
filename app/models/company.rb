@@ -16,10 +16,10 @@ class Company < ApplicationRecord
 
     if params[:city].present?
       company_city = params[:city].titleize
-      companies = Company.where('city LIKE ?', "%#{company_city}%")
+      companies = companies.where('city LIKE ?', "%#{company_city}%")
     end
 
-    companies = Company.search_by_name(params[:name]) if params[:name].present?
+    companies = companies.search_by_name(params[:name]) if params[:name].present?
 
     return companies
   end

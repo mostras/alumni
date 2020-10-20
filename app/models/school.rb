@@ -16,10 +16,10 @@ class School < ApplicationRecord
 
     if params[:city].present?
       school_city = params[:city].titleize
-      schools = School.where('city LIKE ?', "%#{school_city}%")
+      schools = schools.where('city LIKE ?', "%#{school_city}%")
     end
 
-    schools = School.search_by_name(params[:name]) if params[:name].present?
+    schools = schools.search_by_name(params[:name]) if params[:name].present?
 
     return schools
   end
