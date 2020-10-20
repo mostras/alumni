@@ -7,19 +7,34 @@
 
   <%= form_for @school_experience do |f| %>
 
-    <%= f.text_field :title, placeholder: 'Titre de la formation/diplôme', class: 'form-field' %>
-    <%= f.text_field :location, placeholder: 'Ville', class: 'form-field' %>
-    <%= f.text_field :start_time, placeholder: 'Date de début', class: 'form-field' %>
-    <div class="online-fields">
-    <%= f.text_field :end_time, placeholder: 'Date de fin', id: 'end_date_exp', class: 'form-field' %>
-    <div class="checkbox-online">
-      <%= f.check_box :current, id: 'current_exp' %>
-      <%= f.label :current, 'Ceci est ma formation actuelle' %>
+    <div class="field-wrap">
+      <%= f.label :title, "Titre de la formation/diplôme" %>
+      <%= f.text_field :title, placeholder: 'Titre de la formation/diplôme', class: 'form-field' %>
     </div>
+    <div class="field-wrap">
+      <%= f.label :start_time, "Date de début" %>
+      <%= f.text_field :start_time, placeholder: 'Date de début', class: 'form-field' %>
+    </div>
+    <div class="online-fields">
+      <div class="field-wrap">
+        <%= f.label :end_time, "Date de fin" %>
+        <%= f.text_field :end_time, placeholder: 'Date de fin', id: 'end_date_exp', class: 'form-field' %>
+      </div>
+      <div class="checkbox-online">
+        <%= f.check_box :current, id: 'current_exp' %>
+        <%= f.label :current, 'Ceci est ma formation actuelle' %>
+      </div>
     </div>
     <%= f.fields_for :school, School.new do |school_attributes|%>
-      <%= school_attributes.text_field :name, placeholder: "Nom de l'école", value: @school_experience.school.name , class: 'form-field' %>
+      <div class="field-wrap">
+        <%= school_attributes.label :name, "Nom de l'école" %>
+        <%= school_attributes.text_field :name, placeholder: "Nom de l'école", value: @school_experience.school.name , class: 'form-field' %>
+      </div>
     <% end %>
+    <div class="field-wrap">
+      <%= f.label :location, "Localisation" %>
+      <%= f.text_field :location, placeholder: 'Localisation', class: 'form-field' %>
+    </div>
 
     <%= f.submit 'Valider les modifications', class: 'full-button' %>
 

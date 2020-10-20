@@ -3,7 +3,7 @@
 </div>
 <div class="linkedin-wrapper">
 
-<%= image_tag('logo-chartreux.png') %>
+<%= image_tag('logo-chartreux.png', class: 'logo-chartreux') %>
 
   <div class="linkedin">
     <div class="description">
@@ -17,8 +17,10 @@
       <p>Vous avez déjà rentré votre URL.</p>
     <% else %>
       <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>
+      <div class="online-fields">
         <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
         <%= button_tag "Charger l'URL", class: 'full-button' %>
+      </div>
       <% end %>
     <% end %>
 

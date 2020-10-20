@@ -6,43 +6,31 @@
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
 }
 
-  h2 {
-    margin-top: 0;
-    margin-bottom: 2rem;
-    color: $dark-blue;
-    font-size: 20px;
-    text-align: center;
-  }
+h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: $dark-blue;
+  font-size: 20px;
+  text-align: center;
+}
 
-  form {
-    display: contents;
-  }
-
-
-// .form {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   color: black;
-//   margin: 0 auto;
-//   max-width: 80%;
-// }
+form {
+  display: contents;
+}
 
 
 .online-fields {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 1rem;
 
   .form-field {
     width: -webkit-fill-available;
     margin: 0;
   }
 
-  .form-field:last-child {
-    margin-left: 1rem;
-  }
 }
 
 .checkbox-online {
@@ -50,10 +38,19 @@
   white-space: nowrap;
 }
 
+.field-wrap {
+  text-align: initial;
+
+  label {
+    font-size: 16px;
+    color: $gray;
+  }
+}
+
 .form-field {
   width: -webkit-fill-available;
-  padding-left: 1rem;
-  margin: 1rem 0;
+  padding-left: 0.5rem;
+  margin: 0.2rem 0 1rem 0;
   border: 1px solid black;
   border-radius: 5px;
   height: 28px;

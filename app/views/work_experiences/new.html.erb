@@ -10,20 +10,35 @@
     <% @work_experience.errors.full_messages.each do |msg| %>
       <p><%= msg %></p>
    <% end %>
-
-    <%= f.text_field :title, placeholder: 'Poste occupé', class: 'form-field' %>
-    <%= f.text_field :start_time, placeholder: 'Date de début', class: 'form-field' %>
+   <div class="field-wrap">
+    <%= f.label :title, "Poste occupé" %>
+    <%= f.text_field :title, placeholder: 'ex: Chef de Projet', class: 'form-field' %>
+   </div>
+   <div class="field-wrap">
+    <%= f.label :start_time, "Date de début" %>
+    <%= f.text_field :start_time, placeholder: 'ex: 2012', class: 'form-field' %>
+   </div>
     <div class="online-fields">
-    <%= f.text_field :end_time, placeholder: 'Date de fin', id: 'end_date_exp', class: 'form-field' %>
-    <div class="checkbox-online">
-      <%= f.check_box :current, id: 'current_exp' %>
-      <%= f.label :current, 'Ceci est mon poste actuelle' %>
-    </div>
+      <div class="field-wrap">
+        <%= f.label :end_time, "Date de fin" %>
+        <%= f.text_field :end_time, placeholder: 'ex: 2017', id: 'end_date_exp', class: 'form-field' %>
+      </div>
+      <div class="checkbox-online">
+        <%= f.check_box :current, id: 'current_exp' %>
+        <%= f.label :current, 'Ceci est mon poste actuelle' %>
+      </div>
     </div>
 
     <%= f.fields_for :company, Company.new do |company_attributes|%>
-        <%= company_attributes.text_field :name, placeholder: "Nom de l'entreprise", class: 'form-field' %>
+      <div class="field-wrap">
+        <%= company_attributes.label :name, "Nom de l'entreprise" %>
+        <%= company_attributes.text_field :name, placeholder: "ex: Apple", class: 'form-field' %>
+      </div>
     <% end %>
+    <div class="field-wrap">
+      <%= f.label :location, "Localisation" %>
+      <%= f.text_field :location, placeholder: 'ex: Paris', class: 'form-field' %>
+    </div>
 
     <%= f.submit 'Ajouter', class: 'full-button' %>
 

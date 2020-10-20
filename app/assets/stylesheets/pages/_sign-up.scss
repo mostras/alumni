@@ -14,9 +14,16 @@
   }
 
   .sign-up-form-wrapper {
-    max-width: 660px;
+    max-width: 560px;
     margin: 10rem auto;
     position: relative;
+  }
+
+  .online-fields {
+
+    .form-field:last-child {
+      margin-left: 0.5rem;
+    }
   }
 
 

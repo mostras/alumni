@@ -81,6 +81,17 @@ body {
     grid-gap: 2rem;
   }
 
+  input::-webkit-input-placeholder {
+    color: $medium-gray !important;
+  }
+
+  .logo-chartreux {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 160px;
+  }
+
 
   @media(max-width: 1700px) {
 

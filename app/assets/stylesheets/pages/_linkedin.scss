@@ -5,18 +5,6 @@
   position: absolute;
   color: white;
 
-  form {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  img {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    width: 160px;
-  }
 
   .linkedin {
     max-width: 660px;
@@ -27,34 +15,15 @@
     box-sizing: border-box;
   }
 
-  .form-field {
-    width: -webkit-fill-available;
-    padding-left: 1rem;
-    border: 1px solid black;
-    border-radius: 5px;
-    height: 28px;
-    font-size: 12px;
-    margin-right: 2rem;
-  }
-
-  .empty-button {
-    color: white;
-    border-color: white;
-    margin-right: 1rem;
-    height: 36px;
-  }
-
-  .back-button {
-    position: absolute;
-    bottom: 8px;
-    left: -112px;
-
-    p {
-      font-size: 14px;
+  .online-fields {
+    input {
+      width: 480px;
+      height: 32px;
     }
 
-    i {
-      font-size: 12px;
+    button {
+      height: 32px;
     }
   }
+
 }

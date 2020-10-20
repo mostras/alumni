@@ -14,5 +14,6 @@ class SchoolExperience < ApplicationRecord
 
   def titleize_title
     self.title = title.titleize
+    self.location = location.titleize
   end
 end
