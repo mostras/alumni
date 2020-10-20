@@ -51,7 +51,7 @@
 
 
   <% if @students.any? %>
-    <div class="grid">
+    <div class="grid" id="users-collection">
       <% @students.order(:last_name).each do |student| %>
         <%= render partial: "shared/student_card", locals: {student: student}  %>
       <% end %>

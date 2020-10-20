@@ -9,7 +9,7 @@
 
   <div class="search-form-list">
     <div class="search-form">
-      <%= form_tag new_admin_list_path, method: :get do %>
+      <%= form_tag new_admin_list_path, method: :get, remote: true do %>
         <div class="form-inline">
           <%= text_field_tag :name, params[:name], placeholder: 'Chercher par prénom, nom..', class: 'input large' %>
 

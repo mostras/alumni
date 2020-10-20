@@ -15,6 +15,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+//= require jquery
 
 
 //DELETE TAG-CARD AND SECTOR-CARD WHEN USER CLICK ON CROSS
@@ -37,7 +38,6 @@ document.addEventListener("turbolinks:load",function(){
 //HIDE FORM WHEN SECTOR > 5
 document.addEventListener("turbolinks:load",function(){
   var userSectorCards = document.querySelectorAll('.user-sector-card')
-  console.log(userSectorCards.length)
 })
 
 //ADD A CONFIRMATION MESSAGE WHEN LINKEDIN USER VALUE IS NULL
@@ -114,53 +114,57 @@ document.addEventListener("turbolinks:load",function(){
 
 document.addEventListener("turbolinks:load",function(){
   const helpBubble = document.getElementById('help-bubble')
-  helpBubble.addEventListener("mouseover", (event) => {
-    document.getElementById('help-message').style.display = 'block';
-  })
+  if(helpBubble) {
+    helpBubble.addEventListener("mouseover", (event) => {
+      document.getElementById('help-message').style.display = 'block';
+    })
 
-  console.log('je suis la')
 
-  helpBubble.addEventListener("mouseout", (event) => {
-    document.getElementById('help-message').style.display = 'none';
-  })
+    helpBubble.addEventListener("mouseout", (event) => {
+      document.getElementById('help-message').style.display = 'none';
+    })
+  }
 })
 
 
 //Toggle button for updating exp profil
 toggleButton = (wrapper) => {
-  const activeButton = wrapper.querySelector('.active')
-  const automaticButton = wrapper.querySelector('#automatic')
-  const manualButton = wrapper.querySelector('#manual')
+  if(wrapper) {
+    const activeButton = wrapper.querySelector('.active')
+    const automaticButton = wrapper.querySelector('#automatic')
+    const manualButton = wrapper.querySelector('#manual')
 
-  const automaticWrapper = document.querySelector('.automatic-wrapper')
-  const manualWrapper = document.querySelector('.manual-wrapper')
+    const automaticWrapper = document.querySelector('.automatic-wrapper')
+    const manualWrapper = document.querySelector('.manual-wrapper')
 
-  if (activeButton == automaticButton) {
-    manualWrapper.style.display = 'none'
-    automaticWrapper.style.display = 'block'
-  } else {
-    manualWrapper.style.display = 'block'
-    automaticWrapper.style.display = 'none'
+    if (activeButton == automaticButton) {
+      manualWrapper.style.display = 'none'
+      automaticWrapper.style.display = 'block'
+    } else {
+      manualWrapper.style.display = 'block'
+      automaticWrapper.style.display = 'none'
+    }
   }
-
 }
 
 
 document.addEventListener("turbolinks:load",function(){
   const wrapper = document.querySelector('.button-wrapper')
-  const buttons = wrapper.querySelectorAll('button')
+  if(wrapper) {
+    const buttons = wrapper.querySelectorAll('button')
 
-  toggleButton(wrapper)
+    toggleButton(wrapper)
 
-  buttons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const selectButton = wrapper.querySelector('.active')
-      selectButton.classList.remove('active')
-      button.classList.add('active')
+    buttons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const selectButton = wrapper.querySelector('.active')
+        selectButton.classList.remove('active')
+        button.classList.add('active')
 
-      toggleButton(wrapper)
+        toggleButton(wrapper)
+      })
     })
-  })
+  }
 })
 
 
@@ -169,38 +173,41 @@ document.addEventListener("turbolinks:load",function(){
   const checkBox = document.querySelector('.set-automatic-updating')
   const form = document.querySelector('.edit_user')
 
-  checkBox.addEventListener('click', (event) => {
-    checkBox.parentNode.submit()
-  })
+  if(checkBox) {
+    checkBox.addEventListener('click', (event) => {
+      checkBox.parentNode.submit()
+    })
+  }
 })
 
 document.addEventListener("turbolinks:load",function(){
   const checkBox = document.querySelector('.set-manual-updating')
   const form = document.querySelector('.edit_user')
 
-  checkBox.addEventListener('click', (event) => {
-    checkBox.parentNode.submit()
-  })
+  if (checkBox) {
+    checkBox.addEventListener('click', (event) => {
+      checkBox.parentNode.submit()
+    })
+  }
 })
 
 //disabled current if end_time (experience)
 document.addEventListener("turbolinks:load",function(){
   const endTimeField = document.querySelector('#end_date_exp')
   const currentCheckBox = document.querySelector('#current_exp')
-  console.log(endTimeField)
-  console.log(currentCheckBox)
 
-  currentCheckBox.addEventListener('change', (event) => {
-    console.log(currentCheckBox.checked)
-    if (currentCheckBox.checked) {
-      endTimeField.value = null
-      endTimeField.classList.add('disabled')
-      endTimeField.disabled = true
-    } else {
-      endTimeField.classList.remove('disabled')
-      endTimeField.disabled = false
-    }
-  });
+  if(currentCheckBox) {
+    currentCheckBox.addEventListener('change', (event) => {
+      if (currentCheckBox.checked) {
+        endTimeField.value = null
+        endTimeField.classList.add('disabled')
+        endTimeField.disabled = true
+      } else {
+        endTimeField.classList.remove('disabled')
+        endTimeField.disabled = false
+      }
+    });
+  }
 })
 
 
