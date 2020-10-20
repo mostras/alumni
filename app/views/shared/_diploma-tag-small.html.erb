@@ -2,4 +2,5 @@
 <div class="diploma-tag-small" id="diploma-<%= tag.diploma.try(:color) %>">
   <h5><%=tag.diploma.try(:name) %></h5>
   <p><%= tag.try(:year) %></p>
+  <%= link_to '', { controller: "users", action: "index", diploma: tag.diploma.id, year: tag.year }, { class: 'cover-link' } %>
 </div>

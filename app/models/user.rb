@@ -52,20 +52,6 @@ class User < ApplicationRecord
         students = students.includes(:user_sectors).where(user_sectors: { sector_id: sector_id })
       end
 
-      # if params[:diploma].present? && params[:year].present?
-      #   diploma_id = params[:diploma].to_i
-      #   diploma_year = params[:year].to_i
-      #   students = students.includes(:tags).where(tags: { year: diploma_year, diploma_id: diploma_id})
-      # end
-
-      # if params[:sector].present? && params[:look_for].present?
-      #   sector_id = params[:sector].to_i
-      #   sector_students = students.includes(:user_sectors).where(user_sectors: { sector_id: sector_id })
-      #   students = sector_students.where(company_hire: true) if params[:look_for] == '1'
-      #   students = sector_students.where(looking_for_internship: true) if params[:look_for] == '2'
-      #   students = sector_students.where(looking_for_job: true) if params[:look_for] == '3'
-      # end
-
       students = students.search_by_name(params[:name]) if params[:name].present?
 
       return students

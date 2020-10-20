@@ -23,9 +23,9 @@
     </div>
 
     <div class="linkedin_url">
-      <% if current_user.on_google_sheet && current_user.automatic_updating %>
+      <% if current_user.parsing && current_user.automatic_updating %>
         <%= button_to "Mettre à jour les informations de mon profil", submit_url_for_update_user_path, class: 'empty-button' %>
-      <% elsif !current_user.on_google_sheet && current_user.automatic_updating %>
+      <% elsif !current_user.parsing && current_user.automatic_updating %>
         <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>
           <%= label_tag 'Votre URL LinkedIn' %>
           <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profil LinkedIn...', class: "form-field" %>
@@ -43,12 +43,18 @@
       <p>Si vous ne souhaitez pas renseigner votre profil LinkedIn, vous pouvez ajouter vos formations et expériences professionnelles manuellement. Si vous aviez choisi l’option de mise à jour automatique auparavant, vous concerverez les données importées.</p>
     </div>
 
-    <div class="validation">
-      <%= form_for current_user, :url => { :action => "set_manual_updating" } do |f| %>
-        <%= f.check_box :manual_updating, class: 'set-manual-updating' %> <br />
-        <%= f.label "Cochez cette case pour selectionner la mise-à-jour manuelle." %> <br />
-      <% end %>
-    </div>
+    <% if current_user.on_google_sheet %>
+      <p>Nous sommes entrain de récupèrer vos informations sur votre profil Linkedin. Vous pourrez passer à la mise à jours automatique une fois le processus terminé.</p>
+    <% else %>
+
+      <div class="validation">
+        <%= form_for current_user, :url => { :action => "set_manual_updating" } do |f| %>
+          <%= f.check_box :manual_updating, class: 'set-manual-updating' %> <br />
+          <%= f.label "Cochez cette case pour selectionner la mise-à-jour manuelle." %> <br />
+        <% end %>
+      </div>
+
+    <% end %>
 
     <% if current_user.manual_updating %>
 

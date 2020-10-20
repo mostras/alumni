@@ -4,7 +4,7 @@
     <%= link_to 'Créer nouvelle', new_work_experience_path, class: 'full-button'  %>
   </div>
   <div class="experiences-list">
-    <% user.work_experiences.order(:start_time).reverse.each do |work_experience| %>
+    <% user.work_experiences.order(:end_time).reverse.each do |work_experience| %>
       <div class="experience">
 
         <%= link_to edit_work_experience_path(work_experience) do %>
@@ -29,7 +29,7 @@
     <%= link_to 'Créer nouvelle', new_school_experience_path, class: 'full-button'  %>
   </div>
   <div class="experiences-list">
-    <% user.school_experiences.order(:start_time).reverse.each do |school_experience| %>
+    <% user.school_experiences.order(:end_time).reverse.each do |school_experience| %>
       <div class="experience">
 
         <%= link_to edit_school_experience_path(school_experience) do %>

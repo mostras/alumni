@@ -7,4 +7,7 @@
     <span class="line"></span>
   <% end %>
   <%= user_sector.sector.name %>
+  <% if current_page?(user_path(user_sector.user)) %>
+    <%= link_to '', { controller: "users", action: "index", sector: user_sector.sector.id }, { class: 'cover-link' } %>
+  <% end %>
 </div>
