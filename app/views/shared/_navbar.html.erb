@@ -1,8 +1,8 @@
 <div class="navbar">
 
     <div class="navigation-links">
-      <div class="navigation-item">
-        <%= link_to users_path, class: active_class_for('alumni') do %>
+      <div class="navigation-item <%= active?(users_path) %>">
+        <%= link_to users_path, class: "#{active?(users_path)}" do %>
 
             <i class="fas fa-users"></i>
             <p>Les alumni</p>
@@ -12,7 +12,7 @@
       </div>
 
       <div class="navigation-item">
-        <%= link_to companies_path, class: active_class_for('company') do %>
+        <%= link_to companies_path, class: "#{active?(companies_path)}" do %>
 
             <i class="fas fa-briefcase"></i>
             <p>Les entreprises</p>
@@ -21,7 +21,7 @@
       </div>
 
       <div class="navigation-item">
-        <%= link_to schools_path, class: active_class_for('school') do %>
+        <%= link_to schools_path, class: "#{active?(schools_path)}" do %>
 
             <i class="fas fa-graduation-cap"></i>
             <p>Les écoles</p>
@@ -31,7 +31,7 @@
 
       <% admins_only do %>
         <div class="navigation-item">
-          <%= link_to admin_statistics_path, class: active_class_for('statistics') do %>
+          <%= link_to admin_statistics_path, class: "#{active?(admin_statistics_path)}" do %>
 
               <i class="fas fa-chart-line"></i>
               <p>Les statistiques</p>
@@ -39,7 +39,7 @@
           <% end %>
         </div>
         <div class="navigation-item">
-          <%= link_to admin_lists_path, class: active_class_for('emails') do %>
+          <%= link_to admin_lists_path, class: "#{active?(admin_lists_path)}" do %>
 
               <i class="fas fa-comments"></i>
               <p>Emails groupés</p>
