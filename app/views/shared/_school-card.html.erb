@@ -1,12 +1,10 @@
-<div class="school-card">
-  <div class="school-card-logo">
-    <% if school.photo.attached? %>
-      <%= cl_image_tag school.photo.key %>
-    <% else %>
-      <%= image_tag "school.png", alt: "school-image" %>
-    <% end %>
-  </div>
-  <div class="school-card-info">
+<div class="company-school-card shadow-div card-container">
+  <% if school.photo.attached? %>
+    <%= cl_image_tag school.photo.key %>
+  <% else %>
+    <%= image_tag "school.png", alt: "school-image" %>
+  <% end %>
+  <div class="company-school-card-info">
     <h2><%= school.name %></h2>
     <h3><%= school.city %></h3>
     <p><%= pluralize school.users.count, 'alumni étudie ici', 'alumni étudient ici' %></p>

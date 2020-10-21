@@ -1,10 +1,5 @@
 .index-users-page-wrapper {
 
-  .index-users-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 2rem;
-  }
 
   .nobody-found {
     text-align: center;
@@ -17,14 +12,8 @@
 
 
 @media(max-width: 500px) {
-  .index-users-page-wrapper {
-
-    .index-users-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 2rem;
-    }
-
+  h1 {
+    display: none;
   }
 
 }

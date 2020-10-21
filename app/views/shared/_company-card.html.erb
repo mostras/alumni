@@ -1,12 +1,10 @@
-<div class="company-card">
-  <div class="company-card-logo">
-    <% if company.photo.attached? %>
-      <%= cl_image_tag company.photo.key %>
-    <% else %>
-      <%= image_tag "company.png", alt: "company-image" %>
-    <% end %>
-  </div>
-  <div class="company-card-info">
+<div class="company-school-card shadow-div card-container">
+  <% if company.photo.attached? %>
+    <%= cl_image_tag company.photo.key %>
+  <% else %>
+    <%= image_tag "company.png", alt: "company-image" %>
+  <% end %>
+  <div class="company-school-card-info">
     <h2><%= company.name %></h2>
     <h3><%= company.city %></h3>
     <div class="recruiting">
@@ -16,5 +14,5 @@
       <% end %>
     </div>
   </div>
-  <%= link_to '', company_path(company), class: 'card-link'  %>
+  <%= link_to '', company_path(company), class: 'cover-link'  %>
 </div>

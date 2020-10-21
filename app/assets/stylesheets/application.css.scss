@@ -112,39 +112,35 @@ body {
     border-radius: 8px;
   }
 
+  .card-container {
+    padding: 1rem;
+    position: relative;
+  }
+
 
   @media(max-width: 1850px) {
 
     .main-wrapper {
-      margin: 8rem 3rem 2rem 3rem;
+      margin: 8rem 2rem 2rem 2rem;
     }
 
     .grid {
-      display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 2rem;
     }
   }
 
   @media(max-width: 1300px) {
-    .main-wrapper {
-      margin: 8rem 5rem 2rem 5rem;
-    }
 
     .grid {
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 2rem;
     }
   }
 
-  @media(max-width: 960px) {
+  @media(max-width: 860px) {
 
 
     .grid {
-      display: grid;
       grid-template-columns: 1fr;
-      grid-gap: 2rem;
     }
   }
 

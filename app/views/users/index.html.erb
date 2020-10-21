@@ -11,7 +11,7 @@
 
     <div class="search-info">
       <h2><%= @students.try(:count) %> alumni</h2>
-
+      <div class="count-wrap">
         <div class="search-count" id="situation-green">
           <i class="fas fa-exclamation-circle"></i>
           <p><%= @students.where(company_hire: true).count %> recrutent</p>
@@ -24,6 +24,8 @@
           <i class="fas fa-exclamation-circle"></i>
           <p><%= @students.where(looking_for_job: true).count %> recherche un emploi</p>
         </div>
+      </div>
+
     </div>
 
     <div class="search-form">
