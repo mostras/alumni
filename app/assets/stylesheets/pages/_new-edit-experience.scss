@@ -1,0 +1,41 @@
+.new-edit-experience {
+  max-width: 500px;
+  margin: 12rem auto;
+  text-align: center;
+
+
+  .form-field {
+    width: 220px;
+  }
+
+  .online-fields {
+    .form-field {
+      width: 220px;
+    }
+  }
+
+  @media(max-width: 700px) {
+    width: 80%;
+
+    h2 {
+      font-size: 22px;
+    }
+
+    .form-field {
+      width: 80%;
+    }
+
+    .online-fields {
+      display: block;
+
+      .form-field {
+        width: 80%;
+      }
+
+      .checkbox-online {
+        margin-top: 0.2rem;
+      }
+    }
+
+  }
+}

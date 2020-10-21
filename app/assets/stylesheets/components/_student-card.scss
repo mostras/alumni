@@ -2,19 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
-  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
 
   p {
     margin: 0;
-  }
-
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    white-space: nowrap;
   }
 
   img {
@@ -27,7 +19,7 @@
 
   .student-info {
     max-width: 256px;
-    overflow: hidden;
+
   }
 
   .tags {
@@ -38,11 +30,7 @@
   .current_experience {
     display: flex;
     align-items: center;
-    white-space: nowrap;
-
-     i {
-      margin-right: 0.5rem;
-     }
+    i { margin-right: 0.5rem; }
   }
 
   .situation {
@@ -52,11 +40,21 @@
     font-size: 18px;
   }
 
-  .card-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  @media(max-width: 500px) {
+    flex-direction: column;
+    text-align: center;
+
+    .tags {
+      justify-content: space-around;
+
+      .diploma-tag-small:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .current_experience {
+      justify-content: center;
+    }
+
   }
 }

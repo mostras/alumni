@@ -210,6 +210,40 @@ document.addEventListener("turbolinks:load",function(){
   }
 })
 
+//show side navigation bar
+document.addEventListener("turbolinks:load",function(){
+  navigationButton = document.querySelector('.side-navigation-button')
+  openIcon = navigationButton.querySelector('.open')
+  closeIcon = navigationButton.querySelector('.close')
+  sideNavigationBar = document.querySelector('.side-navigation-bar')
+
+  let openOrClose = false;
+
+  choose = () => {
+    if(openOrClose == true) {
+      sideNavigationBar.style.transform = 'translateX(260px)'
+      openIcon.style.display = 'none';
+      closeIcon.style.display = 'block';
+    }
+
+    if(openOrClose == false) {
+      sideNavigationBar.style.transform = 'translateX(-260px)'
+      openIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+    }
+  }
+
+  navigationButton.addEventListener('click', (event) => {
+    console.log('je clique')
+    console.log(openOrClose)
+    openOrClose = !openOrClose
+    choose()
+  })
+
+
+
+})
+
 
 
 

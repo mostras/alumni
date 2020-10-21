@@ -64,4 +64,13 @@
       }
     }
   }
+
+    @media(max-width: 500px) {
+
+    margin: 0 0 1rem 0;
+
+    .icon {
+      display: none;
+    }
+}
 }

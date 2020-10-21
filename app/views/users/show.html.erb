@@ -4,15 +4,13 @@
 </div>
 
 
-
-
 <div class="user-show-wrapper main-wrapper">
 
   <div class="left-side">
 
-    <div class="user-description-wrap">
+    <div class="user-description-wrap shadow-div wrapper">
       <% if @student == current_user %>
-        <%= link_to edit_user_path(@student), class: 'edit-link' do %>
+        <%= link_to edit_user_path(@student) do %>
           <%= render 'shared/edit-icon' %>
         <% end %>
       <% end %>
@@ -24,18 +22,19 @@
           <%= image_tag "blank-avatar.png" %>
         <% end %>
         <div class="user-name-and-links">
-          <h1><span><%= @student.first_name %></span><br><%= @student.last_name %></h1>
+          <h1><span class="light-weigth"><%= @student.first_name %></span><br><%= @student.last_name %></h1>
+          <span class="line"></span>
           <%= render 'shared/social-links', student: @student  %>
         </div>
       </div>
 
     </div>
 
-    <div class="situation">
+    <div class="situation shadow-div wrapper">
       <h2>SITUATION</h2>
       <% if @student.looking_for_job? || @student.looking_for_internship? || @student.company_hire? %>
         <% if @student == current_user %>
-          <%= link_to edit_situation_user_path(@student), class: 'edit-link' do %>
+          <%= link_to edit_situation_user_path(@student) do %>
             <%= render 'shared/edit-icon' %>
           <% end %>
         <% end %>
@@ -66,9 +65,9 @@
       <% end %>
     </div>
 
-    <div class="diplomas">
+    <div class="diplomas shadow-div wrapper list-style">
       <% if @student == current_user && @student.tags.any? %>
-        <%= link_to tags_path, class: 'edit-link' do %>
+        <%= link_to tags_path do %>
           <%= render 'shared/edit-icon' %>
         <% end %>
       <% end %>
@@ -90,10 +89,10 @@
       <% end %>
     </div>
 
-    <div class="sectors">
+    <div class="sectors shadow-div wrapper list-style">
       <h2>SECTEURS</h2>
       <% if @student == current_user && @student.user_sectors.any? %>
-        <%= link_to user_sectors_path, class: 'edit-link' do %>
+        <%= link_to user_sectors_path do %>
           <%= render 'shared/edit-icon' %>
         <% end %>
       <% end %>
@@ -116,13 +115,14 @@
 
   <div class="right-side">
 
-    <% if @student == current_user %>
-      <%= link_to updating_profil_exp_user_path, class: 'edit-link' do %>
+
+
+      <div class="experiences shadow-div wrapper">
+            <% if @student == current_user %>
+      <%= link_to updating_profil_exp_user_path do %>
         <%= render 'shared/edit-icon' %>
       <% end %>
     <% end %>
-
-      <div class="experiences">
         <h2>EXPERIENCES</h2>
         <% if @student.work_experiences.any? %>
           <% @student.work_experiences.order(:end_time).reverse.each do |work_experience| %>

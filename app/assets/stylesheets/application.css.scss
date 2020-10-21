@@ -35,15 +35,30 @@ body {
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
 
   h2 {
     font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
 
   h3 {
     font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .list-style {
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
   }
 
   #error_explanation {
@@ -72,7 +87,7 @@ body {
   #situation-red { color: $flash-red; }
 
   .main-wrapper {
-    margin: 8rem 8rem 2rem 8rem;
+    margin: 8rem 5rem 2rem 5rem;
   }
 
   .grid {
@@ -92,40 +107,52 @@ body {
     width: 160px;
   }
 
+  .shadow-div {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+  }
 
-  @media(max-width: 1700px) {
+  .card-container {
+    padding: 1rem;
+    position: relative;
+  }
+
+
+  @media(max-width: 1850px) {
 
     .main-wrapper {
-      margin: 8rem 5rem 2rem 5rem;
+      margin: 8rem 2rem 2rem 2rem;
     }
 
     .grid {
-      display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 2rem;
     }
   }
 
-  @media(max-width: 1100px) {
-    .main-wrapper {
-      margin: 8rem 3rem 2rem 3rem;
-    }
+  @media(max-width: 1300px) {
 
     .grid {
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 2rem;
     }
   }
 
-  @media(max-width: 750px) {
-
+  @media(max-width: 860px) {
 
 
     .grid {
-      display: grid;
       grid-template-columns: 1fr;
-      grid-gap: 2rem;
+    }
+  }
+
+  @media(max-width: 600px) {
+    .main-wrapper {
+      margin: 8rem 2rem 2rem 2rem;
+    }
+  }
+
+  @media(max-width: 500px) {
+    .main-wrapper {
+      margin: 8rem 2rem 2rem 2rem;
     }
   }
 

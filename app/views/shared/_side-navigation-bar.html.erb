@@ -1,0 +1,40 @@
+<div class="side-navigation-bar list-style">
+  <ul>
+    <li>
+      <div class="navigation-item">
+        <%= link_to 'Les Alumnis', users_path, class: "#{active?(users_path)}" %>
+      </div>
+    </li>
+    <li>
+      <div class="navigation-item">
+        <%= link_to 'Les entreprises', companies_path, class: "#{active?(companies_path)}" %>
+      </div>
+    </li>
+    <li>
+      <div class="navigation-item">
+        <%= link_to 'Les écoles', schools_path, class: "#{active?(schools_path)}" %>
+      </div>
+    </li>
+    <% admins_only do %>
+    <li>
+      <div class="navigation-item">
+        <%= link_to 'Les statistiques', admin_statistics_path, class: "#{active?(admin_statistics_path)}" %>
+      </div>
+    </li>
+    <li>
+      <div class="navigation-item">
+        <%= link_to 'Emails groupés', admin_lists_path, class: "#{active?(admin_lists_path)}" %>
+      </div>
+    </li>
+    <% end %>
+    <% non_admins_only do %>
+    <li>
+      <div class="navigation-item">
+        <%= link_to "L'Institution des Chartreux", 'https://www.leschartreux.com', target: :_blank %>
+      </div>
+    </li>
+    <% end %>
+
+  </ul>
+
+</div>

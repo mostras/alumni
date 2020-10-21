@@ -62,5 +62,15 @@
   .linkedin_url {
     margin-bottom: 2rem;
     text-align: initial;
+
+    .form-field {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @media(max-width: 700px) {
+    margin: 8rem 1rem 2rem 1rem;
+    padding: 1rem;
+
   }
 }
