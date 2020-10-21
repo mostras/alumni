@@ -27,7 +27,18 @@
 
   .side-navigation-button {
     display: none;
-    i { color: white; }
+    i {
+      color: white;
+      font-size: 18px;
+    }
+
+    .open {
+      display: block;
+    }
+
+    .close {
+      display: none;
+  }
   }
 
   .navigation-item {

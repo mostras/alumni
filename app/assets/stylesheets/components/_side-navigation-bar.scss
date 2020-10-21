@@ -1,0 +1,37 @@
+.side-navigation-bar {
+  position: fixed;
+  height: 100vh;
+  width: 260px;
+  background-color: $dark-blue;
+  top: 0;
+  z-index: 3000;
+  left: -260px;
+  transition: transform 0.3s;
+  padding: 6rem 0 0 1rem;
+  box-sizing: border-box;
+
+
+  .navigation-item {
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      font-weight: 400;
+      font-size: 24px;
+      opacity: 0.6;
+    }
+
+    a:hover {
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+}
+
+

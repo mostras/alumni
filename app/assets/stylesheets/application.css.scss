@@ -150,4 +150,10 @@ body {
     }
   }
 
+  @media(max-width: 500px) {
+    .main-wrapper {
+      margin: 8rem 2rem 2rem 2rem;
+    }
+  }
+
 }

@@ -81,8 +81,25 @@
     grid-gap: 0;
   }
 
-  @media(max-width: 600px) {
-    grid-template-columns: 1fr;
-    margin: 0;
+  @media(max-width: 500px) {
+    .user-description {
+      flex-direction: column;
+      text-align: center;
+
+      img {
+        margin: 0;
+      }
+    }
+
+    .situation {
+
+      .notification {
+        font-size: 14px;
+      }
+    }
+
+    .wrapper {
+      padding: 2.5rem 0.5rem 0.5rem 12px;
+    }
   }
 }
