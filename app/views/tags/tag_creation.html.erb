@@ -13,7 +13,7 @@
     </div>
 
     <div class="tags">
-      <div class="tags-index">
+      <div class="tags-index list-inline">
         <% if @tags.any? %>
           <ul>
             <% @tags.each do |tag| %>
@@ -27,7 +27,7 @@
     <%= render 'shared/tag-form', tag: @tag, diplomas: @diplomas %>
     </div>
 
-    <%= link_to 'Suivant', sector_creation_user_sectors_path, class: 'empty-button'  %>
+    <%= link_to 'Suivant', sector_creation_user_sectors_path, class: 'full-button'  %>
 
     <%= link_to linkedin_path, class: 'back-button' do %>
       <i class="fas fa-arrow-left"></i>

@@ -44,13 +44,18 @@
   text-decoration: none;
   width: fit-content;
   white-space: nowrap;
+  position: absolute;
+  bottom: 8px;
+  left: -112px;
 
   p {
     margin: 0;
+    font-size: 14px;
   }
 
   i {
     margin-right: 0.5rem;
+    font-size: 12px;
   }
 }
 
@@ -73,4 +78,19 @@
     i {
       margin-right: 0.5rem;
     }
+}
+
+@media(max-width: 500px) {
+  .full-button {
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .empty-button {
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+  }
+
 }

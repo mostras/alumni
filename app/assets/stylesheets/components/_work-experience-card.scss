@@ -1,4 +1,4 @@
-.work-experience-card {
+.work-school-experience-card {
   display: flex;
   max-width: 456px;
   margin: 0 auto 2rem 1rem;
@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1rem;
+    margin-right: 2rem;
 
     img {
       width: 80px;
@@ -23,29 +23,31 @@
   }
 
   .description {
-    padding-left: 1rem;
 
-    h3 {
-      font-size: 16px;
-      margin: 0;
-      color: $gray;
-      font-weight: 600;
-    }
+  p {
+    font-size: 13px;
+    margin: 0;
+    color: $medium-gray;
+  }
 
-    h4 {
-      text-align: inherit;
-      font-size: 14px;
-      font-weight: normal;
-      margin-bottom: 0.7rem;
-      margin-top: 0;
-      color: $gray;
-    }
 
-    p {
-      font-size: 13px;
-      margin: 0;
-      color: $medium-gray;
-    }
+  .title {
+    font-size: 16px;
+    margin: 0;
+    color: $gray;
+    font-weight: 600;
+  }
+
+  .establishment-name, .establishment-location {
+    text-align: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 0.6rem;
+    margin-top: 0;
+    color: $gray;
+  }
+
+
 
     ul {
       list-style: none;

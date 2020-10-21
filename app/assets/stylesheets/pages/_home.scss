@@ -26,4 +26,12 @@
   .full-button {
     margin-right: 1rem;
   }
+
+  @media(max-width: 1200px) {
+    .home-page {
+      width: 90%;
+    }
+
+  }
+
 }

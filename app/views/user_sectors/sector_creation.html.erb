@@ -13,7 +13,7 @@
       </div>
 
       <div class="sector">
-        <div class="sectors-index">
+        <div class="sectors-index list-inline">
 
           <% if @user_sectors.any? %>
             <ul>
@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <%= link_to 'Suivant', welcome_path, class: 'empty-button'  %>
+      <%= link_to 'Suivant', welcome_path, class: 'full-button'  %>
 
       <%= link_to tag_creation_tags_path, class: 'back-button' do %>
         <i class="fas fa-arrow-left"></i>

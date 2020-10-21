@@ -5,13 +5,6 @@
   position: absolute;
   color: white;
 
-  img {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    width: 160px;
-    z-index: 500;
-  }
 
   .sign-in-form{
     max-width: 360px;
@@ -19,14 +12,18 @@
     position: relative;
   }
 
-
   .full-button {
-    margin: 1.5rem 0 1.5rem 0;
+    margin: 1.5rem 0;
   }
 
   a {
     color: white;
   }
 
+  @media(max-width: 500px) {
+    .sign-in-form{
+      width: 90%;
+    }
+  }
 
 }

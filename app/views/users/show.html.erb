@@ -31,7 +31,7 @@
     </div>
 
     <div class="situation shadow-div wrapper">
-      <h2>SITUATION</h2>
+      <h3>SITUATION</h3>
       <% if @student.looking_for_job? || @student.looking_for_internship? || @student.company_hire? %>
         <% if @student == current_user %>
           <%= link_to edit_situation_user_path(@student) do %>
@@ -43,19 +43,19 @@
         <% if @student.looking_for_job? %>
           <div class="notification" id="situation-red">
             <i class="fas fa-exclamation-circle"></i>
-            <h4>JE RECHERCHE UN EMPLOI</h4>
+            <p>JE RECHERCHE UN EMPLOI</p>
           </div>
         <% end %>
         <% if @student.looking_for_internship? %>
           <div class="notification" id="situation-orange">
             <i class="fas fa-exclamation-circle"></i>
-            <h4>JE RECHERCHE UN STAGE</h4>
+            <p>JE RECHERCHE UN STAGE</p>
           </div>
         <% end %>
         <% if @student.company_hire? %>
           <div class="notification" id="situation-green">
             <i class="fas fa-exclamation-circle"></i>
-            <h4>MON ENTREPRISE RECRUTE</h4>
+            <p>MON ENTREPRISE RECRUTE</p>
           </div>
         <% end %>
       <% elsif @student == current_user %>
@@ -72,7 +72,7 @@
         <% end %>
       <% end %>
 
-      <h2>DIPLÔMES</h2>
+      <h3>DIPLÔMES</h3>
 
       <% if @student.tags.any? %>
         <ul>
@@ -90,7 +90,7 @@
     </div>
 
     <div class="sectors shadow-div wrapper list-style">
-      <h2>SECTEURS</h2>
+      <h3>SECTEURS</h3>
       <% if @student == current_user && @student.user_sectors.any? %>
         <%= link_to user_sectors_path do %>
           <%= render 'shared/edit-icon' %>
@@ -123,7 +123,7 @@
         <%= render 'shared/edit-icon' %>
       <% end %>
     <% end %>
-        <h2>EXPERIENCES</h2>
+        <h3>EXPERIENCES</h3>
         <% if @student.work_experiences.any? %>
           <% @student.work_experiences.order(:end_time).reverse.each do |work_experience| %>
             <%= render 'shared/work_experience-card', work_experience: work_experience %>
@@ -138,7 +138,7 @@
           <p><%= @student.first_name %> n'a pas ajouté d'expériences professionnelles.</p>
         <% end %>
 
-        <h2>FORMATIONS</h2>
+        <h3>FORMATIONS</h3>
         <% if @student.school_experiences.any? %>
           <% @student.school_experiences.order(:end_time).reverse.each do |school_experience| %>
             <%= render 'shared/school_experience-card', school_experience: school_experience %>

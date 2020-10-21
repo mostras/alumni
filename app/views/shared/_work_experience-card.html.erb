@@ -1,14 +1,14 @@
-<div class="work-experience-card">
+<div class="work-school-experience-card">
   <div class="icon">
     <%= image_tag('company.png') %>
   </div>
   <div class="description">
-    <h3><%= work_experience.title %></h3>
+    <p class="title"><%= work_experience.title %></p>
     <ul>
-      <li><h4><%= work_experience.company.name %></h4></li>
+      <li><p class="establishment-name"><%= work_experience.company.name %></p></li>
       <% if work_experience.location.present? %>
         <li><span class="line"></span></li>
-        <li><h4><%= work_experience.location  %></h4></li>
+        <li><p class="establishment-location"><%= work_experience.location  %></p></li>
       <% end %>
     </ul>
     <p><%= work_experience.start_time %> - <%= work_experience.end_time %></p>

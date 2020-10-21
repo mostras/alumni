@@ -38,7 +38,7 @@
 
     .close {
       display: none;
-  }
+    }
   }
 
   .navigation-item {
@@ -55,6 +55,10 @@
       font-weight: 400;
       font-size: 20px;
       opacity: 0.6;
+
+      p {
+        font-size: 22px;
+      }
     }
 
     a:hover {
