@@ -115,13 +115,14 @@
 
   <div class="right-side">
 
-    <% if @student == current_user %>
+
+
+      <div class="experiences shadow-div wrapper">
+            <% if @student == current_user %>
       <%= link_to updating_profil_exp_user_path do %>
         <%= render 'shared/edit-icon' %>
       <% end %>
     <% end %>
-
-      <div class="experiences shadow-div wrapper">
         <h2>EXPERIENCES</h2>
         <% if @student.work_experiences.any? %>
           <% @student.work_experiences.order(:end_time).reverse.each do |work_experience| %>
