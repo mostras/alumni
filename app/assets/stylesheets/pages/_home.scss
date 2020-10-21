@@ -13,11 +13,6 @@
     z-index: 500;
   }
 
-  .home-page {
-    max-width: 660px;
-    margin: 14rem auto;
-  }
-
   .session-button {
     margin-top: 2rem;
     display: flex;
@@ -27,11 +22,5 @@
     margin-right: 1rem;
   }
 
-  @media(max-width: 1200px) {
-    .home-page {
-      width: 90%;
-    }
-
-  }
 
 }

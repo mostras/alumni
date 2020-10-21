@@ -3,50 +3,56 @@
   <%= render 'shared/navbar' %>
 </div>
 <div class="main-wrapper">
-  <div class="company-wrapper">
-    <div class="company-flex">
-      <div class="company-photo">
-        <% if @company.photo.attached? %>
-          <%= cl_image_tag company.photo.key %>
-        <% else %>
-          <%= image_tag "company.png", alt: "company-image" %>
-        <% end %>
-      </div>
-      <div class="company-info">
-        <h1><%= @company.name %></h1>
-        <p><%= @company.city %></p>
-      </div>
+  <div class="company-wrapper shadow-div">
+    <div class="company-photo">
+      <% if @company.photo.attached? %>
+        <%= cl_image_tag company.photo.key %>
+      <% else %>
+        <%= image_tag "company.png", alt: "company-image" %>
+      <% end %>
+    </div>
+    <div class="company-info">
+      <h1><%= @company.name %></h1>
+      <p><%= @company.city %></p>
     </div>
   </div>
 
+
     <% if hiring?(@company) %>
+    <div class="alumnis-group">
       <div id="situation-green">
-        <h3><%= pluralize @hiring.count, 'alumni signale un recrutement, prennez contact !', 'alumni signalent un recrutement, contactez-les !' %></h3>
+        <p class="alumnis-situation"><%= pluralize @hiring.count, 'alumni signale un recrutement, prennez contact !', 'alumni signalent un recrutement, contactez-les !' %></p>
       </div>
-      <div class="recruting-wrapper">
+      <div class="grid">
         <% @hiring.each do |job| %>
           <%= render 'shared/student_card', student: job.user %>
         <% end %>
       </div>
+    </div>
     <% end %>
 
-  <% if @current_jobs.any? %>
-    <h3><%= pluralize @current_jobs.count, 'alumni travaille actuellement ici', 'alumni travaillent actuellement ici' %></h3>
-    <div class="current-job-wrapper">
-      <% @current_jobs.each do |job|%>
-        <%= render 'shared/student_card', student: job.user %>
-      <% end %>
-    </div>
-  <% end %>
 
-  <% if @former_jobs.any? %>
-    <h3><%= pluralize @former_jobs.count, 'alumni travaillait anciennement ici', 'alumni travaillaient anciennement ici' %></h3>
-    <div class="former-job-wrapper">
-      <% @former_jobs.each do |job|%>
+    <% if @current_jobs.any? %>
+  <div class="alumnis-group">
+      <p class="alumnis-situation"><%= pluralize @current_jobs.count, 'alumni travaille actuellement ici', 'alumni travaillent actuellement ici' %></p>
+      <div class="grid">
+        <% @current_jobs.each do |job|%>
           <%= render 'shared/student_card', student: job.user %>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+  </div>
+    <% end %>
+
+    <% if @former_jobs.any? %>
+  <div class="alumnis-group">
+      <p class="alumnis-situation"><%= pluralize @former_jobs.count, 'alumni travaillait anciennement ici', 'alumni travaillaient anciennement ici' %></p>
+      <div class="grid">
+        <% @former_jobs.each do |job|%>
+            <%= render 'shared/student_card', student: job.user %>
+        <% end %>
+      </div>
+  </div>
+    <% end %>
 
   <%= render 'shared/help-bubble' %>
 </div>

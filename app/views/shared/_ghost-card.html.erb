@@ -1,6 +1,6 @@
 <div class="ghost-card">
-  <h4><%= index + 1 %></h4>
-  <h3><%= ghost.full_name %></h3>
+  <p class="index"><%= index + 1 %></p>
+  <p class="full-name"><%= ghost.full_name %></p>
   <% if ghost.email.blank? %>
     <p>Cette utilisateur n'a pas renseigné d'adresse email. 😞</p>
   <% elsif ghost.notification_send %>

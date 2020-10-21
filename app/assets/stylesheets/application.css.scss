@@ -113,8 +113,8 @@ body {
 
   .logo-chartreux {
     position: absolute;
-    top: 2rem;
-    left: 2rem;
+    top: 3rem;
+    left: 3rem;
     width: 160px;
   }
 
@@ -143,6 +143,12 @@ body {
 
   }
 
+  .registration-wrap {
+    max-width: 560px;
+    margin: 16rem auto;
+    position: relative;
+  }
+
 
   @media(max-width: 1850px) {
 
@@ -162,8 +168,10 @@ body {
     }
   }
 
-  @media(max-width: 860px) {
-
+  @media(max-width: 800px) {
+    .registration-wrap {
+      width: 90%;
+    }
 
     .grid {
       grid-template-columns: 1fr;

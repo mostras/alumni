@@ -6,15 +6,6 @@
   color: white;
 
 
-  .linkedin {
-    max-width: 660px;
-    margin: 10rem auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-  }
-
   .online-fields {
     input {
       width: 480px;
@@ -23,17 +14,7 @@
 
     button {
       height: 32px;
-    }
-  }
-
-  @media(max-width: 800px) {
-    .linkedin {
-      width: 90%;
-    }
-    .online-fields {
-      button {
-        margin-left: 0.2rem;
-      }
+      margin-left: 0.2rem;
     }
   }
 

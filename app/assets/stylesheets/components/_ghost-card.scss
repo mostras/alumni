@@ -5,20 +5,41 @@
   padding-bottom: 0.2rem;
   margin-bottom: 1rem;
 
-  h3 {
-    margin: 0;
+  .full-name {
     width: 320px;
   }
 
-  h4 {
+  .index {
     margin: 0 2rem 0 0;
   }
 
-  h3, h4 {
+  .full-name, .index {
+    font-weight: bold;
     font-size: 20px;
   }
 
   p {
     margin: 0;
+  }
+
+  @media(max-width: 800px) {
+    .index {
+      display: none;
+    }
+
+    .full-name {
+      width: auto;
+      margin-right: 2rem;
+      white-space: nowrap;
+    }
+  }
+
+  @media(max-width: 800px) {
+    flex-direction: column;
+
+    .full-name {
+      margin-right: 0;
+      margin-bottom: 0.2rem;
+    }
   }
 }

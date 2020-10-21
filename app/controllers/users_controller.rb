@@ -48,14 +48,14 @@ class UsersController < ApplicationController
   def set_automatic_updating
     auto = current_user.automatic_updating
     manu = current_user.manual_updating
-    current_user.update(automatic_updating: !auto, manual_updating: !manu)
+    current_user.update(automatic_updating: !auto, manual_updating: !manu, parsing: false)
     redirect_to request.referrer
   end
 
   def set_manual_updating
     auto = current_user.automatic_updating
     manu = current_user.manual_updating
-    current_user.update(automatic_updating: !auto, manual_updating: !manu)
+    current_user.update(automatic_updating: !auto, manual_updating: !manu, parsing: true)
     redirect_to request.referrer
   end
 
