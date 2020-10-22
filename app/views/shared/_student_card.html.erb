@@ -16,15 +16,15 @@
       <% end %>
     </div>
 
-    <% if last_activity(student) == true %>
+    <% if last_activity(student)[0] == true %>
         <div class="current_experience">
           <i class="fas fa-briefcase"></i>
-          <p><%= student.work_experiences.order(:end_time).last.company.name %></p>
+          <p><%= last_activity(student)[1] %></p>
         </div>
-    <% elsif last_activity(student) == false %>
+    <% elsif last_activity(student)[0] == false %>
         <div class="current_experience">
           <i class="fas fa-graduation-cap"></i>
-          <p><%= student.school_experiences.order(:end_time).last.school.name %></p>
+          <p><%= last_activity(student)[1] %></p>
         </div>
     <% end %>
 
