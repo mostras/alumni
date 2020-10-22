@@ -1,9 +1,9 @@
 <div class="tag-form">
   <%= form_for @tag do |f| %>
-      <div class="form">
-        <%= f.select :diploma_id, @diplomas.map { |d| [d.name, d.id] }, :prompt => "Sélectionner un diplôme..." %>
-        <%= f.select :year, ((Time.zone.now.year - 70)..(Time.zone.now.year + 5)).to_a.reverse, :prompt => "Année d’obtention" %>
-        <%= f.submit "Ajouter", id:'add_tag_button', class: 'empty-button'%>
+      <div class="online-fields">
+        <%= f.select :diploma_id, @diplomas.map { |d| [d.name, d.id] }, :prompt => "Sélectionner un diplôme...", class: 'form-field' %>
+        <%= f.select :year, ((Time.zone.now.year - 70)..(Time.zone.now.year + 5)).to_a.reverse, :prompt => "Année d’obtention", class: 'form-field' %>
+        <%= f.submit "Ajouter", id:'add_tag_button', class: 'empty-button white'%>
       </div>
   <% end %>
 </div>

@@ -1,7 +1,7 @@
 .full-button {
   font-size: 14px;
   border-radius: 5px;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   text-decoration: none;
   color: white;
   background-color: $dark-blue;
@@ -10,6 +10,9 @@
   width: fit-content;
   box-sizing: border-box;
   white-space: nowrap;
+  height: 32px;
+  display: flex;
+  align-items: center;
 
   &:hover {
     opacity: 0.8;
@@ -20,7 +23,7 @@
 .empty-button {
   font-size: 14px;
   border-radius: 5px;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   text-decoration: none;
   color: $dark-blue;
   background-color: rgba(0,0,0,0);
@@ -29,11 +32,20 @@
   width: fit-content;
   box-sizing: border-box;
   white-space: nowrap;
+  height: 32px;
+  display: flex;
+  align-items: center;
 
   &:hover {
     opacity: 0.8;
     transition: opacity 0.3s;
   }
+}
+
+.empty-button.white {
+  color: white;
+  border-color: white;
+  height: 36px;
 }
 
 .back-button {

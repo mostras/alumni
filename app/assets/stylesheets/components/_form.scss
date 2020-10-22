@@ -1,41 +1,49 @@
-.form-wrapper {
-  max-width: 380px;
-  margin: 8rem auto;
-  border-radius: 8px;
-  padding: 1rem 2rem;
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+.search-form-wrapper {
+  display: flex;
+  align-items: baseline;
 }
 
-h2 {
-  margin-top: 0;
-  margin-bottom: 2rem;
-  color: $dark-blue;
-  font-size: 20px;
-  text-align: center;
+.search-info {
+  margin-right: 2rem;
+  white-space: nowrap;
+
+  h2 {
+    color: $light-gray;
+    text-align: inherit;
+  }
 }
 
-form {
-  display: contents;
+.search-count {
+  display: flex;
+  align-items: center;
+  p { margin: 0; }
+  i { margin-right: 0.5rem; }
 }
-
 
 .online-fields {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
 
   .form-field {
-    width: -webkit-fill-available;
+    width: 100%;
     margin: 0;
+  }
+
+  .form-field, select {
+    margin-right: 1rem;
+  }
+
+  .form-field:last-child, select:last-child {
+    margin-right: 0;
   }
 
 }
 
-.checkbox-online {
-  display: flex;
-  white-space: nowrap;
+.form {
+
 }
 
 .field-wrap {
@@ -47,21 +55,72 @@ form {
   }
 }
 
-.form-field {
-  width: -webkit-fill-available;
-  padding-left: 0.5rem;
-  margin: 0.2rem 0 1rem 0;
-  border: 1px solid black;
+.form-field, select {
+  height: 32px;
   border-radius: 5px;
-  height: 28px;
-  font-size: 12px;
-  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding-left: 0.2rem;
   box-sizing: border-box;
+  width: 100%;
+  display: block;
+  margin: 0.5rem 0;
+  color: black;
+  font-size: 14px;
 }
+
 
 .disabled {
   border-color: $light-gray;
 }
 
+
+  // @media(max-width: 900px) {
+  //   display: block;
+
+  //   h2 {
+  //     margin-bottom: 0.2rem;
+  //   }
+
+  //   .input {
+  //     width: 80%;
+  //     margin: 0.4rem 0;
+  //     display: block;
+  //   }
+
+  //   .form-inline {
+  //     display: block;
+  //     margin: 0;
+  //     width: 100%;
+  //   }
+
+  //   .form-inline > :first-child {
+  //     margin: 0;
+  //   }
+
+  //   .search-info {
+  //     margin-bottom: 1rem;
+  //   }
+
+  //   .full-button {
+  //     margin-top: 1rem;
+  //   }
+
+  //   .search-form {
+  //     display: flex;
+  //     flex-direction: column;
+  //     align-items: flex-start;
+  //   }
+  // }
+
+  // @media(max-width: 500px) {
+
+  //   .search-form {
+  //     align-items: center;
+  //   }
+
+  //   .input {
+  //     width: 100%;
+  //   }
+  // }
 
 

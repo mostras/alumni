@@ -5,20 +5,11 @@
   position: absolute;
   color: white;
 
-  img {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    width: 160px;
-    z-index: 500;
-  }
-
   .session-button {
-    margin-top: 2rem;
     display: flex;
   }
 
-  .full-button {
+  .full-button:first-child {
     margin-right: 1rem;
   }
 

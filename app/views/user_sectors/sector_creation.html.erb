@@ -12,9 +12,8 @@
         <p>Vous pourrez les modifier à tout moment dans votre profil.</p>
       </div>
 
-      <div class="sector">
+      <div class="sector my-4">
         <div class="sectors-index list-inline">
-
           <% if @user_sectors.any? %>
             <ul>
               <% @user_sectors.each do |sector| %>
@@ -24,14 +23,14 @@
               <% end %>
             </ul>
           <% end %>
-
-          <% if @student.user_sectors.count >= 5 %>
-            <p>Vous avez atteint le nombre maximum de secteurs.</p>
-          <% else %>
-            <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
-          <% end %>
-          <%= @student.user_sectors.count %> /5
         </div>
+
+        <% if @student.user_sectors.count >= 5 %>
+          <p>Vous avez atteint le nombre maximum de secteurs.</p>
+        <% else %>
+          <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
+        <% end %>
+
       </div>
 
       <%= link_to 'Suivant', welcome_path, class: 'full-button'  %>

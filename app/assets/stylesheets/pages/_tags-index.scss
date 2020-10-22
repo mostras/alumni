@@ -28,9 +28,18 @@
     }
   }
 
+  .diploma-tag-big {
+    margin-bottom: 0.5rem;
+  }
+
   .tag-form {
     text-align: initial;
     margin-bottom: 2rem;
+  }
+
+  .empty-button {
+    border-color: $dark-blue !important;
+    color: $dark-blue !important;
   }
 
   .full-button {
