@@ -10,9 +10,8 @@ class SchoolExperiencesController < ApplicationController
 
   def create
     school_name = params[:school_experience][:school_attributes][:name]
-    titleize_school_name = school_name.downcase.titleize
 
-    @school = School.find_or_create_by(name: titleize_school_name)
+    @school = School.where('lower(name) = ?', school_name.downcase).first_or_create(name: school_name)
     @school_experience = @user.school_experiences.build(school_params)
     @school_experience.school = @school
 

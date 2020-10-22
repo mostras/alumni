@@ -9,9 +9,7 @@ class WorkExperiencesController < ApplicationController
 
   def create
     company_name = params[:work_experience][:company_attributes][:name]
-    titleize_company_name = company_name.downcase.titleize
-
-    @company = Company.find_or_create_by(name: titleize_company_name)
+    @company = Company.where('lower(name) = ?', company_name.downcase).first_or_create(name: company_name)
     @work_experience = @user.work_experiences.build(work_experiences_params)
     @work_experience.company = @company
 
