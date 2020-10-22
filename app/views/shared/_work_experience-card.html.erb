@@ -4,13 +4,22 @@
   </div>
   <div class="description">
     <p class="title"><%= work_experience.title %></p>
-    <ul>
-      <li><p class="establishment-name"><%= work_experience.company.name %></p></li>
-      <% if work_experience.location.present? %>
+     <ul>
+      <% if work_experience.location.present? && work_experience.company.name.present? %>
+        <li><p class="establishment-name"><%= work_experience.company.name %></p></li>
         <li><span class="line"></span></li>
+        <li><p class="establishment-location"><%= work_experience.location  %></p></li>
+      <% else %>
+        <li><p class="establishment-name"><%= work_experience.company.name %></p></li>
         <li><p class="establishment-location"><%= work_experience.location  %></p></li>
       <% end %>
     </ul>
-    <p><%= work_experience.start_time %> - <%= work_experience.end_time %></p>
+    <ul>
+      <% if work_experience.start_time.present? && work_experience.end_time.present? %>
+        <li><p><%= work_experience.start_time %> - <%= work_experience.end_time %></p></li>
+      <% else %>
+        <li><p><%= work_experience.start_time %> <%= work_experience.end_time %></p></li>
+      <% end %>
+    </ul>
   </div>
 </div>
