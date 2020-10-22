@@ -1,6 +1,16 @@
 .new-list-page-wrapper {
   margin: 14rem 2rem 2rem 18rem;
 
+  .search-form-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 6rem 2rem 0 18rem;
+    background-color: #FAFAFA;
+    z-index: 6000;
+  }
+
   .list-form {
 
     .top {
@@ -15,7 +25,7 @@
 
   }
 
-  .form-field {
+  .without-border {
     width: 600px;
     border: none;
     font-size: 30px;
@@ -23,8 +33,5 @@
     outline: none;
   }
 
-  .full-button {
-    height: 40px;
-  }
 
 }

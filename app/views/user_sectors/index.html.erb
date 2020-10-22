@@ -16,12 +16,6 @@
     <% else %>
       <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
     <% end %>
-    <p><%= @student.user_sectors.count %> /5</p>
-
-
 
     <%= link_to 'Valider les modifications', user_path(current_user), class: 'full-button'  %>
-
-
-
 </div>
