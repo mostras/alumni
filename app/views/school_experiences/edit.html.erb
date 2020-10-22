@@ -26,7 +26,7 @@
       </div>
     </div>
     <%= f.fields_for :school, School.new do |school_attributes|%>
-      <div class="field-wrap">
+      <div class="field-wrap" >
         <%= school_attributes.label :name, "Nom de l'école" %>
         <%= school_attributes.text_field :name, placeholder: "Nom de l'école", value: @school_experience.school.name , class: 'form-field' %>
       </div>

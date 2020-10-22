@@ -6,6 +6,7 @@ class SchoolExperiencesController < ApplicationController
   def new
     @school_experience = @user.school_experiences.build
     @school_experience.build_school
+    @schools = School.pluck(:name)
   end
 
   def create

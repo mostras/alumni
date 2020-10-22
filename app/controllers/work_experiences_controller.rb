@@ -5,6 +5,7 @@ class WorkExperiencesController < ApplicationController
   def new
     @work_experience = @user.work_experiences.build
     @work_experience.build_company
+    @companies = Company.pluck(:name)
   end
 
   def create

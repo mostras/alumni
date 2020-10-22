@@ -30,9 +30,9 @@
     </div>
 
     <%= f.fields_for :company, Company.new do |company_attributes|%>
-      <div class="field-wrap">
+      <div class="field-wrap" id="autocomplete-company" data-companies="<%= @companies.to_json %>">
         <%= company_attributes.label :name, "Nom de l'entreprise" %>
-        <%= company_attributes.text_field :name, placeholder: "ex: Apple", class: 'form-field' %>
+        <%= company_attributes.text_field :name, placeholder: "ex: Apple", class: 'form-field autocomplete-input' %>
       </div>
     <% end %>
     <div class="field-wrap">

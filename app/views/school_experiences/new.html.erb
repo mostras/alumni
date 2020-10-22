@@ -26,9 +26,9 @@
       </div>
     </div>
     <%= f.fields_for :school, School.new do |school_attributes|%>
-      <div class="field-wrap">
+      <div class="field-wrap" id="autocomplete-company" data-companies="<%= @schools.to_json %>">
         <%= school_attributes.label :name, "Nom de l'école" %>
-        <%= school_attributes.text_field :name, placeholder: "ex: HEC", class: 'form-field' %>
+        <%= school_attributes.text_field :name, placeholder: "ex: HEC", class: 'form-field autocomplete-input' %>
       </div>
     <% end %>
     <div class="field-wrap">

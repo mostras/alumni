@@ -25,7 +25,7 @@
       </div>
     </div>
     <%= f.fields_for :company, Company.new do |company_attributes|%>
-      <div class="field-wrap">
+      <div class="field-wrap" >
         <%= company_attributes.label :name, "Nom de l'entreprise" %>
         <%= company_attributes.text_field :name, value: @work_experience.company.name,  placeholder: "Nom de l'entreprise", class: 'form-field' %>
       </div>
