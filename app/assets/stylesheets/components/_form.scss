@@ -22,22 +22,19 @@
 
 .online-fields {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   width: 100%;
   margin: 0.5rem 0;
 
-  .form-field {
-    width: 100%;
-    margin: 0;
-  }
 
   .form-field, select {
-    margin-right: 1rem;
+    margin: 0 1rem 0 0;
+    width: 100%;
   }
 
   .form-field:last-child, select:last-child {
-    margin-right: 0;
+    margin: 0;
   }
 
 }
@@ -48,6 +45,11 @@
 
 .field-wrap {
   text-align: initial;
+  width: 100%;
+
+  .form-field {
+    margin-top: 0;
+  }
 
   label {
     font-size: 16px;
@@ -68,59 +70,41 @@
   font-size: 14px;
 }
 
+.checkbox-online {
+  width: 100%;
+}
+
 
 .disabled {
   border-color: $light-gray;
 }
 
 
-  // @media(max-width: 900px) {
-  //   display: block;
+  @media(max-width: 900px) {
+    .search-form-wrapper {
+      flex-direction: column;
+    }
 
-  //   h2 {
-  //     margin-bottom: 0.2rem;
-  //   }
+    .online-fields {
+      margin-bottom: 0.5rem;
+      flex-direction: column;
 
-  //   .input {
-  //     width: 80%;
-  //     margin: 0.4rem 0;
-  //     display: block;
-  //   }
+      .form-field, select {
+        margin: 0 0 0.5rem 0;
+      }
 
-  //   .form-inline {
-  //     display: block;
-  //     margin: 0;
-  //     width: 100%;
-  //   }
+    }
+  }
 
-  //   .form-inline > :first-child {
-  //     margin: 0;
-  //   }
+  @media(max-width: 500px) {
 
-  //   .search-info {
-  //     margin-bottom: 1rem;
-  //   }
+    .search-form {
+      align-items: center;
+    }
 
-  //   .full-button {
-  //     margin-top: 1rem;
-  //   }
-
-  //   .search-form {
-  //     display: flex;
-  //     flex-direction: column;
-  //     align-items: flex-start;
-  //   }
-  // }
-
-  // @media(max-width: 500px) {
-
-  //   .search-form {
-  //     align-items: center;
-  //   }
-
-  //   .input {
-  //     width: 100%;
-  //   }
-  // }
+    .input {
+      width: 100%;
+    }
+  }
 
 

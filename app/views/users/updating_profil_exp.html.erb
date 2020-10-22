@@ -17,7 +17,7 @@
 
     <div class="validation">
       <%= form_for current_user, :url => { :action => "set_automatic_updating" } do |f| %>
-          <%= f.check_box :automatic_updating, class: 'set-automatic-updating' %> <br />
+          <%= f.check_box :automatic_updating, class: 'set-automatic-updating mr-2' %> <br />
           <%= f.label "Cochez cette case pour selectionner la mise-à-jour automatique." %> <br />
       <% end %>
     </div>
@@ -27,9 +27,13 @@
         <%= button_to "Mettre à jour les informations de mon profil", submit_url_for_update_user_path, class: 'empty-button' %>
       <% elsif !current_user.parsing && current_user.automatic_updating %>
         <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>
-          <%= label_tag 'Votre URL LinkedIn' %>
-          <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profil LinkedIn...', class: "form-field" %>
+        <div class="online-fields">
+          <div class="field-wrap mr-4">
+            <%= label_tag 'Votre URL LinkedIn' %>
+            <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profil LinkedIn...', class: "form-field" %>
+          </div>
           <%= button_tag "Charger l'URL", class: 'full-button'%>
+        </div>
         <% end %>
       <% end %>
     </div>
@@ -49,7 +53,7 @@
 
       <div class="validation">
         <%= form_for current_user, :url => { :action => "set_manual_updating" } do |f| %>
-          <%= f.check_box :manual_updating, class: 'set-manual-updating' %> <br />
+          <%= f.check_box :manual_updating, class: 'set-manual-updating mr-2' %> <br />
           <%= f.label "Cochez cette case pour selectionner la mise-à-jour manuelle." %> <br />
         <% end %>
       </div>

@@ -16,7 +16,7 @@ import '../css/application.css'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-//= require jquery
+
 
 
 //DELETE TAG-CARD AND SECTOR-CARD WHEN USER CLICK ON CROSS
@@ -114,23 +114,40 @@ document.addEventListener("turbolinks:load",function(){
 //Show help-message when hover link
 
 document.addEventListener("turbolinks:load",function(){
-  const helpBubble = document.getElementById('help-bubble')
+  const helpBubble = document.querySelector('.help-bubble')
+  const textBoxIcon = document.querySelector('.text-box')
+  const crossIcon = document.querySelector('.cross')
+  const helpMessage = document.getElementById('help-message')
+
+  let openOrCloseHelpMessage = false;
+
+  function openHelpMessage() {
+    if(openOrCloseHelpMessage == true) {
+      textBoxIcon.style.display = 'none'
+      crossIcon.style.display = 'block'
+      helpMessage.style.display = 'block'
+    }
+
+    if(openOrCloseHelpMessage == false) {
+      textBoxIcon.style.display = 'block'
+      helpMessage.style.display = 'none'
+      crossIcon.style.display = 'none'
+    }
+  }
+
   if(helpBubble) {
-    helpBubble.addEventListener("mouseover", (event) => {
-      document.getElementById('help-message').style.display = 'block';
-    })
-
-
-    helpBubble.addEventListener("mouseout", (event) => {
-      document.getElementById('help-message').style.display = 'none';
+    helpBubble.addEventListener("click", (event) => {
+      console.log('je clique')
+      openOrCloseHelpMessage = !openOrCloseHelpMessage
+      openHelpMessage()
     })
   }
 })
 
 
 //Toggle button for updating exp profil
-toggleButton = (wrapper) => {
-  if(wrapper) {
+function toggleButton(wrapper) {
+
     const activeButton = wrapper.querySelector('.active')
     const automaticButton = wrapper.querySelector('#automatic')
     const manualButton = wrapper.querySelector('#manual')
@@ -146,7 +163,7 @@ toggleButton = (wrapper) => {
       automaticWrapper.style.display = 'none'
     }
   }
-}
+
 
 
 document.addEventListener("turbolinks:load",function(){
@@ -166,6 +183,7 @@ document.addEventListener("turbolinks:load",function(){
       })
     })
   }
+
 })
 
 
@@ -198,6 +216,15 @@ document.addEventListener("turbolinks:load",function(){
   const currentCheckBox = document.querySelector('#current_exp')
 
   if(currentCheckBox) {
+    if (currentCheckBox.checked) {
+      endTimeField.value = null
+      endTimeField.classList.add('disabled')
+      endTimeField.disabled = true
+    } else {
+      endTimeField.classList.remove('disabled')
+      endTimeField.disabled = false
+    }
+
     currentCheckBox.addEventListener('change', (event) => {
       if (currentCheckBox.checked) {
         endTimeField.value = null
@@ -213,36 +240,33 @@ document.addEventListener("turbolinks:load",function(){
 
 //show side navigation bar
 document.addEventListener("turbolinks:load",function(){
-  navigationButton = document.querySelector('.side-navigation-button')
-  openIcon = navigationButton.querySelector('.open')
-  closeIcon = navigationButton.querySelector('.close')
-  sideNavigationBar = document.querySelector('.side-navigation-bar')
+  const navigationButton = document.querySelector('.side-navigation-button')
+  if(navigationButton) {
+    const openIcon = navigationButton.querySelector('.open')
+    const closeIcon = navigationButton.querySelector('.close')
+    const sideNavigationBar = document.querySelector('.side-navigation-bar')
 
-  let openOrClose = false;
+    let openOrClose = false;
 
-  choose = () => {
-    if(openOrClose == true) {
-      sideNavigationBar.style.transform = 'translateX(260px)'
-      openIcon.style.display = 'none';
-      closeIcon.style.display = 'block';
+    function choose() {
+      if(openOrClose == true) {
+        sideNavigationBar.style.transform = 'translateX(260px)'
+        openIcon.style.display = 'none';
+        closeIcon.style.display = 'block';
+      }
+
+      if(openOrClose == false) {
+        sideNavigationBar.style.transform = 'translateX(-260px)'
+        openIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      }
     }
 
-    if(openOrClose == false) {
-      sideNavigationBar.style.transform = 'translateX(-260px)'
-      openIcon.style.display = 'block';
-      closeIcon.style.display = 'none';
-    }
+    navigationButton.addEventListener('click', (event) => {
+      openOrClose = !openOrClose
+      choose()
+    })
   }
-
-  navigationButton.addEventListener('click', (event) => {
-    console.log('je clique')
-    console.log(openOrClose)
-    openOrClose = !openOrClose
-    choose()
-  })
-
-
-
 })
 
 

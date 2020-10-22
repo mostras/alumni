@@ -3,6 +3,10 @@
   margin: 12rem auto;
   text-align: center;
 
+  h2 {
+    color: $dark-blue;
+  }
+
 
   .form-field {
     width: 220px;
@@ -12,6 +16,10 @@
     .form-field {
       width: 220px;
     }
+  }
+
+  .full-button {
+    margin: 0 auto;
   }
 
   @media(max-width: 700px) {
