@@ -13,6 +13,14 @@ import { autocompleteSearch } from './autocomplete.js'
 import { disabledInputIfCurrentExp } from './disabledInputIfCurrentExp.js'
 import { showingSideNavbar } from './showingSideNavbar'
 import { toggleButton } from './toggleButton'
+import { deleteTag } from './deleteTag'
+import { confirmationNoLinkedinUrl } from './confirmationNoLinkedinUrl'
+import { disableTagButton } from './disableTagButton'
+import { disableUserSectorButton } from './disableUserSectorButton'
+import { closeFlashAlert } from './closeFlashAlert'
+import { helpBubble } from './helpBubble'
+import { sendFormWhenCheck } from './sendFormWhenCheck'
+import { sendFormWhenCheckM } from './sendFormWhenCheckM'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -25,159 +33,24 @@ document.addEventListener("turbolinks:load",function(){
   autocompleteSearch()
   disabledInputIfCurrentExp()
   showingSideNavbar()
+  toggleButton()
+  deleteTag()
+  confirmationNoLinkedinUrl()
+  disableTagButton()
+  disableUserSectorButton()
+  closeFlashAlert()
+  helpBubble()
+  sendFormWhenCheck()
+  sendFormWhenCheckM()
 });
 
 
-
-
-//DELETE TAG-CARD AND SECTOR-CARD WHEN USER CLICK ON CROSS
-document.addEventListener("turbolinks:load",function(){
-  let links = document.querySelectorAll('.remove-card');
-  links.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      let div = link.parentNode
-      if (confirm("Etes vous sûr de vouloir supprimer cet élément de votre profil ?")) {
-        div.remove()
-      } else {
-        e.preventDefault()
-        e.stopPropagation()
-      }
-
-    });
-  });
-});
 
 //HIDE FORM WHEN SECTOR > 5
-document.addEventListener("turbolinks:load",function(){
-  var userSectorCards = document.querySelectorAll('.user-sector-card')
-})
+// document.addEventListener("turbolinks:load",function(){
+//   var userSectorCards = document.querySelectorAll('.user-sector-card')
+// })
 
-//ADD A CONFIRMATION MESSAGE WHEN LINKEDIN USER VALUE IS NULL
-document.addEventListener("turbolinks:load",function(){
-  var input = document.getElementById("url")
-  var btnLinkedin = document.getElementById("linkedin-button")
-
-  if (btnLinkedin) {
-    btnLinkedin.addEventListener('click', (event) => {
-        if (input && !input.value) {
-          if (confirm("Attention, sans URL LinkedIn votre profil ne pourra pas être complété et ne sera pas automatiquement mis à jour. Vous pourrez ajouter une URL plus tard sur votre profil. Souhaitez-vous quand même continuer ?")) {
-            // Save it
-          } else {
-            event.preventDefault()
-          }
-      }
-    });
-  };
-});
-
-//DISABLE BUTTON WHEN THE TAG-DIPLOMA CREATION IS NOT DONE CORRECTLY
-document.addEventListener("turbolinks:load",function(){
-  var addTagButton = document.getElementById("add_tag_button")
-  var selectDiploma = document.getElementById("tag_diploma_id")
-  var selectYear = document.getElementById("tag_year")
-
-  if (addTagButton && selectDiploma && selectYear) {
-    addTagButton.disabled = true
-
-    selectDiploma.addEventListener('change', (event) => {
-      if (selectDiploma.value && selectYear.value) {
-        addTagButton.disabled = false
-      };
-    });
-
-    selectYear.addEventListener('change', (event) => {
-      if (selectYear.value && selectDiploma.value) {
-        addTagButton.disabled = false
-      };
-    });
-  }
-})
-
-
-//DISABLE BUTTON WHEN THE USER_SECTOR CREATION IS NOT DONE CORRECTLY
-document.addEventListener("turbolinks:load",function(){
-  var addSectorButton = document.getElementById("add_sector_button")
-  var selectSector = document.getElementById("user_sector_sector_id")
-
-  if (addSectorButton && selectSector) {
-    addSectorButton.disabled = true
-
-    selectSector.addEventListener('change', (event) => {
-      if (selectSector.value) {
-        addSectorButton.disabled = false
-      };
-    });
-  }
-})
-
-//Close the flash alert
-document.addEventListener("turbolinks:load",function(){
-  const button = document.querySelector('.close-alert')
-
-  if (button) {
-    button.addEventListener('click', (event) => {
-      button.parentNode.remove()
-    })
-  }
-})
-
-
-//Show help-message when hover link
-
-document.addEventListener("turbolinks:load",function(){
-  const helpBubble = document.querySelector('.help-bubble')
-  const textBoxIcon = document.querySelector('.text-box')
-  const crossIcon = document.querySelector('.cross')
-  const helpMessage = document.getElementById('help-message')
-
-  let openOrCloseHelpMessage = false;
-
-  function openHelpMessage() {
-    if(openOrCloseHelpMessage == true) {
-      textBoxIcon.style.display = 'none'
-      crossIcon.style.display = 'block'
-      helpMessage.style.display = 'block'
-    }
-
-    if(openOrCloseHelpMessage == false) {
-      textBoxIcon.style.display = 'block'
-      helpMessage.style.display = 'none'
-      crossIcon.style.display = 'none'
-    }
-  }
-
-  if(helpBubble) {
-    helpBubble.addEventListener("click", (event) => {
-      console.log('je clique')
-      openOrCloseHelpMessage = !openOrCloseHelpMessage
-      openHelpMessage()
-    })
-  }
-})
-
-
-//send form
-document.addEventListener("turbolinks:load",function(){
-  const checkBox = document.querySelector('.set-automatic-updating')
-  const form = document.querySelector('.edit_user')
-
-  if(checkBox) {
-    checkBox.addEventListener('click', (event) => {
-      checkBox.parentNode.submit()
-    })
-  }
-})
-
-document.addEventListener("turbolinks:load",function(){
-  const checkBox = document.querySelector('.set-manual-updating')
-  const form = document.querySelector('.edit_user')
-
-  if (checkBox) {
-    checkBox.addEventListener('click', (event) => {
-      checkBox.parentNode.submit()
-    })
-  }
-})
 
 
 
