@@ -8,12 +8,12 @@
   }
 
 
-  .form-field {
+  .form-field, select {
     width: 220px;
   }
 
   .online-fields {
-    .form-field {
+    .form-field, select {
       width: 220px;
     }
   }

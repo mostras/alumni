@@ -16,12 +16,12 @@
    </div>
    <div class="field-wrap">
     <%= f.label :start_time, "Date de début" %>
-    <%= f.text_field :start_time, placeholder: 'ex: 2012', class: 'form-field' %>
+    <%= f.select :start_time, ((Time.zone.now.year - 70)..(Time.zone.now.year + 10)).to_a.reverse, :prompt => "Date de début", class: 'form-field' %>
    </div>
     <div class="online-fields">
       <div class="field-wrap">
         <%= f.label :end_time, "Date de fin" %>
-        <%= f.text_field :end_time, placeholder: 'ex: 2017', id: 'end_date_exp', class: 'form-field' %>
+        <%= f.select :end_time, ((Time.zone.now.year - 70)..(Time.zone.now.year + 10)).to_a.reverse, :prompt => "Date de fin", class: 'form-field' %>
       </div>
       <div class="checkbox-online">
         <%= f.check_box :current, id: 'current_exp' %>

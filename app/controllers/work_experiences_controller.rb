@@ -28,10 +28,9 @@ class WorkExperiencesController < ApplicationController
 
   def update
     company_name = params[:work_experience][:company_attributes][:name]
-    titleize_company_name = company_name.downcase.titleize
 
-    if @work_experience.company.name != titleize_company_name
-      company = Company.find_or_create_by(name: titleize_company_name)
+    if @work_experience.company.name.downcase != company_name.downcase
+      company = Company.where('lower(name) = ?', company_name.downcase).first_or_create(name: company_name)
       @work_experience.company = company
     end
 

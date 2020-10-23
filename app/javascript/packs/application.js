@@ -10,6 +10,9 @@ require("channels")
 
 import '../css/application.css'
 import { autocompleteSearch } from './autocomplete.js'
+import { disabledInputIfCurrentExp } from './disabledInputIfCurrentExp.js'
+import { showingSideNavbar } from './showingSideNavbar'
+import { toggleButton } from './toggleButton'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -20,7 +23,12 @@ import { autocompleteSearch } from './autocomplete.js'
 
 document.addEventListener("turbolinks:load",function(){
   autocompleteSearch()
+  disabledInputIfCurrentExp()
+  showingSideNavbar()
 });
+
+
+
 
 //DELETE TAG-CARD AND SECTOR-CARD WHEN USER CLICK ON CROSS
 document.addEventListener("turbolinks:load",function(){
@@ -148,48 +156,6 @@ document.addEventListener("turbolinks:load",function(){
 })
 
 
-//Toggle button for updating exp profil
-function toggleButton(wrapper) {
-
-    const activeButton = wrapper.querySelector('.active')
-    const automaticButton = wrapper.querySelector('#automatic')
-    const manualButton = wrapper.querySelector('#manual')
-
-    const automaticWrapper = document.querySelector('.automatic-wrapper')
-    const manualWrapper = document.querySelector('.manual-wrapper')
-
-    if (activeButton == automaticButton) {
-      manualWrapper.style.display = 'none'
-      automaticWrapper.style.display = 'block'
-    } else {
-      manualWrapper.style.display = 'block'
-      automaticWrapper.style.display = 'none'
-    }
-  }
-
-
-
-document.addEventListener("turbolinks:load",function(){
-  const wrapper = document.querySelector('.button-wrapper')
-  if(wrapper) {
-    const buttons = wrapper.querySelectorAll('button')
-
-    toggleButton(wrapper)
-
-    buttons.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        const selectButton = wrapper.querySelector('.active')
-        selectButton.classList.remove('active')
-        button.classList.add('active')
-
-        toggleButton(wrapper)
-      })
-    })
-  }
-
-})
-
-
 //send form
 document.addEventListener("turbolinks:load",function(){
   const checkBox = document.querySelector('.set-automatic-updating')
@@ -213,64 +179,7 @@ document.addEventListener("turbolinks:load",function(){
   }
 })
 
-//disabled current if end_time (experience)
-document.addEventListener("turbolinks:load",function(){
-  const endTimeField = document.querySelector('#end_date_exp')
-  const currentCheckBox = document.querySelector('#current_exp')
 
-  if(currentCheckBox) {
-    if (currentCheckBox.checked) {
-      endTimeField.value = null
-      endTimeField.classList.add('disabled')
-      endTimeField.disabled = true
-    } else {
-      endTimeField.classList.remove('disabled')
-      endTimeField.disabled = false
-    }
-
-    currentCheckBox.addEventListener('change', (event) => {
-      if (currentCheckBox.checked) {
-        endTimeField.value = null
-        endTimeField.classList.add('disabled')
-        endTimeField.disabled = true
-      } else {
-        endTimeField.classList.remove('disabled')
-        endTimeField.disabled = false
-      }
-    });
-  }
-})
-
-//show side navigation bar
-document.addEventListener("turbolinks:load",function(){
-  const navigationButton = document.querySelector('.side-navigation-button')
-  if(navigationButton) {
-    const openIcon = navigationButton.querySelector('.open')
-    const closeIcon = navigationButton.querySelector('.close')
-    const sideNavigationBar = document.querySelector('.side-navigation-bar')
-
-    let openOrClose = false;
-
-    function choose() {
-      if(openOrClose == true) {
-        sideNavigationBar.style.transform = 'translateX(260px)'
-        openIcon.style.display = 'none';
-        closeIcon.style.display = 'block';
-      }
-
-      if(openOrClose == false) {
-        sideNavigationBar.style.transform = 'translateX(-260px)'
-        openIcon.style.display = 'block';
-        closeIcon.style.display = 'none';
-      }
-    }
-
-    navigationButton.addEventListener('click', (event) => {
-      openOrClose = !openOrClose
-      choose()
-    })
-  }
-})
 
 
 

@@ -30,10 +30,9 @@ class SchoolExperiencesController < ApplicationController
 
   def update
     school_name = params[:school_experience][:school_attributes][:name]
-    titleize_school_name = school_name.downcase.titleize
 
-    if @school_experience.school.name != titleize_school_name
-      school = School.find_or_create_by(name: titleize_school_name)
+    if @school_experience.school.name.downcase != school_name.downcase
+      school = School.where('lower(name) = ?', school_name.downcase).first_or_create(name: school_name)
       @school_experience.school = school
     end
 
