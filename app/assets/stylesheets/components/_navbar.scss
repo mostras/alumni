@@ -53,11 +53,10 @@
       text-decoration: none;
       color: white;
       font-weight: 400;
-      font-size: 20px;
       opacity: 0.6;
 
-      p {
-        font-size: 22px;
+      p, i {
+        font-size: 20px;
       }
     }
 
@@ -98,10 +97,6 @@
   @media(max-width: 1200px) {
     .navigation-item {
       margin-left: 2rem;
-
-      a {
-        font-size: 18px;
-      }
 
       i {
         display: none;

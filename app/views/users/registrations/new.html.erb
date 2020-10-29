@@ -5,25 +5,27 @@
 
   <%= image_tag('logo-chartreux.png', class: 'logo-chartreux') %>
 
-  <div class="sign-up-form-wrapper registration-wrap">
-
-    <h1>Inscription</h1>
-    <div class="sign-up-form my-4">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-          <div class="online-fields">
-            <%= f.text_field :first_name, autofocus: true, placeholder: 'Prénom', class: 'form-field' %>
-            <%= f.text_field :last_name, placeholder: 'Nom', class: 'form-field' %>
-          </div>
-          <%= f.email_field :email, autocomplete: "email", placeholder: 'Email', class: 'form-field' %>
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Mot de passe', class: 'form-field' %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirmation du mot de passe', class: 'form-field' %>
-          <%= f.submit "Suivant", class: 'full-button' %>
-      <% end %>
-    </div>
-    <%= link_to root_path, class: 'back-button' do %>
-      <i class="fas fa-arrow-left"></i>
-      <p>Précédent</p>
+  <div class="registration-wrap">
+  <h1 class="mb-2">Inscription</h1>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="online-fields">
+          <%= f.text_field :first_name, autofocus: true, placeholder: 'Prénom', class: 'form-field' %>
+          <%= f.text_field :last_name, placeholder: 'Nom', class: 'form-field' %>
+        </div>
+        <%= f.email_field :email, autocomplete: "email", placeholder: 'Email', class: 'form-field' %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Mot de passe', class: 'form-field' %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirmation du mot de passe', class: 'form-field' %>
+        <div class="resistration-nav-wrap mt-4">
+          <%= link_to root_path, class: 'arrow-button' do %>
+            <i class="fas fa-arrow-left"></i>
+            <p>Précédent</p>
+          <% end %>
+          <button class= "arrow-button">
+            <p>Suivant</p>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
     <% end %>
   </div>
 

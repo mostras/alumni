@@ -4,12 +4,4 @@
   background-color: $dark-blue;
   position: absolute;
   color: white;
-
-  @media(max-width: 800px) {
-
-
-    .back-button {
-      display: none;
-    }
-  }
 }

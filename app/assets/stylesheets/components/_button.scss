@@ -77,18 +77,15 @@
     align-items: center;
     text-decoration: none;
     width: fit-content;
-    color: $dark-blue;
-    position: absolute;
-    top: -20px;
-    left: 0;
+    color: white;
     border: none;
     background: none;
     outline: 0;
     cursor: pointer;
     white-space: nowrap;
 
-    i {
-      margin-right: 0.5rem;
+    p {
+      margin: 0 0.5rem;
     }
 }
 
@@ -103,6 +100,10 @@
     font-size: 12px;
     border-radius: 5px;
     padding: 0.4rem 0.8rem;
+  }
+
+  .arrow-button {
+    font-size: 12px;
   }
 
 }

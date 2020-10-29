@@ -5,7 +5,7 @@
 
 <%= image_tag('logo-chartreux.png', class: 'logo-chartreux') %>
 
-  <div class="linkedin registration-wrap">
+  <div class="registration-wrap">
     <div class="description">
       <h1>LinkedIn</h1>
       <p>Nous utilisons LinkedIn pour récupérer vos expériences professionnelles et les ajouter à votre profil. Mettez à jour votre page LinkedIn et les informations apparaitront automatiquement ici.
@@ -13,18 +13,23 @@
       <p>En renseignant votre URL LinkedIn, vous autorisez le réseau Chartreux Alumni à lire les données publiques de votre profil et, une fois renseigné, vous ne pourrez plus modifier l'URL.</p>
     </div>
 
-    <% if current_user.on_google_sheet %>
-      <p>Vous avez déjà rentré votre URL.</p>
-    <% else %>
-      <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>
-      <div class="online-fields my-4">
-        <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
-        <%= button_tag "Charger l'URL", class: 'full-button' %>
-      </div>
+    <div class="my-8">
+      <% if current_user.on_google_sheet %>
+        <p>Vous avez déjà rentré votre URL.</p>
+      <% else %>
+        <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>
+        <div class="online-fields">
+          <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profile LinkedIn...', class: "form-field" %>
+          <%= button_tag "Charger l'URL", class: 'full-button' %>
+        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
-    <%= link_to 'Suivant', tag_creation_tags_path, class: 'full-button', id: 'linkedin-button'  %>
+    <%= link_to tag_creation_tags_path, class: 'arrow-button float-right', id: 'linkedin-button' do %>
+      <p>Suivant</p>
+      <i class="fas fa-arrow-right"></i>
+    <% end %>
 
   </div>
 </div>

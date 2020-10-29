@@ -12,7 +12,7 @@
       <p>Vous pourez les modifier à tout moment dans votre profil.</p>
     </div>
 
-    <div class="tags my-4">
+    <div class="tags my-8">
       <div class="tags-index list-inline">
         <% if @tags.any? %>
           <ul>
@@ -27,11 +27,9 @@
     <%= render 'shared/tag-form', tag: @tag, diplomas: @diplomas %>
     </div>
 
-    <%= link_to 'Suivant', sector_creation_user_sectors_path, class: 'full-button'  %>
-
-    <%= link_to linkedin_path, class: 'back-button' do %>
-      <i class="fas fa-arrow-left"></i>
-      <p>Précédent</p>
+    <%= link_to sector_creation_user_sectors_path, class: 'arrow-button float-right' do  %>
+      <p>Suivant</p>
+      <i class="fas fa-arrow-right"></i>
     <% end %>
   </div>
 

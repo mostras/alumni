@@ -4,18 +4,4 @@
   background-color: $dark-blue;
   position: absolute;
   color: white;
-
-  .empty-button {
-    color: white;
-    border-color: white;
-    margin-right: 1rem;
-    height: 36px;
-  }
-
-  @media(max-width: 800px) {
-    .back-button {
-      display: none;
-    }
-  }
-
 }
