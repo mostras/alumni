@@ -155,6 +155,18 @@ body {
     }
   }
 
+  .red {
+    color: $flash-red;
+  }
+
+  .orange {
+    color: $flash-orange;
+  }
+
+  .green {
+    color: $flash-green;
+  }
+
 
 
   @media(max-width: 1850px) {

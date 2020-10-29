@@ -25,4 +25,10 @@ module CompaniesFormHelper
     end
     number.count(true)
   end
+
+  def hiring_color(company)
+    if hiring?(company) == true
+      return 'hiring-border'
+    end
+  end
 end

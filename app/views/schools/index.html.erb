@@ -3,28 +3,18 @@
   <%= render 'shared/navbar' %>
 </div>
 <div class="index-schools-page-wrapper main-wrapper">
-  <h1>Les écoles</h1>
+  <h1><%= pluralize @schools.try(:count), 'école', 'écoles' %></h1>
+  <div class="search-form-classic mb-4">
 
-  <div class="search-form-wrapper">
+    <%= form_tag schools_path, method: :get do %>
+        <%= text_field_tag :name, params[:name], placeholder: "Chercher par nom d'école", class: 'form-field' %>
 
-    <div class="search-info">
-      <h2><%= @schools.try(:count) %> résultats</h2>
-    </div>
+      <div class="online-fields">
+        <%= select_tag(:city, options_for_select(school_list, params[:city]), {:prompt => 'Chercher par ville', :class => 'form-field'}) %>
 
-
-    <div class="search-form mb-4">
-
-      <%= form_tag schools_path, method: :get do %>
-          <%= text_field_tag :name, params[:name], placeholder: "Chercher par nom d'école", class: 'form-field' %>
-
-        <div class="online-fields">
-          <%= select_tag(:city, options_for_select(school_list, params[:city]), {:prompt => 'Chercher par ville', :class => 'form-field'}) %>
-
-          <%= submit_tag 'Valider mes filtres', class: 'full-button' %>
-        </div>
-      <% end %>
-
-    </div>
+        <%= submit_tag 'Valider mes filtres', class: 'full-button' %>
+      </div>
+    <% end %>
   </div>
 
   <div class="grid">

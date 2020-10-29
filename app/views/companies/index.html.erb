@@ -3,20 +3,9 @@
   <%= render 'shared/navbar' %>
 </div>
 <div class="index-companies-page-wrapper main-wrapper">
-  <h1>Les entreprises</h1>
+  <h1><%= pluralize @companies.try(:count), 'entreprise', 'entreprises' %>, dont <span class="green"><%= pluralize hiring_companies(@companies), 'qui recrute', 'qui recrutent'%></span>.</h1>
 
-  <div class="search-form-wrapper">
-
-    <div class="search-info">
-      <h2><%= @companies.try(:count) %> résultats</h2>
-      <div class="search-count" id="situation-green">
-        <i class="fas fa-exclamation-circle"></i>
-        <p><%= hiring_companies(@companies) %> recrutent</p>
-      </div>
-    </div>
-
-
-    <div class="search-form mb-4">
+    <div class="search-form-classic mb-4">
 
       <%= form_tag companies_path, method: :get do %>
           <%= text_field_tag :name, params[:name], placeholder: "Chercher par nom d'entreprise", class: 'form-field' %>
@@ -29,7 +18,7 @@
       <% end %>
 
     </div>
-  </div>
+
 
   <div class="grid">
     <% @companies.order(:name).each do |company| %>

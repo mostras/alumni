@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def index
     @students = User.search(params)
+    @students_looking_for = @students.where(looking_for_job: true)
+    @students_looking_internship = @students.where(looking_for_internship: true)
     @diplomas = Diploma.all
     @sectors = Sector.all
   end

@@ -1,9 +1,9 @@
 <div class="student-card shadow-div card-container">
 
   <% if student.photo.attached? %>
-    <%= cl_image_tag student.photo.key %>
+    <%= cl_image_tag student.photo.key, class: situation_color(student) %>
   <% else %>
-    <%= image_tag "blank-avatar.png" %>
+    <%= image_tag "blank-avatar.png", class: situation_color(student) %>
   <% end %>
 
   <div class="student-info">
@@ -30,13 +30,6 @@
 
   </div>
 
-  <% if is_looking_for?(student) == 'hire' %>
-    <i class="fas fa-exclamation-circle situation" id="situation-green"></i>
-  <% elsif is_looking_for?(student) == 'job' %>
-    <i class="fas fa-exclamation-circle situation" id="situation-red"></i>
-  <% elsif is_looking_for?(student) == 'internship' %>
-    <i class="fas fa-exclamation-circle situation" id="situation-orange"></i>
-  <% end %>
 
   <%= link_to '', user_path(student), class: 'cover-link' %>
 </div>

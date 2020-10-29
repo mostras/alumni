@@ -40,6 +40,14 @@
     font-size: 18px;
   }
 
+  .looking_for_job {
+    border: 6px solid $flash-green;
+  }
+
+  .looking_for_intership {
+    border: 6px solid $flash-orange;
+  }
+
   @media(max-width: 500px) {
     flex-direction: column;
     text-align: center;

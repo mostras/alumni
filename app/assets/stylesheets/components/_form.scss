@@ -1,16 +1,6 @@
-.search-form-wrapper {
-  display: flex;
-  align-items: baseline;
-}
 
-.search-info {
-  margin-right: 2rem;
-  white-space: nowrap;
-
-  h2 {
-    color: $light-gray;
-    text-align: inherit;
-  }
+.search-form-classic {
+  max-width: 900px;
 }
 
 .search-count {
@@ -32,6 +22,7 @@
     margin: 0 1rem 0 0;
     width: 100%;
     color: black;
+    background: white;
   }
 
   .form-field:last-child, select:last-child {
@@ -70,6 +61,7 @@
   margin: 0.5rem 0;
   color: black;
   font-size: 14px;
+  background: white;
 }
 
 .checkbox-online {
@@ -83,12 +75,9 @@
   color: $light-gray;
 }
 
-.select {
-  color: black;
-}
 
 
-  @media(max-width: 900px) {
+  @media(max-width: 800px) {
     .search-form-wrapper {
       flex-direction: column;
     }
