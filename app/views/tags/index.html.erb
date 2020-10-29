@@ -4,7 +4,7 @@
 <div class="tags-index-wrap">
 
   <h3>Modifiez vos diplômes</h3>
-  <div class="tags-index">
+  <div class="tags-index list-inline my-6">
     <% if @tags.any? %>
     <ul>
       <% @tags.each do |tag| %>
@@ -14,9 +14,8 @@
       <% end %>
     </ul>
     <% end %>
+    <%= render 'shared/tag-form', tag: @tag, diplomas: @diplomas %>
   </div>
-
-  <%= render 'shared/tag-form', tag: @tag, diplomas: @diplomas %>
 
   <%= link_to 'Valider les modifications', user_path(current_user), class: 'full-button'  %>
 

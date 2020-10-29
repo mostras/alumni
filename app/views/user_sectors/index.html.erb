@@ -4,18 +4,18 @@
 <div class="user-sectors-index-wrap">
 
   <h3>Modifiez vos secteurs</h3>
-  <div class="user_sectors-index">
+  <div class="user_sectors-index my-6">
     <% if @user_sectors.any? %>
       <% @user_sectors.each do |user_sector| %>
         <%= render 'shared/user-sector-card', user_sector: user_sector %>
       <% end %>
     <% end %>
-  </div>
-   <% if @student.user_sectors.count >= 5 %>
+    <% if @student.user_sectors.count >= 5 %>
       <p>Vous avez atteint le nombre maximum de secteurs.</p>
     <% else %>
       <%= render 'shared/user_sector-form', user_sector: @user_sector, sectors: @sectors %>
     <% end %>
+  </div>
 
     <%= link_to 'Valider les modifications', user_path(current_user), class: 'full-button'  %>
 </div>
