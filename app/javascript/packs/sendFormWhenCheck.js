@@ -4,7 +4,7 @@ const sendFormWhenCheck = function() {
 
   if(checkBox) {
     checkBox.addEventListener('click', (event) => {
-      checkBox.parentNode.submit()
+      checkBox.parentNode.parentNode.submit()
     })
   }
 }

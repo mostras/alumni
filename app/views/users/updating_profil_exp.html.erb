@@ -3,33 +3,38 @@
   <%= render 'shared/navbar' %>
 </div>
 
-
 <div class="updating-profil-exp-wrapper">
-  <div class="button-wrapper">
+  <div class="button-wrapper mb-4">
     <button id="automatic"class='<%= is_parsing? ? 'active' : nil %>'>Mise à jour automatique</button>
     <button id="manual"class="<%= is_parsing? ? nil : 'active' %>">Mise à jour manuelle</button>
   </div>
 
   <div class="automatic-wrapper">
-    <div class="notification">
+    <div class="notification mb-2">
       <p>Grâce à votre profil LinkedIn nous pouvons récupérer vos expériences professinnelles et vos formations. Votre profil Chartreux Alumni se remplira automatiquement en fonction de ce que vous avez renseigné sur LinkedIn.<br/> Si vous aviez choisi la mise à jour manuelle auparavant et que vous choisissez la mise à jour automatique, les données que vous aviez saisies seront remplacées par celles de LinkedIn. </br> Si vous avez mis à jour votre profil LinkedIn et que vous souhaitez importer les modifications ici, cliquez sur le bouton ‘Mettre à jour mon profil’.</p>
     </div>
 
     <div class="validation">
       <%= form_for current_user, :url => { :action => "set_automatic_updating" } do |f| %>
-          <%= f.check_box :automatic_updating, class: 'set-automatic-updating mr-2' %> <br />
-          <%= f.label "Cochez cette case pour selectionner la mise-à-jour automatique." %> <br />
+        <div class="checkbox-online">
+            <%= f.check_box :automatic_updating, class: 'set-automatic-updating mr-2' %> <br />
+            <%= f.label "Cochez cette case pour selectionner la mise-à-jour automatique." %> <br />
+        </div>
       <% end %>
     </div>
 
-    <div class="linkedin_url">
-      <% if current_user.parsing && current_user.automatic_updating %>
-        <%= button_to "Mettre à jour les informations de mon profil", submit_url_for_update_user_path, class: 'empty-button' %>
-      <% elsif !current_user.parsing && current_user.automatic_updating %>
+    <div class="linkedin_url my-10">
+      <% if current_user.automatic_updating && current_user.parsings.any? && current_user.parsings.last.parse %>
+        <%= button_to "Mettre à jour mon profil", submit_url_for_update_user_path, class: 'empty-button' %>
+      <% elsif current_user.automatic_updating && current_user.parsings.any? && current_user.parsings.last.on_sheet %>
+        <div class="notification red-border">
+          <p>Vos informations sont en train d'être recupérées. Cela peut prendre jusqu'à 3 jours.</p>
+        </div>
+      <% elsif current_user.automatic_updating %>
         <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>
         <div class="online-fields">
           <div class="field-wrap mr-4">
-            <%= label_tag 'Votre URL LinkedIn' %>
+            <%= label_tag 'Veuillez saisir votre URL Linkedin' %>
             <%= text_field_tag :url, params[:url], placeholder: 'Coller l’URL de votre profil LinkedIn...', class: "form-field" %>
           </div>
           <%= button_tag "Charger l'URL", class: 'full-button'%>
@@ -43,21 +48,23 @@
   </div>
 
   <div class="manual-wrapper">
-    <div class="notification">
+    <div class="notification my-2">
       <p>Si vous ne souhaitez pas renseigner votre profil LinkedIn, vous pouvez ajouter vos formations et expériences professionnelles manuellement. Si vous aviez choisi l’option de mise à jour automatique auparavant, vous concerverez les données importées.</p>
     </div>
 
-    <% if current_user.on_google_sheet %>
-      <p>Nous sommes entrain de récupèrer vos informations sur votre profil Linkedin. Vous pourrez passer à la mise à jours automatique une fois le processus terminé.</p>
+    <% if current_user.parsings.any? && current_user.parsings.last.on_sheet && !current_user.parsings.last.parse %>
+      <div class="notification red-border my-10">
+        <p>Nous sommes entrain de récupèrer vos informations sur votre profil Linkedin. Vous pourrez passer à la mise à jours automatique une fois le processus terminé.</p>
+      </div>
     <% else %>
-
-      <div class="validation">
+      <div class="validation mb-2">
         <%= form_for current_user, :url => { :action => "set_manual_updating" } do |f| %>
-          <%= f.check_box :manual_updating, class: 'set-manual-updating mr-2' %> <br />
-          <%= f.label "Cochez cette case pour selectionner la mise-à-jour manuelle." %> <br />
+          <div class="checkbox-online">
+            <%= f.check_box :manual_updating, class: 'set-manual-updating mr-2' %> <br />
+            <%= f.label "Cochez cette case pour selectionner la mise-à-jour manuelle." %> <br />
+          </div>
         <% end %>
       </div>
-
     <% end %>
 
     <% if current_user.manual_updating %>

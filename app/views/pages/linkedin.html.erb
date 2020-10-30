@@ -14,8 +14,8 @@
     </div>
 
     <div class="my-8">
-      <% if current_user.on_google_sheet %>
-        <p>Vous avez déjà rentré votre URL.</p>
+      <% if current_user.parsings.last.on_sheet %>
+        <p>Merci d'avoir rentré votre URL Linkedin ! Nous allons pouvoir mettre à jour vos informations automatiquement.</p>
       <% else %>
         <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>
         <div class="online-fields">

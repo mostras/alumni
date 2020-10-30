@@ -1,16 +1,14 @@
 .experiences-wrapper {
 
-  h2 {
-    margin: 0;
+  h3 {
     color: $dark-blue;
-    font-size: 20px;
+    margin: 0;
   }
 
   .top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2rem;
   }
 
   .experience {

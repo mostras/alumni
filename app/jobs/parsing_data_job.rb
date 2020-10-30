@@ -21,16 +21,12 @@ class ParsingDataJob < ApplicationJob
     json.each do |profil_json|
       unless profil_json['error'] == 'Empty line'
         student = User.find_by(linkedin_url: profil_json['general']['profileUrl'])
-
-        unless student.parsing
-
-          student.school_experiences.destroy_all
-          student.work_experiences.destroy_all
-          create_schools(profil_json, student)
-          create_companies(profil_json, student)
-          student.parsing = true
-          delete_url(student)
-        end
+        student.school_experiences.destroy_all
+        student.work_experiences.destroy_all
+        create_schools(profil_json, student)
+        create_companies(profil_json, student)
+        student.parsings.last.update(parse: true)
+        delete_url(student)
       end
 
     end
@@ -104,7 +100,6 @@ class ParsingDataJob < ApplicationJob
     worksheet["A#{cell}"] = ''
 
     worksheet.save
-    student.update(on_google_sheet: false)
   end
 end
 

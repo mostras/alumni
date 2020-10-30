@@ -17,7 +17,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
     color: black;
 
     button {
@@ -42,33 +41,30 @@
   .notification {
     border: 1px solid black;
     border-radius: 5px;
-    font-size: 12px;
     text-align: initial;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    padding: 0.6rem;
+    text-align: center;
 
     p {
       margin: 0;
     }
   }
 
-  .validation {
-    margin-bottom : 2rem;
+  .red-border {
+    border-color: $flash-red;
+  }
 
-    form {
-      display: flex;
-      align-items: center;
+
+  @media(max-width: 800px) {
+    width: 90%;
+
+    .button-wrapper {
+      font-size: 10px;
     }
-  }
 
-  .linkedin_url {
-    margin-bottom: 2rem;
-    text-align: initial;
-  }
-
-  @media(max-width: 700px) {
-    margin: 8rem 1rem 2rem 1rem;
-    padding: 1rem;
+    .notification {
+      p {font-size: 10px;}
+    }
 
   }
 }

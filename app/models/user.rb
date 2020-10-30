@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :tags
   has_many :user_sectors
+  has_many :parsings
   validates_length_of :user_sectors, maximum: 5
 
   has_many :work_experiences, dependent: :destroy

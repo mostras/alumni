@@ -1,76 +1,79 @@
-<div class="experiences-wrapper">
-  <div class="top">
-    <h2>EXPERIENCES</h2>
-    <%= link_to 'Créer nouvelle', new_work_experience_path, class: 'full-button'  %>
-  </div>
-  <div class="experiences-list">
-    <% user.work_experiences.order(:end_time).reverse.each do |work_experience| %>
-      <div class="experience">
+<div class="experiences-wrapper my-10">
+  <div class="experiences-wrap mb-10">
+    <div class="top">
+      <h3>EXPERIENCES</h3>
+      <%= link_to 'Créer nouvelle', new_work_experience_path, class: 'full-button'  %>
+    </div>
+    <div class="experiences-list">
+      <% user.work_experiences.order(:end_time).reverse.each do |work_experience| %>
+        <div class="experience">
 
-        <%= link_to edit_work_experience_path(work_experience) do %>
-          <i class="far fa-edit"></i>
-        <% end %>
+          <%= link_to edit_work_experience_path(work_experience) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
 
-        <%= link_to work_experience_path(work_experience), method: :delete  do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
+          <%= link_to work_experience_path(work_experience), method: :delete  do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
 
-        <div class="info">
-          <p class="title"><%= work_experience.title %></p>
-          <ul>
-            <% if work_experience.location.present? && work_experience.company.name.present? %>
-              <li><%= work_experience.company.name %> | <%= work_experience.location %></li>
-            <% else %>
-              <li><%= work_experience.company.name %> <%= work_experience.location %></li>
-            <% end %>
-          </ul>
-          <ul>
-            <% if work_experience.start_time.present? && work_experience.end_time.present? %>
-              <li class="exp-date"><%= work_experience.start_time %> - <%= work_experience.end_time %></li>
-            <% else %>
-             <li class="exp-date"><%= work_experience.start_time %> <%= work_experience.end_time %></li>
-            <% end %>
-          </ul>
+          <div class="info">
+            <p class="title"><%= work_experience.title %></p>
+            <ul>
+              <% if work_experience.location.present? && work_experience.company.name.present? %>
+                <li><%= work_experience.company.name %> | <%= work_experience.location %></li>
+              <% else %>
+                <li><%= work_experience.company.name %> <%= work_experience.location %></li>
+              <% end %>
+            </ul>
+            <ul>
+              <% if work_experience.start_time.present? && work_experience.end_time.present? %>
+                <li class="exp-date"><%= work_experience.start_time %> - <%= work_experience.end_time %></li>
+              <% else %>
+               <li class="exp-date"><%= work_experience.start_time %> <%= work_experience.end_time %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
-  <div class="top">
-    <h2>FORMATIONS</h2>
-    <%= link_to 'Créer nouvelle', new_school_experience_path, class: 'full-button'  %>
-  </div>
-  <div class="experiences-list">
-    <% user.school_experiences.order(:end_time).reverse.each do |school_experience| %>
-      <div class="experience">
+  <div class="experiences-wrap">
+    <div class="top">
+      <h3>FORMATIONS</h3>
+      <%= link_to 'Créer nouvelle', new_school_experience_path, class: 'full-button'  %>
+    </div>
+    <div class="experiences-list">
+      <% user.school_experiences.order(:end_time).reverse.each do |school_experience| %>
+        <div class="experience">
 
-        <%= link_to edit_school_experience_path(school_experience) do %>
-          <i class="far fa-edit"></i>
-        <% end %>
+          <%= link_to edit_school_experience_path(school_experience) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
 
-        <%= link_to school_experience_path(school_experience), method: :delete  do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
+          <%= link_to school_experience_path(school_experience), method: :delete  do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
 
-        <div class="info">
-          <p class="title"><%= school_experience.title %></p>
-          <ul>
-            <% if school_experience.location.present? && school_experience.school.name.present? %>
-              <li><%= school_experience.school.name %> | <%= school_experience.location %></li>
-            <% else %>
-              <li><%= school_experience.school.name %> <%= school_experience.location %></li>
-            <% end %>
-          </ul>
-          <ul>
-            <% if school_experience.start_time.present? && school_experience.end_time.present? %>
-              <li class="exp-date"><%= school_experience.start_time %> - <%= school_experience.end_time %></li>
-            <% else %>
-             <li class="exp-date"><%= school_experience.start_time %> <%= school_experience.end_time %></li>
-            <% end %>
-          </ul>
+          <div class="info">
+            <p class="title"><%= school_experience.title %></p>
+            <ul>
+              <% if school_experience.location.present? && school_experience.school.name.present? %>
+                <li><%= school_experience.school.name %> | <%= school_experience.location %></li>
+              <% else %>
+                <li><%= school_experience.school.name %> <%= school_experience.location %></li>
+              <% end %>
+            </ul>
+            <ul>
+              <% if school_experience.start_time.present? && school_experience.end_time.present? %>
+                <li class="exp-date"><%= school_experience.start_time %> - <%= school_experience.end_time %></li>
+              <% else %>
+               <li class="exp-date"><%= school_experience.start_time %> <%= school_experience.end_time %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-
 </div>

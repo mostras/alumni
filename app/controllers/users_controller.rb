@@ -37,11 +37,11 @@ class UsersController < ApplicationController
       url_linkedin = params[:url]
       id = current_user.id
       SendUrlOnSheet.new(url_linkedin, 0, id).send_to_google_sheet
-      current_user.update(linkedin_url: url_linkedin, automatic_updating: true, manual_updating: false, on_google_sheet: true)
+      current_user.update(linkedin_url: url_linkedin, automatic_updating: true, manual_updating: false)
+      Parsing.create(user_id: id, on_sheet: true)
     end
     flash[:notice] = "Votre URL a bien été chargée."
     redirect_to request.referrer
-
   end
 
   def updating_profil_exp
@@ -50,14 +50,15 @@ class UsersController < ApplicationController
   def set_automatic_updating
     auto = current_user.automatic_updating
     manu = current_user.manual_updating
-    current_user.update(automatic_updating: !auto, manual_updating: !manu, parsing: false)
+    current_user.update(automatic_updating: !auto, manual_updating: !manu)
     redirect_to request.referrer
   end
 
   def set_manual_updating
     auto = current_user.automatic_updating
     manu = current_user.manual_updating
-    current_user.update(automatic_updating: !auto, manual_updating: !manu, parsing: true)
+    current_user.update(automatic_updating: !auto, manual_updating: !manu)
+    current_user.parsings.last.destroy if current_user.parsings.any?
     redirect_to request.referrer
   end
 
