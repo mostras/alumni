@@ -1,0 +1,19 @@
+.recruitments-index {
+  max-width: 560px;
+  margin: 12rem auto;
+
+
+  h2 {
+    color: $dark-blue;
+    text-align: center;
+  }
+
+  .full-button {
+    margin: 0 auto;
+  }
+
+
+  @media(max-width: 800px) {
+    width: 90%;
+  }
+}

@@ -31,7 +31,7 @@
     </div>
 
     <div class="situation shadow-div wrapper">
-      <% if @student == current_user %>
+      <% if @student == current_user && (current_user.looking_for_job || current_user.looking_for_internship) %>
         <%= link_to edit_situation_user_path(@student) do %>
           <%= render 'shared/edit-icon' %>
         <% end %>
@@ -40,12 +40,12 @@
         <h3>SITUATION</h3>
         <% if @student.looking_for_job? || @student.looking_for_internship? %>
           <% if @student.looking_for_job? %>
-            <div class="notification" id="situation-red">
+            <div id="situation-red">
               <h4>JE RECHERCHE UN EMPLOI</h4>
             </div>
           <% end %>
           <% if @student.looking_for_internship? %>
-            <div class="notification" id="situation-orange">
+            <div id="situation-orange">
               <h4>JE RECHERCHE UN STAGE</h4>
             </div>
           <% end %>
@@ -109,6 +109,37 @@
   </div>
 
   <div class="right-side">
+
+    <div class="shadow-div wrapper">
+      <% if @student == current_user && @student.recruitments.any? %>
+        <%= link_to recruitments_path do %>
+          <%= render 'shared/edit-icon' %>
+        <% end %>
+      <% end %>
+      <div class="content">
+        <h3>RECRUTEMENT</h3>
+        <% if @student.recruitments.any? %>
+          <ul>
+            <% @student.recruitments.each do |recruitment| %>
+              <li class="my-2">
+                <% if @student == current_user %>
+                  Vous avez signalé un recrutement chez <span class="font-semibold">"<%= link_to recruitment.company.name, company_path(recruitment.company) %>"</span>.
+                <% else %>
+                  <%= @student.first_name %> a signalé un recrutement chez <span class="font-semibold">"<%= link_to recruitment.company.name, company_path(recruitment.company) %>"</span>.
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        <% elsif @student == current_user %>
+          <%= link_to "Une des entreprises dans lesquelles vous travaillez recrute ? Signalez-le en cliquant ici, afin de prévenir les autres alumnis.", recruitments_path %>
+        <% else %>
+          <p><%= @student.first_name %> n'a pas signalé de recrutement.</p>
+        <% end %>
+      </div>
+
+
+    </div>
+
 
     <div class="experiences shadow-div wrapper">
       <% if @student == current_user %>

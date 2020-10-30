@@ -1,0 +1,43 @@
+<div class="navbar-wrapper">
+  <%= render 'shared/alert' %>
+</div>
+<div class="recruitments-index shadow-div card-container">
+  <h2>Signaler un recrutement</h2>
+
+  <% if @companies.any? %>
+
+    <div class="recruitments-companies-list">
+      <% if @recruitments.any? %>
+        <ul>
+          <% @recruitments.each do |recruitment| %>
+            <li>
+              Vous avez signalé un recrutement pour l'entreprise <span><%= recruitment.company.name %></span>, si ce n'est plus d'actualité vous pouvez le supprimer en cliquant ici.
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="recruitments-form">
+      <%= form_for @recruitment do |f| %>
+        <% if @recruitment.errors.any? %>
+          <%= render 'shared/error-form-message', model_name: @recruitment  %>
+        <% end %>
+        <div class="online-fields">
+          <%= f.select :company_id, @companies.map { |d| [d.name, d.id] }, :prompt => "Sélectionner une entreprise", class: 'form-field' %>
+          <%= f.submit 'Signaler', class: 'full-button' %>
+        </div>
+      <% end %>
+    </div>
+
+  <% else %>
+
+    <div class="notification red-border">
+      <p>Vous ne travaillez dans aucunes entreprises actuellement. Vous ne pouvez donc pas signaler de recrutement.</p>
+    </div>
+
+  <% end %>
+
+  <%= link_to 'Valider les modifications', user_path(current_user), class: 'full-button'  %>
+
+</div>

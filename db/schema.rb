@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_121427) do
+ActiveRecord::Schema.define(version: 2020_10_30_141709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 2020_10_30_121427) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_parsings_on_user_id"
+  end
+
+  create_table "recruitments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_recruitments_on_company_id"
+    t.index ["user_id"], name: "index_recruitments_on_user_id"
   end
 
   create_table "school_experiences", force: :cascade do |t|
@@ -181,6 +190,8 @@ ActiveRecord::Schema.define(version: 2020_10_30_121427) do
   add_foreign_key "assignements", "lists"
   add_foreign_key "assignements", "users"
   add_foreign_key "parsings", "users"
+  add_foreign_key "recruitments", "companies"
+  add_foreign_key "recruitments", "users"
   add_foreign_key "school_experiences", "schools"
   add_foreign_key "school_experiences", "users"
   add_foreign_key "tags", "diplomas"

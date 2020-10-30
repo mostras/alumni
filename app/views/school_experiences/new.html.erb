@@ -6,6 +6,9 @@
   <h2>Ajouter une formation</h2>
 
   <%= form_for @school_experience do |f| %>
+    <% if @school_experience.errors.any? %>
+      <%= render 'shared/error-form-message', model_name: @school_experience  %>
+    <% end %>
 
     <div class="field-wrap">
       <%= f.label :title, "Titre de la formation/diplôme" %>

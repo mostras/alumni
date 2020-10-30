@@ -140,7 +140,22 @@ body {
       margin-right: 0.5rem;
       position: relative;
     }
+  }
 
+  .notification {
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: initial;
+    padding: 0.6rem;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .red-border {
+    border-color: $flash-red;
   }
 
   .registration-wrap {

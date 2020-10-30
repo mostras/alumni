@@ -14,7 +14,7 @@
     </div>
 
     <div class="my-8">
-      <% if current_user.parsings.last.on_sheet %>
+      <% if current_user.parsings.any? && current_user.parsings.last.on_sheet %>
         <p>Merci d'avoir rentré votre URL Linkedin ! Nous allons pouvoir mettre à jour vos informations automatiquement.</p>
       <% else %>
         <%= form_tag submit_url_linkedin_user_path(current_user), role: 'url_linkedin', method: :post do |f| %>

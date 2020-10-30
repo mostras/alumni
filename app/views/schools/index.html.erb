@@ -4,7 +4,7 @@
 </div>
 <div class="index-schools-page-wrapper main-wrapper">
   <h1><%= pluralize @schools.try(:count), 'école', 'écoles' %></h1>
-  <div class="search-form-classic mb-4">
+  <div class="search-form-classic mb-8">
 
     <%= form_tag schools_path, method: :get do %>
         <%= text_field_tag :name, params[:name], placeholder: "Chercher par nom d'école", class: 'form-field' %>

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'recruitments/new'
+  get 'recruitments/create'
+  get 'recruitments/edit'
+  get 'recruitments/update'
+  get 'recruitments/destroy'
   devise_for :users, :controllers => { registrations: 'users/registrations', sessions: "users/sessions" }
 
   namespace :admin do
@@ -55,4 +60,6 @@ Rails.application.routes.draw do
       patch :send_invite
     end
   end
+
+  resources :recruitments, only: [:index, :new, :create, :destroy]
 end

@@ -13,13 +13,10 @@
     margin-bottom: 0;
   }
 
-  .left-side {
+  .left-side, .right-side {
     h3 { text-align: left; }
   }
 
-  .right-side {
-    h3 { text-align: center; }
-  }
 
   .wrapper {
     box-sizing: border-box;

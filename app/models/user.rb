@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :tags
   has_many :user_sectors
-  has_many :parsings
   validates_length_of :user_sectors, maximum: 5
 
   has_many :work_experiences, dependent: :destroy
@@ -16,6 +15,8 @@ class User < ApplicationRecord
   has_many :schools, through: :school_experiences
   has_many :visit, dependent: :destroy
   has_many :assignements, dependent: :destroy
+  has_many :parsings, dependent: :destroy
+  has_many :recruitments, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
