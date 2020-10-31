@@ -39,19 +39,39 @@
     z-index: 5000;
     bottom: 5rem;
     right: 1rem;
-    background-color: $dark-blue;
+    background-color: white;
     border-radius: 8px;
-    padding: 0.5rem;
     width: fit-content;
-    color: white;
+    max-width: 260px;
+
+    .top {
+      display: flex;
+      align-items: center;
+      background-color: $dark-blue;
+      border-radius: 8px 8px 0 0;
+      color: white;
+
+      img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+    }
+
+    p, a {
+      color: $dark-blue;
+    }
 
     a {
-      color: white;
       text-decoration: underline;
     }
 
-    p {
-      margin: 0;
+    .line {
+      width: 100%;
+      height: 1px;
+      background-color: $dark-blue;
+      display: block;
     }
 
   }
