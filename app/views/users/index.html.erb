@@ -12,7 +12,7 @@
       <div class="online-fields">
         <%= text_field_tag :name, params[:name], placeholder: 'Chercher par prénom, nom..', class: 'form-field' %>
 
-        <%= select_tag(:look_for, options_for_select([['Recrute', 1], ['Recherche un stage', 2], ['Recherche un emploie', 3]], params[:look_for]), {:prompt => 'Chercher par situation', :class => 'form-field'}) %>
+        <%= select_tag(:look_for, options_for_select([['Recherche un stage', 1], ['Recherche un emploi', 2]], params[:look_for]), {:prompt => 'Chercher par situation', :class => 'form-field'}) %>
       </div>
 
       <div class="online-fields">

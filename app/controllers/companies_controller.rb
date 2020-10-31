@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
     jobs = WorkExperience.where(company: @company.id)
     @current_jobs = jobs.where(current: true).select(:user_id).distinct
     @former_jobs = jobs.where(current: false).select(:user_id).distinct
-    @hiring = @current_jobs.select { |job| job.user.company_hire == true }
+    @hiring_user = User.includes(:recruitments).where(recruitments: { company: @company })
   end
 
   def new

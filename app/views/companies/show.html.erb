@@ -20,10 +20,10 @@
 
     <% if hiring?(@company) %>
       <div class="alumnis-group my-10">
-        <h2 id="situation-green"><%= pluralize @hiring.count, 'alumni signale un recrutement, prennez contact !', 'alumni signalent un recrutement, contactez-les !' %></h2>
+        <h2 id="situation-green"><%= pluralize @hiring_user.count, 'alumni signale un recrutement, prennez contact !', 'alumni signalent un recrutement, contactez-les !' %></h2>
         <div class="grid">
-          <% @hiring.each do |job| %>
-            <%= render 'shared/student_card', student: job.user %>
+          <% @hiring_user.each do |user| %>
+            <%= render 'shared/student_card', student: user %>
           <% end %>
         </div>
       </div>

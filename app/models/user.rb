@@ -34,9 +34,8 @@ class User < ApplicationRecord
       students = User.all
 
       if params[:look_for].present?
-        students = students.where(company_hire: true) if params[:look_for] == '1'
-        students = students.where(looking_for_internship: true) if params[:look_for] == '2'
-        students = students.where(looking_for_job: true) if params[:look_for] == '3'
+        students = students.where(looking_for_internship: true) if params[:look_for] == '1'
+        students = students.where(looking_for_job: true) if params[:look_for] == '2'
       end
 
       if params[:diploma].present?

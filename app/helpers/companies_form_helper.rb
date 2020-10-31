@@ -12,9 +12,7 @@ module CompaniesFormHelper
   end
 
   def hiring?(company)
-    jobs = WorkExperience.where(company: company)
-    current_jobs = jobs.where(current: true)
-    hirings = current_jobs.select { |job| job.user.company_hire == true }
+    hirings = Recruitment.where(company: company)
     hirings.any?
   end
 
