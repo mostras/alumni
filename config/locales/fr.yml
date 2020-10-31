@@ -1,5 +1,38 @@
 fr:
   activerecord:
+    models:
+      work_experience:
+        one: "Expérience"
+        other: "Expériences"
+      school_experience:
+        one: "Expérience"
+        other: "Expériences"
+      user:
+        one: "Utilisateur"
+        other: "Utilisateurs"
+    attributes:
+      work_experience:
+        title: "Poste occupé"
+        start_time: "Date de début"
+        end_time: "Date de fin"
+        location: "Localisation"
+        current: "Poste actuelle"
+      school_experience:
+        title: "Poste occupé"
+        start_time: "Date de début"
+        end_time: "Date de fin"
+        location: "Localisation"
+        current: "Poste actuelle"
+      user:
+        email: "Email"
+        password: "Mot de passe"
+        first_name: "Prénom"
+        last_name: "Nom"
+        phone_number: "Numéro de téléphone"
+        linkedin_url: "URL Linkedin"
+        whatsapp_number: "Numéro whatsapp"
+        looking_for_job: "En recherche d'emploi"
+        looking_for_internship: "En recherche de stage"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'

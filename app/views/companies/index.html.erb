@@ -5,7 +5,7 @@
 <div class="index-companies-page-wrapper main-wrapper">
   <h1><%= pluralize @companies.try(:count), 'entreprise', 'entreprises' %>, dont <span class="green"><%= pluralize hiring_companies(@companies), 'qui recrute', 'qui recrutent'%></span>.</h1>
 
-    <div class="search-form-classic mb-8">
+    <div class="mb-8 max-w-lg">
 
       <%= form_tag companies_path, method: :get do %>
           <%= text_field_tag :name, params[:name], placeholder: "Chercher par nom d'entreprise", class: 'form-field' %>
@@ -14,6 +14,8 @@
           <%= select_tag(:city, options_for_select(city_list, params[:city]), {:prompt => 'Chercher par ville', :class => 'form-field'}) %>
 
           <%= submit_tag 'Valider mes filtres', class: 'full-button' %>
+
+          <%= link_to 'Réinitialiser mes filtres', { controller: "companies", action: "index", name: '', city: '' }, { class: 'empty-button' } %>
         </div>
       <% end %>
 

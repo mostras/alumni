@@ -1,4 +1,5 @@
 <div id="error_explanation">
+  <h2><%= pluralize model_name.errors.count, "erreur s'est produite:", "erreurs se sont produites:" %></h2>
   <ul>
     <% model_name.errors.full_messages.each do |msg| %>
     <li>

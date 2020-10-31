@@ -7,17 +7,26 @@
   <%= image_tag('logo-chartreux.png', class: 'logo-chartreux') %>
 
   <div class="welcome registration-wrap">
-    <div class="description mb-4">
+    <div class="description mb-8">
       <h1>Et voilà !</h1>
       <p>Votre profil est complet. Vous faites désormais partie du réseau Chartreux Alumni.</p>
       <p>En accédant à votre profil, vous pourrez modifier les informations renseignées et ajouter plus de détails.</p>
     </div>
 
-    <%= link_to 'Accéder au réseau alumni', user_path(current_user), class: 'full-button'  %>
 
-    <%= link_to :back, class: 'back-button' do %>
-      <i class="fas fa-arrow-left"></i>
-      <p>Précédent</p>
-    <% end %>
+      <div class="resistration-nav-wrap">
+        <%= link_to sector_creation_user_sectors_path, class: 'arrow-button' do %>
+          <i class="fas fa-arrow-left"></i>
+          <p>Précédent</p>
+        <% end %>
+
+        <%= link_to user_path(current_user), class: 'arrow-button' do %>
+          <p>Accéder au réseau alumni</p>
+          <i class="fas fa-arrow-right"></i>
+        <% end %>
+      </div>
+
+
+
   </div>
 </div>
