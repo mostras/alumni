@@ -1,0 +1,6 @@
+<div id="message" class="p-4">
+  <p class="mb-2"><%= PopupMessage.last.message %></p>
+  <% if !PopupMessage.last.link.blank? %>
+    <a href="<%= PopupMessage.last.link %>" target="_blank"><%= PopupMessage.last.link_title %></a>
+  <% end %>
+</div>

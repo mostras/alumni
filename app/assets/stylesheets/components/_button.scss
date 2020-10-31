@@ -2,8 +2,8 @@
   font-size: 14px;
   border-radius: 5px;
   padding: 0 1rem;
-  text-decoration: none;
-  color: white;
+  text-decoration: none !important;
+  color: white !important;
   background-color: $dark-blue;
   border: 1px solid white;
   text-align: center;
@@ -24,8 +24,8 @@
   font-size: 14px;
   border-radius: 5px;
   padding: 0 1rem;
-  text-decoration: none;
-  color: $dark-blue;
+  text-decoration: none !important;
+  color: $dark-blue !important;
   background-color: rgba(0,0,0,0);
   border: 1px solid $dark-blue;
   text-align: center;

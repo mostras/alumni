@@ -3,7 +3,7 @@
       <div class="online-fields">
         <%= f.select :diploma_id, @diplomas.map { |d| [d.name, d.id] }, :prompt => "Sélectionner un diplôme...", class: 'form-field' %>
         <%= f.select :year, ((Time.zone.now.year - 70)..(Time.zone.now.year + 5)).to_a.reverse, :prompt => "Année d’obtention", class: 'form-field' %>
-        <%= f.submit "Ajouter", id:'add_tag_button', class: 'empty-button white'%>
+        <%= f.submit "Ajouter", id:'add_tag_button', class: 'full-button'%>
       </div>
   <% end %>
 </div>
