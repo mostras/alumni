@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_141709) do
+ActiveRecord::Schema.define(version: 2020_10_31_080349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,16 @@ ActiveRecord::Schema.define(version: 2020_10_30_141709) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_parsings_on_user_id"
+  end
+
+  create_table "popup_messages", force: :cascade do |t|
+    t.text "message"
+    t.string "link"
+    t.string "link_title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_popup_messages_on_user_id"
   end
 
   create_table "recruitments", force: :cascade do |t|
@@ -190,6 +200,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_141709) do
   add_foreign_key "assignements", "lists"
   add_foreign_key "assignements", "users"
   add_foreign_key "parsings", "users"
+  add_foreign_key "popup_messages", "users"
   add_foreign_key "recruitments", "companies"
   add_foreign_key "recruitments", "users"
   add_foreign_key "school_experiences", "schools"

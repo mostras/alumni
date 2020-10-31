@@ -1,0 +1,8 @@
+<div class="form-message my-4">
+  <%= form_for PopupMessage.last, remote: true do |f| %>
+     <%= f.text_area :message, placeholder: 'Votre message..', class: 'message-input', id: 'message-message-input' %>
+     <%= f.text_field :link_title, placeholder: 'Titre du lien', class: 'message-input', id: 'message-link-title-input' %>
+     <%= f.text_field :link, placeholder: 'Lien', class: 'message-input', id: 'message-link-input' %>
+    <%= f.submit 'Modifier', class: 'full-button mx-auto my-2' %>
+  <% end %>
+</div>

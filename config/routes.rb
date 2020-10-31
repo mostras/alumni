@@ -62,4 +62,6 @@ Rails.application.routes.draw do
   end
 
   resources :recruitments, only: [:index, :new, :create, :destroy]
+
+  resources :popup_messages, only: [:new, :create, :edit, :update, :destroy]
 end

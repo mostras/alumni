@@ -1,20 +1,38 @@
 <div class="help-wrap">
 
   <div id="help-message" class="shadow-div">
+
     <div class="top p-4">
-      <%= image_tag "blank-avatar.png" %>
-      Adrien Barbier
+      Institut des Chartreux
     </div>
-    <div class="content-wrapper p-4">
-      <div class="message">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-        <a href="https://www.leschartreux.com">site des charteux</a>
+
+    <% admins_only do %>
+      <div id="edit-delete-message">
+        <% if PopupMessage.all.any? %>
+          <div class="flex justify-between w-full px-4 my-2" >
+            <%= link_to 'Modifier', edit_popup_message_path(PopupMessage.last), class: 'full-button', remote: true %>
+            <%= link_to 'Supprimer', popup_message_path(PopupMessage.last), method: :delete, class: 'empty-button', remote: true  %>
+          </div>
+        <% end %>
       </div>
-      <span class="line my-2"></span>
-      <div class="help">
-        <p>Besoin d'aide ?</p>
-        <%= link_to 'Envoyez nous un mail', "mailto:m.reinert@leschartreux.net" %>
+
+      <div class="my-2" id="new-message">
+        <%= link_to 'Créer un message', new_popup_message_path, class: 'full-button mx-auto my-4', remote: true %>
       </div>
+    <% end %>
+
+    <div class="content-wrapper px-2" id="popup-content">
+
+      <div id="message-wrapper">
+        <% if PopupMessage.all.any? %>
+            <%= render 'shared/message' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="help p-4">
+      <p>Besoin d'aide ?</p>
+      <%= link_to 'Envoyez nous un mail', "mailto:m.reinert@leschartreux.net" %>
     </div>
   </div>
 

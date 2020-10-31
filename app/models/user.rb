@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :assignements, dependent: :destroy
   has_many :parsings, dependent: :destroy
   has_many :recruitments, dependent: :destroy
+  has_many :popup_messages
 
   validates :first_name, presence: true
   validates :last_name, presence: true
