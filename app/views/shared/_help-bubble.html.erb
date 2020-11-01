@@ -1,3 +1,5 @@
+<% @message = PopupMessage.last %>
+
 <div class="help-wrap">
 
   <div id="help-message" class="shadow-div">
@@ -7,15 +9,6 @@
     </div>
 
     <% admins_only do %>
-      <div id="edit-delete-message">
-        <% if PopupMessage.all.any? %>
-          <div class="flex justify-between w-full px-4 my-2" >
-            <%= link_to 'Modifier', edit_popup_message_path(PopupMessage.last), class: 'full-button', remote: true %>
-            <%= link_to 'Supprimer', popup_message_path(PopupMessage.last), method: :delete, class: 'empty-button', remote: true  %>
-          </div>
-        <% end %>
-      </div>
-
       <div class="my-2" id="new-message">
         <%= link_to 'Créer un message', new_popup_message_path, class: 'full-button mx-auto my-4', remote: true %>
       </div>
@@ -24,8 +17,8 @@
     <div class="content-wrapper px-2" id="popup-content">
 
       <div id="message-wrapper">
-        <% if PopupMessage.all.any? %>
-            <%= render 'shared/message' %>
+        <% if @message %>
+            <%= render @message %>
         <% end %>
       </div>
     </div>

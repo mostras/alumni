@@ -2,7 +2,6 @@ document.getElementById('message-message-input').value = ''
 document.getElementById('message-link-title-input').value = ''
 document.getElementById('message-link-input').value = ''
 document.querySelector('.form-message').style.display = 'none'
-document.getElementById('message-wrapper').insertAdjacentHTML('afterbegin', "<%= j render 'shared/message' %>");
+document.getElementById('message-wrapper').insertAdjacentHTML('afterend', "<%= j render @message %>");
 document.getElementById('edit-delete-message').style.display = 'block';
-document.getElementById('new-message').style.display = 'none'
 

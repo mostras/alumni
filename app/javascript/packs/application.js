@@ -43,8 +43,10 @@ document.addEventListener("turbolinks:load",function(){
   helpBubble()
   sendFormWhenCheck()
   sendFormWhenCheckM()
-  displayButtonMessage()
+  // displayButtonMessage()
 });
+
+
 
 
 

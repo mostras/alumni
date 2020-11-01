@@ -1,0 +1,16 @@
+<% admins_only do  %>
+  <div id="edit-delete-message">
+    <div class="flex justify-between w-full px-4 my-2" >
+      <%= link_to 'Modifier', edit_popup_message_path(@message), class: 'full-button', remote: true %>
+      <%= link_to 'Supprimer', popup_message_path(@message), method: :delete, class: 'empty-button', remote: true  %>
+    </div>
+  </div>
+<% end %>
+
+<div id="message" class="p-4">
+  <p class="mb-2"><%= @message.message %></p>
+<% if !@message.link.blank? %>
+  <a href="<%= @message.link %>" target="_blank"><%= @message.link_title %></a>
+<% end %>
+</div>
+
