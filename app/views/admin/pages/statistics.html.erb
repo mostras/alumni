@@ -5,60 +5,52 @@
 <div class="main-wrapper">
 
 
-  <div class="platform-stat-wrapper">
+  <div class="stats-wrapper">
     <h2>Plateforme</h2>
+    <div class="stats-grid">
 
-    <div class="platform-stat">
-      <div class="stat">
-        <h3>Nombre d’élèves inscrit sur la plateforme:</h3>
-        <h1><%= registered_user %></h1>
+      <div class="stat-container">
+        <p class="title">Nombre d’élèves inscrit sur la plateforme:</p>
+        <p class="data-number"><%= @registered_user %></p>
       </div>
 
-      <span class="line"></span>
-
-      <div class="stat">
-        <h3>Nombre d’élèves inscrit ces dernières 24h:</h3>
-        <h1><%= last_day_registered_user %></h1>
+      <div class="stat-container">
+        <p class="title">Nombre d’élèves inscrit ces dernières 24h:</p>
+        <p class="data-number"><%= @last_day_registered_user %></p>
       </div>
 
-      <span class="line"></span>
-
-      <div class="stat">
-        <h3>Nombre de connexions ces dernières 24h:</h3>
-        <h1><%= visit_last_day %></h1>
+      <div class="stat-container">
+        <p class="title">Nombre de connexions ces dernières 24h:</p>
+        <p class="data-number"><%= @visit_since_last_day %></p>
       </div>
 
-      <span class="line"></span>
-
-      <div class="stat">
-        <h3>Temps moyen que les utilisateurs passent sur la plateforme:</h3>
-        <h1>16 minutes</h1>
+      <div class="stat-container">
+        <p class="title">Temps moyen que les utilisateurs passent sur la plateforme:</p>
+        <p class="data-number"><%= @time_passed_on_platform %> minutes</p>
       </div>
+
     </div>
   </div>
 
-  <div class="platform-stat-wrapper">
+
+  <div class="stats-wrapper">
     <h2>Alumnis</h2>
+    <div class="stats-grid">
 
-    <div class="platform-stat">
-      <div class="stat">
-        <h3>Nombre d’élèves en recherche de stage/d’emploi:</h3>
-        <h1><%= users_looking_for_job %></h1>
+      <div class="stat-container">
+        <p class="title">Nombre d’élèves en recherche de stage/d’emploi:</p>
+        <p class="data-number"><%= @users_looking_for_job %></p>
       </div>
 
-      <span class="line"></span>
-
-      <div class="stat">
-        <h3>Nombre d’entreprise qui recrute:</h3>
-        <h1><%= hiring_companies_sum %></h1>
+      <div class="stat-container">
+        <p class="title">Nombre d’entreprise qui recrute:</p>
+        <p class="data-number"><%= @hiring_companies %></p>
       </div>
 
-      <span class="line"></span>
-
-      <div class="stat">
-        <h3>Dans quels secteur travaillent vos alumnis:</h3>
+      <div class="stat-container">
+        <p class="title">Dans quels secteur travaillent vos alumnis:</p>
         <ul>
-          <% top_sector.each do |value| %>
+          <% @top_sector.each do |value| %>
             <li>
               <div class="stat-card">
                 <p><%= value[1] %>%</p>
@@ -70,12 +62,10 @@
         </ul>
       </div>
 
-      <span class="line"></span>
-
-      <div class="stat">
-        <h3>Dans quelles ville travaillent vos alumnis:</h3>
+      <div class="stat-container">
+        <p class="title">Dans quelles ville travaillent vos alumnis:</p>
         <ul>
-          <% top_city.reverse.each do |value| %>
+          <% @top_city.reverse.each do |value| %>
             <li>
               <div class="stat-card">
                 <p><%= value[1] %>%</p>
@@ -89,6 +79,8 @@
 
     </div>
   </div>
+
+
 
 </div>
 

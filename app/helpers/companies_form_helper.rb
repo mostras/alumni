@@ -17,11 +17,7 @@ module CompaniesFormHelper
   end
 
   def hiring_companies(companies)
-    number = []
-    companies.each do |company|
-      number << hiring?(company)
-    end
-    number.count(true)
+    Recruitment.all.pluck(:company_id).uniq.count
   end
 
   def hiring_color(company)
