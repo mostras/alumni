@@ -5,6 +5,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZN3TTKPZT"></script>
+    <%= javascript_include_tag 'analytics', async: true, nonce: true %>
+
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>

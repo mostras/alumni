@@ -26,7 +26,7 @@
 
       <div class="stat-container">
         <p class="title">Temps moyen que les utilisateurs passent sur la plateforme:</p>
-        <p class="data-number"><%= @time_passed_on_platform %> minutes</p>
+        <p class="data-number"><%= @session_duration %> minutes</p>
       </div>
 
     </div>
@@ -35,43 +35,35 @@
 
   <div class="stats-wrapper">
     <h2>Alumnis</h2>
-    <div class="stats-grid">
+    <div class="stats-grid alumnis-grid">
 
-      <div class="stat-container">
+      <div class="stat-container container-a">
         <p class="title">Nombre d’élèves en recherche de stage/d’emploi:</p>
         <p class="data-number"><%= @users_looking_for_job %></p>
       </div>
 
-      <div class="stat-container">
+      <div class="stat-container container-b">
         <p class="title">Nombre d’entreprise qui recrute:</p>
         <p class="data-number"><%= @hiring_companies %></p>
       </div>
 
-      <div class="stat-container">
+      <div class="stat-container container-c">
         <p class="title">Dans quels secteur travaillent vos alumnis:</p>
-        <ul>
+        <ul class="ml-8">
           <% @top_sector.each do |value| %>
             <li>
-              <div class="stat-card">
-                <p><%= value[1] %>%</p>
-                <span class="line"></span>
-                <p><%= value[0] %></p>
-              </div>
+              <%= render 'shared/stat-card', data: value[1], name: value[0] %>
             </li>
           <% end %>
         </ul>
       </div>
 
-      <div class="stat-container">
+      <div class="stat-container container-d">
         <p class="title">Dans quelles ville travaillent vos alumnis:</p>
-        <ul>
-          <% @top_city.reverse.each do |value| %>
+        <ul class="ml-8">
+          <% @top_city.each do |value| %>
             <li>
-              <div class="stat-card">
-                <p><%= value[1] %>%</p>
-                <span class="line"></span>
-                <p><%= value[0] %></p>
-              </div>
+              <%= render 'shared/stat-card', data: value[1], name: value[0] %>
             </li>
           <% end %>
         </ul>

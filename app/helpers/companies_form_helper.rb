@@ -11,13 +11,18 @@ module CompaniesFormHelper
     return city_list
   end
 
+  def hiring_companies(companies)
+    companies_list = []
+    companies.each do |company|
+      companies_list << company if company.recruitments.any?
+    end
+
+    return companies_list.count
+  end
+
   def hiring?(company)
     hirings = Recruitment.where(company: company)
     hirings.any?
-  end
-
-  def hiring_companies(companies)
-    Recruitment.all.pluck(:company_id).uniq.count
   end
 
   def hiring_color(company)

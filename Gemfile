@@ -56,7 +56,7 @@ end
 
 gem 'devise', '~> 4.2'
 
-gem 'google-api-client', '~> 0.34'
+gem 'google-api-client', '~> 0.34', require: "google/apis/analyticsreporting_v4"
 gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'rubysl-open-uri'
 gem 'sidekiq'
@@ -72,4 +72,5 @@ gem "pg_search"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'google_drive'
 gem 'jquery-rails'
+
 

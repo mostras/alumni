@@ -5,7 +5,28 @@
   .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
     grid-gap: 1rem;
+  }
+
+
+  .container-a {
+    grid-area: a;
+  }
+  .container-b {
+    grid-area: b;
+  }
+  .container-c {
+    grid-area: c;
+  }
+  .container-d {
+    grid-area: d;
+  }
+
+  .alumnis-grid {
+    grid-template-areas:
+      "a c d ."
+      "b c d .";
   }
 
   .stat-container {
@@ -23,6 +44,38 @@
       font-weight: bold;
       color: $dark-blue;
       font-size: 18px;
+    }
+  }
+
+  @media(max-width: 1200px) {
+    .stats-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  @media(max-width: 800px) {
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .alumnis-grid {
+      grid-template-areas:
+        "a b"
+        "c d";
+    }
+  }
+
+  @media(max-width: 600px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alumnis-grid {
+      grid-template-areas:
+        "a"
+        "b"
+        "c"
+        "d";
     }
   }
 
