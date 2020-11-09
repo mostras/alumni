@@ -57,7 +57,7 @@ end
 gem 'devise', '~> 4.2'
 
 gem 'google-api-client', '~> 0.34', require: "google/apis/analyticsreporting_v4"
-gem 'json', '~> 1.8', '>= 1.8.3'
+gem 'json', '~> 2.3'
 gem 'rubysl-open-uri'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
