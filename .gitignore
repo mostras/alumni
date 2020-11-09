@@ -37,3 +37,7 @@ yarn-debug.log*
 .env*
 .client-secret.json
 .service_account_cred-data.json
+service_account_cred-data.json
+service_account_cred-data.json
+service_account_cred-data.json
+client-secret.json
