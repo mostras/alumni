@@ -94,7 +94,7 @@ GEM
     concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
     crass (1.0.6)
-    date (3.0.1)
+    date (3.0.2)
     declarative (0.0.20)
     declarative-option (0.1.0)
     devise (4.7.3)
